@@ -359,6 +359,11 @@ const SAE_SOURCES = [
     path: 'data/sae/sports_collectifs_sae.json',
     label: 'Sports collectifs', cycle: 'Primaire → Secondaire 5'
   },
+  {
+    key: 'manipulation_new',
+    path: 'data/sae/manipulation_new.json',
+    label: 'Manipulation d\'objets', cycle: 'Maternelle → Secondaire 5'
+  },
 ];
 
 // ============================================================
