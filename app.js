@@ -354,6 +354,11 @@ const SAE_SOURCES = [
     path: 'data/sae/expression_corporelle.json',
     label: 'Expression corporelle', cycle: 'Maternelle → Secondaire 5'
   },
+  {
+    key: 'sports_collectifs_sae',
+    path: 'data/sae/sports_collectifs_sae.json',
+    label: 'Sports collectifs', cycle: 'Primaire → Secondaire 5'
+  },
 ];
 
 // ============================================================
