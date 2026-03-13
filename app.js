@@ -364,6 +364,11 @@ const SAE_SOURCES = [
     path: 'data/sae/manipulation_new.json',
     label: 'Manipulation d\'objets', cycle: 'Maternelle → Secondaire 5'
   },
+  {
+    key: 'locomotion_new',
+    path: 'data/sae/locomotion_new.json',
+    label: 'Locomotion', cycle: 'Maternelle → Secondaire 5'
+  },
 ];
 
 // ============================================================
