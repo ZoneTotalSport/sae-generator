@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Générateur de SAÉ — Zone Total Sport</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">Zone Total Sport</span>
+        <span class="logo-tag">Générateur de SAÉ</span>
+      </div>
+      <nav class="header-nav">
+        <a href="https://zonetotalsport.ca" target="_blank">← Retour au site</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Trouve ta SAÉ en 30 secondes</h1>
+    <p>Plus de 800 Situations d'Apprentissage et d'Évaluation conformes au PFEQ,<br>adaptées à chaque cycle et à chaque clientèle.</p>
+  </section>
+
+  <!-- FILTRES -->
+  <main class="main-container">
+    <section class="filters-panel" id="filters">
+      <h2 class="filters-title">Personnalise ta recherche</h2>
+
+      <div class="filters-grid">
+
+        <!-- Moyen d'action -->
+        <div class="filter-group">
+          <label class="filter-label">Moyen d'action</label>
+          <select id="filter-moyen" class="filter-select">
+            <option value="">Tous les moyens d'action</option>
+            <optgroup label="Actions de locomotion">
+              <option value="marcher">Marcher</option>
+              <option value="courir">Courir</option>
+              <option value="sauter">Sauter</option>
+              <option value="grimper">Grimper</option>
+              <option value="ramper">Ramper</option>
+              <option value="galoper">Galoper</option>
+              <option value="sautiller">Sautiller</option>
+              <option value="enjamber">Enjamber / Franchir</option>
+            </optgroup>
+            <optgroup label="Actions de manipulation">
+              <option value="lancer">Lancer</option>
+              <option value="rattraper">Rattraper</option>
+              <option value="dribbler">Dribbler</option>
+              <option value="frapper">Frapper</option>
+              <option value="jongler">Jongler</option>
+              <option value="pousser">Pousser / Tirer</option>
+              <option value="bloquer">Bloquer</option>
+            </optgroup>
+            <optgroup label="Actions de non-locomotion">
+              <option value="equilibre">Équilibre / Se tenir</option>
+              <option value="tourner">Tourner / Pivoter</option>
+              <option value="etirer">S'étirer / Se plier</option>
+              <option value="pirouetter">Pirouetter</option>
+            </optgroup>
+            <optgroup label="Sports collectifs">
+              <option value="soccer">Soccer</option>
+              <option value="basketball">Basketball</option>
+              <option value="handball">Handball</option>
+              <option value="hockey">Hockey</option>
+              <option value="volleyball">Volleyball</option>
+              <option value="intercrosse">Intercrosse</option>
+              <option value="flag-football">Flag-football</option>
+              <option value="tchoukball">Tchoukball</option>
+              <option value="dbl-ball">DBL Ball</option>
+            </optgroup>
+            <optgroup label="Plein air / Nature">
+              <option value="randonnee">Randonnée</option>
+              <option value="canot">Canot / Kayak</option>
+              <option value="ski">Ski / Raquette</option>
+              <option value="escalade">Escalade</option>
+              <option value="velo">Vélo</option>
+            </optgroup>
+            <optgroup label="Expression artistique">
+              <option value="danse">Danse</option>
+              <option value="cirque">Cirque</option>
+              <option value="gymnastique">Gymnastique</option>
+              <option value="patinage-artistique">Patinage artistique</option>
+            </optgroup>
+            <optgroup label="Adresse / Individuel">
+              <option value="athletisme">Athlétisme</option>
+              <option value="badminton">Badminton</option>
+              <option value="tennis">Tennis</option>
+              <option value="natation">Natation</option>
+              <option value="musculation">Musculation / Condition physique</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- Cycle -->
+        <div class="filter-group">
+          <label class="filter-label">Cycle scolaire</label>
+          <select id="filter-cycle" class="filter-select">
+            <option value="">Tous les cycles</option>
+            <option value="maternelle">Maternelle (4-5 ans)</option>
+            <option value="1er-cycle-primaire">1er cycle primaire (P1-P2)</option>
+            <option value="2e-cycle-primaire">2e cycle primaire (P3-P4)</option>
+            <option value="3e-cycle-primaire">3e cycle primaire (P5-P6)</option>
+            <option value="1er-cycle-secondaire">1er cycle secondaire (S1-S2)</option>
+            <option value="2e-cycle-secondaire">2e cycle secondaire (S3-S5)</option>
+          </select>
+        </div>
+
+        <!-- Clientèle spéciale -->
+        <div class="filter-group">
+          <label class="filter-label">Clientèle</label>
+          <select id="filter-clientele" class="filter-select">
+            <option value="">Tous les élèves</option>
+            <option value="general">Classe ordinaire</option>
+            <option value="tsa">TSA (Trouble du spectre de l'autisme)</option>
+            <option value="handicap-physique">Handicap physique / Moteur</option>
+            <option value="deficience">Déficience intellectuelle</option>
+          </select>
+        </div>
+
+        <!-- Durée -->
+        <div class="filter-group">
+          <label class="filter-label">Durée</label>
+          <select id="filter-duree" class="filter-select">
+            <option value="">Toutes les durées</option>
+            <option value="1">1 période</option>
+            <option value="2-3">2 à 3 périodes</option>
+            <option value="4-6">4 à 6 périodes</option>
+            <option value="7+">7 périodes et plus</option>
+          </select>
+        </div>
+
+        <!-- Espace -->
+        <div class="filter-group">
+          <label class="filter-label">Espace disponible</label>
+          <select id="filter-espace" class="filter-select">
+            <option value="">Tous les espaces</option>
+            <option value="gymnase">Gymnase</option>
+            <option value="exterieur">Extérieur</option>
+            <option value="classe">Classe / Salle</option>
+            <option value="nature">Nature / Plein air</option>
+          </select>
+        </div>
+
+        <!-- Matériel -->
+        <div class="filter-group">
+          <label class="filter-label">Matériel</label>
+          <select id="filter-materiel" class="filter-select">
+            <option value="">Peu importe</option>
+            <option value="aucun">Aucun matériel</option>
+            <option value="minimal">Matériel minimal</option>
+            <option value="standard">Matériel standard</option>
+            <option value="specialise">Matériel spécialisé</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="filters-actions">
+        <button id="btn-search" class="btn-primary" onclick="searchSAE()">
+          🔍 Trouver des SAÉ
+        </button>
+        <button id="btn-random" class="btn-secondary" onclick="randomSAE()">
+          🎲 SAÉ aléatoire
+        </button>
+        <button id="btn-reset" class="btn-ghost" onclick="resetFilters()">
+          ✕ Réinitialiser
+        </button>
+      </div>
+    </section>
+
+    <!-- COMPTEUR RÉSULTATS -->
+    <div class="results-meta" id="results-meta" style="display:none;">
+      <span id="results-count"></span>
+      <button class="btn-export" onclick="exportAll()">📄 Exporter tout (PDF)</button>
+    </div>
+
+    <!-- RÉSULTATS -->
+    <section class="results-grid" id="results-grid">
+      <!-- Rempli dynamiquement par JS -->
+    </section>
+
+    <!-- ÉTAT VIDE -->
+    <div class="empty-state" id="empty-state">
+      <div class="empty-icon">🏃</div>
+      <h3>Prêt à générer ta SAÉ ?</h3>
+      <p>Sélectionne tes critères et clique sur <strong>Trouver des SAÉ</strong>.</p>
+    </div>
+
+  </main>
+
+  <!-- MODAL SAÉ COMPLÈTE -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
+    <div class="modal-card" id="modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-content" id="modal-content">
+        <!-- Rempli dynamiquement -->
+      </div>
+      <div class="modal-actions">
+        <button class="btn-primary" onclick="printSAE()">🖨️ Imprimer / PDF</button>
+        <button class="btn-secondary" onclick="closeModal()">Fermer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© 2025 Zone Total Sport · <a href="https://zonetotalsport.ca" target="_blank">zonetotalsport.ca</a> · Conforme au PFEQ Québec</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
