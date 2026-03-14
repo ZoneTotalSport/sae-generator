@@ -369,6 +369,16 @@ const SAE_SOURCES = [
     path: 'data/sae/locomotion_new.json',
     label: 'Locomotion', cycle: 'Maternelle → Secondaire 5'
   },
+  {
+    key: 'expression_artistique',
+    path: 'data/sae/expression_artistique.json',
+    label: 'Expression artistique', cycle: 'Maternelle → Secondaire 5'
+  },
+  {
+    key: 'adresse_individuel',
+    path: 'data/sae/adresse_individuel.json',
+    label: 'Adresse et sports individuels', cycle: 'Maternelle → Secondaire 5'
+  },
 ];
 
 // ============================================================
