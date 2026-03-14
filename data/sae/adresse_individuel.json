@@ -1,14 +1,19 @@
 {
-  "domaine": "Activités d adresse et individuelles",
-  "total_sae": 75,
+  "domaine": "Activités d'adresse et individuelles",
+  "total_sae": 100,
   "sports": [
     "Athlétisme",
     "Badminton",
     "Tennis de table",
     "Natation",
-    "Musculation",
-    "Tir à l arc",
-    "Disc golf"
+    "Musculation/Condition physique",
+    "Tir à l'arc",
+    "Golf adapté",
+    "Bowling adapté",
+    "Pétanque",
+    "Disc golf",
+    "Patinage de vitesse",
+    "Triathlon scolaire"
   ],
   "programme": "PFEQ — Éducation physique et à la santé",
   "sae": [
@@ -5172,6 +5177,928 @@
         "analyse vidéo",
         "2e cycle secondaire"
       ]
+    },
+    {
+      "id": "IND-076",
+      "titre": "Badminton — drop shot et net shot",
+      "sport": "Badminton",
+      "cycle": "2e cycle primaire",
+      "niveau": "P3-P4",
+      "duree_periodes": 4,
+      "duree_par_periode": "60 min",
+      "moyen_action": "Manipulation d'objets avec outil (raquette)",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève apprend deux nouveaux coups défensifs et offensifs : le drop shot (frappe douce qui tombe au filet) et le net shot (frappe au ras du filet), en les intégrant dans des échanges tactiques.",
+      "contexte_apprentissage": "Entraînement tactique : les élèves apprennent à varier les coups pour surprendre l'adversaire. Mise en situation : après un dégagement profond, le partenaire s'avance pour smasher ou dropper.",
+      "tache_complexe": "Réussir 5 drop shots consécutifs depuis le fond du terrain (volant qui tombe juste derrière le filet adverse) et 5 net shots (filet) depuis le fond de court.",
+      "criteres_evaluation": [
+        "L'élève prépare la raquette comme pour un smash (fausse piste) avant le drop shot",
+        "L'élève ralentit la vitesse de la tête de raquette au contact pour le drop shot",
+        "L'élève avance sous le volant pour le net shot",
+        "L'élève dirige le volant juste de l'autre côté du filet"
+      ],
+      "savoirs_essentiels": [
+        "Drop shot : déception (mimétisme du smash) + ralentissement de la raquette",
+        "Net shot : frappe douce depuis l'avant du terrain",
+        "Variation tactique des coups (forcer le déplacement)"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "12 min", "activite": "Échanges en dégagement; exercice de déception corporelle (mimer un smash sans frapper fort)", "role_enseignant": "Observer la qualité des dégagements de base"},
+        {"phase": "Technique", "duree": "18 min", "activite": "Drop shot : 20 tentatives depuis fond de court; net shot : 20 tentatives depuis filet; intégrer dans des rallyes", "role_enseignant": "Corriger la vitesse de la raquette au contact"},
+        {"phase": "Application", "duree": "22 min", "activite": "Mini-matchs avec point bonus pour drop shot ou net shot gagnant; 4 matchs de 7 points", "role_enseignant": "Encourager l'utilisation des nouveaux coups"},
+        {"phase": "Objectivation", "duree": "8 min", "activite": "Combien de fois as-tu utilisé chaque coup? Quelle situation appelait le drop vs le net shot?", "role_enseignant": "Distinguer les situations d'utilisation optimale"}
+      ],
+      "materiel": ["Raquettes", "Volants plumes ou plastique", "Filets", "Tableau de match"],
+      "espace": "Gymnase",
+      "adaptation_hdaa": "TSA: 1 seul coup à la fois (drop shot ou net shot, pas les deux); signal visuel avant de frapper | Handicap physique: depuis chaise, adapter la zone de filet; volant de mousse pour faciliter | Déficience intellectuelle: drop shot seulement; frapper doucement vers une zone colorée",
+      "enrichissement": "Combiner drop shot + avancer au filet; slice net shot (effet latéral); déception complète",
+      "tags": ["badminton", "P3-P4", "drop shot", "net shot", "tactique", "2e cycle"]
+    },
+    {
+      "id": "IND-077",
+      "titre": "Course de fond — 1000 mètres",
+      "sport": "Athlétisme",
+      "cycle": "2e cycle primaire",
+      "niveau": "P3-P4",
+      "duree_periodes": 4,
+      "duree_par_periode": "60 min",
+      "moyen_action": "Athlétisme — Course d'endurance",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève développe son endurance cardiovasculaire pour courir 1000 mètres sans arrêt, en apprenant à gérer son allure et à reconnaître les sensations de l'effort aérobique.",
+      "contexte_apprentissage": "Défi de la montagne : chaque semaine, les élèves courent plus longtemps. L'objectif final est de courir 1000 m sans marcher. Un tableau de progression est affiché en classe.",
+      "tache_complexe": "Courir 1000 mètres en continu à une allure régulière, en terminant sans marcher et en maintenant la conversation (effort aérobique modéré).",
+      "criteres_evaluation": [
+        "L'élève court 1000 m sans marcher",
+        "L'élève maintient une allure régulière (ne sprinte pas au début)",
+        "L'élève peut répondre à une question courte pendant la course",
+        "L'élève identifie les sensations physiques de l'effort (essoufflement contrôlé)"
+      ],
+      "savoirs_essentiels": [
+        "Gestion de l'allure en course d'endurance",
+        "Notion de zone aérobique (légèrement essoufflé)",
+        "Respiration rythmique pendant la course",
+        "Progression graduelle (semaine après semaine)"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "12 min", "activite": "Marche rapide 3 min; trot léger 5 min; accélération légère 2 min; test de la conversation", "role_enseignant": "Introduire le test de la conversation comme mesure d'intensité"},
+        {"phase": "Technique", "duree": "8 min", "activite": "Foulée économique (pas de saut, pieds sous le corps); respiration rythmique (2 pas inspire/2 pas expire)", "role_enseignant": "Corriger les foulées trop bondissantes"},
+        {"phase": "Application", "duree": "32 min", "activite": "Course de 1000 m avec marquage des 250 m; chaque élève note son temps; tableau de classe", "role_enseignant": "Encourager, chronométrer, vérifier les allures"},
+        {"phase": "Objectivation", "duree": "8 min", "activite": "Comment se sentait-on à 250 m, 500 m, 750 m, 1000 m? Qu'est-ce qui a aidé à terminer?", "role_enseignant": "Développer la conscience corporelle de l'effort"}
+      ],
+      "materiel": ["Chronomètre", "Cônes aux 250 m", "Tableau de progression de classe"],
+      "espace": "Extérieur (piste ou cour)",
+      "adaptation_hdaa": "TSA: parcours circulaire simple; même distance marquée à chaque séance; rituel de départ fixe | Handicap physique: fauteuil roulant manuel sur 500 m; distance adaptée | Déficience intellectuelle: 500 m avec accompagnateur; repères colorés aux 125 m",
+      "enrichissement": "Augmenter à 2000 m; chronométrage personnel et comparaison semaine après semaine",
+      "tags": ["athlétisme", "course", "P3-P4", "endurance", "1000m", "2e cycle"]
+    },
+    {
+      "id": "IND-078",
+      "titre": "Musculation — gainage et stabilité du tronc",
+      "sport": "Musculation/Condition physique",
+      "cycle": "2e cycle primaire",
+      "niveau": "P3-P4",
+      "duree_periodes": 3,
+      "duree_par_periode": "60 min",
+      "moyen_action": "Condition physique — Gainage et stabilité",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève développe la stabilité de son tronc à travers des exercices de gainage (planche, side planche, dead bug) et comprend l'importance du core pour tous les sports.",
+      "contexte_apprentissage": "Laboratoire de stabilité : les élèves testent différents exercices de gainage et notent leur temps maximum. Défi de la planche : chaque classe tente de battre un record collectif.",
+      "tache_complexe": "Maintenir la position de planche (alignement parfait) pendant 45 secondes, réaliser 10 dead bugs et 20 secondes de side planche de chaque côté, lors d'un circuit de gainage.",
+      "criteres_evaluation": [
+        "L'élève maintient la planche avec un alignement tête-épaules-hanches-pieds",
+        "L'élève contrôle sa respiration pendant le gainage",
+        "L'élève réalise le dead bug avec coordination bras-jambe opposés",
+        "L'élève maintient la planche latérale 20 secondes de chaque côté"
+      ],
+      "savoirs_essentiels": [
+        "Gainage abdominal profond (transverse, obliques)",
+        "Alignement corporel en position de planche",
+        "Respiration pendant le gainage (ne pas retenir le souffle)",
+        "Rôle du tronc dans tous les mouvements sportifs"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "12 min", "activite": "Mobilisation du tronc; rotation; flexion latérale; cat-cow; explication du rôle du tronc en sport", "role_enseignant": "Expliquer pourquoi le gainage est important dans tous les sports"},
+        {"phase": "Technique", "duree": "18 min", "activite": "Planche à genoux puis complète; dead bug; side planche à genoux puis complète; démonstration et corrections", "role_enseignant": "Corriger l'alignement (fesses pas trop hautes, bassin neutre)"},
+        {"phase": "Application", "duree": "22 min", "activite": "Circuit de gainage 3 tours : 45s planche, 20s side gauche, 20s side droit, 10 dead bugs, 30s récupération", "role_enseignant": "Circuler, corriger, chronométrer"},
+        {"phase": "Objectivation", "duree": "8 min", "activite": "Quel exercice était le plus difficile? Où as-tu senti travailler les muscles?", "role_enseignant": "Identifier les muscles du tronc (abs, obliques, lombaires)"}
+      ],
+      "materiel": ["Tapis de sol", "Chronomètre", "Fiche de résultats"],
+      "espace": "Gymnase",
+      "adaptation_hdaa": "TSA: même circuit toujours; signal sonore entre les exercices | Handicap physique: planche sur les genoux; dead bug avec 1 membre seulement | Déficience intellectuelle: 2 exercices seulement (planche genoux + dead bug simple); accompagnateur corrige",
+      "enrichissement": "Planche sur 1 bras; planche dynamique (mountain climber lent); intégrer le gainage dans les autres sports pratiqués",
+      "tags": ["condition physique", "P3-P4", "gainage", "tronc", "stabilité", "2e cycle"]
+    },
+    {
+      "id": "IND-079",
+      "titre": "Tennis de table — revers et jeu neutre",
+      "sport": "Tennis de table",
+      "cycle": "2e cycle primaire",
+      "niveau": "P3-P4",
+      "duree_periodes": 3,
+      "duree_par_periode": "60 min",
+      "moyen_action": "Manipulation d'objets avec outil (raquette)",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève développe le revers comme coup complémentaire au coup droit et apprend à jouer de façon neutre (contrôle avant attaque) dans les échanges.",
+      "contexte_apprentissage": "Défi du robot : l'un des joueurs envoie des balles alternativement à droite et à gauche; l'autre doit retourner en coup droit puis en revers de façon contrôlée.",
+      "tache_complexe": "Réussir 10 échanges alternés coup droit-revers consécutifs avec un partenaire qui envoie alternativement à droite et à gauche.",
+      "criteres_evaluation": [
+        "L'élève effectue le revers avec l'avant-bras devant le corps (coude sorti)",
+        "L'élève retourne toujours au centre de la table entre chaque coup",
+        "L'élève frappe avec contrôle (balle basse, sur la table)",
+        "L'élève réussit 10 échanges alternés coup droit-revers"
+      ],
+      "savoirs_essentiels": [
+        "Revers : coude sorti, bras avant le corps, frappe de l'extérieur vers l'intérieur",
+        "Position centrale entre chaque coup",
+        "Jeu neutre (contrôle, pas d'attaque) pour créer l'occasion de frapper fort"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "10 min", "activite": "20 coups droits en coopération; puis partenaire envoie alternativement à droite et à gauche", "role_enseignant": "Observer la transition coup droit-revers"},
+        {"phase": "Technique", "duree": "20 min", "activite": "Revers contre table (seul); puis revers avec partenaire; exercice diagonal droite-gauche (10 de chaque)", "role_enseignant": "Corriger la position du coude et le retour au centre"},
+        {"phase": "Application", "duree": "22 min", "activite": "Défi : 10 échanges alternés; tournoi coopératif par paires; score collectif de classe", "role_enseignant": "Encourager la précision, comptabiliser les réussites"},
+        {"phase": "Objectivation", "duree": "8 min", "activite": "Quel est ton coup le plus fort (droit ou revers)? Comment améliorer le plus faible?", "role_enseignant": "Introduire la notion de coup dominant vs coup à développer"}
+      ],
+      "materiel": ["Tables", "Raquettes", "Balles", "Tableau des scores coopératifs"],
+      "espace": "Gymnase ou salle",
+      "adaptation_hdaa": "TSA: partenaire fixe; signal avant chaque envoi à droite/gauche | Handicap physique: table à hauteur adaptée; balle plus grosse | Déficience intellectuelle: coup droit uniquement pour les échanges; partenaire envoie toujours au même endroit",
+      "enrichissement": "Attaque après jeu neutre (coup droit après 5 revers contrôlés); jeu sur toute la table (longueur et largeur)",
+      "tags": ["tennis de table", "P3-P4", "revers", "jeu neutre", "contrôle", "2e cycle"]
+    },
+    {
+      "id": "IND-080",
+      "titre": "Musculation — souplesse et flexibilité",
+      "sport": "Musculation/Condition physique",
+      "cycle": "2e cycle primaire",
+      "niveau": "P3-P4",
+      "duree_periodes": 3,
+      "duree_par_periode": "60 min",
+      "moyen_action": "Condition physique — Souplesse et flexibilité",
+      "competence_pfeq": "Adopter un mode de vie sain et actif",
+      "description": "L'élève développe sa souplesse et sa flexibilité à travers des étirements statiques et dynamiques, comprend les effets sur la performance et la prévention des blessures.",
+      "contexte_apprentissage": "Séances yoga-sport adaptées : les élèves apprennent des postures de yoga (simplifiées) appliquées au sport, et mesurent leur flexibilité avec le test de flexion du tronc.",
+      "tache_complexe": "Maintenir 8 étirements statiques de 30 secondes chacun (couvrant toutes les grandes chaînes musculaires) et améliorer son score au test de flexion du tronc d'au moins 2 cm.",
+      "criteres_evaluation": [
+        "L'élève maintient chaque étirement 30 secondes sans douleur",
+        "L'élève identifie le muscle étiré pour chaque exercice",
+        "L'élève respire lentement pendant les étirements (ne retient pas son souffle)",
+        "L'élève améliore sa flexion du tronc d'au moins 2 cm"
+      ],
+      "savoirs_essentiels": [
+        "Différence étirement statique (maintenu) vs dynamique (en mouvement)",
+        "Muscles principaux à étirer (ischio-jambiers, quadriceps, pectoraux, fléchisseurs des hanches)",
+        "Moment optimal pour les étirements statiques (après l'effort, pas avant)",
+        "Lien souplesse et prévention des blessures"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "10 min", "activite": "Test initial de flexion du tronc (noter la marque); échauffement dynamique (étirements dynamiques seulement)", "role_enseignant": "Mesurer et noter le test initial de chaque élève"},
+        {"phase": "Technique", "duree": "20 min", "activite": "8 postures d'étirement statique : enseigner chaque posture, nommer le muscle, corriger la forme", "role_enseignant": "Corriger les compensations (ex: dos rond en flexion avant)"},
+        {"phase": "Application", "duree": "22 min", "activite": "Circuit de 8 étirements 30s chacun avec musique calme; 2 fois le circuit; fiche de suivi", "role_enseignant": "Circuler, corriger doucement, encourager la respiration"},
+        {"phase": "Objectivation", "duree": "8 min", "activite": "Re-test de flexion du tronc; comparaison; quel étirement était le plus difficile?", "role_enseignant": "Célébrer les améliorations, même petites"}
+      ],
+      "materiel": ["Tapis de sol", "Règle pour le test de flexion", "Fiche des 8 étirements avec images", "Musique calme"],
+      "espace": "Gymnase",
+      "adaptation_hdaa": "TSA: routine fixe avec la même musique; étirements dans le même ordre | Handicap physique: adapter chaque étirement à la position possible; étirements en fauteuil | Déficience intellectuelle: 4 étirements seulement; image à chaque poste; accompagnateur guide",
+      "enrichissement": "Introduire un programme d'étirements quotidiens à la maison; yoga complet (20 minutes); mobilité des chevilles et des épaules",
+      "tags": ["condition physique", "P3-P4", "souplesse", "étirements", "flexibilité", "2e cycle"]
+    },
+    {
+      "id": "IND-081",
+      "titre": "Natation — sauvetage et premiers gestes",
+      "sport": "Natation",
+      "cycle": "2e cycle primaire",
+      "niveau": "P3-P4",
+      "duree_periodes": 3,
+      "duree_par_periode": "60 min",
+      "moyen_action": "Natation — Sécurité aquatique de base",
+      "competence_pfeq": "Adopter un mode de vie sain et actif",
+      "description": "L'élève apprend les règles de sécurité au bord de l'eau, la position de flottaison de survie (étoile de mer dos) et les gestes de premiers secours depuis le bord.",
+      "contexte_apprentissage": "Module de sécurité aquatique scolaire. En partenariat avec un sauveteur local, les élèves apprennent à agir en sécurité et à aider depuis le bord sans risquer leur propre vie.",
+      "tache_complexe": "Maintenir la position de flottaison sur le dos (étoile de mer) pendant 2 minutes, lancer une bouée à une cible à 5 mètres, et démontrer les étapes du RCR de base sur mannequin.",
+      "criteres_evaluation": [
+        "L'élève maintient la flottaison sur le dos 2 minutes",
+        "L'élève lance une bouée à une cible à 5 m",
+        "L'élève énonce les 4 étapes d'urgence (appeler, ne pas entrer, lancer, attendre)",
+        "L'élève démontre 30 compressions cardiaques de base sur mannequin"
+      ],
+      "savoirs_essentiels": [
+        "Règle des 4 étapes : Appeler le 911 → Rester sur le bord → Lancer (corde, bouée) → Attendre",
+        "Position de flottaison dos (étoile de mer)",
+        "Premiers gestes de secourisme de base"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "10 min", "activite": "Discussion sur les accidents aquatiques réels; présentation du matériel de sauvetage; règles de la piscine", "role_enseignant": "Créer le contexte sérieux sans créer la peur"},
+        {"phase": "Technique", "duree": "20 min", "activite": "Flottaison étoile de mer dos (avec support); lancer de bouée depuis le bord; RCR sur mannequin (30 compressions)", "role_enseignant": "Superviser chaque activité, corriger la position des mains en RCR"},
+        {"phase": "Application", "duree": "22 min", "activite": "Simulation : chaque élève flotte 2 min; lance la bouée; puis RCR sur mannequin (5 min chacun)", "role_enseignant": "Chronométrer la flottaison, évaluer le lancer, superviser le RCR"},
+        {"phase": "Objectivation", "duree": "8 min", "activite": "Pourquoi est-il dangereux de plonger pour sauver quelqu'un? Quand peut-on entrer à l'eau?", "role_enseignant": "Consolider les apprentissages de sécurité vitaux"}
+      ],
+      "materiel": ["Bouées de sauvetage", "Cordes de sauvetage", "Mannequin de RCR", "Matériel piscine standard"],
+      "espace": "Piscine + bord du bassin",
+      "adaptation_hdaa": "TSA: étapes de sécurité en pictogrammes; simulation pratiquée avant et après | Handicap physique: techniques d'aide depuis le bord; adaptation de la flottaison | Déficience intellectuelle: 2 étapes seulement (appeler + lancer); démonstration accompagnée",
+      "enrichissement": "Formation complète en secourisme; visite d'une station de sauvetage; simulation de scénario en eau libre",
+      "tags": ["natation", "P3-P4", "sécurité aquatique", "sauvetage", "RCR", "2e cycle"]
+    },
+    {
+      "id": "IND-082",
+      "titre": "Patinage de vitesse — initiation aux longues pistes",
+      "sport": "Patinage de vitesse",
+      "cycle": "2e cycle primaire",
+      "niveau": "P3-P4",
+      "duree_periodes": 4,
+      "duree_par_periode": "60 min",
+      "moyen_action": "Patinage de vitesse — Initiation avancée",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève transfère les techniques de base du patinage de vitesse sur une longue piste ovale (200 m ou 400 m), en développant la constance de la position basse sur plusieurs tours.",
+      "contexte_apprentissage": "Entraînement sur piste longue (ou simulation sur patinoire avec piste ovale de 200 m). Chaque élève tente de maintenir sa position basse pendant 4 tours consécutifs.",
+      "tache_complexe": "Réaliser 4 tours d'une piste de 200 m en position basse de patinage de vitesse, en maintenant des pas croisés dans les virages pour toute la distance.",
+      "criteres_evaluation": [
+        "L'élève maintient la position basse sur les lignes droites (genoux fléchis 90°)",
+        "L'élève utilise des pas croisés dans les 4 virages",
+        "L'élève maintient un rythme de poussée constant sur 4 tours",
+        "L'élève complète les 4 tours sans se lever en position haute"
+      ],
+      "savoirs_essentiels": [
+        "Maintien de la position basse sur longue distance (économie d'énergie)",
+        "Coordination poussée-récupération sur longue distance",
+        "Transition ligne droite → virage (amorce du pas croisé)",
+        "Gestion de la fatigue posturale (buste et jambes)"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "12 min", "activite": "Tour libre; exercices de position basse contre le bord de la piste; virages lents avec pas croisés", "role_enseignant": "Évaluer la stabilité de la position basse"},
+        {"phase": "Technique", "duree": "18 min", "activite": "1 tour en position basse; arrêt pour correction; 2 tours; correction; 4 tours complets", "role_enseignant": "Corriger le relevé prématuré du buste dans les virages"},
+        {"phase": "Application", "duree": "22 min", "activite": "2 séries de 4 tours avec récupération; chronométrage de la série la plus rapide; tableau de résultats", "role_enseignant": "Chronométrer, encourager, noter les progrès"},
+        {"phase": "Objectivation", "duree": "8 min", "activite": "À quel tour la position a-t-elle commencé à fléchir? Quelle partie du corps fatigué en premier?", "role_enseignant": "Identifier les points de faiblesse physiques à travailler"}
+      ],
+      "materiel": ["Patins à glace ou à roues alignées", "Cônes de piste (200 m ovale)", "Chronomètre", "Protections complètes"],
+      "espace": "Patinoire ou salle de patinage en ligne",
+      "adaptation_hdaa": "TSA: piste ovale simple marquée; signal au début de chaque tour | Handicap physique: adapter selon les capacités; distance réduite | Déficience intellectuelle: 2 tours seulement; accompagnateur présent",
+      "enrichissement": "Introduire la prise de temps par tour; comparer les temps de ligne droite vs virage; entraînement avec partenaire (pacemaker)",
+      "tags": ["patinage de vitesse", "P3-P4", "longue piste", "position basse", "endurance", "2e cycle"]
+    },
+    {
+      "id": "IND-083",
+      "titre": "Natation — crawl technique avancée et efficacité",
+      "sport": "Natation",
+      "cycle": "1er cycle secondaire",
+      "niveau": "S1-S2",
+      "duree_periodes": 4,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Natation — Crawl technique avancée",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève perfectionne sa nage crawl en travaillant la rotation du corps, la longueur de nage (coups de bras par longueur) et l'efficacité propulsive pour réduire son temps sur 50 m.",
+      "contexte_apprentissage": "Laboratoire aquatique : les élèves comptent leur nombre de coups de bras par longueur et cherchent à l'optimiser pour nager plus vite avec moins d'efforts.",
+      "tache_complexe": "Nager 50 m crawl en réduisant son nombre de coups de bras par longueur de 2-3 coups tout en maintenant ou améliorant son temps.",
+      "criteres_evaluation": [
+        "L'élève effectue une rotation de corps complète à chaque coup de bras",
+        "L'élève maximise la phase de traction (coude haut, main qui tire sous le corps)",
+        "L'élève réduit son nombre de coups de bras par longueur de 2 coups",
+        "L'élève maintient son temps ou l'améliore malgré moins de coups"
+      ],
+      "savoirs_essentiels": [
+        "Rotation du corps en crawl (efficacité hydrodynamique)",
+        "Traction haute : coude haut, main sous le centre de gravité",
+        "Concept d'efficacité de nage (DPS = Distance Per Stroke)",
+        "Equilibre entre fréquence et longueur de nage"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "200 m libre; compter ses coups de bras sur 25 m; noter le résultat de référence", "role_enseignant": "Expliquer le concept DPS"},
+        {"phase": "Technique", "duree": "20 min", "activite": "Nage avec catch-up; drill de rotation du corps sur 10 m", "role_enseignant": "Corriger la rotation du corps, la traction sous le centre"},
+        {"phase": "Application", "duree": "30 min", "activite": "Séries 4×25 m en comptant les coups; objectif = -2 coups; puis 50 m chronométré", "role_enseignant": "Compter les coups depuis le bord, donner le feedback"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Moins de coups = plus rapide? Analyser les données; quel est le bon équilibre?", "role_enseignant": "Expliquer l'optimisation fréquence-longueur"}
+      ],
+      "materiel": ["Pull-buoy", "Palmes (optionnel)", "Tableau de bord des coups de bras", "Chronomètre"],
+      "espace": "Piscine 25 m",
+      "adaptation_hdaa": "TSA: objectif fixe (compter les coups avec un outil); même couloir | Handicap physique: adapter selon la nage possible | Déficience intellectuelle: compter avec les doigts; 25 m seulement",
+      "enrichissement": "Nage avec palmes; chronométrage précis; comparer avec les championnats mondiaux",
+      "tags": ["natation", "S1-S2", "crawl avancé", "DPS", "efficacité", "1er cycle secondaire"]
+    },
+    {
+      "id": "IND-084",
+      "titre": "Tir à l'arc — tir instinctif et tir à l'arc traditionnel",
+      "sport": "Tir à l'arc",
+      "cycle": "1er cycle secondaire",
+      "niveau": "S1-S2",
+      "duree_periodes": 3,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Lancer de précision — Tir à l'arc traditionnel",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève compare le tir à l'arc classique (avec viseur) au tir instinctif (sans viseur), et comprend les principes de chaque approche pour améliorer sa précision.",
+      "contexte_apprentissage": "Exploration culturelle : du tir de chasse traditionnel (instinctif) au tir olympique (avec viseur). Les élèves testent les deux approches et analysent leurs préférences.",
+      "tache_complexe": "Tirer 18 flèches avec viseur puis 18 flèches sans viseur (instinctif) sur cible à 7 mètres, comparer les scores et identifier laquelle produit de meilleurs résultats.",
+      "criteres_evaluation": [
+        "L'élève applique la même routine de corps pour les deux méthodes",
+        "L'élève ajuste son ancrage selon la méthode",
+        "L'élève compare les deux scores de façon objective",
+        "L'élève explique pourquoi certaines personnes préfèrent l'instinctif"
+      ],
+      "savoirs_essentiels": [
+        "Tir olympique : alignement viseur-cible",
+        "Tir instinctif : mémoire musculaire, visualisation",
+        "Consistance de la routine dans les deux méthodes",
+        "Histoire culturelle du tir à l'arc"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "12 tirs d'échauffement à 5 m avec viseur; discussion sur l'histoire du tir à l'arc", "role_enseignant": "Présenter les formes de tir à l'arc dans le monde"},
+        {"phase": "Technique", "duree": "20 min", "activite": "18 flèches avec viseur; puis introduction du tir instinctif (ancrage bout du nez)", "role_enseignant": "Démontrer l'ajustement d'ancrage pour l'instinctif"},
+        {"phase": "Application", "duree": "30 min", "activite": "18 flèches instinctif; comparer les scores; partager avec un partenaire", "role_enseignant": "Observer, encourager, mesurer"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Pourquoi est-il difficile de tirer sans viseur? Qu'est-ce que le 'feeling' en sport?", "role_enseignant": "Introduire la mémoire musculaire et la proprioception"}
+      ],
+      "materiel": ["Arcs récurves (avec et sans viseur)", "Flèches", "Cibles à 7 m", "Fiche de scores double"],
+      "espace": "Gymnase",
+      "adaptation_hdaa": "TSA: tir avec viseur seulement | Handicap physique: les deux méthodes accessibles selon les capacités | Déficience intellectuelle: 1 méthode seulement; cible grande",
+      "enrichissement": "Arc longbow traditionnel; tir sur cibles 3D; tir en mouvement",
+      "tags": ["tir à l'arc", "S1-S2", "instinctif", "traditionnel", "mémoire musculaire", "1er cycle secondaire"]
+    },
+    {
+      "id": "IND-085",
+      "titre": "Bowling adapté — triangles de visée et score parfait",
+      "sport": "Bowling adapté",
+      "cycle": "1er cycle secondaire",
+      "niveau": "S1-S2",
+      "duree_periodes": 3,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Lancer de précision — Bowling avancé",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève perfectionne la technique du bowling en visant les triangles de visée au lieu des quilles, et cherche à obtenir des strikes et des spares régulièrement.",
+      "contexte_apprentissage": "Tournoi de bowling scolaire 2 manches complètes. Les élèves apprennent à viser les triangles plutôt que les quilles, pour une meilleure cohérence.",
+      "tache_complexe": "Jouer 2 manches complètes en visant les triangles de visée, en réalisant au moins 2 spares par manche et en calculant le score final avec doublage des spares.",
+      "criteres_evaluation": [
+        "L'élève vise les triangles de visée (10 à 15 pieds) non les quilles",
+        "L'élève maintient une approche régulière (3 pas + glissé)",
+        "L'élève réalise 2 spares par manche minimum",
+        "L'élève calcule le score avec le système de doublage"
+      ],
+      "savoirs_essentiels": [
+        "Système de triangles de visée au bowling",
+        "Calcul du score officiel (strike, spare)",
+        "Stratégie de spare selon la configuration des quilles",
+        "Ajustement de la position de départ selon la déviation"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "Révision de l'approche; explication des triangles; 10 lancers en visant les triangles", "role_enseignant": "Démontrer la visée triangles vs visée quilles"},
+        {"phase": "Technique", "duree": "20 min", "activite": "Situations de spare : 1 quille debout → ajustement; configurations difficiles", "role_enseignant": "Enseigner l'ajustement de position pour les spares"},
+        {"phase": "Application", "duree": "30 min", "activite": "2 manches complètes avec calcul du score officiel; tournoi par équipes", "role_enseignant": "Aider au calcul du score, arbitrer"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Comparer les 2 manches; impact des spares sur le score total?", "role_enseignant": "Montrer l'importance des spares avec calcul"}
+      ],
+      "materiel": ["Boules de bowling (adaptées au poids)", "Quilles ou bouteilles d'eau", "Fiche de score officielle", "Calculatrice"],
+      "espace": "Gymnase ou piste de bowling scolaire",
+      "adaptation_hdaa": "TSA: même piste, même position; signal visuel sur les triangles | Handicap physique: rampe de bowling; distance adaptée | Déficience intellectuelle: 5 quilles seulement; 1 lancer par tour",
+      "enrichissement": "Développer un effet (hook) sur la boule; analyser les scores de champions",
+      "tags": ["bowling", "S1-S2", "triangles de visée", "spare", "score officiel", "1er cycle secondaire"]
+    },
+    {
+      "id": "IND-086",
+      "titre": "Musculation — programme de 8 semaines avec objectif SMART",
+      "sport": "Musculation/Condition physique",
+      "cycle": "1er cycle secondaire",
+      "niveau": "S1-S2",
+      "duree_periodes": 5,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Condition physique — Musculation intermédiaire",
+      "competence_pfeq": "Adopter un mode de vie sain et actif",
+      "description": "L'élève conçoit et exécute les premières séances d'un programme de musculation de 8 semaines visant un objectif spécifique, avec périodisation simple.",
+      "contexte_apprentissage": "Mon programme de 8 semaines : chaque élève choisit un objectif personnel. Bilan en semaine 4 et en semaine 8.",
+      "tache_complexe": "Concevoir un programme de musculation de 8 semaines avec objectif SMART, le présenter à l'enseignant, l'exécuter pendant 3 semaines en classe et documenter les progrès.",
+      "criteres_evaluation": [
+        "L'élève fixe un objectif SMART de musculation réaliste",
+        "L'élève structure son programme avec la progression appropriée",
+        "L'élève note ses charges et répétitions à chaque séance",
+        "L'élève ajuste son programme après la semaine 4"
+      ],
+      "savoirs_essentiels": [
+        "Objectif SMART en musculation",
+        "Structure d'un programme (push/pull/legs ou full body)",
+        "Progression de charge (2,5 kg par semaine ou +2 reps)",
+        "Bilan de mi-parcours et ajustement"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "Test de force de référence (push-up, squat, curl); noter les résultats", "role_enseignant": "Superviser les tests, valider les techniques"},
+        {"phase": "Technique", "duree": "20 min", "activite": "Revue de la conception de programme; validation de l'objectif et du plan", "role_enseignant": "Valider les programmes, corriger les erreurs"},
+        {"phase": "Application", "duree": "30 min", "activite": "Séance 1 du programme personnel; remplir le carnet", "role_enseignant": "Superviser, corriger, sécuriser"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Comment se préparer pour la semaine 2? Qu'est-ce qui a été difficile?", "role_enseignant": "Ajuster les attentes initiales si nécessaire"}
+      ],
+      "materiel": ["Salle de musculation", "Carnet d'entraînement", "Fiche de programme", "Barèmes par âge"],
+      "espace": "Salle de musculation",
+      "adaptation_hdaa": "TSA: programme avec cases à cocher; même séquence | Handicap physique: programme adapté avec élastiques | Déficience intellectuelle: 4 exercices préconçus; accompagnateur note les charges",
+      "enrichissement": "Programme de préparation pour un sport spécifique; formation moniteur de salle",
+      "tags": ["musculation", "S1-S2", "programme", "8 semaines", "SMART", "1er cycle secondaire"]
+    },
+    {
+      "id": "IND-087",
+      "titre": "Disc golf — approche et putting avancé",
+      "sport": "Disc golf",
+      "cycle": "1er cycle secondaire",
+      "niveau": "S1-S2",
+      "duree_periodes": 3,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Lancer de disque — Disc golf intermédiaire",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève développe les coups de finesse au disc golf : le shot d'approche, le putt en cloche (high arc) et le putt bas (bullet putt), pour améliorer son score sur le parcours.",
+      "contexte_apprentissage": "Atelier technique : chaque élève travaille ses coups courts qui représentent 40% des lancers dans une ronde. Défi de 36 putts depuis différentes distances.",
+      "tache_complexe": "Réussir 20 putts sur 36 depuis des distances variées (3, 5, 7, 9 mètres) en utilisant au moins 2 techniques de putt différentes.",
+      "criteres_evaluation": [
+        "L'élève utilise le putt en cloche pour putts de 3-5 m",
+        "L'élève utilise le putt bas pour putts de 7-9 m",
+        "L'élève maintient une position de pieds stable pendant le putt",
+        "L'élève réussit 20 putts sur 36 (55% de réussite)"
+      ],
+      "savoirs_essentiels": [
+        "Putt en cloche : trajectoire haute, atterrissage doux",
+        "Bullet putt : trajectoire basse, attaque directe des chaînes",
+        "Pied de soutien fixe pendant le putt",
+        "Routine de putting (viser, aligner, respirer, lancer)"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "Révision des lancers longs; 10 putts libres de 3 m pour se mettre en rythme", "role_enseignant": "Observer les techniques naturelles de putt"},
+        {"phase": "Technique", "duree": "20 min", "activite": "Putt en cloche (3-5 m); bullet putt (7-9 m); 15 de chaque", "role_enseignant": "Corriger la stabilité du pied, la direction du suivi"},
+        {"phase": "Application", "duree": "30 min", "activite": "Défi 36 putts (9 de chaque distance); mini-tournoi de putting", "role_enseignant": "Animer le tournoi, noter les scores"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Quelle distance était la plus difficile? Quelle technique pour chaque distance?", "role_enseignant": "Analyser la stratégie de putt selon la distance"}
+      ],
+      "materiel": ["Putters", "Panier de disc golf", "Fiche de scores 36 putts"],
+      "espace": "Gymnase (zone putting) ou extérieur",
+      "adaptation_hdaa": "TSA: distances fixes et marquées; routine visuelle avant chaque putt | Handicap physique: putt assis; panier à hauteur adaptée | Déficience intellectuelle: 1 seule distance (3 m); 12 putts; accompagnateur compte",
+      "enrichissement": "Technique du hyzer putt; compétition de putting professionnelle; créer ses propres cibles",
+      "tags": ["disc golf", "S1-S2", "putting", "approche", "finesse", "1er cycle secondaire"]
+    },
+    {
+      "id": "IND-088",
+      "titre": "Athlétisme — 110 m haies avec départ en blocs",
+      "sport": "Athlétisme",
+      "cycle": "2e cycle secondaire",
+      "niveau": "S3-S5",
+      "duree_periodes": 5,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Athlétisme — Course à haies avancée",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève perfectionne la technique de course à haies sur 110 m avec départ en blocs, rythme fixe entre les haies et optimisation de la jambe de foulée.",
+      "contexte_apprentissage": "Simulation des championnats provinciaux d'athlétisme scolaire. Les élèves disputent des séries chronométrées sur 110 m haies avec départ en blocs.",
+      "tache_complexe": "Courir 110 m avec 10 haies depuis des blocs de départ, en maintenant 3 foulées entre toutes les haies, et améliorer son temps personnel.",
+      "criteres_evaluation": [
+        "L'élève réalise un départ efficace depuis les blocs",
+        "L'élève maintient 3 foulées entre les 10 haies",
+        "L'élève ne ralentit pas dans les 20 derniers mètres",
+        "L'élève améliore son temps personnel d'au moins 1 seconde"
+      ],
+      "savoirs_essentiels": [
+        "Départ en blocs : réglage, position, explosion",
+        "8 foulées avant la 1re haie, puis 3 entre chaque",
+        "Maintien de la vitesse jusqu'à la ligne d'arrivée",
+        "Analyse vidéo de sa propre course"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "Départs en blocs sans haies; réglage des blocs; exercices de haies basses seules", "role_enseignant": "Aider au réglage des blocs"},
+        {"phase": "Technique", "duree": "20 min", "activite": "60 m avec 5 haies depuis les blocs; correction individuelle", "role_enseignant": "Identifier l'erreur principale de chaque élève"},
+        {"phase": "Application", "duree": "30 min", "activite": "110 m complets chronométrés; 2 essais; tableau des résultats", "role_enseignant": "Officier, chronométrer"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Analyser les temps : dégradation après la 5e haie? Phase d'accélération?", "role_enseignant": "Cibler les segments à améliorer"}
+      ],
+      "materiel": ["Blocs de départ", "Haies ajustables (76-84 cm)", "Chronomètre", "Fiche de résultats"],
+      "espace": "Piste d'athlétisme (110 m minimum)",
+      "adaptation_hdaa": "TSA: départ debout; signaux combinés | Handicap physique: distance et hauteur adaptées | Déficience intellectuelle: 5 haies sur 60 m; départ debout",
+      "enrichissement": "Comparer avec les records mondiaux; analyser sa course vidéo au ralenti",
+      "tags": ["athlétisme", "haies", "S3-S5", "110 m", "blocs", "2e cycle secondaire"]
+    },
+    {
+      "id": "IND-089",
+      "titre": "Tennis de table — double mixte et communication",
+      "sport": "Tennis de table",
+      "cycle": "2e cycle secondaire",
+      "niveau": "S3-S5",
+      "duree_periodes": 4,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Manipulation d'objets avec outil (raquette)",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève développe les habiletés spécifiques au double au tennis de table : alternance obligatoire, positionnement, communication et synchronisation avec le partenaire.",
+      "contexte_apprentissage": "Tournoi de double mixte de fin d'année. Les pairs tournent à chaque set. Communication tactique obligatoire entre les points.",
+      "tache_complexe": "Jouer 4 matchs de double en 3 sets, en respectant l'alternance, en communiquant la stratégie, et en s'adaptant à 3 partenaires différents.",
+      "criteres_evaluation": [
+        "L'élève respecte l'alternance stricte des frappes en double",
+        "L'élève communique sa stratégie entre les points",
+        "L'élève se positionne rapidement pour laisser frapper son partenaire",
+        "L'élève s'adapte à 3 partenaires différents"
+      ],
+      "savoirs_essentiels": [
+        "Règle d'alternance en double tennis de table",
+        "Positionnement en double (partenaire derrière l'autre en V)",
+        "Communication pré-service (signaux sur la main)",
+        "Adaptation selon les forces du partenaire"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "Échanges en double libres; simulation de synchronisation; signaux de service", "role_enseignant": "Démontrer la communication par signaux discrets"},
+        {"phase": "Technique", "duree": "20 min", "activite": "Exercices d'alternance; positionnement V; signaux de service", "role_enseignant": "Corriger le positionnement trop proche de la table"},
+        {"phase": "Application", "duree": "30 min", "activite": "Tournoi double : 4 matchs × 3 sets; partenaires changent après chaque match", "role_enseignant": "Arbitrer, observer la communication"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Quel partenaire était le plus compatible? Qu'est-ce qui fait un bon duo de double?", "role_enseignant": "Analyser la complémentarité des styles"}
+      ],
+      "materiel": ["Tables", "Raquettes", "Balles", "Tableau de tournoi double"],
+      "espace": "Gymnase",
+      "adaptation_hdaa": "TSA: même partenaire; alternance signalée visuellement | Handicap physique: position adaptée; alternance respectée | Déficience intellectuelle: partenaire fort qui guide; alternance simplifiée",
+      "enrichissement": "Signaux de service complexes; analyser les pros en double aux mondiaux",
+      "tags": ["tennis de table", "S3-S5", "double", "alternance", "communication", "2e cycle secondaire"]
+    },
+    {
+      "id": "IND-090",
+      "titre": "Pétanque — tir de précision à haute vitesse",
+      "sport": "Pétanque",
+      "cycle": "2e cycle secondaire",
+      "niveau": "S3-S5",
+      "duree_periodes": 3,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Lancer de précision — Pétanque avancée",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève perfectionne la technique du tir à la pétanque (carreau et fer) pour éliminer précisément les boules adverses dans des configurations variées.",
+      "contexte_apprentissage": "Entraînement de tireur expert sur des configurations de boules imposées (côte-à-côte, en ligne, seule sur le côté).",
+      "tache_complexe": "Éliminer 5 boules adverses sur 10 tentatives de tir depuis 7 mètres, en utilisant la technique de carreau ou fer selon la configuration.",
+      "criteres_evaluation": [
+        "L'élève effectue le tir à la verticale (bras vertical)",
+        "L'élève vise le centre de la boule adverse",
+        "L'élève réalise 5 carreaux ou fers sur 10 tentatives",
+        "L'élève choisit entre carreau et fer selon la configuration"
+      ],
+      "savoirs_essentiels": [
+        "Technique du carreau (boule tiratrice prend la place)",
+        "Technique du fer (boule tiratrice continue)",
+        "Visée : point de contact sur la boule adverse",
+        "Décision tactique : éliminer ou prendre la place?"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "Pointé de révision; transition vers le tir vertical; 10 tirs libres", "role_enseignant": "Démontrer carreau vs fer"},
+        {"phase": "Technique", "duree": "20 min", "activite": "Tir sur boule isolée à 5 m; puis 7 m; configurations variées", "role_enseignant": "Corriger l'angle et le point de visée"},
+        {"phase": "Application", "duree": "30 min", "activite": "10 défis de tir sur configuration imposée; tournoi de tireurs", "role_enseignant": "Présenter les configurations, noter les réussites"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Quelle configuration était la plus difficile? Qu'est-ce qui distingue un bon tireur?", "role_enseignant": "Lier la précision à la rigueur de la routine"}
+      ],
+      "materiel": ["Boules de métal", "Zone de tir délimitée", "Configurations prédéfinies", "Mètre à ruban"],
+      "espace": "Extérieur ou gymnase",
+      "adaptation_hdaa": "TSA: cible toujours au même endroit; routine fixe | Handicap physique: distance réduite; lancer depuis fauteuil | Déficience intellectuelle: boule seule à 5 m; 5 tentatives",
+      "enrichissement": "Tir en compétition officielle FIPJP; vidéo des meilleurs tireurs mondiaux",
+      "tags": ["pétanque", "S3-S5", "tir", "carreau", "précision", "2e cycle secondaire"]
+    },
+    {
+      "id": "IND-091",
+      "titre": "Condition physique — plyométrie et puissance explosive",
+      "sport": "Musculation/Condition physique",
+      "cycle": "2e cycle secondaire",
+      "niveau": "S3-S5",
+      "duree_periodes": 4,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Condition physique — Puissance explosive",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève développe la puissance explosive à travers des exercices plyométriques en comprenant les liens avec les sports pratiqués.",
+      "contexte_apprentissage": "Programme de développement athlétique. Les élèves mesurent leur puissance explosive avant et après 4 semaines de plyométrie.",
+      "tache_complexe": "Réaliser un circuit plyométrique de 6 exercices (5 reps de chaque) en maintenant la technique explosive, et améliorer ses performances aux tests de puissance.",
+      "criteres_evaluation": [
+        "L'élève atterrit en douceur (amortissement)",
+        "L'élève maximise la hauteur ou distance sur chaque rep",
+        "L'élève maintient la technique même en fatigue",
+        "L'élève améliore son saut en longueur debout d'au moins 10 cm"
+      ],
+      "savoirs_essentiels": [
+        "Cycle d'étirement-raccourcissement (plyométrie)",
+        "Atterrissage amorti : genoux fléchis, réception silencieuse",
+        "Principes de progression en plyométrie",
+        "Application au sport : saut, sprint, lancer"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "Test saut en longueur debout et lancer médecine-ball; échauffement neuromusculaire", "role_enseignant": "Mesurer les tests de référence"},
+        {"phase": "Technique", "duree": "20 min", "activite": "Apprentissage de l'atterrissage; 5 répétitions de chaque exercice plyométrique", "role_enseignant": "Insister sur les atterrissages silencieux"},
+        {"phase": "Application", "duree": "30 min", "activite": "Circuit plyométrique : 2 tours × 6 exercices × 5 reps; 90 secondes récupération", "role_enseignant": "Superviser la qualité, réduire si fatigue excessive"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "En quoi la plyométrie est-elle différente de la musculation classique? Applications sportives?", "role_enseignant": "Lier chaque exercice à une situation de jeu"}
+      ],
+      "materiel": ["Boîtes pliométriques", "Médecines-balls (3-4 kg)", "Tapis de réception", "Fiche de tests"],
+      "espace": "Gymnase ou salle de conditionnement",
+      "adaptation_hdaa": "TSA: même circuit; atterrissages guidés | Handicap physique: plyométrie des membres supérieurs; médecine-ball depuis chaise | Déficience intellectuelle: 3 exercices seulement; accompagnateur guide",
+      "enrichissement": "Programme de plyométrie de 6 semaines; analyser les données de saut",
+      "tags": ["condition physique", "S3-S5", "plyométrie", "puissance explosive", "2e cycle secondaire"]
+    },
+    {
+      "id": "IND-092",
+      "titre": "Golf adapté — swing complet et stratégie de parcours",
+      "sport": "Golf adapté",
+      "cycle": "2e cycle secondaire",
+      "niveau": "S3-S5",
+      "duree_periodes": 4,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Lancer de précision — Golf adapté avancé",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève perfectionne le swing complet au golf et développe une stratégie de gestion du parcours (lecture du vert, sélection de bâton, placement stratégique).",
+      "contexte_apprentissage": "Journée golf pitch & putt (18 trous) en compétition individuelle. Accent sur le jeu stratégique.",
+      "tache_complexe": "Jouer 18 trous en utilisant le swing complet et en lisant la pente du green avant chaque putt, avec carte de score honnête.",
+      "criteres_evaluation": [
+        "L'élève effectue un backswing complet (club à l'horizontale)",
+        "L'élève maintient l'alignement à l'impact",
+        "L'élève lit la pente du green avant de putter",
+        "L'élève prend des décisions stratégiques de placement"
+      ],
+      "savoirs_essentiels": [
+        "Swing complet : backswing → downswing → impact → follow-through",
+        "Lecture du green (direction, vitesse)",
+        "Placement stratégique (éviter les obstacles)",
+        "Score Stableford"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "Practice : 20 swings; 10 chips; 10 putts en lecture de pente", "role_enseignant": "Évaluer la qualité du swing"},
+        {"phase": "Technique", "duree": "20 min", "activite": "Lecture du green simulée; swing en séquence (hanche d'abord)", "role_enseignant": "Corriger l'ordre du downswing"},
+        {"phase": "Application", "duree": "30 min", "activite": "18 trous pitch & putt avec carte de score Stableford", "role_enseignant": "Observer la prise de décision"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Analyser 2 trous bien joués et 2 trous mal joués", "role_enseignant": "Distinguer erreurs techniques vs erreurs stratégiques"}
+      ],
+      "materiel": ["Set complet de bâtons junior", "Balles", "Carte de score Stableford", "Parcours 18 trous"],
+      "espace": "Terrain de golf pitch & putt",
+      "adaptation_hdaa": "TSA: mêmes routines fixes; carte simplifiée | Handicap physique: swing depuis fauteuil | Déficience intellectuelle: 9 trous; putter uniquement sur le green",
+      "enrichissement": "Leçon avec un pro; analyser les données de distance; tournoi junior",
+      "tags": ["golf adapté", "S3-S5", "swing complet", "lecture de green", "stratégie", "2e cycle secondaire"]
+    },
+    {
+      "id": "IND-093",
+      "titre": "Natation — simulation de nage en eau libre pour triathlon",
+      "sport": "Natation",
+      "cycle": "2e cycle secondaire",
+      "niveau": "S3-S5",
+      "duree_periodes": 4,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Natation — Natation en eau libre simulée",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève simule la nage en eau libre dans la piscine (orientation, nage en groupe, départ de masse) en préparation au segment natation du triathlon scolaire.",
+      "contexte_apprentissage": "Préparation au triathlon. Simulation des conditions d'eau libre : pas de ligne de fond, départ de masse, contact physique, orientation.",
+      "tache_complexe": "Nager 400 m en simulation de départ de masse, en utilisant le sighting (lever la tête) et en maintenant l'allure malgré les contacts.",
+      "criteres_evaluation": [
+        "L'élève effectue le sighting toutes les 8-10 brasses",
+        "L'élève maintient son allure en nageant dans un groupe",
+        "L'élève reste calme lors des contacts physiques",
+        "L'élève nage 400 m sans arrêt"
+      ],
+      "savoirs_essentiels": [
+        "Sighting : lever la tête sans perdre l'alignement",
+        "Navigation en eau libre : choisir un repère",
+        "Gestion du stress en départ de masse",
+        "Stratégie de placement"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "Nage libre 200 m; pratique du sighting sur 25 m; simulation de départ groupé", "role_enseignant": "Expliquer le sighting, démontrer la technique"},
+        {"phase": "Technique", "duree": "20 min", "activite": "Sighting toutes les 8 brasses; nage en groupe de 3; stratégie de placement", "role_enseignant": "Observer la qualité du sighting"},
+        {"phase": "Application", "duree": "30 min", "activite": "Simulation complète 400 m : départ de masse; chronométrage", "role_enseignant": "Superviser la sécurité"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Comment la nage en groupe a affecté l'allure? Quelle stratégie adopter?", "role_enseignant": "Préparer tactiquement pour la vraie compétition"}
+      ],
+      "materiel": ["Chronomètre", "Repères flottants", "Bonnet de bain coloré par nageur"],
+      "espace": "Piscine (2-3 couloirs ouverts)",
+      "adaptation_hdaa": "TSA: nager dans son propre couloir; sighting seulement | Handicap physique: adapter la distance; aide aquatique | Déficience intellectuelle: 200 m seulement; accompagnateur aquatique",
+      "enrichissement": "Nage en eau libre réelle (lac surveillé); stratégie de natation selon la configuration du parcours",
+      "tags": ["natation", "S3-S5", "eau libre", "sighting", "triathlon", "2e cycle secondaire"]
+    },
+    {
+      "id": "IND-094",
+      "titre": "Athlétisme — lancer du marteau adapté (médecine-ball sur corde)",
+      "sport": "Athlétisme",
+      "cycle": "2e cycle secondaire",
+      "niveau": "S3-S5",
+      "duree_periodes": 4,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Athlétisme — Lancer du marteau",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève s'initie au lancer du marteau (médecine-ball sur corde) en développant la rotation et la gestion de la force centrifuge.",
+      "contexte_apprentissage": "Olympiade des lancers : les élèves expérimentent les 4 lancers officiels de l'athlétisme. Le marteau est simulé avec un médecine-ball sur corde dans une zone sécurisée.",
+      "tache_complexe": "Réaliser 3 rotations complètes avant de lancer le médecine-ball dans le secteur valide, en gardant l'équilibre sur tout le mouvement.",
+      "criteres_evaluation": [
+        "L'élève maintient les deux pieds en contact avec le sol lors de la rotation",
+        "L'élève effectue 3 rotations en accélération progressive",
+        "L'élève lâche au point optimal (angle 40-45°)",
+        "L'élève reste dans le cercle"
+      ],
+      "savoirs_essentiels": [
+        "Principe de force centrifuge dans le lancer du marteau",
+        "Rotation sur les talons-pointes alternés",
+        "Accélération progressive sur les 3 tours",
+        "Sécurité absolue dans la zone de lancer"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "Rotation du corps avec bras étendus; balancement latéral; règles de sécurité", "role_enseignant": "Insister sur la sécurité avant tout"},
+        {"phase": "Technique", "duree": "20 min", "activite": "1 tour; puis 2 tours; puis 3 tours sans lancer; puis 3 tours + lancer", "role_enseignant": "Corriger la position des pieds, l'axe de rotation"},
+        {"phase": "Application", "duree": "30 min", "activite": "3 lancers officiels; mesure; tableau de marques; comparer les 4 lancers", "role_enseignant": "Officier, mesurer, sécuriser"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Comparer les 4 lancers : technique, force, vitesse requise; lequel est le plus difficile?", "role_enseignant": "Analyser les spécificités de chaque lancer"}
+      ],
+      "materiel": ["Médecine-ball sur corde (1-2 kg)", "Cercle de lancer", "Zone de sécurité (70 m)", "Ruban à mesurer"],
+      "espace": "Extérieur avec large espace de sécurité",
+      "adaptation_hdaa": "TSA: 1 rotation seulement; signal clair | Handicap physique: lancer latéral depuis fauteuil | Déficience intellectuelle: lancer sans rotation; accompagnateur tient la corde",
+      "enrichissement": "Marteau officiel; comparer les records mondiaux; analyse biomécanique",
+      "tags": ["athlétisme", "marteau", "S3-S5", "rotation", "force centrifuge", "2e cycle secondaire"]
+    },
+    {
+      "id": "IND-095",
+      "titre": "Condition physique — yoga et récupération active",
+      "sport": "Musculation/Condition physique",
+      "cycle": "2e cycle secondaire",
+      "niveau": "S3-S5",
+      "duree_periodes": 3,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Condition physique — Récupération et bien-être",
+      "competence_pfeq": "Adopter un mode de vie sain et actif",
+      "description": "L'élève apprend les principes de la récupération active en sport (yoga, étirements progressifs, respiration) et comprend l'importance du repos dans un programme d'entraînement.",
+      "contexte_apprentissage": "Séance de récupération active après une semaine intensive d'entraînement. Les élèves apprennent 20 postures de yoga sport et une séance de cohérence cardiaque.",
+      "tache_complexe": "Réaliser une séance de yoga de 40 minutes (20 postures de 2 minutes) en maintenant la respiration contrôlée, et concevoir une routine de récupération hebdomadaire.",
+      "criteres_evaluation": [
+        "L'élève maintient chaque posture 2 minutes avec respiration contrôlée",
+        "L'élève nomme les muscles étirés pour 10 postures",
+        "L'élève applique la cohérence cardiaque (inspire 5 sec, expire 5 sec)",
+        "L'élève conçoit une routine de récupération de 20 minutes personnalisée"
+      ],
+      "savoirs_essentiels": [
+        "Récupération active vs passive",
+        "Cohérence cardiaque : 6 respirations par minute",
+        "Rôle des étirements longs (> 60 secondes)",
+        "Importance du sommeil (7-9 heures)"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "10 min", "activite": "Discussion sur la récupération; cohérence cardiaque guidée (5 min); introduction des postures", "role_enseignant": "Présenter les bénéfices scientifiques de la récupération"},
+        {"phase": "Technique", "duree": "10 min", "activite": "Démonstration des 20 postures avec alignement et respiration", "role_enseignant": "Corriger les compensations, ne jamais forcer"},
+        {"phase": "Application", "duree": "45 min", "activite": "Séance yoga complète 40 min; relaxation guidée 5 min", "role_enseignant": "Guider la séance, maintenir l'ambiance calme"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Comment se sent-on après? Concevoir sa routine hebdomadaire", "role_enseignant": "Aider à concevoir la routine réaliste"}
+      ],
+      "materiel": ["Tapis de yoga", "Musique douce", "Images des 20 postures", "Fiche de routine"],
+      "espace": "Gymnase (éclairage tamisé si possible)",
+      "adaptation_hdaa": "TSA: même ordre de postures; même musique | Handicap physique: postures en version assise | Déficience intellectuelle: 10 postures; accompagnateur guide",
+      "enrichissement": "Pratique du yoga en dehors de l'école; application de méditation; intégrer dans le plan 8 semaines",
+      "tags": ["condition physique", "S3-S5", "yoga", "récupération", "bien-être", "2e cycle secondaire"]
+    },
+    {
+      "id": "IND-096",
+      "titre": "Patinage de vitesse — 1000 m et gestion de l'allure",
+      "sport": "Patinage de vitesse",
+      "cycle": "2e cycle secondaire",
+      "niveau": "S3-S5",
+      "duree_periodes": 4,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Patinage de vitesse — Endurance",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève développe l'endurance en patinage de vitesse pour le 1000 m, en travaillant la gestion de l'allure sur 5 tours et en optimisant les virages.",
+      "contexte_apprentissage": "Championnats de patinage de vitesse : épreuve du 1000 m. Les élèves gèrent leur énergie sur 5 tours avec données de chronométrage par tour.",
+      "tache_complexe": "Réaliser le 1000 m en gestion d'allure (temps par tour régulier ±2 secondes), en maintenant les pas croisés dans tous les virages.",
+      "criteres_evaluation": [
+        "L'élève maintient des temps de tour réguliers (±2 secondes)",
+        "L'élève maintient les pas croisés dans tous les virages sur 5 tours",
+        "L'élève gère son énergie (ne s'épuise pas au début)",
+        "L'élève améliore son temps de 1000 m d'au moins 5 secondes"
+      ],
+      "savoirs_essentiels": [
+        "Gestion de l'allure sur 1000 m",
+        "Économie d'énergie dans les virages",
+        "Lecture des splits (temps par tour)",
+        "Stratégie de negative split"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "3 tours libres; virages; 500 m à vitesse confortable avec chrono", "role_enseignant": "Chronométrer les tours; donner l'allure cible"},
+        {"phase": "Technique", "duree": "20 min", "activite": "Virages à haute vitesse; transition ligne droite → virage", "role_enseignant": "Corriger la position dans les virages"},
+        {"phase": "Application", "duree": "30 min", "activite": "1000 m chronométré par tour; 2 essais; comparer les temps", "role_enseignant": "Chronométrer les tours, donner le feedback"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Analyser les splits : quel tour le plus rapide? Trop rapide au début?", "role_enseignant": "Enseigner le negative split"}
+      ],
+      "materiel": ["Patins", "Chronomètre multi-tours", "Tableau de splits", "Protections"],
+      "espace": "Patinoire ovale",
+      "adaptation_hdaa": "TSA: objectif de 3 tours; signal à chaque tour | Handicap physique: adapter selon les capacités | Déficience intellectuelle: 2 tours avec accompagnateur",
+      "enrichissement": "Stratégie de course avec entraîneur; programme pour les championnats régionaux",
+      "tags": ["patinage de vitesse", "S3-S5", "1000 m", "gestion allure", "endurance", "2e cycle secondaire"]
+    },
+    {
+      "id": "IND-097",
+      "titre": "Triathlon — gestion du stress compétitif et préparation mentale",
+      "sport": "Triathlon scolaire",
+      "cycle": "2e cycle secondaire",
+      "niveau": "S3-S5",
+      "duree_periodes": 4,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Sports combinés — Préparation mentale",
+      "competence_pfeq": "Adopter un mode de vie sain et actif",
+      "description": "L'élève développe des stratégies de gestion du stress compétitif spécifiques au triathlon (préparation mentale, routines pré-course, gestion de l'anxiété).",
+      "contexte_apprentissage": "Module de psychologie du sport appliqué au triathlon. Les élèves apprennent des outils (visualisation, respiration, auto-talk positif) et les appliquent lors d'une simulation.",
+      "tache_complexe": "Appliquer 3 outils de gestion du stress (respiration, visualisation, auto-talk) lors de la compétition simulée, et évaluer leur efficacité.",
+      "criteres_evaluation": [
+        "L'élève démontre 3 techniques de gestion du stress",
+        "L'élève applique ces techniques pendant la compétition simulée",
+        "L'élève identifie ses signaux d'anxiété personnels",
+        "L'élève conçoit une routine pré-compétition personnalisée"
+      ],
+      "savoirs_essentiels": [
+        "Stress positif (eustress) vs négatif (distress)",
+        "Cohérence cardiaque avant la compétition",
+        "Visualisation mentale de la performance",
+        "Auto-talk positif (reformuler les pensées négatives)"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "Discussion sur le stress compétitif; identifier ses signaux; présentation des 3 outils", "role_enseignant": "Dédramatiser le stress, le présenter comme gérable"},
+        {"phase": "Technique", "duree": "20 min", "activite": "Cohérence cardiaque (5 min); visualisation guidée (10 min); reformulation de pensées", "role_enseignant": "Guider la visualisation avec voix calme"},
+        {"phase": "Application", "duree": "30 min", "activite": "Compétition simulée; appliquer les outils; noter les réactions émotionnelles", "role_enseignant": "Observer les comportements pré-course"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Quel outil a été le plus efficace? Quand le stress était-il le plus élevé?", "role_enseignant": "Construire la routine pré-compétition personnalisée"}
+      ],
+      "materiel": ["Journal de performance mentale", "Fiche de routine pré-compétition", "Équipement de simulation"],
+      "espace": "Gymnase + piscine + extérieur",
+      "adaptation_hdaa": "TSA: routine très structurée et immuable | Handicap physique: disciplines adaptées; outils mentaux identiques | Déficience intellectuelle: routine pré-compétition en 3 étapes",
+      "enrichissement": "Consultation avec psychologue sportif; journal de performance sur la saison",
+      "tags": ["triathlon", "S3-S5", "psychologie du sport", "stress", "préparation mentale", "2e cycle secondaire"]
+    },
+    {
+      "id": "IND-098",
+      "titre": "Disc golf — tournoi officiel 2 rondes de 9 trous",
+      "sport": "Disc golf",
+      "cycle": "2e cycle secondaire",
+      "niveau": "S3-S5",
+      "duree_periodes": 4,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Lancer de disque — Disc golf compétition",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève participe à un tournoi officiel de disc golf (règles PDGA adaptées) sur le parcours scolaire, assumant les rôles de joueur, marqueur et arbitre.",
+      "contexte_apprentissage": "Tournoi annuel de disc golf de l'école. Les élèves jouent 2 rondes de 9 trous avec carte de score officielle et remise des prix.",
+      "tache_complexe": "Compléter 2 rondes de 9 trous en tenant une carte de score précise, en arbitrant les règles, et en améliorant son score de la ronde 1 à la ronde 2.",
+      "criteres_evaluation": [
+        "L'élève tient une carte de score précise (0 erreur)",
+        "L'élève respecte et fait respecter les règles",
+        "L'élève améliore son score de la ronde 1 à 2",
+        "L'élève démontre l'étiquette du disc golf"
+      ],
+      "savoirs_essentiels": [
+        "Règles officielles PDGA",
+        "Responsabilité du marqueur",
+        "Apprentissage des trous difficiles entre les rondes",
+        "Étiquette du disc golf"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "Révision des règles PDGA; attribution des cartes; échauffement; tirage au sort des groupes", "role_enseignant": "Officier le tournoi, présenter les règles"},
+        {"phase": "Technique", "duree": "5 min", "activite": "Rappel des règles de placement et des hors-limites spécifiques au parcours", "role_enseignant": "Identifier les zones de hors-limites"},
+        {"phase": "Application", "duree": "45 min", "activite": "Ronde 1 (9 trous); pause 5 min; ronde 2 (9 trous); calcul du score; classement", "role_enseignant": "Arbitrer les litiges, animer"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Comparer ronde 1 vs 2; quel trou était le plus difficile?", "role_enseignant": "Analyser la progression, donner le classement"}
+      ],
+      "materiel": ["Disques de compétition", "Paniers (18 trous)", "Cartes de score officielles", "Prix de tournoi"],
+      "espace": "Parcours scolaire 18 trous",
+      "adaptation_hdaa": "TSA: groupe de 2 avec accompagnateur; 9 trous seulement | Handicap physique: distances réduites; lancer depuis fauteuil | Déficience intellectuelle: 5 trous avec accompagnateur",
+      "enrichissement": "Participer à un tournoi PDGA junior; blog du tournoi scolaire",
+      "tags": ["disc golf", "S3-S5", "tournoi officiel", "PDGA", "2e cycle secondaire"]
+    },
+    {
+      "id": "IND-099",
+      "titre": "Athlétisme — pentathlon scolaire et performance globale",
+      "sport": "Athlétisme",
+      "cycle": "2e cycle secondaire",
+      "niveau": "S3-S5",
+      "duree_periodes": 5,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Athlétisme — Sports combinés avancés",
+      "competence_pfeq": "Agir dans divers contextes de pratique d'activités physiques",
+      "description": "L'élève participe à un pentathlon scolaire (5 épreuves adaptées) en développant la polyvalence athlétique et en calculant son score selon le barème World Athletics.",
+      "contexte_apprentissage": "Grand défi athlétique de fin d'année : le pentathlon. Les élèves participent à 5 épreuves sur 2 séances et calculent leur score total.",
+      "tache_complexe": "Participer à 5 épreuves (sprint, haies, saut, lancer, endurance) et améliorer dans au moins 3 épreuves par rapport au début de l'année.",
+      "criteres_evaluation": [
+        "L'élève démontre une technique correcte dans les 5 épreuves",
+        "L'élève gère son énergie sur l'ensemble du pentathlon",
+        "L'élève calcule son score total correctement",
+        "L'élève s'améliore dans au moins 3 épreuves"
+      ],
+      "savoirs_essentiels": [
+        "Spécificité technique de chaque épreuve",
+        "Gestion de l'énergie sur 2 jours",
+        "Barème World Athletics adapté pour le scolaire",
+        "Plan d'entraînement pluridisciplinaire"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "Ordre des épreuves; échauffement global incluant toutes les chaînes musculaires", "role_enseignant": "Stratégiser la gestion de l'effort"},
+        {"phase": "Technique", "duree": "10 min", "activite": "Rappel technique express (2 min par épreuve)", "role_enseignant": "Points critiques pour chaque épreuve"},
+        {"phase": "Application", "duree": "40 min", "activite": "5 épreuves en ordre officiel; calcul du score barème", "role_enseignant": "Officier, chronométrer, mesurer, sécuriser"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Comparer avec les résultats de septembre; dans quelles épreuves as-tu le plus progressé?", "role_enseignant": "Valoriser la progression sur l'année complète"}
+      ],
+      "materiel": ["Équipement complet d'athlétisme", "Barème adapté", "Fiche de résultats", "Chronomètre"],
+      "espace": "Piste d'athlétisme complète",
+      "adaptation_hdaa": "TSA: épreuves dans le même ordre; récupération suffisante | Handicap physique: épreuves para-athlétisme | Déficience intellectuelle: 3 épreuves seulement; accompagnateur à chaque épreuve",
+      "enrichissement": "Comparer avec les barèmes nationaux juniors; participation à une compétition provinciale",
+      "tags": ["athlétisme", "S3-S5", "pentathlon", "sports combinés", "performance", "2e cycle secondaire"]
+    },
+    {
+      "id": "IND-100",
+      "titre": "Mon portfolio sportif — bilan et projet de vie actif",
+      "sport": "Musculation/Condition physique",
+      "cycle": "2e cycle secondaire",
+      "niveau": "S3-S5",
+      "duree_periodes": 4,
+      "duree_par_periode": "75 min",
+      "moyen_action": "Condition physique — Bilan et projet de vie",
+      "competence_pfeq": "Adopter un mode de vie sain et actif",
+      "description": "L'élève réalise un bilan complet de son parcours sportif et crée un portfolio documentant ses apprentissages, performances et son projet de vie active pour les 5 prochaines années.",
+      "contexte_apprentissage": "Projet de fin d'année : Mon portfolio sportif. Les élèves réfléchissent à leur parcours de la maternelle au secondaire 5 et créent un document de référence pour leur vie active future.",
+      "tache_complexe": "Créer un portfolio de 10 pages documentant : les 3 sports préférés, les performances clés, les apprentissages sur la santé, les obstacles rencontrés, et un plan de vie active pour 5 ans.",
+      "criteres_evaluation": [
+        "L'élève identifie ses 3 sports préférés avec justification",
+        "L'élève documente au moins 5 performances clés avec données",
+        "L'élève conçoit un plan de vie active SMART pour 5 ans",
+        "L'élève identifie des ressources locales pour maintenir une vie active"
+      ],
+      "savoirs_essentiels": [
+        "Mode de vie actif (60 min/jour recommandés par l'OMS)",
+        "Ressources locales pour rester actif après l'école",
+        "Transfert des habiletés sportives dans la vie quotidienne",
+        "Valeurs sportives applicables à la vie"
+      ],
+      "progression": [
+        {"phase": "Mise en train", "duree": "15 min", "activite": "Présentation du projet; discussion sur la vie active; séance de condition physique de 15 min", "role_enseignant": "Inspirer, présenter des exemples de portfolios réussis"},
+        {"phase": "Technique", "duree": "20 min", "activite": "Structure du portfolio; recherche des ressources locales; planification des 5 prochaines années", "role_enseignant": "Guider la recherche, valider les ressources"},
+        {"phase": "Application", "duree": "30 min", "activite": "Rédaction du portfolio; partage avec un pair pour feedback", "role_enseignant": "Circuler, donner du feedback, encourager la réflexion"},
+        {"phase": "Objectivation", "duree": "10 min", "activite": "Présentation de 2 minutes à la classe; ce que je retiens de mon parcours sportif", "role_enseignant": "Valoriser chaque parcours, célébration collective"}
+      ],
+      "materiel": ["Tablettes ou ordinateurs", "Portfolio papier ou numérique", "Ressources locales", "Photos si disponibles"],
+      "espace": "Gymnase + salle informatique",
+      "adaptation_hdaa": "TSA: portfolio guidé avec sections préremplies; accompagnateur aide à la rédaction | Handicap physique: portfolio met en valeur les accomplissements adaptatifs | Déficience intellectuelle: portfolio simplifié (3 sections, 1 page chacune)",
+      "enrichissement": "Portfolio numérique multimédia; présenter à la famille; lien avec l'orientation scolaire",
+      "tags": ["condition physique", "S3-S5", "portfolio", "vie active", "bilan", "2e cycle secondaire"]
     }
   ]
 }
