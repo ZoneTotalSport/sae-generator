@@ -584,7 +584,8 @@ function buildJeuCard(jeu, idx) {
     : (jeu.nb_joueurs || '');
   const espace    = jeu.espace  || '';
   const intensite = jeu.niveau_activite || '';
-  const intentions = jeu.intentions_pedagogiques || jeu.description || '';
+  const intentionsRaw = jeu.intentions_pedagogiques || jeu.description || '';
+  const intentions = Array.isArray(intentionsRaw) ? intentionsRaw.join(' · ') : intentionsRaw;
   const tags     = (jeu.tags || []).slice(0, 3);
   const label    = src.label ? (src.label[LANG.current] || src.label.fr || src.label) : '';
 
@@ -646,7 +647,8 @@ function openJeuModal(jeu) {
     ? jeu.materiel.join(', ')
     : (jeu.materiel || 'Aucun');
 
-  const intentions  = jeu.intentions_pedagogiques  || '';
+  const intentionsRaw2 = jeu.intentions_pedagogiques || '';
+  const intentions  = Array.isArray(intentionsRaw2) ? intentionsRaw2.join('\n') : intentionsRaw2;
   const butDuJeu    = jeu.but_du_jeu               || '';
   const disposition = jeu.disposition              || '';
   const deroulement = jeu.deroulement              || '';
