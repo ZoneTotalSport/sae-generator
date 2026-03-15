@@ -399,29 +399,38 @@ const state = {
 //  INITIALISATION
 // ============================================================
 document.addEventListener('DOMContentLoaded', async () => {
-  drawBackground();
-  window.addEventListener('resize', drawBackground);
+  // Filet de sécurité : disparaît après 8 secondes max
+  const safetyTimer = setTimeout(() => hideLoading(), 8000);
 
-  setupNavigation();
-  applyI18N();
-  progress(10);
+  try {
+    drawBackground();
+    window.addEventListener('resize', drawBackground);
 
-  await loadJeux();
-  progress(55);
+    setupNavigation();
+    applyI18N();
+    progress(10);
 
-  await loadSAE();
-  progress(85);
+    await loadJeux();
+    progress(55);
 
-  renderJeux();
-  renderSAE();
-  renderMoyensBrowser();
-  renderEduTaxonomy();
-  renderMusique();
-  setupSearch();
-  updateHeaderStats();
+    await loadSAE();
+    progress(85);
 
-  progress(100);
-  setTimeout(hideLoading, 500);
+    renderJeux();
+    renderSAE();
+    renderMoyensBrowser();
+    renderEduTaxonomy();
+    renderMusique();
+    setupSearch();
+    updateHeaderStats();
+
+    progress(100);
+  } catch (err) {
+    console.error('Erreur init ZTS:', err);
+  } finally {
+    clearTimeout(safetyTimer);
+    setTimeout(hideLoading, 500);
+  }
 });
 
 // ============================================================
