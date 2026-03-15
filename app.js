@@ -502,25 +502,26 @@ async function loadJeux() {
   const results = await Promise.allSettled(
     JEUX_SOURCES.map(src =>
       fetch(src.path)
-        .then(r => r.json())
+        .then(r => {
+          if (!r.ok) { console.error(`❌ JEUX 404: ${src.path}`); throw new Error(r.status); }
+          return r.json();
+        })
         .then(data => ({ src, data }))
+        .catch(e => { console.error(`❌ JEUX erreur: ${src.path}`, e.message); throw e; })
     )
   );
 
+  let loaded = 0;
   results.forEach(result => {
     if (result.status !== 'fulfilled') return;
     const { src, data } = result.value;
     const jeux = data.jeux || data.items || [];
-
+    loaded++;
     jeux.forEach(jeu => {
-      state.allJeux.push({
-        ...jeu,
-        _src: src,
-        _key: src.key,
-      });
+      state.allJeux.push({ ...jeu, _src: src, _key: src.key });
     });
   });
-
+  console.log(`✅ Jeux: ${loaded}/${JEUX_SOURCES.length} fichiers, ${state.allJeux.length} jeux`);
   state.filteredJeux = [...state.allJeux];
 }
 
@@ -528,8 +529,12 @@ async function loadSAE() {
   const results = await Promise.allSettled(
     SAE_SOURCES.map(src =>
       fetch(src.path)
-        .then(r => r.json())
+        .then(r => {
+          if (!r.ok) { console.error(`❌ SAÉ 404: ${src.path}`); throw new Error(r.status); }
+          return r.json();
+        })
         .then(data => ({ src, data }))
+        .catch(e => { console.error(`❌ SAÉ erreur: ${src.path}`, e.message); throw e; })
     )
   );
 
