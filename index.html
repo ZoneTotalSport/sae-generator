@@ -335,23 +335,12 @@
             <div class="form-section" id="sec-eval">
               <button class="form-section-toggle" data-section="sec-eval-body">📊 Évaluation</button>
               <div class="form-section-body" id="sec-eval-body">
-                <p class="form-hint" style="margin-bottom:14px">Cochez les critères à évaluer. Vous pourrez imprimer la grille d'évaluation.</p>
+                <p class="form-hint" style="margin-bottom:14px">Les critères s'adaptent selon la compétence PFEQ choisie. Cochez ceux à évaluer.</p>
 
                 <div class="eval-checklist">
-                  <h4 class="eval-checklist-title">Critères à évaluer :</h4>
-                  <div class="eval-checks-grid">
-                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Exécution motrice"> Exécution motrice</label>
-                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Fluidité des mouvements"> Fluidité des mouvements</label>
-                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Coordination"> Coordination</label>
-                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Équilibre"> Équilibre</label>
-                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Coopération"> Coopération</label>
-                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Communication"> Communication</label>
-                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Stratégie"> Stratégie</label>
-                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Respect des règles"> Respect des règles</label>
-                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Esprit sportif"> Esprit sportif</label>
-                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Effort et engagement"> Effort et engagement</label>
-                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Sécurité"> Sécurité</label>
-                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Autonomie"> Autonomie</label>
+                  <h4 class="eval-checklist-title">Critères PFEQ selon l'intention pédagogique :</h4>
+                  <div class="eval-checks-grid" id="evalChecksGrid">
+                    <!-- Rempli dynamiquement par JS selon la compétence choisie -->
                   </div>
                   <div class="form-group" style="margin-top:12px">
                     <label class="form-label" for="cr-criteres-custom">Ajouter d'autres critères</label>
@@ -360,23 +349,27 @@
                 </div>
 
                 <h4 class="eval-checklist-title" style="margin-top:20px">Échelle de notation :</h4>
-                <div class="eval-scale-grid">
-                  <div class="eval-scale-card scale-a">
-                    <div class="eval-scale-header">⭐ A — Très bien</div>
-                    <textarea class="form-textarea eval-scale-input" id="cr-grille-tb" rows="2" placeholder="L'élève maîtrise..."></textarea>
+                <div class="form-row" style="margin-bottom:14px">
+                  <div class="form-group">
+                    <label class="form-label">Type d'échelle</label>
+                    <select class="form-select" id="cr-echelle-type">
+                      <option value="abc">Lettres (A, B, C, D, E)</option>
+                      <option value="12345">Chiffres (1, 2, 3, 4, 5)</option>
+                      <option value="abc3">Lettres 3 niveaux (A, B, C)</option>
+                    </select>
                   </div>
-                  <div class="eval-scale-card scale-b">
-                    <div class="eval-scale-header">👍 B — Bien</div>
-                    <textarea class="form-textarea eval-scale-input" id="cr-grille-b" rows="2" placeholder="L'élève réussit..."></textarea>
-                  </div>
-                  <div class="eval-scale-card scale-c">
-                    <div class="eval-scale-header">📈 C — En développement</div>
-                    <textarea class="form-textarea eval-scale-input" id="cr-grille-ed" rows="2" placeholder="L'élève a besoin de..."></textarea>
+                  <div class="form-group">
+                    <label class="form-label">Nombre d'élèves</label>
+                    <input type="number" class="form-input" id="cr-nb-eleves" min="1" max="40" value="30">
                   </div>
                 </div>
 
+                <div id="evalScaleContainer">
+                  <!-- Rempli dynamiquement selon le type d'échelle -->
+                </div>
+
                 <div class="form-actions" style="margin-top:16px">
-                  <button class="mag-btn" id="btnPrintEval" type="button">🖨️ IMPRIMER LA GRILLE</button>
+                  <button class="mag-btn" id="btnPrintEval" type="button">🖨️ GÉNÉRER ET IMPRIMER LA GRILLE</button>
                 </div>
               </div>
             </div>

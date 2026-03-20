@@ -3400,12 +3400,136 @@ function initPart2Features() {
     });
   });
 
-  // ── Print evaluation grid ──
+  // ── CRITÈRES PFEQ PAR COMPÉTENCE ──
+  var CRITERES_PFEQ = {
+    'Agir dans divers contextes de pratique d\'activités physiques': [
+      'Exécution motrice (qualité des actions)',
+      'Efficacité des actions motrices',
+      'Enchaînement et fluidité des mouvements',
+      'Ajustement des actions selon la situation',
+      'Variété des actions motrices utilisées',
+      'Application des principes d\'équilibre',
+      'Coordination motrice',
+      'Utilisation adéquate de l\'espace',
+      'Application des règles de sécurité',
+      'Planification de sa démarche'
+    ],
+    'Interagir dans divers contextes de pratique d\'activités physiques': [
+      'Coopération avec les partenaires',
+      'Communication motrice et verbale',
+      'Élaboration de stratégies offensives',
+      'Élaboration de stratégies défensives',
+      'Application des stratégies planifiées',
+      'Synchronisation des actions avec les pairs',
+      'Adaptation aux actions des adversaires',
+      'Respect des règles du jeu',
+      'Esprit sportif et fairplay',
+      'Rôles et responsabilités dans l\'équipe'
+    ],
+    'Adopter un mode de vie sain et actif': [
+      'Pratique régulière d\'activités physiques',
+      'Gestion de l\'effort physique',
+      'Connaissance des effets de l\'activité sur le corps',
+      'Application de règles d\'hygiène et sécurité',
+      'Identification de ses forces et défis',
+      'Choix d\'activités selon ses capacités',
+      'Habitudes de vie saines et actives',
+      'Éthique en activité physique',
+      'Persévérance et engagement',
+      'Auto-évaluation de ses habitudes'
+    ],
+    '': [
+      'Exécution motrice',
+      'Coordination',
+      'Coopération',
+      'Communication',
+      'Stratégie',
+      'Respect des règles',
+      'Esprit sportif',
+      'Effort et engagement',
+      'Sécurité',
+      'Autonomie'
+    ]
+  };
+
+  // ── Render eval criteria based on competence ──
+  function renderEvalCriteria() {
+    var grid = document.getElementById('evalChecksGrid');
+    if (!grid) return;
+    var comp = document.getElementById('cr-competence')?.value || '';
+    var criteres = CRITERES_PFEQ[comp] || CRITERES_PFEQ[''];
+    grid.innerHTML = '';
+    criteres.forEach(function(c) {
+      var label = document.createElement('label');
+      label.className = 'eval-check';
+      label.innerHTML = '<input type="checkbox" class="eval-cb" value="' + c + '"> ' + c;
+      grid.appendChild(label);
+    });
+    // Re-attach change listeners
+    grid.querySelectorAll('.eval-cb').forEach(function(cb) {
+      cb.addEventListener('change', updateLivePreview);
+    });
+  }
+
+  // Listen for competence change -> update criteria
+  var compSelect = document.getElementById('cr-competence');
+  if (compSelect) {
+    compSelect.addEventListener('change', renderEvalCriteria);
+  }
+  renderEvalCriteria(); // initial render
+
+  // ── Render scale cards based on scale type ──
+  var SCALES = {
+    'abc': [
+      { key: 'a', label: 'A — Excellent', icon: '⭐', color: '#4CAF50' },
+      { key: 'b', label: 'B — Très bien', icon: '👍', color: '#8BC34A' },
+      { key: 'c', label: 'C — Bien', icon: '👌', color: '#FFD700' },
+      { key: 'd', label: 'D — En développement', icon: '📈', color: '#FF9800' },
+      { key: 'e', label: 'E — Débutant', icon: '🌱', color: '#FF5722' }
+    ],
+    '12345': [
+      { key: '5', label: '5 — Excellent', icon: '⭐', color: '#4CAF50' },
+      { key: '4', label: '4 — Très bien', icon: '👍', color: '#8BC34A' },
+      { key: '3', label: '3 — Bien', icon: '👌', color: '#FFD700' },
+      { key: '2', label: '2 — En développement', icon: '📈', color: '#FF9800' },
+      { key: '1', label: '1 — Débutant', icon: '🌱', color: '#FF5722' }
+    ],
+    'abc3': [
+      { key: 'a', label: 'A — Très bien', icon: '⭐', color: '#4CAF50' },
+      { key: 'b', label: 'B — Bien', icon: '👍', color: '#FFD700' },
+      { key: 'c', label: 'C — En développement', icon: '📈', color: '#FF9800' }
+    ]
+  };
+
+  function renderEvalScale() {
+    var container = document.getElementById('evalScaleContainer');
+    if (!container) return;
+    var type = document.getElementById('cr-echelle-type')?.value || 'abc';
+    var scale = SCALES[type] || SCALES['abc'];
+    var html = '<div class="eval-scale-grid-dynamic">';
+    scale.forEach(function(s) {
+      html += '<div class="eval-scale-card-dyn" style="border-color:' + s.color + '30;background:' + s.color + '15">';
+      html += '<div class="eval-scale-header-dyn" style="color:' + s.color + '">' + s.icon + ' ' + s.label + '</div>';
+      html += '<textarea class="form-textarea eval-scale-input" id="cr-grille-' + s.key + '" rows="1" placeholder="Description..."></textarea>';
+      html += '</div>';
+    });
+    html += '</div>';
+    container.innerHTML = html;
+  }
+
+  var echelleSelect = document.getElementById('cr-echelle-type');
+  if (echelleSelect) {
+    echelleSelect.addEventListener('change', renderEvalScale);
+  }
+  renderEvalScale(); // initial render
+
+  // ── Generate & Print evaluation grid ──
   var btnPrintEval = document.getElementById('btnPrintEval');
   if (btnPrintEval) {
     btnPrintEval.addEventListener('click', function() {
       var titre = document.getElementById('cr-titre').value || 'SAÉ sans titre';
       var niveau = document.getElementById('cr-niveau').value || '';
+      var compText = document.getElementById('cr-competence')?.value || '';
       var criteres = [];
       document.querySelectorAll('.eval-cb:checked').forEach(function(cb) {
         criteres.push(cb.value);
@@ -3420,51 +3544,65 @@ function initPart2Features() {
         showToast('Cochez au moins un critère d\'évaluation!');
         return;
       }
-      var grilleTB = document.getElementById('cr-grille-tb').value || '';
-      var grilleB = document.getElementById('cr-grille-b').value || '';
-      var grilleED = document.getElementById('cr-grille-ed').value || '';
+
+      var nbEleves = parseInt(document.getElementById('cr-nb-eleves')?.value) || 30;
+      var scaleType = document.getElementById('cr-echelle-type')?.value || 'abc';
+      var scale = SCALES[scaleType] || SCALES['abc'];
+
+      // Collect scale descriptions
+      var scaleDescs = [];
+      scale.forEach(function(s) {
+        var el = document.getElementById('cr-grille-' + s.key);
+        scaleDescs.push({ label: s.label, icon: s.icon, color: s.color, desc: el ? el.value : '' });
+      });
 
       var printWin = window.open('', '_blank');
       var html = '<!DOCTYPE html><html><head><meta charset="UTF-8">';
       html += '<title>Grille d\'évaluation — ' + titre + '</title>';
       html += '<style>';
-      html += 'body{font-family:Arial,sans-serif;padding:30px;color:#222}';
-      html += 'h1{font-size:22px;margin-bottom:4px}';
-      html += 'h2{font-size:16px;color:#555;margin-bottom:20px;font-weight:normal}';
-      html += 'table{width:100%;border-collapse:collapse;margin-bottom:24px}';
-      html += 'th,td{border:2px solid #333;padding:10px 12px;text-align:left}';
-      html += 'th{background:#f0f0f0;font-weight:bold}';
-      html += '.header-row th{background:#00ACC1;color:white}';
-      html += '.scale{margin-bottom:20px}';
-      html += '.scale h3{font-size:14px;margin:4px 0}';
-      html += '.scale-a{color:#2E7D32}.scale-b{color:#F9A825}.scale-c{color:#E65100}';
-      html += '.nom-col{width:200px}.crit-col{width:auto}.note-col{width:80px}';
-      html += '@media print{body{padding:10px}}';
+      html += 'body{font-family:Arial,sans-serif;padding:24px;color:#222;font-size:11px}';
+      html += 'h1{font-size:20px;margin-bottom:2px}';
+      html += '.meta{font-size:13px;color:#555;margin-bottom:12px}';
+      html += 'table{width:100%;border-collapse:collapse;margin-bottom:16px}';
+      html += 'th,td{border:1.5px solid #333;padding:6px 8px;text-align:center}';
+      html += 'th{background:#00ACC1;color:white;font-size:10px;font-weight:bold}';
+      html += 'th.nom{text-align:left;width:180px;font-size:12px}';
+      html += 'td.nom{text-align:left}';
+      html += '.legend{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}';
+      html += '.legend-item{display:flex;align-items:center;gap:4px;font-size:12px}';
+      html += '.legend-dot{width:14px;height:14px;border-radius:3px;display:inline-block}';
+      html += '.footer{font-size:10px;color:#999;text-align:center;margin-top:12px}';
+      html += '@media print{body{padding:10px}@page{size:landscape;margin:1cm}}';
       html += '</style></head><body>';
       html += '<h1>Grille d\'évaluation — ' + titre + '</h1>';
-      html += '<h2>' + niveau + '</h2>';
+      html += '<div class="meta">' + niveau;
+      if (compText) html += ' | ' + compText;
+      html += '</div>';
 
-      if (grilleTB || grilleB || grilleED) {
-        html += '<div class="scale">';
-        if (grilleTB) html += '<h3 class="scale-a">⭐ A — Très bien : ' + grilleTB + '</h3>';
-        if (grilleB) html += '<h3 class="scale-b">👍 B — Bien : ' + grilleB + '</h3>';
-        if (grilleED) html += '<h3 class="scale-c">📈 C — En développement : ' + grilleED + '</h3>';
+      // Legend
+      html += '<div class="legend">';
+      scaleDescs.forEach(function(s) {
+        html += '<div class="legend-item"><span class="legend-dot" style="background:' + s.color + '"></span>';
+        html += '<strong>' + s.icon + ' ' + s.label + '</strong>';
+        if (s.desc) html += ' : ' + s.desc;
         html += '</div>';
-      }
-
-      html += '<table><tr class="header-row"><th class="nom-col">Nom de l\'élève</th>';
-      criteres.forEach(function(c) {
-        html += '<th class="crit-col">' + c + '</th>';
       });
-      html += '<th class="note-col">Note</th></tr>';
+      html += '</div>';
 
-      for (var i = 0; i < 30; i++) {
-        html += '<tr><td style="height:28px"></td>';
+      // Table
+      html += '<table><tr><th class="nom">Nom de l\'élève</th>';
+      criteres.forEach(function(c) {
+        html += '<th>' + c + '</th>';
+      });
+      html += '<th style="width:60px">Note</th></tr>';
+
+      for (var i = 0; i < nbEleves; i++) {
+        html += '<tr><td class="nom" style="height:24px"></td>';
         criteres.forEach(function() { html += '<td></td>'; });
         html += '<td></td></tr>';
       }
       html += '</table>';
-      html += '<p style="font-size:11px;color:#999;text-align:center">Zone Total Sport — generateur.zonetotalsport.ca</p>';
+      html += '<p class="footer">Zone Total Sport — generateur.zonetotalsport.ca</p>';
       html += '</body></html>';
 
       printWin.document.write(html);
