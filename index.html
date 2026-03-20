@@ -103,6 +103,11 @@
         </div>
         <span class="xp-text" id="xpText">0 / 50 XP</span>
       </div>
+      <!-- BOUTONS AIDE & BUG -->
+      <div class="header-actions">
+        <button class="header-action-btn help-btn" id="btnHelp" title="Comment ça marche?">❓ Comment ça marche?</button>
+        <a class="header-action-btn bug-btn" href="mailto:zts@hotmail.ca?subject=Bug%20%C3%A0%20signaler" title="Signaler un problème">🐛 Problème?</a>
+      </div>
     </header>
 
     <!-- NAVIGATION TABS -->
@@ -459,6 +464,51 @@
     <div class="modal-backdrop" id="modalBackdrop"></div>
     <div class="modal-box glass">
       <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- MODAL COMMENT ÇA MARCHE -->
+  <div id="helpModal" class="help-modal-overlay" style="display:none">
+    <div class="help-modal-box">
+      <button class="help-modal-close" id="helpModalClose">&times;</button>
+      <h2 class="help-modal-title">❓ Comment ça marche?</h2>
+      <div class="help-modal-content">
+        <div class="help-step">
+          <span class="help-step-num">1</span>
+          <div>
+            <h3>📚 Banque SAÉ</h3>
+            <p>Parcourez plus de <strong>1000 SAÉ</strong> conformes au PFEQ. Utilisez la recherche et les filtres pour trouver la SAÉ parfaite par niveau, compétence ou moyen d'action.</p>
+          </div>
+        </div>
+        <div class="help-step">
+          <span class="help-step-num">2</span>
+          <div>
+            <h3>✏️ Créer une SAÉ</h3>
+            <p>Créez votre propre SAÉ personnalisée! Remplissez le formulaire, ajoutez des fichiers (images, documents) et prévisualisez en temps réel. Vos SAÉ sont sauvegardées localement dans votre navigateur.</p>
+          </div>
+        </div>
+        <div class="help-step">
+          <span class="help-step-num">3</span>
+          <div>
+            <h3>💾 Mes SAÉ</h3>
+            <p>Retrouvez toutes vos SAÉ créées. Modifiez-les, exportez-les ou supprimez-les à tout moment. Tout reste dans votre navigateur, aucun compte requis!</p>
+          </div>
+        </div>
+        <div class="help-step">
+          <span class="help-step-num">4</span>
+          <div>
+            <h3>🎰 Machine à défis</h3>
+            <p>En panne d'inspiration? La machine à défis vous propose une SAÉ au hasard! Tirez le levier et découvrez un nouveau défi pour vos élèves.</p>
+          </div>
+        </div>
+        <div class="help-step">
+          <span class="help-step-num">⭐</span>
+          <div>
+            <h3>⭐ Favoris & XP</h3>
+            <p>Ajoutez des SAÉ en favoris pour les retrouver facilement. Chaque action vous donne des <strong>points d'expérience (XP)</strong> pour monter de niveau!</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

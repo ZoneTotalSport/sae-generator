@@ -3361,4 +3361,20 @@ function initPart2Features() {
 
   // ── Share button in modal ──
   // (Already handled via window.shareSae in Part 1)
+
+  // ── Help modal (Comment ça marche?) ──
+  var helpModal = document.getElementById('helpModal');
+  var btnHelp = document.getElementById('btnHelp');
+  var helpModalClose = document.getElementById('helpModalClose');
+  if (btnHelp && helpModal) {
+    btnHelp.addEventListener('click', function() {
+      helpModal.style.display = 'flex';
+    });
+    helpModalClose.addEventListener('click', function() {
+      helpModal.style.display = 'none';
+    });
+    helpModal.addEventListener('click', function(e) {
+      if (e.target === helpModal) helpModal.style.display = 'none';
+    });
+  }
 }
