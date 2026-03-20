@@ -3478,6 +3478,113 @@ function initPart2Features() {
   }
   renderEvalCriteria(); // initial render
 
+  // ── INTENTIONS PÉDAGOGIQUES PAR MOYEN D'ACTION (PFEQ) ──
+  var INTENTIONS_PFEQ = {
+    '': [
+      'Développer sa motricité globale à travers des activités variées',
+      'Améliorer sa condition physique par la pratique régulière',
+      'Apprendre à coopérer avec ses pairs en contexte sportif',
+      'Découvrir et respecter les règles du jeu',
+      'Développer sa confiance en soi par le mouvement',
+      'Adopter des comportements sécuritaires en activité physique'
+    ],
+    'Manipulation d\'objets': [
+      'Développer la coordination œil-main par la manipulation de ballons',
+      'Améliorer la précision des lancers et des réceptions',
+      'Exécuter des passes variées (à deux mains, à une main, par-dessous)',
+      'Contrôler un objet en mouvement (dribble, jonglerie)',
+      'Adapter la force et la trajectoire selon la distance',
+      'Manipuler différents objets (ballons, poches, anneaux, raquettes)',
+      'Développer la latéralité par la manipulation bilatérale',
+      'Enchaîner des actions motrices avec un objet (lancer-attraper-courir)'
+    ],
+    'Locomotion': [
+      'Développer les actions locomotrices fondamentales (courir, sauter, ramper)',
+      'Varier les déplacements selon l\'espace et les obstacles',
+      'Améliorer l\'endurance cardiovasculaire par la course',
+      'Enchaîner des sauts variés (en longueur, en hauteur, à cloche-pied)',
+      'Se déplacer efficacement dans un parcours à obstacles',
+      'Ajuster sa vitesse et sa direction selon la situation',
+      'Développer l\'agilité par des changements rapides de direction',
+      'Explorer différentes formes de déplacements (galop, pas chassés, quadrupédie)'
+    ],
+    'Stabilisation': [
+      'Maintenir son équilibre dans différentes positions (statique et dynamique)',
+      'Développer la conscience corporelle et le schéma corporel',
+      'Exécuter des rotations et des renversements de façon contrôlée',
+      'Améliorer la souplesse par des exercices d\'étirement',
+      'Développer le gainage et la force musculaire de base',
+      'Réaliser des figures d\'équilibre seul et avec un partenaire',
+      'Enchaîner des éléments gymniques simples avec fluidité',
+      'Ajuster sa posture selon la tâche demandée'
+    ],
+    'Opposition': [
+      'Développer des stratégies d\'attaque et de défense',
+      'Respecter l\'adversaire et les règles du fairplay en duel',
+      'Adapter ses actions en fonction des réactions de l\'adversaire',
+      'Apprendre à gagner et à perdre avec esprit sportif',
+      'Identifier les forces et les faiblesses de l\'adversaire',
+      'Utiliser des feintes et des changements de rythme',
+      'Maîtriser l\'espace de jeu en situation d\'opposition',
+      'Développer la combativité dans le respect de l\'intégrité physique'
+    ],
+    'Coopération': [
+      'Collaborer avec ses coéquipiers pour atteindre un objectif commun',
+      'Communiquer efficacement pendant l\'activité (verbal et non-verbal)',
+      'Élaborer et appliquer des stratégies collectives',
+      'Assumer différents rôles au sein de l\'équipe',
+      'Synchroniser ses actions avec celles de ses partenaires',
+      'Résoudre des problèmes en équipe par l\'entraide',
+      'Développer le sens des responsabilités envers le groupe',
+      'Accepter les idées des autres et faire des compromis'
+    ],
+    'Expression corporelle': [
+      'S\'exprimer par le mouvement et la gestuelle créative',
+      'Créer une séquence de mouvements sur un thème donné',
+      'Interpréter un rythme musical par le corps',
+      'Développer la créativité et l\'originalité dans le mouvement',
+      'Communiquer des émotions et des idées par la danse ou le mime',
+      'Enchaîner des mouvements avec fluidité et expressivité',
+      'Collaborer à la création d\'une chorégraphie collective',
+      'Apprécier et respecter les prestations des autres'
+    ]
+  };
+
+  function renderIntentions() {
+    var sel = document.getElementById('cr-intentions-select');
+    if (!sel) return;
+    var moyen = document.getElementById('cr-moyen')?.value || '';
+    var intentions = INTENTIONS_PFEQ[moyen] || INTENTIONS_PFEQ[''];
+    var current = sel.value;
+    sel.innerHTML = '<option value="">Choisir une intention...</option>';
+    intentions.forEach(function(intent) {
+      var opt = document.createElement('option');
+      opt.value = intent;
+      opt.textContent = intent;
+      if (intent === current) opt.selected = true;
+      sel.appendChild(opt);
+    });
+  }
+
+  // When moyen d'action changes -> update intentions
+  var moyenSelect = document.getElementById('cr-moyen');
+  if (moyenSelect) {
+    moyenSelect.addEventListener('change', renderIntentions);
+  }
+  renderIntentions();
+
+  // When intention selected -> fill textarea
+  var intentionSelect = document.getElementById('cr-intentions-select');
+  if (intentionSelect) {
+    intentionSelect.addEventListener('change', function() {
+      var textarea = document.getElementById('cr-intentions');
+      if (textarea && intentionSelect.value) {
+        textarea.value = intentionSelect.value;
+        updateLivePreview();
+      }
+    });
+  }
+
   // ── Render scale cards based on scale type ──
   var SCALES = {
     'abc': [
