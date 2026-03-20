@@ -120,6 +120,13 @@ button, input, select, textarea {
   animation: pulse 1s infinite;
 }
 
+.loading-logo-img {
+  width: 120px;
+  height: auto;
+  animation: float 2s ease-in-out infinite;
+  filter: drop-shadow(0 4px 12px rgba(0, 229, 255, 0.3));
+}
+
 .loading-text {
   font-family: 'Fredoka', sans-serif;
   font-weight: 700;
@@ -188,6 +195,12 @@ button, input, select, textarea {
 .header-zap {
   font-size: 2.5rem;
   animation: float 3s ease-in-out infinite;
+}
+
+.header-mascot {
+  width: 60px;
+  height: auto;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
 }
 
 .site-title {
@@ -564,6 +577,13 @@ button, input, select, textarea {
   justify-content: center;
   flex-shrink: 0;
   border: 3px solid rgba(255,255,255,0.3);
+}
+
+.hero-mascot {
+  width: auto;
+  height: 120px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
 }
 
 .hero-title {
