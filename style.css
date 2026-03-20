@@ -1,7 +1,7 @@
 /* ============================================================
    ZONE TOTAL SPORT — CAMP DE JOUR STYLE
    Playful, colorful, comic-style summer camp design
-   White background, comic shadows, Luckiest Guy + Patrick Hand
+   White background, comic shadows, Bangers + Comic Neue + Bubblegum Sans
    ============================================================ */
 
 /* === RESET & BASE === */
@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  font-family: 'Patrick Hand', cursive, sans-serif;
+  font-family: 'Comic Neue', cursive, sans-serif;
   background: #FFFFFF;
   color: #18181b;
   min-height: 100vh;
@@ -72,7 +72,7 @@ button, input, select, textarea {
 .text-error { color: #FF2A7A; }
 .text-secondary { color: #555; }
 .text-center { text-align: center; }
-.font-display { font-family: 'Luckiest Guy', cursive; }
+.font-display { font-family: 'Bangers', cursive; }
 .flex-center { display: flex; align-items: center; justify-content: center; }
 .gap-8 { gap: 8px; }
 .gap-12 { gap: 12px; }
@@ -94,11 +94,27 @@ button, input, select, textarea {
   pointer-events: none;
 }
 
+#gymBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: url('gym-bg.png') center center / cover no-repeat;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
 #grainOverlay {
   display: none;
 }
 
 #physicsCanvas {
+  display: none;
+}
+
+.physicsCanvasOld {
   position: fixed;
   top: 0;
   left: 0;
@@ -148,7 +164,7 @@ button, input, select, textarea {
 }
 
 .loading-text {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 2.5rem;
   letter-spacing: 0.05em;
   background: linear-gradient(135deg, #FFD700, #FF2A7A, #8B5CF6);
@@ -224,7 +240,7 @@ button, input, select, textarea {
 }
 
 .site-title {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1.8rem;
   letter-spacing: 0.03em;
   background: linear-gradient(135deg, #FFD700, #FF2A7A, #8B5CF6);
@@ -281,7 +297,7 @@ button, input, select, textarea {
 }
 
 .hstat-num {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1.3rem;
   display: block;
   line-height: 1;
@@ -332,7 +348,7 @@ button, input, select, textarea {
 }
 
 .level-badge {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   background: #8B5CF6;
   color: white;
   padding: 4px 12px;
@@ -482,7 +498,7 @@ button, input, select, textarea {
 }
 
 .hero-title {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1.8rem;
   letter-spacing: 0.03em;
   text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.15);
@@ -625,7 +641,7 @@ button, input, select, textarea {
   border: 3px solid;
   padding: 6px 16px;
   border-radius: 20px;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 0.85rem;
   letter-spacing: 0.02em;
   transition: all 0.25s ease;
@@ -736,7 +752,7 @@ button, input, select, textarea {
   left: 12px;
   background: #FF2A7A;
   color: white;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 0.7rem;
   padding: 4px 10px;
   border-radius: 8px;
@@ -767,7 +783,7 @@ button, input, select, textarea {
 }
 
 .card-title {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1.1rem;
   color: #18181b;
   letter-spacing: 0.02em;
@@ -836,7 +852,7 @@ button, input, select, textarea {
 }
 
 .moyens-title {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   color: #18181b;
   margin-bottom: 16px;
   font-size: 1.2rem;
@@ -877,7 +893,7 @@ button, input, select, textarea {
 }
 
 .moyen-label {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 0.85rem;
   color: inherit;
 }
@@ -894,7 +910,7 @@ button, input, select, textarea {
   padding: 8px 12px;
   border-left: 4px solid;
   margin-bottom: 10px;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 0.95rem;
   color: #18181b;
 }
@@ -904,7 +920,7 @@ button, input, select, textarea {
 }
 
 .moyen-cat-label {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
 }
 
 .moyen-items {
@@ -994,7 +1010,7 @@ button, input, select, textarea {
 }
 
 .modal-title {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1.5rem;
   color: #18181b;
   line-height: 1.3;
@@ -1073,7 +1089,7 @@ button, input, select, textarea {
   padding: 4px 12px;
   border-radius: 8px;
   font-size: 0.8rem;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   letter-spacing: 0.02em;
   border: 2px solid rgba(0, 0, 0, 0.1);
   background: #00E5FF;
@@ -1105,7 +1121,7 @@ button, input, select, textarea {
 }
 
 .modal-section h3 {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1rem;
   margin-bottom: 8px;
   color: #FF2A7A;
@@ -1173,7 +1189,7 @@ button, input, select, textarea {
 }
 
 .eval-level strong {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 0.9rem;
   display: block;
   margin-bottom: 4px;
@@ -1187,6 +1203,25 @@ button, input, select, textarea {
   align-items: start;
 }
 
+.creator-layout-wide {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.creator-layout-wide .creator-form {
+  width: 100%;
+}
+
+.creator-layout-wide .creator-form .form-row {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.creator-layout-wide .creator-preview {
+  position: static;
+  width: 100%;
+}
+
 .creator-form {
   background: white;
   border: 3px solid #18181b;
@@ -1196,7 +1231,7 @@ button, input, select, textarea {
 }
 
 .creator-form h3 {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1.1rem;
   color: #18181b;
   margin-bottom: 16px;
@@ -1213,7 +1248,7 @@ button, input, select, textarea {
 }
 
 .creator-preview h3 {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1.1rem;
   color: #18181b;
   margin-bottom: 16px;
@@ -1227,7 +1262,7 @@ button, input, select, textarea {
 }
 
 .preview-title {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1.3rem;
   color: #18181b;
   margin-bottom: 12px;
@@ -1251,7 +1286,7 @@ button, input, select, textarea {
 }
 
 .preview-section h4 {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 0.9rem;
   color: #FF2A7A;
   margin-bottom: 6px;
@@ -1274,7 +1309,7 @@ button, input, select, textarea {
 }
 
 .form-label {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 0.9rem;
   color: #18181b;
   margin-bottom: 8px;
@@ -1478,7 +1513,7 @@ button, input, select, textarea {
 }
 
 .mes-sae-empty h3 {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1.3rem;
   color: #18181b;
   margin-bottom: 8px;
@@ -1563,7 +1598,7 @@ button, input, select, textarea {
 }
 
 .slot-label {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1.3rem;
   color: #18181b;
   margin-bottom: 24px;
@@ -1591,7 +1626,7 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1.1rem;
   padding: 20px;
   color: #18181b;
@@ -1599,7 +1634,7 @@ button, input, select, textarea {
 }
 
 .slot-btn {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1.3rem;
   padding: 16px 48px;
   background: #FFD700;
@@ -1645,7 +1680,7 @@ button, input, select, textarea {
 .mag-btn {
   background: #FFD700;
   color: #18181b;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   padding: 14px 28px;
   border: 3px solid #18181b;
   border-radius: 12px;
@@ -1688,7 +1723,7 @@ button, input, select, textarea {
 }
 
 .taxonomy-title {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1.3rem;
   color: #18181b;
   margin-bottom: 16px;
@@ -1724,7 +1759,7 @@ button, input, select, textarea {
 }
 
 .taxonomy-card h4 {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 1rem;
   color: #18181b;
   margin-bottom: 4px;
@@ -1825,7 +1860,7 @@ button, input, select, textarea {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Bangers', cursive;
   font-size: 0.9rem;
   transition: all 0.2s ease;
   box-shadow: 3px 3px 0 #18181b;

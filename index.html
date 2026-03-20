@@ -31,7 +31,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Patrick+Hand&family=Fredoka+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&family=Bubblegum+Sans&display=swap" rel="stylesheet">
 
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
@@ -45,9 +45,9 @@
 <body>
 
   <!-- BACKGROUND ELEMENTS -->
+  <div id="gymBg" aria-hidden="true"></div>
   <canvas id="bgCanvas" aria-hidden="true"></canvas>
   <div id="grainOverlay" aria-hidden="true"></div>
-  <canvas id="physicsCanvas" aria-hidden="true"></canvas>
 
   <!-- LOADING SCREEN -->
   <div id="loading" role="status" aria-live="polite">
@@ -224,8 +224,8 @@
           <span data-i18n="orBlank">ou créer à partir de zéro</span>
         </div>
 
-        <div class="creator-layout">
-          <!-- LEFT: FORM -->
+        <div class="creator-layout-wide">
+          <!-- FORM (full width) -->
           <div class="creator-form glass">
             <h3 data-i18n="formInfoTitle">📋 Informations générales</h3>
 
