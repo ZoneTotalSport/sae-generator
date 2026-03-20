@@ -1,1393 +1,3364 @@
 // ============================================================
-//  ZONE TOTAL SPORT — APPLICATION PRINCIPALE
-//  Pop Art · Bangers Font · Cyan + Jaune + Noir
-//  TRILINGUE : FR · EN · ES
+//  ZONE TOTAL SPORT — SAÉ GENERATOR
+//  Glassmorphism · Fredoka One + Quicksand
+//  4 LANGUES : FR · EN · ES · 中文
+//  PART 1 OF 2 — Sections 1-8
 // ============================================================
 
 // ============================================================
-//  SYSTÈME TRILINGUE
+//  SECTION 1: I18N SYSTEM (4 languages)
 // ============================================================
+
 const LANG = { current: 'fr' };
 
 const I18N = {
-  // --- Loading ---
-  loading:          { fr: 'CHARGEMENT EN COURS...', en: 'LOADING...', es: 'CARGANDO...' },
-  siteSubtitle:     { fr: 'RÉFÉRENCE MONDIALE EN ÉPS · QUÉBEC', en: 'WORLD PE REFERENCE · QUÉBEC', es: 'REFERENCIA MUNDIAL EN EF · QUÉBEC' },
-  statJeux:         { fr: 'JEUX', en: 'GAMES', es: 'JUEGOS' },
-  statSae:          { fr: 'SAÉ', en: 'LSA', es: 'SEA' },
-  statPays:         { fr: 'PAYS', en: 'COUNTRIES', es: 'PAÍSES' },
-  // --- Tabs ---
-  tabJeux:          { fr: '🎮 JEUX SPORTIFS', en: '🎮 SPORT GAMES', es: '🎮 JUEGOS DEPORTIVOS' },
-  tabSae:           { fr: '📚 SAÉ PFEQ', en: '📚 LSA PFEQ', es: '📚 SEA PFEQ' },
-  tabEducatifs:     { fr: '🏋️ ÉDUCATIFS', en: '🏋️ DRILLS', es: '🏋️ EDUCATIVOS' },
-  tabMusique:       { fr: '🎵 MUSIQUES LIBRES', en: '🎵 FREE MUSIC', es: '🎵 MÚSICA LIBRE' },
-  // --- Hero sections ---
-  heroJeuxTitle:    { fr: 'BANQUE DE JEUX SPORTIFS MONDIAUX', en: 'WORLD SPORTS GAME BANK', es: 'BANCO MUNDIAL DE JUEGOS DEPORTIVOS' },
-  heroJeuxSub:      { fr: 'Tous les jeux de partout sur la planète · Référence mondiale', en: 'Every game from around the world · World reference', es: 'Todos los juegos del planeta · Referencia mundial' },
-  heroSaeTitle:     { fr: 'BANQUE DE SAÉ PFEQ', en: 'LSA LEARNING & ASSESSMENT BANK', es: 'BANCO SEA PFEQ' },
-  heroSaeSub:       { fr: 'Situations d\'Apprentissage et d\'Évaluation · Maternelle → Secondaire 5', en: 'Learning and Assessment Situations · Kindergarten → Grade 11', es: 'Situaciones de Aprendizaje y Evaluación · Preescolar → Secundaria 5' },
-  heroEduTitle:     { fr: 'BANQUE D\'ÉDUCATIFS PAR MOYENS D\'ACTION', en: 'DRILLS BY ACTION MEANS', es: 'BANCO DE EDUCATIVOS POR MEDIOS DE ACCIÓN' },
-  heroEduSub:       { fr: '100+ éducatifs par geste moteur · Maternelle → Secondaire 5', en: '100+ drills per motor skill · Kindergarten → Grade 11', es: '100+ educativos por habilidad motriz · Preescolar → Secundaria 5' },
-  heroMusiqueTitle: { fr: 'BIBLIOTHÈQUE MUSICALE LIBRE DE DROITS', en: 'ROYALTY-FREE MUSIC LIBRARY', es: 'BIBLIOTECA MUSICAL LIBRE DE DERECHOS' },
-  heroMusiqueSub:   { fr: 'Toutes les ressources musicales pour l\'ÉPS · Guide pédagogique complet', en: 'All PE music resources · Complete pedagogical guide', es: 'Todos los recursos musicales para EF · Guía pedagógica completa' },
-  // --- Filters ---
-  allCategories:    { fr: 'Toutes les catégories', en: 'All categories', es: 'Todas las categorías' },
-  allLevels:        { fr: 'Tous les niveaux', en: 'All levels', es: 'Todos los niveles' },
-  allSpaces:        { fr: 'Tous les espaces', en: 'All spaces', es: 'Todos los espacios' },
-  allIntensities:   { fr: 'Toutes les intensités', en: 'All intensities', es: 'Todas las intensidades' },
-  allCycles:        { fr: 'Tous les cycles', en: 'All cycles', es: 'Todos los ciclos' },
-  allMoyens:        { fr: 'Tous les moyens d\'action', en: 'All action means', es: 'Todos los medios de acción' },
-  allCompetences:   { fr: 'Toutes les compétences PFEQ', en: 'All PFEQ competencies', es: 'Todas las competencias PFEQ' },
-  searchJeux:       { fr: '🔍 Rechercher un jeu...', en: '🔍 Search a game...', es: '🔍 Buscar un juego...' },
-  searchSae:        { fr: '🔍 Rechercher une SAÉ...', en: '🔍 Search a LSA...', es: '🔍 Buscar una SEA...' },
-  searchEdu:        { fr: '🔍 Rechercher un éducatif...', en: '🔍 Search a drill...', es: '🔍 Buscar un educativo...' },
-  // --- Cards ---
-  seeGame:          { fr: '👉 VOIR LE JEU', en: '👉 SEE THE GAME', es: '👉 VER EL JUEGO' },
-  seeSae:           { fr: '👉 VOIR LA SAÉ', en: '👉 SEE THE LSA', es: '👉 VER LA SEA' },
-  seeDrill:         { fr: '👉 VOIR L\'ÉDUCATIF', en: '👉 SEE THE DRILL', es: '👉 VER EL EDUCATIVO' },
-  close:            { fr: '✕ FERMER', en: '✕ CLOSE', es: '✕ CERRAR' },
-  back:             { fr: '← Retour', en: '← Back', es: '← Volver' },
-  // --- Modal labels ---
-  niveau:           { fr: 'NIVEAU', en: 'LEVEL', es: 'NIVEL' },
-  duree:            { fr: 'DURÉE', en: 'DURATION', es: 'DURACIÓN' },
-  joueurs:          { fr: 'JOUEURS', en: 'PLAYERS', es: 'JUGADORES' },
-  espace:           { fr: 'ESPACE', en: 'SPACE', es: 'ESPACIO' },
-  materiel:         { fr: 'MATÉRIEL', en: 'EQUIPMENT', es: 'MATERIAL' },
-  cycle:            { fr: 'CYCLE', en: 'CYCLE', es: 'CICLO' },
-  moyenAction:      { fr: 'MOYEN D\'ACTION', en: 'ACTION MEAN', es: 'MEDIO DE ACCIÓN' },
-  difficulte:       { fr: 'DIFFICULTÉ', en: 'DIFFICULTY', es: 'DIFICULTAD' },
-  // --- Moyens d'action browser ---
-  moyensTitle:      { fr: '⚡ FILTRER PAR MOYEN D\'ACTION', en: '⚡ FILTER BY ACTION MEAN', es: '⚡ FILTRAR POR MEDIO DE ACCIÓN' },
-  // --- Éducatifs taxonomy ---
-  eduTaxTitle:      { fr: 'CHOISIR UN MOYEN D\'ACTION', en: 'CHOOSE AN ACTION MEAN', es: 'ELEGIR UN MEDIO DE ACCIÓN' },
-  noResults:        { fr: '🔍 AUCUN RÉSULTAT', en: '🔍 NO RESULTS', es: '🔍 SIN RESULTADOS' },
+  // Loading
+  loading: { fr: 'CHARGEMENT...', en: 'LOADING...', es: 'CARGANDO...', zh: '加载中...' },
+  // Header
+  statSae: { fr: 'SAÉ', en: 'LSA', es: 'SEA', zh: 'SAÉ' },
+  statJeux: { fr: 'JEUX', en: 'GAMES', es: 'JUEGOS', zh: '游戏' },
+  statMesSae: { fr: 'MES SAÉ', en: 'MY LSA', es: 'MIS SEA', zh: '我的SAÉ' },
+  // Tabs
+  tabBanque: { fr: 'BANQUE SAÉ', en: 'SAÉ BANK', es: 'BANCO SEA', zh: 'SAÉ库' },
+  tabCreateur: { fr: 'CRÉER UNE SAÉ', en: 'CREATE LSA', es: 'CREAR SEA', zh: '创建SAÉ' },
+  tabMesSae: { fr: 'MES SAÉ', en: 'MY LSA', es: 'MIS SEA', zh: '我的SAÉ' },
+  tabMachine: { fr: 'MACHINE À DÉFIS', en: 'CHALLENGE MACHINE', es: 'MÁQUINA DE RETOS', zh: '挑战机' },
+  tabJeux: { fr: 'JEUX', en: 'GAMES', es: 'JUEGOS', zh: '游戏' },
+  tabEducatifs: { fr: 'ÉDUCATIFS', en: 'DRILLS', es: 'EDUCATIVOS', zh: '训练' },
+  tabMusique: { fr: 'MUSIQUE', en: 'MUSIC', es: 'MÚSICA', zh: '音乐' },
+  // Heroes
+  heroBanqueTitle: { fr: 'BANQUE MONDIALE DE SAÉ', en: 'WORLD SAÉ BANK', es: 'BANCO MUNDIAL DE SEA', zh: '世界SAÉ库' },
+  heroBanqueSub: { fr: '1000+ Situations d\'Apprentissage et d\'Évaluation · PFEQ Québec · Maternelle → Secondaire 5', en: '1000+ Learning & Assessment Situations · PFEQ Quebec · K-11', es: '1000+ Situaciones de Aprendizaje y Evaluación · PFEQ Quebec', zh: '1000+ 学习与评估情境 · PFEQ 魁北克' },
+  heroCreateurTitle: { fr: 'CRÉER UNE SAÉ PERSONNALISÉE', en: 'CREATE A CUSTOM LSA', es: 'CREAR UNA SEA PERSONALIZADA', zh: '创建自定义SAÉ' },
+  heroCreateurSub: { fr: 'Concevez votre situation d\'apprentissage sur mesure · Conforme au PFEQ', en: 'Design your custom learning situation · PFEQ compliant', es: 'Diseñe su situación de aprendizaje · Conforme al PFEQ', zh: '设计你的定制学习情境 · 符合PFEQ' },
+  heroMesSaeTitle: { fr: 'MES SAÉ SAUVEGARDÉES', en: 'MY SAVED LSA', es: 'MIS SEA GUARDADAS', zh: '我保存的SAÉ' },
+  heroMesSaeSub: { fr: 'Retrouvez, modifiez et exportez vos créations', en: 'Find, edit and export your creations', es: 'Encuentre, edite y exporte sus creaciones', zh: '查找、编辑和导出您的创作' },
+  heroMachineTitle: { fr: 'MACHINE À DÉFIS SPORTIFS', en: 'SPORTS CHALLENGE MACHINE', es: 'MÁQUINA DE RETOS DEPORTIVOS', zh: '体育挑战机' },
+  heroMachineSub: { fr: 'Tire au sort une SAÉ aléatoire · Effet slot machine!', en: 'Draw a random SAÉ · Slot machine effect!', es: 'Sortea una SEA aleatoria · ¡Efecto tragamonedas!', zh: '随机抽取SAÉ · 老虎机效果！' },
+  heroJeuxTitle: { fr: 'BANQUE DE JEUX SPORTIFS MONDIAUX', en: 'WORLD SPORTS GAME BANK', es: 'BANCO MUNDIAL DE JUEGOS', zh: '世界体育游戏库' },
+  heroJeuxSub: { fr: '1000+ jeux de partout sur la planète', en: '1000+ games from around the world', es: '1000+ juegos de todo el mundo', zh: '1000+ 来自世界各地的游戏' },
+  heroEduTitle: { fr: 'BANQUE D\'ÉDUCATIFS', en: 'DRILLS BANK', es: 'BANCO DE EDUCATIVOS', zh: '训练库' },
+  heroEduSub: { fr: '1000+ éducatifs par moyens d\'action', en: '1000+ drills by action means', es: '1000+ educativos por medios de acción', zh: '1000+ 按行动手段分类的训练' },
+  heroMusiqueTitle: { fr: 'BIBLIOTHÈQUE MUSICALE', en: 'MUSIC LIBRARY', es: 'BIBLIOTECA MUSICAL', zh: '音乐库' },
+  heroMusiqueSub: { fr: 'Musiques libres de droits pour l\'ÉPS', en: 'Royalty-free music for PE', es: 'Música libre de derechos para EF', zh: '体育教育免版税音乐' },
+  // Filters
+  searchSae: { fr: '🔍 Rechercher une SAÉ...', en: '🔍 Search LSA...', es: '🔍 Buscar SEA...', zh: '🔍 搜索SAÉ...' },
+  allCycles: { fr: 'Tous les cycles', en: 'All cycles', es: 'Todos los ciclos', zh: '所有周期' },
+  allMoyens: { fr: 'Tous les moyens d\'action', en: 'All action means', es: 'Todos los medios', zh: '所有行动手段' },
+  allCompetences: { fr: 'Toutes les compétences', en: 'All competencies', es: 'Todas las competencias', zh: '所有能力' },
+  moyensTitle: { fr: '⚡ FILTRER PAR MOYEN D\'ACTION', en: '⚡ FILTER BY ACTION MEAN', es: '⚡ FILTRAR POR MEDIO', zh: '⚡ 按行动手段筛选' },
+  favFilter: { fr: '☆ Favoris', en: '☆ Favorites', es: '☆ Favoritos', zh: '☆ 收藏' },
+  // Creator
+  btnSave: { fr: '💾 SAUVEGARDER MA SAÉ', en: '💾 SAVE MY LSA', es: '💾 GUARDAR MI SEA', zh: '💾 保存我的SAÉ' },
+  btnPreview: { fr: '👁️ PRÉVISUALISER', en: '👁️ PREVIEW', es: '👁️ PREVISUALIZAR', zh: '👁️ 预览' },
+  btnReset: { fr: '🗑️ RÉINITIALISER', en: '🗑️ RESET', es: '🗑️ REINICIAR', zh: '🗑️ 重置' },
+  btnExportAll: { fr: '📤 Exporter tout (JSON)', en: '📤 Export all (JSON)', es: '📤 Exportar todo (JSON)', zh: '📤 导出全部(JSON)' },
+  btnImport: { fr: '📥 Importer', en: '📥 Import', es: '📥 Importar', zh: '📥 导入' },
+  noSaeSaved: { fr: 'Aucune SAÉ sauvegardée', en: 'No saved LSA', es: 'Ninguna SEA guardada', zh: '没有保存的SAÉ' },
+  noSaeSavedSub: { fr: 'Créez votre première SAÉ ou dupliquez-en une depuis la banque!', en: 'Create your first LSA or duplicate one from the bank!', es: '¡Cree su primera SEA o duplique una del banco!', zh: '创建你的第一个SAÉ或从库中复制一个！' },
+  slotLabel: { fr: '🎯 PRÊT À RELEVER LE DÉFI?', en: '🎯 READY FOR A CHALLENGE?', es: '🎯 ¿LISTO PARA EL RETO?', zh: '🎯 准备好迎接挑战了吗？' },
+  slotBtn: { fr: '🎰 TIRER AU SORT!', en: '🎰 SPIN!', es: '🎰 ¡GIRAR!', zh: '🎰 旋转！' },
+  uploadText: { fr: 'Glissez vos fichiers ici ou cliquez pour parcourir', en: 'Drop files here or click to browse', es: 'Arrastre archivos aquí o haga clic', zh: '将文件拖到这里或点击浏览' },
+  back: { fr: 'Retour', en: 'Back', es: 'Volver', zh: '返回' },
+  close: { fr: '✕ FERMER', en: '✕ CLOSE', es: '✕ CERRAR', zh: '✕ 关闭' },
+  linkCopied: { fr: 'Lien copié !', en: 'Link copied!', es: '¡Enlace copiado!', zh: '链接已复制！' },
+  saeSaved: { fr: 'SAÉ sauvegardée !', en: 'LSA saved!', es: '¡SEA guardada!', zh: 'SAÉ已保存！' },
+  saeDeleted: { fr: 'SAÉ supprimée', en: 'LSA deleted', es: 'SEA eliminada', zh: 'SAÉ已删除' },
+  confirmDelete: { fr: 'Supprimer cette SAÉ ?', en: 'Delete this LSA?', es: '¿Eliminar esta SEA?', zh: '删除这个SAÉ？' },
+  previewEmpty: { fr: 'Commencez à remplir le formulaire...', en: 'Start filling the form...', es: 'Empiece a llenar el formulario...', zh: '开始填写表单...' },
+  // Modal section labels
+  mIntentions: { fr: '🎯 Intentions pédagogiques', en: '🎯 Pedagogical intentions', es: '🎯 Intenciones pedagógicas', zh: '🎯 教学目标' },
+  mContexte: { fr: '📖 Mise en contexte', en: '📖 Context', es: '📖 Contexto', zh: '📖 背景' },
+  mMiseEnTrain: { fr: '🏃 Phase 1 — Échauffement', en: '🏃 Phase 1 — Warm-up', es: '🏃 Fase 1 — Calentamiento', zh: '🏃 第1阶段 — 热身' },
+  mPartie1: { fr: '⚡ Phase 2 — Développement', en: '⚡ Phase 2 — Development', es: '⚡ Fase 2 — Desarrollo', zh: '⚡ 第2阶段 — 发展' },
+  mPartie2: { fr: '🔄 Phase 3 — Réinvestissement', en: '🔄 Phase 3 — Reinvestment', es: '🔄 Fase 3 — Reinversión', zh: '🔄 第3阶段 — 再投入' },
+  mRetour: { fr: '🧘 Phase 4 — Retour au calme', en: '🧘 Phase 4 — Cool-down', es: '🧘 Fase 4 — Vuelta a la calma', zh: '🧘 第4阶段 — 放松' },
+  mEvaluation: { fr: '📊 Évaluation', en: '📊 Assessment', es: '📊 Evaluación', zh: '📊 评估' },
+  mAdaptations: { fr: '♿ Adaptations HDAA', en: '♿ Special needs adaptations', es: '♿ Adaptaciones NEE', zh: '♿ 特殊需求适应' },
+  mVariantes: { fr: '🔀 Variantes', en: '🔀 Variations', es: '🔀 Variantes', zh: '🔀 变体' },
+  mMateriel: { fr: '🎒 Matériel', en: '🎒 Equipment', es: '🎒 Material', zh: '🎒 设备' },
+  mValeurs: { fr: '❤️ Valeurs éducatives', en: '❤️ Educational values', es: '❤️ Valores educativos', zh: '❤️ 教育价值' },
+  duplicateSae: { fr: '📋 Dupliquer comme modèle', en: '📋 Duplicate as template', es: '📋 Duplicar como plantilla', zh: '📋 复制为模板' },
+  // Extra labels used in modals / rendering
+  niveau: { fr: 'NIVEAU', en: 'LEVEL', es: 'NIVEL', zh: '级别' },
+  duree: { fr: 'DURÉE', en: 'DURATION', es: 'DURACIÓN', zh: '时长' },
+  competence: { fr: 'COMPÉTENCE', en: 'COMPETENCY', es: 'COMPETENCIA', zh: '能力' },
+  moyenAction: { fr: 'MOYEN D\'ACTION', en: 'ACTION MEAN', es: 'MEDIO DE ACCIÓN', zh: '行动手段' },
+  espace: { fr: 'ESPACE', en: 'SPACE', es: 'ESPACIO', zh: '空间' },
+  nbEleves: { fr: 'ÉLÈVES', en: 'STUDENTS', es: 'ALUMNOS', zh: '学生' },
+  print: { fr: '🖨️ Imprimer', en: '🖨️ Print', es: '🖨️ Imprimir', zh: '🖨️ 打印' },
+  share: { fr: '🔗 Partager', en: '🔗 Share', es: '🔗 Compartir', zh: '🔗 分享' },
+  noResults: { fr: '🔍 AUCUN RÉSULTAT', en: '🔍 NO RESULTS', es: '🔍 SIN RESULTADOS', zh: '🔍 没有结果' },
+  eduTaxTitle: { fr: 'CHOISIR UN MOYEN D\'ACTION', en: 'CHOOSE AN ACTION MEAN', es: 'ELEGIR UN MEDIO DE ACCIÓN', zh: '选择行动手段' },
+  seeGame: { fr: '👉 VOIR LE JEU', en: '👉 SEE THE GAME', es: '👉 VER EL JUEGO', zh: '👉 查看游戏' },
+  seeSae: { fr: '👉 VOIR LA SAÉ', en: '👉 SEE THE LSA', es: '👉 VER LA SEA', zh: '👉 查看SAÉ' },
+  templateLabel: { fr: '📋 Partir d\'un modèle existant :', en: '📋 Start from a template:', es: '📋 Partir de una plantilla:', zh: '📋 从模板开始：' },
+  orBlank: { fr: 'ou créer à partir de zéro', en: 'or create from scratch', es: 'o crear desde cero', zh: '或从零开始' },
+  formInfoTitle: { fr: '📋 Informations générales', en: '📋 General information', es: '📋 Información general', zh: '📋 基本信息' },
+  formDeroulementTitle: { fr: '🏃 Déroulement de la SAÉ', en: '🏃 SAÉ Steps', es: '🏃 Desarrollo de la SEA', zh: '🏃 SAÉ流程' },
+  formEvalTitle: { fr: '📊 Évaluation', en: '📊 Assessment', es: '📊 Evaluación', zh: '📊 评估' },
+  formAdaptTitle: { fr: '♿ Adaptations et Variantes', en: '♿ Adaptations & Variations', es: '♿ Adaptaciones y Variantes', zh: '♿ 适应与变体' },
+  formFilesTitle: { fr: '📎 Fichiers joints', en: '📎 Attached files', es: '📎 Archivos adjuntos', zh: '📎 附件' },
+  previewTitle: { fr: '👁️ PRÉVISUALISATION EN DIRECT', en: '👁️ LIVE PREVIEW', es: '👁️ PREVISUALIZACIÓN EN VIVO', zh: '👁️ 实时预览' },
 };
 
 function t(key) {
-  const entry = I18N[key];
-  if (!entry) return key;
-  return entry[LANG.current] || entry.fr;
+  return I18N[key]?.[LANG.current] || I18N[key]?.fr || key;
 }
 
 function setLang(lang) {
   LANG.current = lang;
   document.getElementById('htmlRoot').lang = lang;
-  document.getElementById('btnFR').classList.toggle('active', lang === 'fr');
-  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
-  document.getElementById('btnES').classList.toggle('active', lang === 'es');
-  applyI18N();
-  renderJeux();
-  renderSAE();
-  renderMoyensBrowser();
-  renderEduTaxonomy();
-  renderMusique();
-}
 
-function applyI18N() {
-  // Static UI text
-  document.getElementById('loadingMsg').textContent    = t('loading');
-  document.getElementById('siteSubtitle').textContent  = t('siteSubtitle');
-  document.getElementById('statLabelJeux').textContent = t('statJeux');
-  document.getElementById('statLabelSae').textContent  = t('statSae');
-  document.getElementById('statLabelPays').textContent = t('statPays');
-  document.getElementById('tabJeux').textContent       = t('tabJeux');
-  document.getElementById('tabSae').textContent        = t('tabSae');
-  document.getElementById('tabEducatifs').textContent  = t('tabEducatifs');
-  document.getElementById('tabMusique').textContent    = t('tabMusique');
-  document.getElementById('heroJeuxTitle').textContent = t('heroJeuxTitle');
-  document.getElementById('heroJeuxSub').textContent   = t('heroJeuxSub');
-  document.getElementById('heroSaeTitle').textContent  = t('heroSaeTitle');
-  document.getElementById('heroSaeSub').textContent    = t('heroSaeSub');
-  document.getElementById('heroEducatifsTitle').textContent = t('heroEduTitle');
-  document.getElementById('heroEducatifsSub').textContent   = t('heroEduSub');
-  document.getElementById('heroMusiqueTitle').textContent   = t('heroMusiqueTitle');
-  document.getElementById('heroMusiqueSub').textContent     = t('heroMusiqueSub');
-  document.getElementById('moyensTitle').textContent   = t('moyensTitle');
-  document.getElementById('jeux-search').placeholder   = t('searchJeux');
-  document.getElementById('sae-search').placeholder    = t('searchSae');
-  document.getElementById('edu-search').placeholder    = t('searchEdu');
-  document.getElementById('eduBackLabel').textContent  = t('back').replace('← ', '');
-}
+  // Update language buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const isActive = btn.dataset.lang === lang;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
 
-// ============================================================
-//  TAXONOMIE COMPLÈTE DES MOYENS D'ACTION
-// ============================================================
-const MOYENS_ACTION = [
-  // ────── MANIPULATION D'OBJETS ──────
-  {
-    categorie: { fr: 'Manipulation d\'objets', en: 'Object Manipulation', es: 'Manipulación de objetos' },
-    icon: '🎯', color: '#CC0000',
-    items: [
-      { id: 'balle',    icon: '⚾', color: '#FF4444', fr: 'Balles',             en: 'Balls',              es: 'Pelotas',
-        gestes_fr: ['Lancer par-dessus l\'épaule','Lancer en dessous','Attraper à deux mains','Attraper à une main','Faire rebondir','Rouler','Lancer avec précision','Attraper en mouvement'] },
-      { id: 'ballon',   icon: '⚽', color: '#E17055', fr: 'Ballons',            en: 'Sport Balls',        es: 'Balones',
-        gestes_fr: ['Passe à deux mains','Passe à une main','Tir au but','Service','Botter','Contrôle de balle','Dribble pied','Jongler avec le pied'] },
-      { id: 'raquette', icon: '🏸', color: '#2980B9', fr: 'Raquettes',          en: 'Rackets',            es: 'Raquetas',
-        gestes_fr: ['Frapper au-dessus de la tête','Coup droit','Revers','Amorti','Service badminton','Lob','Smash','Frappe en mouvement'] },
-      { id: 'baton',    icon: '🏒', color: '#8E44AD', fr: 'Bâtons',             en: 'Sticks',             es: 'Bastones',
-        gestes_fr: ['Passe au bâton','Tir au bâton','Dribble au bâton','Réception bâton','Lancer avec lacrosse','Conduite de rondelle','Protection de balle','Tir en mouvement'] },
-      { id: 'corde',    icon: '🪢', color: '#6C5CE7', fr: 'Cordes',             en: 'Jump Ropes',         es: 'Cuerdas',
-        gestes_fr: ['Sauter à la corde seul','Entrer dans la corde en mouvement','Double Dutch','Longue corde à deux','Tourner la corde','Sauts variés (pieds joints, alternés)','Sauter en équipe','Corde rythmique'] },
-      { id: 'cerceau',  icon: '⭕', color: '#00B894', fr: 'Cerceaux',            en: 'Hoops',              es: 'Aros',
-        gestes_fr: ['Hula hoop debout','Hula hoop assis','Rouler le cerceau','Lancer le cerceau','Sauter dans les cerceaux','Faire tourner sur bras','Cerceau sur sol (cibles)','Parcours de cerceaux'] },
-      { id: 'frisbee',  icon: '🥏', color: '#00CEC9', fr: 'Frisbee',            en: 'Frisbee',            es: 'Frisbee',
-        gestes_fr: ['Lancer revers','Lancer coup droit','Attraper frisbee','Lancer avec courbe','Lancer en plongée','Lancer avec précision (cibles)','Attraper en mouvement','Frisbee golf'] },
-      { id: 'cirque',   icon: '🎪', color: '#FDCB6E', fr: 'Articles de cirque', en: 'Circus Arts',        es: 'Artes de circo',
-        gestes_fr: ['Jongler 1 balle','Jongler 2 balles','Jongler 3 balles','Diabolo initiation','Assiette chinoise','Bâton du diable','Équilibre objets','Balle au contact'] },
-      { id: 'foulard',  icon: '🎀', color: '#E84393', fr: 'Foulards et rubans', en: 'Scarves & Ribbons',  es: 'Pañuelos y cintas',
-        gestes_fr: ['Agiter le foulard','Lancer et attraper foulard','Danse avec ruban','Foulard en air','Jeu de flag','Attraper le foulard adverse','Danse collective foulards','Expression foulard'] },
-    ]
-  },
-  // ────── LOCOMOTION ──────
-  {
-    categorie: { fr: 'Locomotion', en: 'Locomotion', es: 'Locomoción' },
-    icon: '🏃', color: '#00B0A0',
-    items: [
-      { id: 'courir',   icon: '🏃', color: '#00CEC9', fr: 'Courir',             en: 'Running',            es: 'Correr',
-        gestes_fr: ['Sprint (départ arrêté)','Sprint (départ lancé)','Course d\'endurance','Course en slalom','Course en navette (shuttle)','Course avec changement de direction','Relais','Fartlek'] },
-      { id: 'sauter',   icon: '🦘', color: '#F39C12', fr: 'Sauter',             en: 'Jumping',            es: 'Saltar',
-        gestes_fr: ['Saut à pieds joints','Saut sur un pied','Saut en longueur','Saut en hauteur','Saut à la corde','Sauts combinés (triple)','Saut de côté','Sauter par-dessus obstacle'] },
-      { id: 'ramper',   icon: '🐛', color: '#27AE60', fr: 'Ramper et rouler',   en: 'Crawling & Rolling', es: 'Gatear y rodar',
-        gestes_fr: ['Roulade avant','Roulade arrière','Ramper sur le ventre','Ramper sur le dos','Rouler de côté','Rouler sur banc suédois','Se déplacer au sol','Course à quatre pattes'] },
-      { id: 'grimper',  icon: '🧗', color: '#D63031', fr: 'Grimper',            en: 'Climbing',           es: 'Trepar',
-        gestes_fr: ['Grimper corde lisse','Grimper corde à nœuds','Grimper mur d\'escalade','Grimper cage à barreaux','Traversée latérale','Grimper et descendre','Grimper avec les pieds','Traversée horizontale'] },
-      { id: 'esquiver', icon: '💨', color: '#0984E3', fr: 'Esquiver et changer direction', en: 'Dodging', es: 'Esquivar',
-        gestes_fr: ['Changement de direction gauche/droite','Feinte de corps','Esquive d\'un projectile','Virage en courant','Stop and go','Déplacement latéral','Reculer rapidement','Zigzag sous obstacles'] },
-    ]
-  },
-  // ────── STABILISATION & MOBILITÉ ──────
-  {
-    categorie: { fr: 'Stabilisation et mobilité', en: 'Stability & Mobility', es: 'Estabilización y movilidad' },
-    icon: '⚖️', color: '#6C5CE7',
-    items: [
-      { id: 'equilibre',    icon: '⚖️', color: '#6C5CE7', fr: 'Équilibre',           en: 'Balance',          es: 'Equilibrio',
-        gestes_fr: ['Équilibre sur un pied (statique)','Équilibre sur pointes','Équilibre en déplacement','Marcher sur poutre','Équilibre sur objets instables','Position de yoga','Équilibre yeux fermés','Équilibre avec partenaire'] },
-      { id: 'souplesse',    icon: '🤸', color: '#FD79A8', fr: 'Souplesse et flexibilité', en: 'Flexibility',   es: 'Flexibilidad',
-        gestes_fr: ['Étirement ischio-jambiers','Grand écart (travail progressif)','Pont','Rotation du tronc','Flexion latérale','Étirement épaules','Souplesse cervicale','Yoga postures'] },
-      { id: 'gainage',      icon: '💪', color: '#E17055', fr: 'Gainage et force',     en: 'Core & Strength',  es: 'Fuerza y core',
-        gestes_fr: ['Planche (plank)','Pompes adaptées','Abdominaux','Gainage latéral','Superman','Squat','Fentes','Gainage dynamique'] },
-      { id: 'coordination', icon: '🎯', color: '#FDCB6E', fr: 'Coordination et rythme', en: 'Coordination',  es: 'Coordinación',
-        gestes_fr: ['Coordination œil-main','Coordination pied-main','Frappe rythmique','Séquence de mouvements','Coordination bilatérale','Suivre le rythme','Échelles de coordination','Sauter en rythme'] },
-    ]
-  },
-  // ────── OPPOSITION ──────
-  {
-    categorie: { fr: 'Opposition', en: 'Opposition', es: 'Oposición' },
-    icon: '⚔️', color: '#D63031',
-    items: [
-      { id: 'lutte',     icon: '🤼', color: '#CC0000', fr: 'Lutte et contact',    en: 'Wrestling & Contact', es: 'Lucha y contacto',
-        gestes_fr: ['Déstabiliser l\'adversaire','Résistance de bras','Tiré/poussé debout','Lutte au sol sécuritaire','Sumo simplifié','Tir à la bûche','Bras de fer','Lutte assis'] },
-      { id: 'duel',      icon: '⚔️', color: '#8E44AD', fr: 'Duel avec instrument', en: 'Instrument Duel',    es: 'Duelo con instrumento',
-        gestes_fr: ['Escrime bâton mousse','Boxe mousse','Badminton duel','Tennis de table duel','Pickleball duel','Duel de raquettes','Tir à l\'arc (cibles)','Pétanque duel'] },
-      { id: 'territoire',icon: '🏰', color: '#E17055', fr: 'Jeux de territoire',   en: 'Territory Games',    es: 'Juegos de territorio',
-        gestes_fr: ['Défendre sa zone','Attaquer la zone adverse','Capture de drapeau','Tag de territoire','Occuper l\'espace','Défense en 1v1','Marquage d\'un adversaire','Transition attaque/défense'] },
-    ]
-  },
-  // ────── COOPÉRATION ──────
-  {
-    categorie: { fr: 'Coopération', en: 'Cooperation', es: 'Cooperación' },
-    icon: '🤝', color: '#007A4D',
-    items: [
-      { id: 'communication', icon: '📣', color: '#00B894', fr: 'Communication et confiance', en: 'Communication & Trust', es: 'Comunicación y confianza',
-        gestes_fr: ['Communication verbale en jeu','Communication non verbale','Chute de confiance (trust fall)','Guider un partenaire yeux fermés','Signal non verbal d\'équipe','Écoute active en mouvement','Communication en relais','Feedback entre partenaires'] },
-      { id: 'strategie',    icon: '♟️', color: '#2980B9', fr: 'Stratégie d\'équipe',        en: 'Team Strategy',       es: 'Estrategia de equipo',
-        gestes_fr: ['Créer des espaces libres','Décoder la défense adverse','Prise de décision rapide','Mouvement sans ballon','Transition rapide','Couverture défensive','Appel de balle','Communication tactique'] },
-      { id: 'construction', icon: '🏗️', color: '#F39C12', fr: 'Construction collaborative', en: 'Collaborative Building', es: 'Construcción colaborativa',
-        gestes_fr: ['Pyramide humaine (niveau 1)','Pyramide à 3','Acrosport figure à 2','Tableau vivant','Construction avec matériel','Défi de construction collective','Parcours collectif','Tour la plus haute'] },
-    ]
-  },
-  // ────── EXPRESSION CORPORELLE ──────
-  {
-    categorie: { fr: 'Expression corporelle', en: 'Body Expression', es: 'Expresión corporal' },
-    icon: '💃', color: '#E84393',
-    items: [
-      { id: 'danse',     icon: '💃', color: '#E84393', fr: 'Danse et rythme',     en: 'Dance & Rhythm',    es: 'Danza y ritmo',
-        gestes_fr: ['Frapper le rythme','Marcher en rythme','Séquence de danse 4 temps','Hip-hop moves de base','Danse en miroir','Impro sur la musique','Danse folklorique','Danse en cercle'] },
-      { id: 'mime',      icon: '🎭', color: '#8E44AD', fr: 'Mime et théâtre',      en: 'Mime & Theater',    es: 'Mimo y teatro',
-        gestes_fr: ['Mime d\'un sport','Mime d\'un animal','Séquence de mime','Théâtre de gestes','Exprimer une émotion par le corps','Mime en groupe','Scène muette sportive','Personnage en mouvement'] },
-      { id: 'acrosport', icon: '🤸', color: '#CC0000', fr: 'Acrosport',            en: 'Acrosport',         es: 'Acrosport',
-        gestes_fr: ['Figure de base à 2 (sol)','Portée à 2','Figure à 3','Tableau vivant acrosport','Enchaînement de figures','Figure avec équilibre','Acrosport musical','Pyramide de groupe'] },
-    ]
-  },
-];
+  // Update all data-i18n elements (textContent)
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (I18N[key]) {
+      el.textContent = t(key);
+    }
+  });
 
-// ============================================================
-//  ILLUSTRATIONS SVG POP ART (inline)
-// ============================================================
-const SVG_ILLUS = {
-  balle:       { bg: '#FF4444', emoji: '⚾' },
-  ballon:      { bg: '#E17055', emoji: '⚽' },
-  raquette:    { bg: '#2980B9', emoji: '🏸' },
-  baton:       { bg: '#8E44AD', emoji: '🏒' },
-  corde:       { bg: '#6C5CE7', emoji: '🪢' },
-  cerceau:     { bg: '#00B894', emoji: '⭕' },
-  frisbee:     { bg: '#00CEC9', emoji: '🥏' },
-  cirque:      { bg: '#FDCB6E', emoji: '🎪' },
-  foulard:     { bg: '#E84393', emoji: '🎀' },
-  courir:      { bg: '#00CEC9', emoji: '🏃' },
-  sauter:      { bg: '#F39C12', emoji: '🦘' },
-  ramper:      { bg: '#27AE60', emoji: '🐛' },
-  grimper:     { bg: '#D63031', emoji: '🧗' },
-  esquiver:    { bg: '#0984E3', emoji: '💨' },
-  equilibre:   { bg: '#6C5CE7', emoji: '⚖️' },
-  souplesse:   { bg: '#FD79A8', emoji: '🤸' },
-  gainage:     { bg: '#E17055', emoji: '💪' },
-  coordination:{ bg: '#FDCB6E', emoji: '🎯' },
-  lutte:       { bg: '#CC0000', emoji: '🤼' },
-  duel:        { bg: '#8E44AD', emoji: '⚔️' },
-  territoire:  { bg: '#E17055', emoji: '🏰' },
-  communication:{ bg:'#00B894', emoji: '📣' },
-  strategie:   { bg: '#2980B9', emoji: '♟️' },
-  construction:{ bg: '#F39C12', emoji: '🏗️' },
-  danse:       { bg: '#E84393', emoji: '💃' },
-  mime:        { bg: '#8E44AD', emoji: '🎭' },
-  acrosport:   { bg: '#CC0000', emoji: '🤸' },
-  // catégories jeux
-  ballon_chasseur:  { bg: '#CC0000', emoji: '🎯' },
-  poursuite:        { bg: '#00B0A0', emoji: '🏃' },
-  cooperation:      { bg: '#007A4D', emoji: '🤝' },
-  opposition:       { bg: '#D63031', emoji: '⚔️' },
-  sports_collectifs:{ bg: '#E17055', emoji: '🏅' },
-  sans_materiel:    { bg: '#6C5CE7', emoji: '🙌' },
-  exterieur:        { bg: '#27AE60', emoji: '🌿' },
-  traditionnels_monde:{ bg: '#F39C12', emoji: '🌍' },
-  sports_individuels: { bg: '#8E44AD', emoji: '🏋️' },
-  autochtones:        { bg: '#C0392B', emoji: '🪶' },
-  avec_materiel:      { bg: '#2980B9', emoji: '🏸' },
-  olympiques:         { bg: '#F1C40F', emoji: '🥇' },
-  afrique_asie_oceanie:{ bg:'#16A085', emoji: '🌏' },
-  ameriques_europe:   { bg: '#2471A3', emoji: '🌎' },
-  prescolaire_jeux:   { bg: '#27AE60', emoji: '🌱' },
-  secondaire_jeux:    { bg: '#1ABC9C', emoji: '🎓' },
-};
+  // Update all data-i18n-placeholder elements
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    if (I18N[key]) {
+      el.placeholder = t(key);
+    }
+  });
 
-function getIllus(key) {
-  return SVG_ILLUS[key] || { bg: '#00CCFF', emoji: '🎮' };
-}
-
-// ============================================================
-//  CHEMINS DES DONNÉES
-// ============================================================
-const JEUX_SOURCES = [
-  { key: 'ballon_chasseur',     path: 'data/jeux/ballon_chasseur.json',    label: { fr: 'Ballon Chasseur', en: 'Dodgeball', es: 'Balón Prisionero' }, icon: '🎯', barClass: 'bar-bc',        badgeClass: 'badge-bc',        catPillColor: '#CC0000' },
-  { key: 'poursuite',           path: 'data/jeux/poursuite.json',          label: { fr: 'Poursuite',        en: 'Tag',        es: 'Persecución'      }, icon: '🏃', barClass: 'bar-poursuite', badgeClass: 'badge-poursuite', catPillColor: '#00B0A0' },
-  { key: 'cooperation',         path: 'data/jeux/cooperation.json',        label: { fr: 'Coopération',      en: 'Cooperation',es: 'Cooperación'      }, icon: '🤝', barClass: 'bar-coop',      badgeClass: 'badge-coop',      catPillColor: '#007A4D' },
-  { key: 'opposition',          path: 'data/jeux/opposition.json',         label: { fr: 'Opposition',       en: 'Opposition', es: 'Oposición'        }, icon: '⚔️', barClass: 'bar-oppo',      badgeClass: 'badge-oppo',      catPillColor: '#D63031' },
-  { key: 'sports_collectifs',   path: 'data/jeux/sports_collectifs.json',  label: { fr: 'Sports Collectifs',en: 'Team Sports',es: 'Deportes Colectivos'}, icon: '🏅', barClass: 'bar-collectif', badgeClass: 'badge-collectif', catPillColor: '#E17055' },
-  { key: 'sans_materiel',       path: 'data/jeux/sans_materiel.json',      label: { fr: 'Sans Matériel',    en: 'No Equipment',es: 'Sin Material'    }, icon: '🙌', barClass: 'bar-sans',      badgeClass: 'badge-sans',      catPillColor: '#6C5CE7' },
-  { key: 'exterieur',           path: 'data/jeux/exterieur.json',          label: { fr: 'Extérieur',        en: 'Outdoor',    es: 'Exterior'         }, icon: '🌿', barClass: 'bar-vert',      badgeClass: 'badge-vert',      catPillColor: '#27AE60' },
-  { key: 'traditionnels_monde', path: 'data/jeux/traditionnels_monde.json',label: { fr: 'Jeux du Monde',    en: 'World Games',es: 'Juegos del Mundo' }, icon: '🌍', barClass: 'bar-monde',     badgeClass: 'badge-monde',     catPillColor: '#F39C12' },
-  { key: 'sports_individuels',  path: 'data/jeux/sports_individuels.json', label: { fr: 'Sports Individuels',en:'Individual Sports',es:'Deportes Individuales'}, icon: '🏋️', barClass: 'bar-indiv', badgeClass: 'badge-indiv', catPillColor: '#8E44AD' },
-  { key: 'autochtones',         path: 'data/jeux/jeux_autochtones.json',   label: { fr: 'Jeux Autochtones', en: 'Indigenous Games',es:'Juegos Indígenas'}, icon: '🪶', barClass: 'bar-auto',  badgeClass: 'badge-auto',  catPillColor: '#C0392B' },
-  { key: 'avec_materiel',       path: 'data/jeux/jeux_avec_materiel.json', label: { fr: 'Avec Matériel',    en: 'With Equipment',es:'Con Material'    }, icon: '🏸', barClass: 'bar-mat',       badgeClass: 'badge-mat',       catPillColor: '#2980B9' },
-  { key: 'olympiques',          path: 'data/jeux/jeux_olympiques_paralympiques.json', label: { fr: 'Olympiques & Para',en:'Olympics & Para',es:'Olímpicos & Para'}, icon: '🥇', barClass: 'bar-olym', badgeClass: 'badge-olym', catPillColor: '#F1C40F' },
-  { key: 'afrique_asie_oceanie',path: 'data/jeux/jeux_afrique_asie_oceanie.json', label: { fr: 'Afrique·Asie·Océanie',en:'Africa·Asia·Oceania',es:'África·Asia·Oceanía'}, icon: '🌏', barClass: 'bar-aao', badgeClass: 'badge-aao', catPillColor: '#16A085' },
-  { key: 'ameriques_europe',    path: 'data/jeux/jeux_ameriques_europe.json',     label: { fr: 'Amériques·Europe',en:'Americas·Europe',es:'Américas·Europa'}, icon: '🌎', barClass: 'bar-ame', badgeClass: 'badge-ame', catPillColor: '#2471A3' },
-  { key: 'prescolaire_jeux',    path: 'data/jeux/jeux_prescolaire.json',   label: { fr: 'Préscolaire',      en: 'Preschool',  es: 'Preescolar'       }, icon: '🌱', barClass: 'bar-presc',     badgeClass: 'badge-presc',     catPillColor: '#27AE60' },
-  { key: 'secondaire_jeux',     path: 'data/jeux/jeux_secondaire.json',    label: { fr: 'Secondaire',       en: 'High School',es: 'Secundaria'       }, icon: '🎓', barClass: 'bar-sec',       badgeClass: 'badge-sec',       catPillColor: '#1ABC9C' },
-];
-
-const SAE_SOURCES = [
-  {
-    key: 'prescolaire',
-    path: 'data/sae/prescolaire.json',
-    label: 'Préscolaire', cycle: 'Préscolaire'
-  },
-  {
-    key: 'primaire',
-    path: 'data/sae/primaire.json',
-    label: 'Primaire', cycle: 'Primaire'
-  },
-  {
-    key: 'secondaire',
-    path: 'data/sae/secondaire.json',
-    label: 'Secondaire', cycle: 'Secondaire'
-  },
-  {
-    key: 'cooperation',
-    path: 'data/sae/cooperation.json',
-    label: 'Coopération', cycle: 'Primaire', arrayKey: 'saes'
-  },
-  {
-    key: 'collectifs',
-    path: 'data/sae/collectifs.json',
-    label: 'Sports Collectifs', cycle: 'Secondaire', arrayKey: 'saes'
-  },
-  {
-    key: 'opposition',
-    path: 'data/sae/opposition.json',
-    label: 'Opposition', cycle: 'Secondaire'
-  },
-  {
-    key: 'dodgeball',
-    path: 'data/sae/dodgeball.json',
-    label: 'Ballon Chasseur', cycle: 'Primaire/Secondaire'
-  },
-  {
-    key: 'locomotion',
-    path: 'data/sae/locomotion.json',
-    label: 'Locomotion', cycle: 'Primaire'
-  },
-  {
-    key: 'mobilite',
-    path: 'data/sae/mobilite.json',
-    label: 'Mobilité', cycle: 'Primaire/Secondaire'
-  },
-  // ── Nouvelles SAÉ intégrées ──
-  {
-    key: 'poursuite',
-    path: 'data/sae/poursuite.json',
-    label: 'Jeux de poursuite', cycle: 'Maternelle → Secondaire 5'
-  },
-  {
-    key: 'duel',
-    path: 'data/sae/duel.json',
-    label: 'Duel / Opposition', cycle: 'Primaire / Secondaire'
-  },
-  {
-    key: 'conditionnement',
-    path: 'data/sae/conditionnement.json',
-    label: 'Conditionnement physique', cycle: 'Primaire / Secondaire'
-  },
-  {
-    key: 'expression_corporelle',
-    path: 'data/sae/expression_corporelle.json',
-    label: 'Expression corporelle', cycle: 'Maternelle → Secondaire 5'
-  },
-  {
-    key: 'sports_collectifs_sae',
-    path: 'data/sae/sports_collectifs_sae.json',
-    label: 'Sports collectifs', cycle: 'Primaire → Secondaire 5'
-  },
-  {
-    key: 'manipulation_new',
-    path: 'data/sae/manipulation_new.json',
-    label: 'Manipulation d\'objets', cycle: 'Maternelle → Secondaire 5'
-  },
-  {
-    key: 'locomotion_new',
-    path: 'data/sae/locomotion_new.json',
-    label: 'Locomotion', cycle: 'Maternelle → Secondaire 5'
-  },
-  {
-    key: 'expression_artistique',
-    path: 'data/sae/expression_artistique.json',
-    label: 'Expression artistique', cycle: 'Maternelle → Secondaire 5'
-  },
-  {
-    key: 'adresse_individuel',
-    path: 'data/sae/adresse_individuel.json',
-    label: 'Adresse et sports individuels', cycle: 'Maternelle → Secondaire 5'
-  },
-];
-
-// ============================================================
-//  ÉTAT DE L'APP
-// ============================================================
-const state = {
-  allJeux: [],
-  allSAE: [],
-  filteredJeux: [],
-  filteredSAE: [],
-  currentTab: 'jeux',
-  activeMoyenSAE: null,
-  activeEduMoyen: null,
-  activeEduGeste: null,
-};
-
-// ============================================================
-//  INITIALISATION
-// ============================================================
-document.addEventListener('DOMContentLoaded', async () => {
-  // Filet de sécurité : disparaît après 8 secondes max
-  const safetyTimer = setTimeout(() => hideLoading(), 8000);
-
-  try {
-    drawBackground();
-    window.addEventListener('resize', drawBackground);
-
-    setupNavigation();
-    applyI18N();
-    progress(10);
-
-    await loadJeux();
-    progress(55);
-
-    await loadSAE();
-    progress(85);
-
-    renderJeux();
+  // Re-render all visible content
+  if (allSAE.length > 0) {
     renderSAE();
     renderMoyensBrowser();
-    renderEduTaxonomy();
-    renderMusique();
-    setupSearch();
-    updateHeaderStats();
-
-    progress(100);
-  } catch (err) {
-    console.error('Erreur init ZTS:', err);
-  } finally {
-    clearTimeout(safetyTimer);
-    setTimeout(hideLoading, 500);
   }
-});
-
-// ============================================================
-//  BACKGROUND SPIRAL (Canvas)
-// ============================================================
-function drawBackground() {
-  const canvas = document.getElementById('bgCanvas');
-  if (!canvas) return;
-
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  const ctx = canvas.getContext('2d');
-  const W   = canvas.width;
-  const H   = canvas.height;
-
-  // Point d'origine: coin inférieur droit
-  const ox = W;
-  const oy = H;
-  const maxR = Math.sqrt(W * W + H * H) * 1.1;
-
-  // Fond cyan
-  ctx.fillStyle = '#00CCFF';
-  ctx.fillRect(0, 0, W, H);
-
-  // Rayons jaunes depuis coin inférieur droit
-  const totalSectors = 22; // nombre de secteurs (jaune + cyan alternés)
-  const sectorAngle  = (Math.PI * 2) / totalSectors;
-  // Décalage pour que les rayons pointent vers le haut-gauche
-  const startAngle   = Math.PI * 0.75;
-
-  for (let i = 0; i < totalSectors; i += 2) {
-    const a1 = startAngle + i * sectorAngle;
-    const a2 = startAngle + (i + 1) * sectorAngle;
-
-    ctx.beginPath();
-    ctx.moveTo(ox, oy);
-    ctx.arc(ox, oy, maxR, a1, a2);
-    ctx.closePath();
-    ctx.fillStyle = '#FFE000';
-    ctx.fill();
+  if (allJeux.length > 0) {
+    renderJeux();
   }
-
-  // Overlay semi-transparent pour améliorer la lisibilité des cartes
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
-  ctx.fillRect(0, 0, W, H);
+  renderMesSae();
+  updateXPDisplay();
+  updateHeaderStats();
 }
 
+
 // ============================================================
-//  NAVIGATION
+//  SECTION 2: DATA SOURCES
 // ============================================================
-function setupNavigation() {
-  document.querySelectorAll('.nav-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.dataset.tab;
-      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
-      document.getElementById(`tab-${target}`).classList.add('active');
-      state.currentTab = target;
-    });
-  });
+
+const SAE_SOURCES = [
+  'data/sae/prescolaire.json',
+  'data/sae/primaire.json',
+  'data/sae/secondaire.json',
+  'data/sae/cooperation.json',
+  'data/sae/collectifs.json',
+  'data/sae/opposition.json',
+  'data/sae/dodgeball.json',
+  'data/sae/locomotion.json',
+  'data/sae/mobilite.json',
+  'data/sae/poursuite.json',
+  'data/sae/duel.json',
+  'data/sae/conditionnement.json',
+  'data/sae/expression_corporelle.json',
+  'data/sae/sports_collectifs_sae.json',
+  'data/sae/manipulation_new.json',
+  'data/sae/locomotion_new.json',
+  'data/sae/expression_artistique.json',
+  'data/sae/adresse_individuel.json',
+  'data/sae/cooperation_gen.json',
+  'data/sae/poursuite_gen.json',
+  'data/sae/prescolaire_primaire_gen.json',
+  'data/sae/individuelles_part8.json',
+];
+
+const JEUX_SOURCES = [
+  'data/jeux/ballon_chasseur.json',
+  'data/jeux/cooperation.json',
+  'data/jeux/exterieur.json',
+  'data/jeux/jeux_afrique_asie_oceanie.json',
+  'data/jeux/jeux_ameriques_europe.json',
+  'data/jeux/jeux_autochtones.json',
+  'data/jeux/jeux_avec_materiel.json',
+  'data/jeux/jeux_olympiques_paralympiques.json',
+  'data/jeux/jeux_prescolaire.json',
+  'data/jeux/jeux_secondaire.json',
+  'data/jeux/opposition.json',
+  'data/jeux/poursuite.json',
+  'data/jeux/sans_materiel.json',
+  'data/jeux/sports_collectifs.json',
+  'data/jeux/sports_individuels.json',
+  'data/jeux/traditionnels_monde.json',
+];
+
+const MOYENS_ACTION = [
+  {
+    id: 'manipulation',
+    icon: '🎯',
+    color: '#00d4ff',
+    labels: { fr: 'Manipulation d\'objets', en: 'Object manipulation', es: 'Manipulación de objetos', zh: '物体操控' },
+    items: [
+      { id: 'balle', icon: '⚾', labels: { fr: 'Balles', en: 'Balls', es: 'Pelotas', zh: '球' } },
+      { id: 'ballon', icon: '⚽', labels: { fr: 'Ballons', en: 'Balls (large)', es: 'Balones', zh: '大球' } },
+      { id: 'raquette', icon: '🏸', labels: { fr: 'Raquettes', en: 'Rackets', es: 'Raquetas', zh: '球拍' } },
+      { id: 'baton', icon: '🏒', labels: { fr: 'Bâtons', en: 'Sticks', es: 'Bastones', zh: '棍棒' } },
+      { id: 'corde', icon: '🪢', labels: { fr: 'Cordes', en: 'Ropes', es: 'Cuerdas', zh: '绳子' } },
+      { id: 'cerceau', icon: '⭕', labels: { fr: 'Cerceaux', en: 'Hoops', es: 'Aros', zh: '圈' } },
+      { id: 'frisbee', icon: '🥏', labels: { fr: 'Frisbee', en: 'Frisbee', es: 'Frisbee', zh: '飞盘' } },
+      { id: 'cirque', icon: '🎪', labels: { fr: 'Cirque', en: 'Circus', es: 'Circo', zh: '马戏' } },
+    ]
+  },
+  {
+    id: 'locomotion',
+    icon: '🏃',
+    color: '#ffd700',
+    labels: { fr: 'Locomotion', en: 'Locomotion', es: 'Locomoción', zh: '运动' },
+    items: [
+      { id: 'courir', icon: '🏃', labels: { fr: 'Courir', en: 'Running', es: 'Correr', zh: '跑步' } },
+      { id: 'sauter', icon: '🦘', labels: { fr: 'Sauter', en: 'Jumping', es: 'Saltar', zh: '跳跃' } },
+      { id: 'ramper', icon: '🐛', labels: { fr: 'Ramper/Rouler', en: 'Crawl/Roll', es: 'Reptar/Rodar', zh: '爬行/翻滚' } },
+      { id: 'grimper', icon: '🧗', labels: { fr: 'Grimper', en: 'Climbing', es: 'Trepar', zh: '攀爬' } },
+      { id: 'esquiver', icon: '💨', labels: { fr: 'Esquiver', en: 'Dodging', es: 'Esquivar', zh: '闪避' } },
+    ]
+  },
+  {
+    id: 'stabilisation',
+    icon: '⚖️',
+    color: '#ff6b6b',
+    labels: { fr: 'Stabilisation', en: 'Stabilization', es: 'Estabilización', zh: '稳定' },
+    items: [
+      { id: 'equilibre', icon: '⚖️', labels: { fr: 'Équilibre', en: 'Balance', es: 'Equilibrio', zh: '平衡' } },
+      { id: 'souplesse', icon: '🤸', labels: { fr: 'Souplesse', en: 'Flexibility', es: 'Flexibilidad', zh: '柔韧' } },
+      { id: 'gainage', icon: '💪', labels: { fr: 'Gainage', en: 'Core training', es: 'Core', zh: '核心训练' } },
+      { id: 'coordination', icon: '🎯', labels: { fr: 'Coordination', en: 'Coordination', es: 'Coordinación', zh: '协调' } },
+    ]
+  },
+  {
+    id: 'opposition',
+    icon: '⚔️',
+    color: '#ff4757',
+    labels: { fr: 'Opposition', en: 'Opposition', es: 'Oposición', zh: '对抗' },
+    items: [
+      { id: 'lutte', icon: '🤼', labels: { fr: 'Lutte', en: 'Wrestling', es: 'Lucha', zh: '摔跤' } },
+      { id: 'duel', icon: '⚔️', labels: { fr: 'Duel', en: 'Duel', es: 'Duelo', zh: '决斗' } },
+      { id: 'territoire', icon: '🏰', labels: { fr: 'Territoire', en: 'Territory', es: 'Territorio', zh: '领地' } },
+    ]
+  },
+  {
+    id: 'cooperation',
+    icon: '🤝',
+    color: '#2ed573',
+    labels: { fr: 'Coopération', en: 'Cooperation', es: 'Cooperación', zh: '合作' },
+    items: [
+      { id: 'communication', icon: '📣', labels: { fr: 'Communication', en: 'Communication', es: 'Comunicación', zh: '沟通' } },
+      { id: 'strategie', icon: '♟️', labels: { fr: 'Stratégie', en: 'Strategy', es: 'Estrategia', zh: '策略' } },
+      { id: 'construction', icon: '🏗️', labels: { fr: 'Construction', en: 'Building', es: 'Construcción', zh: '建造' } },
+    ]
+  },
+  {
+    id: 'expression',
+    icon: '💃',
+    color: '#a55eea',
+    labels: { fr: 'Expression', en: 'Expression', es: 'Expresión', zh: '表达' },
+    items: [
+      { id: 'danse', icon: '💃', labels: { fr: 'Danse', en: 'Dance', es: 'Danza', zh: '舞蹈' } },
+      { id: 'mime', icon: '🎭', labels: { fr: 'Mime', en: 'Mime', es: 'Mimo', zh: '哑剧' } },
+      { id: 'acrosport', icon: '🤸', labels: { fr: 'Acrosport', en: 'Acrosport', es: 'Acrosport', zh: '技巧体操' } },
+    ]
+  },
+];
+
+
+// ============================================================
+//  SECTION 3: GLOBAL STATE + INIT
+// ============================================================
+
+let allSAE = [];
+let allJeux = [];
+let filteredSAE = [];
+let filteredJeux = [];
+let saeCurrentPage = 0;
+let jeuxCurrentPage = 0;
+let favFilterActive = false;
+const ITEMS_PER_PAGE = 30;
+let currentEditId = null;
+let uploadedFiles = [];
+let activeMoyenFilter = null;
+let searchDebounceTimer = null;
+
+const safetyTimer = setTimeout(hideLoading, 12000);
+
+// Utility: escape HTML to prevent XSS
+function escapeHtml(str) {
+  if (str == null) return '';
+  const s = String(str);
+  const div = document.createElement('div');
+  div.appendChild(document.createTextNode(s));
+  return div.innerHTML;
 }
 
-// ============================================================
-//  CHARGEMENT DES DONNÉES
-// ============================================================
-async function loadJeux() {
-  const results = await Promise.allSettled(
-    JEUX_SOURCES.map(src =>
-      fetch(src.path)
-        .then(r => {
-          if (!r.ok) { console.error(`❌ JEUX 404: ${src.path}`); throw new Error(r.status); }
-          return r.json();
-        })
-        .then(data => ({ src, data }))
-        .catch(e => { console.error(`❌ JEUX erreur: ${src.path}`, e.message); throw e; })
-    )
-  );
-
-  let loaded = 0;
-  results.forEach(result => {
-    if (result.status !== 'fulfilled') return;
-    const { src, data } = result.value;
-    const jeux = data.jeux || data.items || [];
-    loaded++;
-    jeux.forEach(jeu => {
-      state.allJeux.push({ ...jeu, _src: src, _key: src.key });
-    });
-  });
-  console.log(`✅ Jeux: ${loaded}/${JEUX_SOURCES.length} fichiers, ${state.allJeux.length} jeux`);
-  state.filteredJeux = [...state.allJeux];
+// Utility: truncate text
+function truncate(str, len) {
+  if (!str) return '';
+  const s = String(str);
+  return s.length > len ? s.substring(0, len) + '...' : s;
 }
 
-async function loadSAE() {
-  const results = await Promise.allSettled(
-    SAE_SOURCES.map(src =>
-      fetch(src.path)
-        .then(r => {
-          if (!r.ok) { console.error(`❌ SAÉ 404: ${src.path}`); throw new Error(r.status); }
-          return r.json();
-        })
-        .then(data => ({ src, data }))
-        .catch(e => { console.error(`❌ SAÉ erreur: ${src.path}`, e.message); throw e; })
-    )
-  );
-
-  results.forEach(result => {
-    if (result.status !== 'fulfilled') return;
-    const { src, data } = result.value;
-    const items = (src.arrayKey ? data[src.arrayKey] : null)
-               || data.sae || data.saes || data.jeux || data.items || [];
-
-    items.forEach(item => {
-      state.allSAE.push({
-        ...item,
-        _src: src,
-        _cycle: src.cycle,
-        _fileLabel: src.label,
-      });
-    });
-  });
-
-  state.filteredSAE = [...state.allSAE];
+// Utility: show toast notification
+function showToast(msg, duration) {
+  duration = duration || 3000;
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), duration);
 }
 
-// ============================================================
-//  RENDER — JEUX
-// ============================================================
-function renderJeux() {
-  const grid = document.getElementById('jeux-grid');
-
-  if (state.filteredJeux.length === 0) {
-    grid.innerHTML = `<div class="empty-state">🔍 AUCUN JEU TROUVÉ<br><small style="font-size:1rem">Essaie d'autres filtres</small></div>`;
-    updateJeuxStats();
-    return;
-  }
-
-  grid.innerHTML = state.filteredJeux.map((jeu, idx) => buildJeuCard(jeu, idx)).join('');
-
-  grid.querySelectorAll('.game-card').forEach((card, i) => {
-    card.addEventListener('click', () => openJeuModal(state.filteredJeux[i]));
-  });
-
-  updateJeuxStats();
-}
-
-function buildJeuCard(jeu, idx) {
-  const src      = jeu._src || {};
-  const titre    = jeu.titre || jeu.nom || 'Jeu sans titre';
-  const origine  = jeu.origine || jeu.pays_origine || '';
-  const niveau   = jeu.niveau  || (jeu.age_min ? `${jeu.age_min}–${jeu.age_max} ans` : '');
-  const duree    = jeu.duree   || '';
-  const joueurs  = jeu.nb_joueurs_min && jeu.nb_joueurs_max
-    ? `${jeu.nb_joueurs_min}–${jeu.nb_joueurs_max}`
-    : (jeu.nb_joueurs || '');
-  const espace    = jeu.espace  || '';
-  const intensite = jeu.niveau_activite || '';
-  const intentionsRaw = jeu.intentions_pedagogiques || jeu.description || '';
-  const intentions = Array.isArray(intentionsRaw) ? intentionsRaw.join(' · ') : intentionsRaw;
-  const tags     = (jeu.tags || []).slice(0, 3);
-  const label    = src.label ? (src.label[LANG.current] || src.label.fr || src.label) : '';
-
-  const intensiteClass = getIntensite(intensite);
-  const barClass   = src.barClass   || 'bar-default';
-  const badgeClass = src.badgeClass || '';
-  const illus      = getIllus(src.key || '');
-
-  return `
-    <div class="game-card" data-idx="${idx}">
-      <div class="card-illustration" style="background:${illus.bg}">
-        <span class="illus-emoji">${illus.emoji}</span>
-        ${origine ? `<span class="illus-origin">🌍 ${origine}</span>` : ''}
-      </div>
-      <div class="card-body">
-        <div class="card-meta-top">
-          ${label ? `<span class="card-category-badge ${badgeClass}">${src.icon || ''} ${label}</span>` : ''}
-        </div>
-        <h3 class="card-titre">${titre}</h3>
-        ${intentions ? `<p class="card-desc">${intentions.substring(0, 90)}${intentions.length > 90 ? '...' : ''}</p>` : ''}
-        <div class="card-info-grid">
-          ${niveau   ? `<div class="card-info-item">📅 ${niveau}</div>`           : ''}
-          ${duree    ? `<div class="card-info-item">⏱️ ${duree}</div>`            : ''}
-          ${joueurs  ? `<div class="card-info-item">👥 ${joueurs}</div>`          : ''}
-          ${espace   ? `<div class="card-info-item">🏟️ ${espace}</div>`          : ''}
-        </div>
-        <div class="card-tags-row">
-          ${tags.map(tg => `<span class="ctag">${tg}</span>`).join('')}
-          ${intensite ? `<span class="ctag ${intensiteClass}">⚡ ${intensite}</span>` : ''}
-        </div>
-      </div>
-      <div class="card-footer">${t('seeGame')}</div>
-    </div>
-  `;
-}
-
-function getIntensite(val) {
+// Utility: format text blocks — handles strings, arrays, and objects
+function formatTextBlock(val) {
   if (!val) return '';
-  const v = val.toLowerCase();
-  if (v.includes('élevé') || v.includes('eleve') || v.includes('intense') || v.includes('haute')) return 'intensite-eleve';
-  if (v.includes('modéré') || v.includes('modere') || v.includes('moyen'))  return 'intensite-modere';
-  if (v.includes('faible') || v.includes('léger') || v.includes('leger'))   return 'intensite-faible';
-  return 'intensite-variable';
-}
-
-// ============================================================
-//  MODAL — JEUX
-// ============================================================
-function openJeuModal(jeu) {
-  const src      = jeu._src || {};
-  const titre    = jeu.titre    || jeu.nom            || 'Jeu';
-  const origine  = jeu.origine  || jeu.pays_origine   || 'Monde';
-  const niveau   = jeu.niveau   || `${jeu.age_min || '?'}–${jeu.age_max || '?'} ans`;
-  const duree    = jeu.duree    || '?';
-  const joueurs  = jeu.nb_joueurs_min ? `${jeu.nb_joueurs_min}–${jeu.nb_joueurs_max}` : (jeu.nb_joueurs || '?');
-  const espace   = jeu.espace   || '?';
-  const intensite = jeu.niveau_activite || '';
-  const materiel = Array.isArray(jeu.materiel)
-    ? jeu.materiel.join(', ')
-    : (jeu.materiel || 'Aucun');
-
-  const intentionsRaw2 = jeu.intentions_pedagogiques || '';
-  const intentions  = Array.isArray(intentionsRaw2) ? intentionsRaw2.join('\n') : intentionsRaw2;
-  const butDuJeu    = jeu.but_du_jeu               || '';
-  const disposition = jeu.disposition              || '';
-  const deroulement = jeu.deroulement              || '';
-  const variantes   = Array.isArray(jeu.variantes)   ? jeu.variantes  : (jeu.variantes  ? [jeu.variantes]  : []);
-  const competences = Array.isArray(jeu.competences_motrices) ? jeu.competences_motrices : [];
-  const valeurs     = Array.isArray(jeu.valeurs)     ? jeu.valeurs    : [];
-  const adaptations = jeu.adaptations_besoins_speciaux || '';
-  const tags        = Array.isArray(jeu.tags)        ? jeu.tags       : [];
-
-  const html = `
-    <div class="modal-head">
-      <div class="modal-icon">${src.icon || '🎮'}</div>
-      <div class="modal-titre">${titre}</div>
-      <div class="modal-sub">
-        🌍 ${origine}
-        ${src.label ? ` &nbsp;·&nbsp; ${src.label}` : ''}
-        ${intensite  ? ` &nbsp;·&nbsp; ⚡ ${intensite}`  : ''}
-      </div>
-      <button class="modal-close-btn" id="closeBtn">✕ FERMER</button>
-    </div>
-    <div class="modal-content-body">
-      <div class="modal-meta-row">
-        <div class="meta-chip chip-yellow"><span class="meta-chip-label">NIVEAU</span><span class="meta-chip-val">${niveau}</span></div>
-        <div class="meta-chip chip-cyan">  <span class="meta-chip-label">DURÉE</span><span class="meta-chip-val">${duree}</span></div>
-        <div class="meta-chip chip-white"> <span class="meta-chip-label">JOUEURS</span><span class="meta-chip-val">${joueurs}</span></div>
-        <div class="meta-chip chip-yellow"><span class="meta-chip-label">ESPACE</span><span class="meta-chip-val">${espace}</span></div>
-        <div class="meta-chip chip-white"> <span class="meta-chip-label">MATÉRIEL</span><span class="meta-chip-val" style="font-size:0.78rem">${materiel}</span></div>
-      </div>
-
-      ${intentions ? modalSection('🎯 INTENTIONS PÉDAGOGIQUES', intentions) : ''}
-      ${butDuJeu   ? modalSection('🏆 BUT DU JEU', butDuJeu, 'cyan-accent') : ''}
-      ${disposition? modalSection('📐 DISPOSITION', disposition) : ''}
-      ${deroulement? modalSection('▶️ DÉROULEMENT', deroulement, 'red-accent') : ''}
-
-      ${variantes.length ? `
-        <div class="modal-section cyan-accent">
-          <div class="modal-section-title">🔄 VARIANTES</div>
-          <ul class="modal-list">
-            ${variantes.map(v => `<li>${v}</li>`).join('')}
-          </ul>
-        </div>` : ''}
-
-      ${competences.length ? `
-        <div class="modal-section">
-          <div class="modal-section-title">💪 COMPÉTENCES MOTRICES</div>
-          <div class="modal-tag-row">
-            ${competences.map(c => `<span class="modal-tag">${c}</span>`).join('')}
-          </div>
-        </div>` : ''}
-
-      ${valeurs.length ? `
-        <div class="modal-section">
-          <div class="modal-section-title">⭐ VALEURS</div>
-          <div class="modal-tag-row">
-            ${valeurs.map(v => `<span class="modal-tag modal-tag-cyan">${v}</span>`).join('')}
-          </div>
-        </div>` : ''}
-
-      ${adaptations ? modalSection('♿ ADAPTATIONS', adaptations) : ''}
-
-      ${tags.length ? `
-        <div class="modal-tag-row" style="margin-top:1rem">
-          ${tags.map(t => `<span class="modal-tag">${t}</span>`).join('')}
-        </div>` : ''}
-    </div>
-  `;
-
-  document.getElementById('modal-body').innerHTML = html;
-  document.getElementById('modal').classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
-
-  document.getElementById('closeBtn').addEventListener('click', closeModal);
-}
-
-// ============================================================
-//  RENDER — SAÉ
-// ============================================================
-function renderSAE() {
-  const grid = document.getElementById('sae-grid');
-
-  if (state.filteredSAE.length === 0) {
-    grid.innerHTML = `<div class="empty-state">🔍 AUCUNE SAÉ TROUVÉE<br><small style="font-size:1rem">Essaie d'autres filtres</small></div>`;
-    updateSAEStats();
-    return;
+  if (typeof val === 'string') return escapeHtml(val).replace(/\n/g, '<br>');
+  if (Array.isArray(val)) {
+    return '<ul>' + val.map(v => {
+      if (typeof v === 'object' && v !== null) {
+        const title = v.titre || v.nom || v.etape || v.name || '';
+        const desc = v.description || v.consignes || v.details || v.texte || '';
+        return '<li><strong>' + escapeHtml(title) + '</strong>' + (desc ? ': ' + escapeHtml(desc) : '') + '</li>';
+      }
+      return '<li>' + escapeHtml(String(v)) + '</li>';
+    }).join('') + '</ul>';
   }
-
-  grid.innerHTML = state.filteredSAE.map((sae, idx) => buildSAECard(sae, idx)).join('');
-
-  grid.querySelectorAll('.game-card').forEach((card, i) => {
-    card.addEventListener('click', () => openSAEModal(state.filteredSAE[i]));
-  });
-
-  updateSAEStats();
-}
-
-function buildSAECard(sae, idx) {
-  const titre        = sae.titre || 'SAÉ sans titre';
-  const niveau       = sae.niveau || sae._cycle || sae._fileLabel || '';
-  const cycle        = sae.cycle  || sae._cycle || '';
-  const duree        = sae.duree_periodes
-    ? `${sae.duree_periodes} × ${sae.duree_par_periode || '?'}`
-    : (sae.duree || '');
-  const moyenAction  = sae.moyen_action || '';
-  const origMondiale = sae.origine_mondiale || '';
-  const tags         = (sae.tags || []).slice(0, 3);
-
-  // Détecter le moyen d'action pour l'illustration
-  const moyenKey  = detectMoyenKey(moyenAction);
-  const illus     = getIllus(moyenKey);
-
-  return `
-    <div class="game-card" data-idx="${idx}">
-      <div class="card-illustration card-illustration-sae" style="background:${illus.bg}">
-        <span class="illus-emoji">${illus.emoji}</span>
-        ${origMondiale ? `<span class="illus-origin">🌍 ${origMondiale.substring(0,25)}${origMondiale.length>25?'...':''}</span>` : ''}
-      </div>
-      <div class="card-body">
-        <div class="card-meta-top">
-          <span class="card-category-badge badge-sae">📚 ${niveau}</span>
-        </div>
-        <h3 class="card-titre">${titre}</h3>
-        ${moyenAction ? `<p class="card-desc" style="color:#0080CC;font-weight:900">🎯 ${moyenAction}</p>` : ''}
-        <div class="card-info-grid">
-          ${duree ? `<div class="card-info-item">⏱️ ${duree}</div>` : ''}
-          ${cycle ? `<div class="card-info-item">📖 ${cycle}</div>` : ''}
-        </div>
-        <div class="card-tags-row">
-          ${tags.map(tg => `<span class="ctag">${tg}</span>`).join('')}
-        </div>
-      </div>
-      <div class="card-footer">${t('seeSae')}</div>
-    </div>
-  `;
-}
-
-function detectMoyenKey(moyenStr) {
-  if (!moyenStr) return 'coordination';
-  const m = moyenStr.toLowerCase();
-  if (m.includes('balle') || m.includes('ball'))    return 'balle';
-  if (m.includes('ballon'))                          return 'ballon';
-  if (m.includes('raquette'))                        return 'raquette';
-  if (m.includes('bâton') || m.includes('baton') || m.includes('hockey') || m.includes('lacrosse')) return 'baton';
-  if (m.includes('corde'))                           return 'corde';
-  if (m.includes('cerceau'))                         return 'cerceau';
-  if (m.includes('frisbee'))                         return 'frisbee';
-  if (m.includes('cirque') || m.includes('diabolo') || m.includes('jongl')) return 'cirque';
-  if (m.includes('foulard') || m.includes('ruban'))  return 'foulard';
-  if (m.includes('courir') || m.includes('course') || m.includes('sprint')) return 'courir';
-  if (m.includes('sauter') || m.includes('saut'))    return 'sauter';
-  if (m.includes('ramper') || m.includes('rouler') || m.includes('roule'))  return 'ramper';
-  if (m.includes('grimper'))                         return 'grimper';
-  if (m.includes('esquiver') || m.includes('déplacement')) return 'esquiver';
-  if (m.includes('équilibre') || m.includes('equilibre'))  return 'equilibre';
-  if (m.includes('souplesse') || m.includes('flexib') || m.includes('yoga')) return 'souplesse';
-  if (m.includes('gainage') || m.includes('force') || m.includes('condit')) return 'gainage';
-  if (m.includes('coordination') || m.includes('rythme'))  return 'coordination';
-  if (m.includes('lutte') || m.includes('judo') || m.includes('contact'))   return 'lutte';
-  if (m.includes('duel') || m.includes('escrime') || m.includes('boxe'))    return 'duel';
-  if (m.includes('territoire') || m.includes('opposition'))                 return 'territoire';
-  if (m.includes('communic') || m.includes('confiance'))    return 'communication';
-  if (m.includes('stratégie') || m.includes('tactique') || m.includes('coopér')) return 'strategie';
-  if (m.includes('construction') || m.includes('acrosport') || m.includes('pyramide')) return 'acrosport';
-  if (m.includes('danse') || m.includes('dance'))    return 'danse';
-  if (m.includes('mime') || m.includes('théâtre') || m.includes('expression')) return 'mime';
-  return 'coordination';
-}
-
-// ============================================================
-//  MODAL — SAÉ
-// ============================================================
-function openSAEModal(sae) {
-  const titre       = sae.titre || 'SAÉ';
-  const niveau      = sae.niveau     || sae._fileLabel || '';
-  const cycle       = sae.cycle      || sae._cycle     || '';
-  const duree       = sae.duree_periodes
-    ? `${sae.duree_periodes} périodes × ${sae.duree_par_periode || '?'}`
-    : (sae.duree || '?');
-  const espace      = sae.espace     || '?';
-  const origMon     = sae.origine_mondiale       || '';
-  const intentions  = sae.intentions_pedagogiques || '';
-  const competence  = sae.competence_pfeq         || '';
-  const composante  = sae.composante              || '';
-  const moyenAction = sae.moyen_action             || '';
-  const situDepart  = sae.situation_depart         || '';
-  const tacheCompl  = sae.tache_complexe           || '';
-  const deroulement = sae.deroulement              || {};
-  const criteres    = Array.isArray(sae.criteres_evaluation) ? sae.criteres_evaluation : [];
-  const grille      = sae.grille_evaluation        || null;
-  const adaptations = sae.adaptations              || null;
-  const variantes   = Array.isArray(sae.variantes)   ? sae.variantes  : [];
-  const valeurs     = Array.isArray(sae.valeurs)     ? sae.valeurs    : [];
-  const tags        = Array.isArray(sae.tags)        ? sae.tags       : [];
-
-  const deroSteps = [
-    deroulement.mise_en_train       ? `<li><strong>Mise en train:</strong> ${deroulement.mise_en_train}</li>`         : '',
-    deroulement.partie_principale_1 ? `<li><strong>Partie principale 1:</strong> ${deroulement.partie_principale_1}</li>` : '',
-    deroulement.partie_principale_2 ? `<li><strong>Partie principale 2:</strong> ${deroulement.partie_principale_2}</li>` : '',
-    deroulement.retour_au_calme     ? `<li><strong>Retour au calme:</strong> ${deroulement.retour_au_calme}</li>`     : '',
-  ].filter(Boolean).join('');
-
-  const html = `
-    <div class="modal-head">
-      <div class="modal-icon">📚</div>
-      <div class="modal-titre">${titre}</div>
-      <div class="modal-sub">
-        ${niveau} ${cycle ? `· ${cycle}` : ''}
-        ${origMon ? ` &nbsp;·&nbsp; 🌍 ${origMon.substring(0, 60)}` : ''}
-      </div>
-      <button class="modal-close-btn" id="closeBtn">✕ FERMER</button>
-    </div>
-    <div class="modal-content-body">
-      <div class="modal-meta-row">
-        <div class="meta-chip chip-cyan">  <span class="meta-chip-label">NIVEAU</span><span class="meta-chip-val">${niveau}</span></div>
-        <div class="meta-chip chip-yellow"><span class="meta-chip-label">CYCLE</span><span class="meta-chip-val">${cycle || '?'}</span></div>
-        <div class="meta-chip chip-white"> <span class="meta-chip-label">DURÉE</span><span class="meta-chip-val">${duree}</span></div>
-        <div class="meta-chip chip-yellow"><span class="meta-chip-label">ESPACE</span><span class="meta-chip-val">${espace}</span></div>
-        ${moyenAction ? `<div class="meta-chip chip-cyan"><span class="meta-chip-label">MOYEN D'ACTION</span><span class="meta-chip-val" style="font-size:0.78rem">${moyenAction}</span></div>` : ''}
-      </div>
-
-      ${intentions  ? modalSection('🎯 INTENTIONS PÉDAGOGIQUES', intentions) : ''}
-
-      ${competence  ? `
-        <div class="modal-section cyan-accent">
-          <div class="modal-section-title">📋 COMPÉTENCE PFEQ</div>
-          <p class="modal-text">${competence}</p>
-          ${composante ? `<p class="modal-text" style="margin-top:0.5rem"><strong>Composante:</strong> ${composante}</p>` : ''}
-        </div>` : ''}
-
-      ${origMon     ? modalSection('🌍 ORIGINE MONDIALE', origMon, 'cyan-accent') : ''}
-      ${situDepart  ? modalSection('🌟 SITUATION DE DÉPART', situDepart)          : ''}
-      ${tacheCompl  ? modalSection('💡 TÂCHE COMPLEXE', tacheCompl, 'red-accent') : ''}
-
-      ${deroSteps   ? `
-        <div class="modal-section">
-          <div class="modal-section-title">▶️ DÉROULEMENT</div>
-          <ul class="modal-list">${deroSteps}</ul>
-        </div>` : ''}
-
-      ${criteres.length ? `
-        <div class="modal-section cyan-accent">
-          <div class="modal-section-title">✅ CRITÈRES D'ÉVALUATION</div>
-          <ul class="modal-list">
-            ${criteres.map(c => `<li>${c}</li>`).join('')}
-          </ul>
-        </div>` : ''}
-
-      ${grille ? `
-        <div class="modal-section">
-          <div class="modal-section-title">📊 GRILLE D'ÉVALUATION</div>
-          <div class="eval-grid">
-            ${grille.tres_bien ? `<div class="eval-cell eval-tres-bien"><div class="eval-level">⭐ TRÈS BIEN</div><div class="eval-desc">${grille.tres_bien}</div></div>` : ''}
-            ${grille.bien      ? `<div class="eval-cell eval-bien">     <div class="eval-level">✅ BIEN</div>     <div class="eval-desc">${grille.bien}</div></div>` : ''}
-            ${grille.en_developpement ? `<div class="eval-cell eval-en-dev"><div class="eval-level">📈 EN DÉVELOPPEMENT</div><div class="eval-desc">${grille.en_developpement}</div></div>` : ''}
-          </div>
-        </div>` : ''}
-
-      ${variantes.length ? `
-        <div class="modal-section">
-          <div class="modal-section-title">🔄 VARIANTES</div>
-          <ul class="modal-list">
-            ${variantes.map(v => `<li>${v}</li>`).join('')}
-          </ul>
-        </div>` : ''}
-
-      ${valeurs.length ? `
-        <div class="modal-section">
-          <div class="modal-section-title">⭐ VALEURS</div>
-          <div class="modal-tag-row">
-            ${valeurs.map(v => `<span class="modal-tag modal-tag-cyan">${v}</span>`).join('')}
-          </div>
-        </div>` : ''}
-
-      ${tags.length ? `
-        <div class="modal-tag-row" style="margin-top:1rem">
-          ${tags.map(t => `<span class="modal-tag">${t}</span>`).join('')}
-        </div>` : ''}
-    </div>
-  `;
-
-  document.getElementById('modal-body').innerHTML = html;
-  document.getElementById('modal').classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
-
-  document.getElementById('closeBtn').addEventListener('click', closeModal);
-}
-
-// Helper
-function modalSection(title, content, extraClass = '') {
-  return `
-    <div class="modal-section ${extraClass}">
-      <div class="modal-section-title">${title}</div>
-      <p class="modal-text">${content}</p>
-    </div>`;
-}
-
-// ============================================================
-//  RENDER — MUSIQUE (statique)
-// ============================================================
-function renderMusique() {
-  const bpmMoments = [
-    { moment: 'ENTRÉE EN CLASSE',     bpm: '90–110',  desc: 'Signal de transition, concentration',         icon: '🚶' },
-    { moment: 'ÉCHAUFFEMENT',         bpm: '115–135', desc: 'Élever progressivement le rythme cardiaque',  icon: '🔥' },
-    { moment: 'APPRENTISSAGE',        bpm: '120–145', desc: 'Ambiance, signal de départ et d\'arrêt',      icon: '📚' },
-    { moment: 'JEU / COMPÉTITION',    bpm: '140–165', desc: 'Énergie maximale, ambiance compétitive',      icon: '🏆' },
-    { moment: 'RETOUR AU CALME',      bpm: '60–85',   desc: 'Réduction progressive du rythme cardiaque',   icon: '🧘' },
-    { moment: 'BILAN / OBJECTIVATION',bpm: '50–70',   desc: 'Fond calme pour la discussion de groupe',     icon: '💭' },
-  ];
-
-  const bpmActivites = [
-    { moment: 'Ballon Chasseur',      bpm: '140–155', desc: 'Electronic, Hip-Hop instrumental, Rock Sport', icon: '🎯' },
-    { moment: 'Poursuite / Chat',     bpm: '150–165', desc: 'Electronic rapide, Drum and Bass léger',       icon: '🏃' },
-    { moment: 'Sports Collectifs',    bpm: '135–150', desc: 'Hip-Hop instrumental, Pop Sport',              icon: '🏀' },
-    { moment: 'Coopération',          bpm: '100–120', desc: 'Acoustique positif, Pop douce, bienveillant',  icon: '🤝' },
-    { moment: 'Badminton / Raquettes',bpm: '120–135', desc: 'Pop légère, Jazz moderne, focalisante',        icon: '🏸' },
-    { moment: 'Yoga / Méditation',    bpm: '40–65',   desc: 'Classique, Ambient, Sons de nature',           icon: '🧘' },
-    { moment: 'Danse / Expression',   bpm: '85–130',  desc: 'Hip-Hop 85-95 · Pop 115-130 · Classique libre',icon: '💃' },
-    { moment: 'Circuits / Stations',  bpm: '130–145', desc: 'Electronic, Gym Music + signal de cloche',    icon: '⚡' },
-  ];
-
-  const sources = [
-    { name: 'YouTube Audio Library', badge: 'GRATUIT',  badgeClass: 'badge-free', bpm: 'Tous BPM', desc: 'Bibliothèque officielle YouTube — milliers de pistes classées par genre et humeur.', url: 'https://studio.youtube.com/channel/UC/music' },
-    { name: 'Pixabay Music',         badge: 'CC0',      badgeClass: 'badge-cc0',  bpm: 'Tous BPM', desc: 'Totalement libre de droits · Idéal pour l\'éducation sans aucune restriction.', url: 'https://pixabay.com/music/' },
-    { name: 'Free Music Archive',    badge: 'CC',       badgeClass: 'badge-cc',   bpm: 'Tous BPM', desc: 'Archive mondiale de musiques Creative Commons · Catégories Sport, World, Electronic.', url: 'https://freemusicarchive.org/' },
-    { name: 'Incompetech',           badge: 'CC-BY',    badgeClass: 'badge-cc',   bpm: 'Par BPM',  desc: 'Catalogue trié par BPM et par ambiance · Parfait pour l\'enseignement en ÉPS.', url: 'https://incompetech.com/' },
-    { name: 'Mixkit',                badge: 'GRATUIT',  badgeClass: 'badge-free', bpm: '120–160',  desc: 'Musique + effets sonores sport · Téléchargement sans compte requis.', url: 'https://mixkit.co/free-stock-music/' },
-    { name: 'Musopen',               badge: 'CC0',      badgeClass: 'badge-cc0',  bpm: '40–80',    desc: 'Musique classique libre de droits · Idéal pour retour au calme et yoga.', url: 'https://musopen.org/' },
-    { name: 'Moby Gratis',           badge: 'GRATUIT',  badgeClass: 'badge-free', bpm: '50–90',    desc: 'Musiques ambient de Moby offertes gratuitement aux enseignants et éducateurs.', url: 'https://mobygratis.com/' },
-    { name: 'ccMixter',              badge: 'CC',       badgeClass: 'badge-cc',   bpm: '100–160',  desc: 'Remix communautaire Creative Commons · Electronic et Hip-Hop instrumental.', url: 'https://ccmixter.org/' },
-    { name: 'Jamendo',               badge: 'CC',       badgeClass: 'badge-cc',   bpm: 'Tous BPM', desc: 'Artistes indépendants · Usage pédagogique gratuit · Grande variété culturelle.', url: 'https://www.jamendo.com/' },
-    { name: 'Freesound',             badge: 'EFFETS',   badgeClass: 'badge-fx',   bpm: 'Effets',   desc: 'Base de données d\'effets sonores · Sifflets, cloches, air horn, fanfares.', url: 'https://freesound.org/' },
-    { name: 'Bensound',              badge: 'GRATUIT',  badgeClass: 'badge-free', bpm: '90–150',   desc: 'Musique instrumentale professionnelle · Pop, Acoustic, Corporate, Upbeat.', url: 'https://www.bensound.com/' },
-    { name: 'Free PD',               badge: 'DOMAINE PUBLIC', badgeClass: 'badge-cc0', bpm: 'Classique', desc: 'Musique du domaine public uniquement · 0% risque légal pour l\'enseignement.', url: 'https://freepd.com/' },
-  ];
-
-  const signaux = [
-    { signal: '⚽ Départ',          son: 'Sifflet court (1×)',      signification: 'Commencer l\'activité' },
-    { signal: '🛑 Arrêt immédiat',  son: '3 coups de sifflet',      signification: 'STOP — urgence ou fin' },
-    { signal: '📣 Rassemblement',   son: '2 coups longs',            signification: 'Regroupement des élèves' },
-    { signal: '🔔 Changement',      son: 'Cloche ou ding',           signification: 'Rotation de station' },
-    { signal: '⏸️ Pause',           son: 'Air horn court',           signification: 'Arrêt temporaire' },
-    { signal: '🏆 Victoire',        son: 'Fanfare courte',           signification: 'Célébration · Félicitations' },
-    { signal: '🏁 Fin du cours',    son: 'Musique douce qui monte',  signification: 'Rangement et transition' },
-  ];
-
-  const html = `
-    <h3 class="music-h3">⏱️ STRUCTURE D'UN COURS ÉPS PAR BPM</h3>
-    <div class="bpm-grid">
-      ${bpmMoments.map(item => `
-        <div class="bpm-card">
-          <div class="bpm-moment">${item.icon} ${item.moment}</div>
-          <div class="bpm-number">${item.bpm}</div>
-          <div class="bpm-unit">BPM</div>
-          <div class="bpm-desc">${item.desc}</div>
-        </div>`).join('')}
-    </div>
-
-    <h3 class="music-h3">🏃 BPM PAR TYPE D'ACTIVITÉ ÉPS</h3>
-    <div class="bpm-grid">
-      ${bpmActivites.map(item => `
-        <div class="bpm-card">
-          <div class="bpm-moment">${item.icon} ${item.moment}</div>
-          <div class="bpm-number">${item.bpm}</div>
-          <div class="bpm-unit">BPM</div>
-          <div class="bpm-desc">${item.desc}</div>
-        </div>`).join('')}
-    </div>
-
-    <h3 class="music-h3">🎼 20+ SOURCES DE MUSIQUE GRATUITE</h3>
-    <div class="sources-grid">
-      ${sources.map(s => `
-        <div class="source-card">
-          <span class="source-badge ${s.badgeClass}">${s.badge}</span>
-          <div class="source-name">${s.name}</div>
-          <div class="source-bpm">📊 ${s.bpm}</div>
-          <div class="source-desc">${s.desc}</div>
-          <a href="${s.url}" target="_blank" rel="noopener" class="source-link">🔗 ACCÉDER AU SITE</a>
-        </div>`).join('')}
-    </div>
-
-    <h3 class="music-h3">🔊 SIGNAUX SONORES RECOMMANDÉS EN ÉPS</h3>
-    <table class="signals-table">
-      <thead>
-        <tr>
-          <th>Signal</th>
-          <th>Son recommandé</th>
-          <th>Signification</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${signaux.map(s => `
-          <tr>
-            <td>${s.signal}</td>
-            <td>${s.son}</td>
-            <td>${s.signification}</td>
-          </tr>`).join('')}
-      </tbody>
-    </table>
-
-    <div style="background:var(--black);border:5px solid var(--yellow);padding:1.5rem;box-shadow:var(--shadow-l);margin-top:2rem">
-      <h3 style="font-family:'Bangers',cursive;font-size:1.8rem;color:var(--yellow);letter-spacing:3px;margin-bottom:1rem">📊 EFFETS DE LA MUSIQUE SUR L'ACTIVITÉ PHYSIQUE</h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem">
-        ${[
-          { stat: '+15–20%', desc: 'd\'effort lors d\'activités avec musique motivante' },
-          { stat: '60–70 BPM', desc: 'favorise la mémorisation (onde alpha cérébrale)' },
-          { stat: 'Sans paroles', desc: 'réduit la distraction cognitive chez les élèves' },
-          { stat: 'Culturelle', desc: 'facilite l\'ouverture à la diversité mondiale' },
-        ].map(item => `
-          <div style="border:3px solid var(--yellow);padding:1rem;text-align:center">
-            <div style="font-family:'Bangers',cursive;font-size:2rem;color:var(--yellow);letter-spacing:2px">${item.stat}</div>
-            <div style="font-size:0.82rem;color:#ccc;margin-top:0.3rem;font-weight:700">${item.desc}</div>
-          </div>`).join('')}
-      </div>
-    </div>
-  `;
-
-  document.getElementById('musique-content').innerHTML = html;
-}
-
-// ============================================================
-//  RECHERCHE & FILTRES
-// ============================================================
-function setupSearch() {
-  // Jeux
-  ['jeux-search', 'jeux-category', 'jeux-niveau', 'jeux-espace', 'jeux-intensite'].forEach(id => {
-    document.getElementById(id).addEventListener('input', filterJeux);
-    document.getElementById(id).addEventListener('change', filterJeux);
-  });
-
-  // SAÉ
-  ['sae-search', 'sae-cycle', 'sae-moyen', 'sae-competence', 'sae-clientele'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.addEventListener('input', filterSAE);
-      el.addEventListener('change', filterSAE);
+  if (typeof val === 'object') {
+    let html = '';
+    for (const [k, v] of Object.entries(val)) {
+      if (v) {
+        html += '<p><strong>' + escapeHtml(k.replace(/_/g, ' ')) + ':</strong> ';
+        html += typeof v === 'string' ? escapeHtml(v) : formatTextBlock(v);
+        html += '</p>';
+      }
     }
-  });
-
-  // Éducatifs
-  ['edu-search', 'edu-niveau', 'edu-difficulte'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.addEventListener('input', filterEdu);
-      el.addEventListener('change', filterEdu);
-    }
-  });
-
-  document.getElementById('eduBackBtn').addEventListener('click', () => {
-    renderEduTaxonomy();
-    document.getElementById('edu-controls').style.display = 'none';
-    document.getElementById('edu-stats').style.display = 'none';
-  });
+    return html;
+  }
+  return escapeHtml(String(val));
 }
 
-function filterJeux() {
-  const q        = document.getElementById('jeux-search').value.toLowerCase().trim();
-  const category = document.getElementById('jeux-category').value;
-  const niveau   = document.getElementById('jeux-niveau').value;
-  const espace   = document.getElementById('jeux-espace').value;
-  const intensite = document.getElementById('jeux-intensite').value;
+// Hide loading screen
+function hideLoading() {
+  clearTimeout(safetyTimer);
+  const loading = document.getElementById('loading');
+  const app = document.getElementById('app');
+  if (loading) {
+    loading.style.opacity = '0';
+    loading.style.pointerEvents = 'none';
+    setTimeout(() => { loading.style.display = 'none'; }, 500);
+  }
+  if (app) app.classList.remove('hidden');
+}
 
-  state.filteredJeux = state.allJeux.filter(jeu => {
-    const text = [jeu.titre, jeu.nom, jeu.origine, ...(jeu.tags || [])].join(' ').toLowerCase();
-    if (q && !text.includes(q)) return false;
-    if (category && jeu._key !== category) return false;
-    if (espace && jeu.espace !== espace) return false;
-    if (intensite && !(jeu.niveau_activite || '').toLowerCase().includes(intensite.toLowerCase())) return false;
+// Update loading progress bar
+function updateLoadingProgress(loaded, total) {
+  const pct = Math.round((loaded / total) * 100);
+  const bar = document.getElementById('loadProgress');
+  if (bar) bar.style.width = pct + '%';
+  const loadingBar = bar?.parentElement;
+  if (loadingBar) {
+    loadingBar.setAttribute('aria-valuenow', pct);
+  }
+}
 
-    if (niveau) {
-      const nv  = (jeu.niveau || '').toLowerCase();
-      const ageMin = jeu.age_min || 0;
-      const ageMax = jeu.age_max || 99;
-      if (niveau === 'prescolaire' && !(nv.includes('préscolaire') || nv.includes('maternelle') || ageMax <= 6))  return false;
-      if (niveau === 'primaire'    && !(nv.includes('primaire')    || (ageMin <= 12 && ageMax >= 6)))              return false;
-      if (niveau === 'secondaire'  && !(nv.includes('secondaire')  || ageMin >= 11))                              return false;
-    }
+// Update header stat counts
+function updateHeaderStats() {
+  const savedSae = getMesSae();
+  const mesSaeNum = document.getElementById('statMesSaeNum');
+  if (mesSaeNum) mesSaeNum.textContent = savedSae.length;
+}
 
+// Animate counter from 0 to target
+function animateCounter(elementId, target) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  const duration = 1500;
+  const start = performance.now();
+  const from = 0;
+  function step(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    // Ease out cubic
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(from + (target - from) * eased);
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+// initCanvas is handled by initBlobCanvas in Part 2
+function initCanvas() {
+  // Placeholder — replaced by GSAP blob canvas in Part 2
+}
+
+// initPhysics is handled by initPhysicsEmojis in Part 2
+function initPhysics() {
+  // Placeholder — replaced by enhanced Matter.js in Part 2
+}
+
+// Check deep links (e.g., #tab=jeux or #sae=some-id)
+function checkDeepLinks() {
+  const hash = window.location.hash.replace('#', '');
+  if (!hash) return;
+  const params = new URLSearchParams(hash);
+  const tab = params.get('tab');
+  if (tab) switchTab(tab);
+  const saeId = params.get('sae');
+  if (saeId) {
+    const sae = allSAE.find(s => getSaeId(s) === saeId);
+    if (sae) setTimeout(() => openSaeModal(sae), 500);
+  }
+}
+
+// DOMContentLoaded — main init
+document.addEventListener('DOMContentLoaded', async function() {
+  // Init canvas backgrounds
+  initCanvas();
+
+  // Delayed physics init (wait for Matter.js to load)
+  setTimeout(initPhysics, 1000);
+
+  // Setup language selector
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  });
+
+  // Setup tab navigation
+  setupTabNavigation();
+
+  // Load all data
+  const totalSources = SAE_SOURCES.length + JEUX_SOURCES.length;
+  let loadedCount = 0;
+
+  const onFileLoaded = () => {
+    loadedCount++;
+    updateLoadingProgress(loadedCount, totalSources);
+  };
+
+  await Promise.all([
+    loadAllSAE(onFileLoaded),
+    loadAllJeux(onFileLoaded)
+  ]);
+
+  // Deduplicate SAE by title
+  const seen = new Set();
+  allSAE = allSAE.filter(sae => {
+    const key = (sae.titre || sae.nom || sae.title || '').toLowerCase().trim();
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
     return true;
   });
 
+  // Initial renders
+  filteredSAE = [...allSAE];
+  filteredJeux = [...allJeux];
+  renderMoyensBrowser();
+  renderSAE();
   renderJeux();
+  renderMesSae();
+  updateXPDisplay();
+  updateHeaderStats();
+
+  // Setup filter event listeners
+  setupFilterListeners();
+
+  // Animate header counters
+  animateCounter('statSaeNum', allSAE.length);
+  animateCounter('statJeuxNum', allJeux.length);
+
+  // Hide loading
+  hideLoading();
+
+  // Check deep links
+  checkDeepLinks();
+
+  // Listen to hashchange
+  window.addEventListener('hashchange', checkDeepLinks);
+});
+
+
+// ============================================================
+//  SECTION 4: DATA LOADING
+// ============================================================
+
+async function loadAllSAE(onFileLoaded) {
+  const results = await Promise.allSettled(
+    SAE_SOURCES.map(src =>
+      fetch(src)
+        .then(r => {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(data => {
+          if (onFileLoaded) onFileLoaded();
+          return data;
+        })
+        .catch(err => {
+          console.warn('SAE load failed:', src, err.message);
+          if (onFileLoaded) onFileLoaded();
+          return null;
+        })
+    )
+  );
+
+  for (const result of results) {
+    if (result.status !== 'fulfilled' || !result.value) continue;
+    const data = result.value;
+    const extracted = extractSaeItems(data);
+    allSAE.push(...extracted);
+  }
+}
+
+function extractSaeItems(data) {
+  if (!data) return [];
+  const items = [];
+
+  // If it's already an array of SAE items
+  if (Array.isArray(data)) {
+    for (const item of data) {
+      if (isSaeItem(item)) items.push(normalizeSae(item));
+    }
+    return items;
+  }
+
+  // If it's an object
+  if (typeof data === 'object') {
+    // Direct SAE properties: {saes: [...]} or {sae: [...]}
+    if (Array.isArray(data.saes)) {
+      for (const item of data.saes) {
+        if (isSaeItem(item)) items.push(normalizeSae(item));
+      }
+      return items;
+    }
+    if (Array.isArray(data.sae)) {
+      for (const item of data.sae) {
+        if (isSaeItem(item)) items.push(normalizeSae(item));
+      }
+      return items;
+    }
+    // Check if root object IS a single SAE
+    if (isSaeItem(data)) {
+      items.push(normalizeSae(data));
+      return items;
+    }
+    // Iterate over all values — find arrays of SAE items
+    for (const val of Object.values(data)) {
+      if (Array.isArray(val)) {
+        for (const item of val) {
+          if (isSaeItem(item)) items.push(normalizeSae(item));
+        }
+      } else if (typeof val === 'object' && val !== null) {
+        // Recurse one level: sub-objects might contain arrays
+        if (Array.isArray(val.saes)) {
+          for (const item of val.saes) {
+            if (isSaeItem(item)) items.push(normalizeSae(item));
+          }
+        } else if (Array.isArray(val.sae)) {
+          for (const item of val.sae) {
+            if (isSaeItem(item)) items.push(normalizeSae(item));
+          }
+        } else {
+          // Check nested object values for arrays
+          for (const subVal of Object.values(val)) {
+            if (Array.isArray(subVal)) {
+              for (const item of subVal) {
+                if (isSaeItem(item)) items.push(normalizeSae(item));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return items;
+}
+
+function isSaeItem(obj) {
+  if (!obj || typeof obj !== 'object') return false;
+  // Must have a title-like field and at least one content field
+  return !!(obj.titre || obj.nom || obj.title || obj.titre_sae || obj.nom_sae);
+}
+
+function normalizeSae(sae) {
+  // Normalize common field names so we can access them uniformly
+  return {
+    ...sae,
+    titre: sae.titre || sae.nom || sae.title || sae.titre_sae || sae.nom_sae || 'Sans titre',
+    niveau: sae.niveau || sae.niveau_scolaire || sae.cycle || sae.niveaux || '',
+    duree: sae.duree || sae.duree_totale || sae.nombre_periodes || sae.durée || '',
+    competence: sae.competence || sae.competence_pfeq || sae.competences || sae.reference_pfeq || '',
+    moyen_action: sae.moyen_action || sae.moyen || sae.moyens_action || sae.categorie || sae.domaine || '',
+    description: sae.description || sae.resume || sae.contexte || sae.mise_en_contexte || sae.situation_depart || '',
+  };
+}
+
+async function loadAllJeux(onFileLoaded) {
+  const results = await Promise.allSettled(
+    JEUX_SOURCES.map(src =>
+      fetch(src)
+        .then(r => {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(data => {
+          if (onFileLoaded) onFileLoaded();
+          return data;
+        })
+        .catch(err => {
+          console.warn('Jeux load failed:', src, err.message);
+          if (onFileLoaded) onFileLoaded();
+          return null;
+        })
+    )
+  );
+
+  const seen = new Set();
+  for (const result of results) {
+    if (result.status !== 'fulfilled' || !result.value) continue;
+    const data = result.value;
+    const extracted = extractJeuxItems(data);
+    for (const jeu of extracted) {
+      const key = (jeu.nom || jeu.titre || jeu.name || '').toLowerCase().trim();
+      if (key && !seen.has(key)) {
+        seen.add(key);
+        allJeux.push(jeu);
+      }
+    }
+  }
+}
+
+function extractJeuxItems(data) {
+  if (!data) return [];
+  if (Array.isArray(data)) return data.filter(isJeuItem);
+  if (typeof data === 'object') {
+    if (Array.isArray(data.jeux)) return data.jeux.filter(isJeuItem);
+    if (Array.isArray(data.games)) return data.games.filter(isJeuItem);
+    // Check all values for arrays
+    for (const val of Object.values(data)) {
+      if (Array.isArray(val) && val.length > 0 && isJeuItem(val[0])) {
+        return val.filter(isJeuItem);
+      }
+    }
+    // Single item
+    if (isJeuItem(data)) return [data];
+  }
+  return [];
+}
+
+function isJeuItem(obj) {
+  if (!obj || typeof obj !== 'object') return false;
+  return !!(obj.nom || obj.titre || obj.name);
+}
+
+
+// ============================================================
+//  SECTION 5: TAB NAVIGATION
+// ============================================================
+
+function setupTabNavigation() {
+  document.querySelectorAll('.nav-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab;
+      if (tab) switchTab(tab);
+    });
+  });
+}
+
+function switchTab(tabName) {
+  // Hide all tab sections
+  document.querySelectorAll('.tab-section').forEach(sec => {
+    sec.classList.remove('active');
+    sec.style.display = 'none';
+  });
+
+  // Deactivate all nav tabs
+  document.querySelectorAll('.nav-tab').forEach(btn => {
+    btn.classList.remove('active');
+    btn.setAttribute('aria-selected', 'false');
+  });
+
+  // Show the target section
+  const targetSection = document.getElementById('tab-' + tabName);
+  if (targetSection) {
+    targetSection.style.display = '';
+    targetSection.classList.add('active');
+
+    // GSAP fade in
+    if (typeof gsap !== 'undefined') {
+      gsap.fromTo(targetSection, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' });
+    }
+  }
+
+  // Activate matching nav tab
+  const matchingBtn = document.querySelector('.nav-tab[data-tab="' + tabName + '"]');
+  if (matchingBtn) {
+    matchingBtn.classList.add('active');
+    matchingBtn.setAttribute('aria-selected', 'true');
+  }
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Update hash without triggering hashchange
+  history.replaceState(null, '', '#tab=' + tabName);
+
+  // Tab-specific rendering
+  if (tabName === 'mes-sae') renderMesSae();
+  if (tabName === 'machine') initSlotReel();
+
+  // XP for exploring
+  addXP(1);
+}
+
+
+// ============================================================
+//  SECTION 6: SAE BANK — RENDERING + FILTERING
+// ============================================================
+
+function renderSAE() {
+  const grid = document.getElementById('sae-grid');
+  if (!grid) return;
+
+  const startIdx = saeCurrentPage * ITEMS_PER_PAGE;
+  const pageItems = filteredSAE.slice(startIdx, startIdx + ITEMS_PER_PAGE);
+
+  if (pageItems.length === 0) {
+    grid.innerHTML = '<div class="no-results glass"><h3>' + t('noResults') + '</h3></div>';
+    const pagination = document.getElementById('sae-pagination');
+    if (pagination) pagination.innerHTML = '';
+    updateSaeCount();
+    return;
+  }
+
+  let html = '';
+  for (let i = 0; i < pageItems.length; i++) {
+    const sae = pageItems[i];
+    const id = getSaeId(sae);
+    const fav = isFavori(sae);
+    const titre = escapeHtml(sae.titre || 'Sans titre');
+    const desc = escapeHtml(truncate(sae.description || '', 120));
+    const niveau = escapeHtml(sae.niveau || '');
+    const moyen = escapeHtml(sae.moyen_action || '');
+    const duree = escapeHtml(sae.duree ? String(sae.duree) : '');
+    const icon = getSaeIcon(sae);
+
+    html += '<div class="card" data-id="' + escapeHtml(id) + '" data-index="' + i + '">' +
+      '<button class="card-fav ' + (fav ? 'active' : '') + '" aria-label="Favori" data-sae-id="' + escapeHtml(id) + '">'+
+      (fav ? '★' : '☆') + '</button>' +
+      '<div class="card-badge">PFEQ</div>' +
+      '<div class="card-header">' +
+        '<span class="card-icon">' + icon + '</span>' +
+        '<h4 class="card-title">' + titre + '</h4>' +
+      '</div>' +
+      '<p class="card-desc">' + desc + '</p>' +
+      '<div class="card-tags">' +
+        (niveau ? '<span class="card-tag">' + niveau + '</span>' : '') +
+        (moyen ? '<span class="card-tag">' + moyen + '</span>' : '') +
+        (duree ? '<span class="card-tag">' + duree + '</span>' : '') +
+      '</div>' +
+    '</div>';
+  }
+
+  grid.innerHTML = html;
+
+  // Event delegation for cards
+  grid.onclick = function(e) {
+    // Check for fav button click
+    const favBtn = e.target.closest('.card-fav');
+    if (favBtn) {
+      e.stopPropagation();
+      const saeId = favBtn.dataset.saeId;
+      const sae = allSAE.find(s => getSaeId(s) === saeId);
+      if (sae) {
+        toggleFavori(sae);
+        const nowFav = isFavori(sae);
+        favBtn.textContent = nowFav ? '★' : '☆';
+        favBtn.classList.toggle('active', nowFav);
+        if (favFilterActive) {
+          filterSAE();
+        }
+      }
+      return;
+    }
+
+    // Check for card click
+    const card = e.target.closest('.card');
+    if (card) {
+      const idx = parseInt(card.dataset.index);
+      const sae = pageItems[idx];
+      if (sae) openSaeModal(sae);
+    }
+  };
+
+  // GSAP stagger animation
+  if (typeof gsap !== 'undefined') {
+    const cards = grid.querySelectorAll('.card');
+    gsap.fromTo(cards, { opacity: 0, y: 30, scale: 0.95 }, {
+      opacity: 1, y: 0, scale: 1, duration: 0.3, stagger: 0.03, ease: 'power2.out'
+    });
+  }
+
+  // Pagination
+  const totalPages = Math.ceil(filteredSAE.length / ITEMS_PER_PAGE);
+  renderPagination('sae-pagination', saeCurrentPage, totalPages, function(page) {
+    saeCurrentPage = page;
+    renderSAE();
+    const section = document.getElementById('tab-banque');
+    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  updateSaeCount();
+}
+
+function updateSaeCount() {
+  const countEl = document.getElementById('sae-count');
+  if (countEl) countEl.textContent = filteredSAE.length + ' SAÉ';
+
+  const moyenLabel = document.getElementById('sae-moyen-active');
+  if (moyenLabel) {
+    if (activeMoyenFilter) {
+      moyenLabel.style.display = '';
+      moyenLabel.textContent = activeMoyenFilter;
+    } else {
+      moyenLabel.style.display = 'none';
+    }
+  }
+}
+
+function getSaeIcon(sae) {
+  const moyen = (sae.moyen_action || sae.categorie || sae.domaine || '').toLowerCase();
+  if (moyen.includes('manipulation') || moyen.includes('balle') || moyen.includes('ballon')) return '🎯';
+  if (moyen.includes('locomotion') || moyen.includes('courir')) return '🏃';
+  if (moyen.includes('opposition') || moyen.includes('duel') || moyen.includes('lutte')) return '⚔️';
+  if (moyen.includes('coopération') || moyen.includes('cooperation') || moyen.includes('collectif')) return '🤝';
+  if (moyen.includes('expression') || moyen.includes('danse') || moyen.includes('artistique')) return '💃';
+  if (moyen.includes('stabilisation') || moyen.includes('équilibre') || moyen.includes('gainage')) return '⚖️';
+  if (moyen.includes('dodgeball') || moyen.includes('chasseur')) return '🎯';
+  if (moyen.includes('poursuite')) return '🏃';
+  if (moyen.includes('conditionnement')) return '💪';
+
+  const niveau = (sae.niveau || '').toLowerCase();
+  if (niveau.includes('préscolaire') || niveau.includes('maternelle')) return '🌱';
+  if (niveau.includes('secondaire')) return '🎓';
+  return '📚';
 }
 
 function filterSAE() {
-  const q          = document.getElementById('sae-search').value.toLowerCase().trim();
-  const cycle      = document.getElementById('sae-cycle').value;
-  const moyen      = document.getElementById('sae-moyen').value;
-  const competence = document.getElementById('sae-competence').value;
-  const clientele  = (document.getElementById('sae-clientele') || {}).value || '';
+  const searchEl = document.getElementById('sae-search');
+  const cycleEl = document.getElementById('sae-cycle');
+  const moyenEl = document.getElementById('sae-moyen');
+  const compEl = document.getElementById('sae-competence');
 
-  state.filteredSAE = state.allSAE.filter(sae => {
-    const text = [sae.titre, sae.moyen_action, ...(sae.tags || [])].join(' ').toLowerCase();
-    if (q && !text.includes(q)) return false;
-    if (cycle && !(sae.cycle || sae._cycle || '').includes(cycle)) return false;
+  const search = (searchEl?.value || '').toLowerCase().trim();
+  const cycle = cycleEl?.value || '';
+  const moyen = moyenEl?.value || '';
+  const comp = compEl?.value || '';
+
+  filteredSAE = allSAE.filter(sae => {
+    // Search filter
+    if (search) {
+      const haystack = [
+        sae.titre, sae.description, sae.niveau, sae.moyen_action,
+        sae.competence, sae.tags, sae.domaine, sae.sous_domaine
+      ].filter(Boolean).join(' ').toLowerCase();
+      if (!haystack.includes(search)) return false;
+    }
+
+    // Cycle filter
+    if (cycle) {
+      const niv = (sae.niveau || '').toLowerCase();
+      const cycleL = cycle.toLowerCase();
+      if (cycleL === 'préscolaire') {
+        if (!niv.includes('préscolaire') && !niv.includes('maternelle') && !niv.includes('prescolaire')) return false;
+      } else if (cycleL === '1er cycle') {
+        if (!niv.includes('1er cycle') && !niv.includes('1er') && !niv.includes('primaire 1') && !niv.includes('6-7')) return false;
+      } else if (cycleL === '2e cycle') {
+        if (!niv.includes('2e cycle') && !niv.includes('2e') && !niv.includes('primaire 2') && !niv.includes('8-9')) return false;
+      } else if (cycleL === '3e cycle') {
+        if (!niv.includes('3e cycle') && !niv.includes('3e') && !niv.includes('primaire 3') && !niv.includes('10-11')) return false;
+      } else if (cycleL === 'secondaire') {
+        if (!niv.includes('secondaire')) return false;
+      }
+    }
+
+    // Moyen d'action filter
     if (moyen) {
-      const detectedKey = detectMoyenKey(sae.moyen_action || '');
-      const ma = (sae.moyen_action || '').toLowerCase();
-      if (detectedKey !== moyen && !ma.includes(moyen)) return false;
+      const moyenStr = [sae.moyen_action, sae.domaine, sae.sous_domaine, sae.categorie, sae.titre, sae.tags]
+        .filter(Boolean).join(' ').toLowerCase();
+      if (!moyenStr.includes(moyen.toLowerCase())) return false;
     }
-    if (competence) {
-      const ma = (sae.moyen_action || '').toLowerCase();
-      const cp = (sae.competence_pfeq || '').toLowerCase();
-      if (!ma.includes(competence.toLowerCase()) && !cp.includes(competence.toLowerCase())) return false;
+
+    // Competence filter
+    if (comp) {
+      const compStr = (sae.competence || '').toLowerCase();
+      if (!compStr.includes(comp.toLowerCase())) return false;
     }
-    if (clientele) {
-      const hdaa = JSON.stringify(sae.adaptations || sae.adaptation_hdaa || sae.adaptations_besoins_speciaux || '').toLowerCase();
-      const tags  = (sae.tags || []).join(' ').toLowerCase();
-      const niveau = (sae.niveau || sae.cycle || '').toLowerCase();
-      const clienteleMap = {
-        'tsa':       ['tsa', 'autisme', 'autistique', 'spectre'],
-        'handicap':  ['handicap', 'physique', 'moteur', 'fauteuil', 'mobilité réduite', 'mobilite reduite'],
-        'deficience':['déficience', 'deficience', 'intellectuelle', ' di '],
-        'maternelle':['maternelle', 'préscolaire', 'prescolaire', '4 ans', '5 ans'],
-      };
-      const keywords = clienteleMap[clientele] || [clientele];
-      const allText = hdaa + ' ' + tags + ' ' + niveau;
-      if (!keywords.some(kw => allText.includes(kw))) return false;
+
+    // Favorites filter
+    if (favFilterActive) {
+      if (!isFavori(sae)) return false;
+    }
+
+    return true;
+  });
+
+  saeCurrentPage = 0;
+  renderSAE();
+}
+
+function setupFilterListeners() {
+  const searchEl = document.getElementById('sae-search');
+  if (searchEl) {
+    searchEl.addEventListener('input', function() {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(filterSAE, 300);
+    });
+  }
+
+  const cycleEl = document.getElementById('sae-cycle');
+  if (cycleEl) cycleEl.addEventListener('change', filterSAE);
+
+  const moyenEl = document.getElementById('sae-moyen');
+  if (moyenEl) moyenEl.addEventListener('change', function() {
+    activeMoyenFilter = moyenEl.value ? moyenEl.options[moyenEl.selectedIndex].textContent : null;
+    filterSAE();
+  });
+
+  const compEl = document.getElementById('sae-competence');
+  if (compEl) compEl.addEventListener('change', filterSAE);
+
+  const favBtn = document.getElementById('favFilterBtn');
+  if (favBtn) {
+    favBtn.addEventListener('click', function() {
+      favFilterActive = !favFilterActive;
+      favBtn.classList.toggle('active', favFilterActive);
+      favBtn.textContent = favFilterActive ? '★ Favoris' : '☆ Favoris';
+      filterSAE();
+    });
+  }
+
+  // Jeux filters
+  const jeuxSearchEl = document.getElementById('jeux-search');
+  if (jeuxSearchEl) {
+    jeuxSearchEl.addEventListener('input', function() {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(filterJeux, 300);
+    });
+  }
+  const jeuxCatEl = document.getElementById('jeux-category');
+  if (jeuxCatEl) jeuxCatEl.addEventListener('change', filterJeux);
+  const jeuxNivEl = document.getElementById('jeux-niveau');
+  if (jeuxNivEl) jeuxNivEl.addEventListener('change', filterJeux);
+}
+
+function renderPagination(containerId, currentPage, totalPages, callback) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  if (totalPages <= 1) {
+    container.innerHTML = '';
+    return;
+  }
+
+  let html = '';
+  // Previous button
+  html += '<button class="page-btn" ' + (currentPage === 0 ? 'disabled' : '') +
+    ' data-page="' + (currentPage - 1) + '">&laquo;</button>';
+
+  // Page numbers (show max 7 pages around current)
+  const maxVisible = 7;
+  let startPage = Math.max(0, currentPage - Math.floor(maxVisible / 2));
+  let endPage = Math.min(totalPages - 1, startPage + maxVisible - 1);
+  if (endPage - startPage < maxVisible - 1) {
+    startPage = Math.max(0, endPage - maxVisible + 1);
+  }
+
+  if (startPage > 0) {
+    html += '<button class="page-btn" data-page="0">1</button>';
+    if (startPage > 1) html += '<span class="page-dots">...</span>';
+  }
+
+  for (let i = startPage; i <= endPage; i++) {
+    html += '<button class="page-btn ' + (i === currentPage ? 'active' : '') +
+      '" data-page="' + i + '">' + (i + 1) + '</button>';
+  }
+
+  if (endPage < totalPages - 1) {
+    if (endPage < totalPages - 2) html += '<span class="page-dots">...</span>';
+    html += '<button class="page-btn" data-page="' + (totalPages - 1) + '">' + totalPages + '</button>';
+  }
+
+  // Next button
+  html += '<button class="page-btn" ' + (currentPage >= totalPages - 1 ? 'disabled' : '') +
+    ' data-page="' + (currentPage + 1) + '">&raquo;</button>';
+
+  container.innerHTML = html;
+
+  container.onclick = function(e) {
+    const btn = e.target.closest('.page-btn');
+    if (btn && !btn.disabled) {
+      const page = parseInt(btn.dataset.page);
+      if (!isNaN(page) && page >= 0 && page < totalPages) {
+        callback(page);
+      }
+    }
+  };
+}
+
+function renderMoyensBrowser() {
+  const grid = document.getElementById('moyensGrid');
+  if (!grid) return;
+
+  let html = '';
+  for (const cat of MOYENS_ACTION) {
+    const label = cat.labels[LANG.current] || cat.labels.fr;
+    html += '<div class="moyen-category">';
+    html += '<div class="moyen-cat-header" style="border-color: ' + cat.color + '">';
+    html += '<span class="moyen-cat-icon">' + cat.icon + '</span>';
+    html += '<span class="moyen-cat-label">' + escapeHtml(label) + '</span>';
+    html += '</div>';
+    html += '<div class="moyen-items">';
+    for (const item of cat.items) {
+      const itemLabel = item.labels[LANG.current] || item.labels.fr;
+      html += '<button class="moyen-item" data-moyen="' + escapeHtml(item.id) + '" ' +
+        'style="--moyen-color: ' + cat.color + '" title="' + escapeHtml(itemLabel) + '">' +
+        '<span class="moyen-item-icon">' + item.icon + '</span>' +
+        '<span class="moyen-item-label">' + escapeHtml(itemLabel) + '</span>' +
+        '</button>';
+    }
+    html += '</div></div>';
+  }
+
+  grid.innerHTML = html;
+
+  // Click handler for moyen items
+  grid.onclick = function(e) {
+    const btn = e.target.closest('.moyen-item');
+    if (!btn) return;
+    const moyen = btn.dataset.moyen;
+
+    // Update the select filter
+    const moyenSelect = document.getElementById('sae-moyen');
+    if (moyenSelect) {
+      // Find matching option
+      const option = Array.from(moyenSelect.options).find(o => o.value === moyen);
+      if (option) {
+        moyenSelect.value = moyen;
+        activeMoyenFilter = option.textContent;
+      } else {
+        moyenSelect.value = moyen;
+        activeMoyenFilter = btn.title;
+      }
+    }
+
+    // Highlight active moyen button
+    grid.querySelectorAll('.moyen-item').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    filterSAE();
+
+    // Scroll down to results
+    const controlsBar = document.querySelector('.controls-bar');
+    if (controlsBar) controlsBar.scrollIntoView({ behavior: 'smooth' });
+  };
+}
+
+// Jeux rendering (basic — will be expanded in Part 2)
+function renderJeux() {
+  const grid = document.getElementById('jeux-grid');
+  if (!grid) return;
+
+  const startIdx = jeuxCurrentPage * ITEMS_PER_PAGE;
+  const pageItems = filteredJeux.slice(startIdx, startIdx + ITEMS_PER_PAGE);
+
+  if (pageItems.length === 0) {
+    grid.innerHTML = '<div class="no-results glass"><h3>' + t('noResults') + '</h3></div>';
+    const pagination = document.getElementById('jeux-pagination');
+    if (pagination) pagination.innerHTML = '';
+    const countEl = document.getElementById('jeux-count');
+    if (countEl) countEl.textContent = '0 jeux';
+    return;
+  }
+
+  let html = '';
+  for (let i = 0; i < pageItems.length; i++) {
+    const jeu = pageItems[i];
+    const nom = escapeHtml(jeu.nom || jeu.titre || jeu.name || 'Sans nom');
+    const desc = escapeHtml(truncate(jeu.description || jeu.regles || '', 120));
+    const cat = escapeHtml(jeu.categorie || jeu.type || '');
+    const niv = escapeHtml(jeu.niveau || jeu.age || '');
+    const icon = getJeuIcon(jeu);
+
+    html += '<div class="card" data-jeu-index="' + i + '">' +
+      '<div class="card-badge">' + escapeHtml(jeu.origine || jeu.pays || 'JEU') + '</div>' +
+      '<div class="card-header">' +
+        '<span class="card-icon">' + icon + '</span>' +
+        '<h4 class="card-title">' + nom + '</h4>' +
+      '</div>' +
+      '<p class="card-desc">' + desc + '</p>' +
+      '<div class="card-tags">' +
+        (cat ? '<span class="card-tag">' + cat + '</span>' : '') +
+        (niv ? '<span class="card-tag">' + niv + '</span>' : '') +
+      '</div>' +
+    '</div>';
+  }
+
+  grid.innerHTML = html;
+
+  grid.onclick = function(e) {
+    const card = e.target.closest('.card');
+    if (card) {
+      const idx = parseInt(card.dataset.jeuIndex);
+      const jeu = pageItems[idx];
+      if (jeu) openJeuModal(jeu);
+    }
+  };
+
+  // GSAP stagger
+  if (typeof gsap !== 'undefined') {
+    gsap.fromTo(grid.querySelectorAll('.card'), { opacity: 0, y: 30, scale: 0.95 }, {
+      opacity: 1, y: 0, scale: 1, duration: 0.3, stagger: 0.03, ease: 'power2.out'
+    });
+  }
+
+  const totalPages = Math.ceil(filteredJeux.length / ITEMS_PER_PAGE);
+  renderPagination('jeux-pagination', jeuxCurrentPage, totalPages, function(page) {
+    jeuxCurrentPage = page;
+    renderJeux();
+  });
+
+  const countEl = document.getElementById('jeux-count');
+  if (countEl) countEl.textContent = filteredJeux.length + ' jeux';
+}
+
+function getJeuIcon(jeu) {
+  const cat = (jeu.categorie || jeu.type || '').toLowerCase();
+  if (cat.includes('ballon') || cat.includes('chasseur')) return '🎯';
+  if (cat.includes('poursuite')) return '🏃';
+  if (cat.includes('cooperation') || cat.includes('coopération')) return '🤝';
+  if (cat.includes('opposition')) return '⚔️';
+  if (cat.includes('collectif')) return '🏅';
+  if (cat.includes('exterieur') || cat.includes('extérieur')) return '🌿';
+  if (cat.includes('monde') || cat.includes('tradition')) return '🌍';
+  if (cat.includes('autochtone')) return '🪶';
+  if (cat.includes('olympique')) return '🥇';
+  if (cat.includes('individuel')) return '🏋️';
+  return '🎮';
+}
+
+function filterJeux() {
+  const search = (document.getElementById('jeux-search')?.value || '').toLowerCase().trim();
+  const cat = document.getElementById('jeux-category')?.value || '';
+  const niv = document.getElementById('jeux-niveau')?.value || '';
+
+  filteredJeux = allJeux.filter(jeu => {
+    if (search) {
+      const haystack = [jeu.nom, jeu.titre, jeu.name, jeu.description, jeu.regles, jeu.categorie, jeu.tags]
+        .filter(Boolean).join(' ').toLowerCase();
+      if (!haystack.includes(search)) return false;
+    }
+    if (cat) {
+      const jeuCat = (jeu.categorie || jeu.type || jeu.source_file || '').toLowerCase();
+      if (!jeuCat.includes(cat.toLowerCase())) return false;
+    }
+    if (niv) {
+      const jeuNiv = (jeu.niveau || jeu.age || jeu.tranche_age || '').toLowerCase();
+      if (!jeuNiv.includes(niv)) return false;
     }
     return true;
   });
 
-  // Afficher/masquer le pill de moyen actif
-  const pill = document.getElementById('sae-moyen-active');
-  if (moyen) {
-    const illus = getIllus(moyen);
-    pill.textContent = `${illus.emoji} ${moyen.toUpperCase()}`;
-    pill.style.display = '';
-  } else {
-    pill.style.display = 'none';
+  jeuxCurrentPage = 0;
+  renderJeux();
+}
+
+function openJeuModal(jeu) {
+  const nom = escapeHtml(jeu.nom || jeu.titre || jeu.name || 'Sans nom');
+  let html = '<div class="modal-header">' +
+    '<h2 class="modal-title">' + getJeuIcon(jeu) + ' ' + nom + '</h2>' +
+    '<button class="modal-close" onclick="closeModal()">' + t('close') + '</button>' +
+    '</div>';
+
+  // Meta badges
+  html += '<div class="modal-meta">';
+  if (jeu.categorie) html += '<span class="meta-badge">' + escapeHtml(jeu.categorie) + '</span>';
+  if (jeu.niveau || jeu.age) html += '<span class="meta-badge">' + escapeHtml(jeu.niveau || jeu.age) + '</span>';
+  if (jeu.joueurs || jeu.nb_joueurs) html += '<span class="meta-badge">' + escapeHtml(jeu.joueurs || jeu.nb_joueurs) + '</span>';
+  if (jeu.espace || jeu.lieu) html += '<span class="meta-badge">' + escapeHtml(jeu.espace || jeu.lieu) + '</span>';
+  if (jeu.origine || jeu.pays) html += '<span class="meta-badge">🌍 ' + escapeHtml(jeu.origine || jeu.pays) + '</span>';
+  html += '</div>';
+
+  // Sections
+  const sections = [
+    { label: '📖 Description', val: jeu.description },
+    { label: '📜 Règles', val: jeu.regles || jeu.regles_du_jeu },
+    { label: '🎒 Matériel', val: jeu.materiel },
+    { label: '🔀 Variantes', val: jeu.variantes },
+    { label: '♿ Adaptations', val: jeu.adaptations },
+    { label: '🏷️ Tags', val: jeu.tags },
+  ];
+
+  for (const sec of sections) {
+    if (!sec.val) continue;
+    html += '<div class="modal-section"><h3>' + sec.label + '</h3>';
+    html += '<div class="modal-content">' + formatTextBlock(sec.val) + '</div></div>';
   }
 
-  renderSAE();
+  showModal(html);
+  addXP(2);
 }
 
+
 // ============================================================
-//  NAVIGATEUR MOYENS D'ACTION (section SAÉ)
+//  SECTION 7: SAE MODAL — ULTRA DETAILED
 // ============================================================
-function renderMoyensBrowser() {
-  const grid = document.getElementById('moyensGrid');
-  const title = document.getElementById('moyensTitle');
+
+function openSaeModal(sae) {
+  const titre = escapeHtml(sae.titre || 'Sans titre');
+  const icon = getSaeIcon(sae);
+
+  let html = '';
+
+  // Header
+  html += '<div class="modal-header">';
+  html += '<h2 class="modal-title">' + icon + ' ' + titre + '</h2>';
+  html += '<button class="modal-close" onclick="closeModal()">' + t('close') + '</button>';
+  html += '</div>';
+
+  // Meta badges
+  html += '<div class="modal-meta">';
+  const metaFields = [
+    { label: t('niveau'), val: sae.niveau || sae.niveau_scolaire },
+    { label: t('duree'), val: sae.duree || sae.duree_totale || sae.nombre_periodes },
+    { label: t('competence'), val: sae.competence || sae.competence_pfeq },
+    { label: t('moyenAction'), val: sae.moyen_action || sae.moyen || sae.categorie },
+    { label: t('espace'), val: sae.espace || sae.lieu || sae.environnement },
+    { label: t('nbEleves'), val: sae.nb_eleves || sae.nombre_eleves || sae.effectif },
+  ];
+  for (const m of metaFields) {
+    if (m.val) {
+      const valStr = Array.isArray(m.val) ? m.val.join(', ') : String(m.val);
+      html += '<span class="meta-badge"><strong>' + escapeHtml(m.label) + ':</strong> ' + escapeHtml(valStr) + '</span>';
+    }
+  }
+  html += '</div>';
+
+  // Action buttons
+  const saeId = getSaeId(sae);
+  const fav = isFavori(sae);
+  html += '<div class="modal-actions">';
+  html += '<button class="action-btn ' + (fav ? 'active' : '') + '" id="modalFavBtn" onclick="toggleFavoriModal(\'' + escapeHtml(saeId).replace(/'/g, "\\'") + '\')">' + (fav ? '★' : '☆') + ' Favori</button>';
+  html += '<button class="action-btn" onclick="printSae()">' + t('print') + '</button>';
+  html += '<button class="action-btn" onclick="shareSae(\'' + escapeHtml(saeId).replace(/'/g, "\\'") + '\')">' + t('share') + '</button>';
+  html += '<button class="action-btn" onclick="duplicateSae(\'' + escapeHtml(saeId).replace(/'/g, "\\'") + '\')">' + t('duplicateSae') + '</button>';
+  html += '</div>';
+
+  // ── SECTION: Intentions pédagogiques ──
+  const intentions = sae.intentions || sae.intentions_pedagogiques || sae.objectifs || sae.objectif;
+  if (intentions) {
+    html += buildModalSection(t('mIntentions'), intentions);
+  }
+
+  // ── SECTION: Mise en contexte ──
+  const contexte = sae.contexte || sae.mise_en_contexte || sae.situation_depart || sae.description;
+  if (contexte) {
+    html += buildModalSection(t('mContexte'), contexte);
+  }
+
+  // ── DEROULEMENT: Handle multiple structures ──
+  const deroulement = sae.deroulement || sae.déroulement;
+  if (deroulement) {
+    if (typeof deroulement === 'string') {
+      html += buildModalSection('🏃 Déroulement', deroulement);
+    } else if (Array.isArray(deroulement)) {
+      html += buildModalSection('🏃 Déroulement', deroulement);
+    } else if (typeof deroulement === 'object') {
+      // Phase 1 — Échauffement
+      const phase1 = deroulement.mise_en_train || deroulement.echauffement || deroulement.phase1 || deroulement.preparation;
+      if (phase1) html += buildModalSection(t('mMiseEnTrain'), phase1);
+
+      // Phase 2 — Développement
+      const phase2 = deroulement.partie_principale_1 || deroulement.tache_complexe || deroulement.developpement ||
+                      deroulement.partie_principale || deroulement.phase2 || deroulement.realisation;
+      if (phase2) html += buildModalSection(t('mPartie1'), phase2);
+
+      // Phase 3 — Réinvestissement
+      const phase3 = deroulement.partie_principale_2 || deroulement.reinvestissement || deroulement.phase3 ||
+                      deroulement.integration || deroulement.jeu;
+      if (phase3) html += buildModalSection(t('mPartie2'), phase3);
+
+      // Phase 4 — Retour au calme
+      const phase4 = deroulement.retour_au_calme || deroulement.retour || deroulement.bilan || deroulement.phase4;
+      if (phase4) html += buildModalSection(t('mRetour'), phase4);
+
+      // Any other keys in deroulement not yet shown
+      const usedKeys = ['mise_en_train', 'echauffement', 'phase1', 'preparation',
+        'partie_principale_1', 'tache_complexe', 'developpement', 'partie_principale', 'phase2', 'realisation',
+        'partie_principale_2', 'reinvestissement', 'phase3', 'integration', 'jeu',
+        'retour_au_calme', 'retour', 'bilan', 'phase4'];
+      for (const [k, v] of Object.entries(deroulement)) {
+        if (!usedKeys.includes(k) && v) {
+          html += buildModalSection('📌 ' + escapeHtml(k.replace(/_/g, ' ')), v);
+        }
+      }
+    }
+  } else {
+    // Try individual top-level fields
+    const miseEnTrain = sae.mise_en_train || sae.echauffement;
+    if (miseEnTrain) html += buildModalSection(t('mMiseEnTrain'), miseEnTrain);
+
+    const partie1 = sae.partie_principale_1 || sae.tache_complexe || sae.developpement || sae.partie_principale;
+    if (partie1) html += buildModalSection(t('mPartie1'), partie1);
+
+    const partie2 = sae.partie_principale_2 || sae.reinvestissement;
+    if (partie2) html += buildModalSection(t('mPartie2'), partie2);
+
+    const retour = sae.retour_au_calme || sae.retour || sae.bilan;
+    if (retour) html += buildModalSection(t('mRetour'), retour);
+  }
+
+  // ── SECTION: Matériel ──
+  const materiel = sae.materiel || sae.matériel || sae.materiel_requis;
+  if (materiel) {
+    html += buildModalSection(t('mMateriel'), materiel);
+  }
+
+  // ── SECTION: Évaluation ──
+  const evaluation = sae.evaluation || sae.évaluation || sae.criteres_evaluation;
+  if (evaluation) {
+    let evalContent = '';
+    if (typeof evaluation === 'object' && !Array.isArray(evaluation)) {
+      // Could have criteres, grille, etc.
+      const criteres = evaluation.criteres || evaluation.critères;
+      if (criteres) {
+        evalContent += '<h4>Critères</h4>' + formatTextBlock(criteres);
+      }
+      const grille = evaluation.grille || evaluation.niveaux;
+      if (grille) {
+        if (typeof grille === 'object' && !Array.isArray(grille)) {
+          evalContent += '<div class="eval-grid">';
+          const levels = [
+            { key: 'tres_bien', label: '🟢 Très bien (A)', alt: ['A', 'excellent', 'très_bien'] },
+            { key: 'bien', label: '🟡 Bien (B)', alt: ['B', 'satisfaisant'] },
+            { key: 'en_developpement', label: '🟠 En développement (C)', alt: ['C', 'en_développement', 'acceptable'] },
+          ];
+          for (const lev of levels) {
+            const val = grille[lev.key] || lev.alt.reduce((found, k) => found || grille[k], null);
+            if (val) {
+              evalContent += '<div class="eval-level"><strong>' + lev.label + '</strong><p>' + formatTextBlock(val) + '</p></div>';
+            }
+          }
+          evalContent += '</div>';
+          // Any remaining keys
+          const usedKeys = ['tres_bien', 'bien', 'en_developpement', 'A', 'B', 'C', 'excellent', 'très_bien', 'satisfaisant', 'en_développement', 'acceptable'];
+          for (const [k, v] of Object.entries(grille)) {
+            if (!usedKeys.includes(k) && v) {
+              evalContent += '<p><strong>' + escapeHtml(k) + ':</strong> ' + formatTextBlock(v) + '</p>';
+            }
+          }
+        } else {
+          evalContent += '<h4>Grille</h4>' + formatTextBlock(grille);
+        }
+      }
+      // Any other eval keys
+      const usedEvalKeys = ['criteres', 'critères', 'grille', 'niveaux'];
+      for (const [k, v] of Object.entries(evaluation)) {
+        if (!usedEvalKeys.includes(k) && v) {
+          evalContent += '<p><strong>' + escapeHtml(k.replace(/_/g, ' ')) + ':</strong> ' + formatTextBlock(v) + '</p>';
+        }
+      }
+    } else {
+      evalContent = formatTextBlock(evaluation);
+    }
+    if (evalContent) {
+      html += '<div class="modal-section"><h3>' + t('mEvaluation') + '</h3><div class="modal-content">' + evalContent + '</div></div>';
+    }
+  }
+
+  // ── SECTION: Adaptations HDAA ──
+  const adaptations = sae.adaptations || sae.adaptations_hdaa || sae.differenciation || sae.inclusion;
+  if (adaptations) {
+    html += buildModalSection(t('mAdaptations'), adaptations);
+  }
+
+  // ── SECTION: Variantes ──
+  const variantes = sae.variantes || sae.variantes_progressions || sae.progressions;
+  if (variantes) {
+    html += buildModalSection(t('mVariantes'), variantes);
+  }
+
+  // ── SECTION: Valeurs éducatives ──
+  const valeurs = sae.valeurs || sae.valeurs_educatives || sae.valeurs_pedagogiques;
+  if (valeurs) {
+    html += buildModalSection(t('mValeurs'), valeurs);
+  }
+
+  // ── SECTION: Tags ──
+  const tags = sae.tags || sae.mots_cles;
+  if (tags) {
+    let tagsHtml = '';
+    if (Array.isArray(tags)) {
+      tagsHtml = tags.map(tag => '<span class="card-tag">' + escapeHtml(tag) + '</span>').join(' ');
+    } else if (typeof tags === 'string') {
+      tagsHtml = tags.split(',').map(tag => '<span class="card-tag">' + escapeHtml(tag.trim()) + '</span>').join(' ');
+    }
+    if (tagsHtml) {
+      html += '<div class="modal-section"><h3>🏷️ Tags</h3><div class="modal-content modal-tags">' + tagsHtml + '</div></div>';
+    }
+  }
+
+  // ── PFEQ reference ──
+  const refPfeq = sae.reference_pfeq || sae.ref_pfeq;
+  if (refPfeq && refPfeq !== sae.competence) {
+    html += buildModalSection('📎 Référence PFEQ', refPfeq);
+  }
+
+  showModal(html);
+  addXP(2);
+}
+
+function buildModalSection(title, content) {
+  if (!content) return '';
+  return '<div class="modal-section"><h3>' + title + '</h3>' +
+    '<div class="modal-content">' + formatTextBlock(content) + '</div></div>';
+}
+
+function showModal(html) {
+  const modal = document.getElementById('modal');
+  const body = document.getElementById('modalBody');
+  if (!modal || !body) return;
+
+  body.innerHTML = html;
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+
+  // Close on backdrop click
+  const backdrop = document.getElementById('modalBackdrop');
+  if (backdrop) {
+    backdrop.onclick = closeModal;
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', handleModalEscape);
+
+  // GSAP animation
+  if (typeof gsap !== 'undefined') {
+    const box = modal.querySelector('.modal-box');
+    if (box) {
+      gsap.fromTo(box, { opacity: 0, scale: 0.9, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'back.out(1.5)' });
+    }
+  }
+}
+
+function closeModal() {
+  const modal = document.getElementById('modal');
+  if (!modal) return;
+
+  if (typeof gsap !== 'undefined') {
+    const box = modal.querySelector('.modal-box');
+    if (box) {
+      gsap.to(box, {
+        opacity: 0, scale: 0.9, y: 30, duration: 0.2, ease: 'power2.in',
+        onComplete: function() {
+          modal.classList.remove('active');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+      });
+      return;
+    }
+  }
+
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  document.removeEventListener('keydown', handleModalEscape);
+}
+
+function handleModalEscape(e) {
+  if (e.key === 'Escape') closeModal();
+}
+
+// Modal action helpers
+window.toggleFavoriModal = function(saeId) {
+  const sae = allSAE.find(s => getSaeId(s) === saeId);
+  if (!sae) return;
+  toggleFavori(sae);
+  const btn = document.getElementById('modalFavBtn');
+  if (btn) {
+    const fav = isFavori(sae);
+    btn.textContent = (fav ? '★' : '☆') + ' Favori';
+    btn.classList.toggle('active', fav);
+  }
+  // Update the card in the grid as well
+  const cardFav = document.querySelector('.card-fav[data-sae-id="' + CSS.escape(saeId) + '"]');
+  if (cardFav) {
+    const fav = isFavori(sae);
+    cardFav.textContent = fav ? '★' : '☆';
+    cardFav.classList.toggle('active', fav);
+  }
+};
+
+window.printSae = function() {
+  const modalBody = document.getElementById('modalBody');
+  if (!modalBody) return;
+  const printWindow = window.open('', '_blank');
+  if (!printWindow) return;
+  printWindow.document.write('<!DOCTYPE html><html><head><title>SAÉ — Zone Total Sport</title>');
+  printWindow.document.write('<style>body{font-family:Quicksand,sans-serif;max-width:800px;margin:0 auto;padding:20px;color:#222}');
+  printWindow.document.write('h2,h3{margin-top:1.5em}h2{border-bottom:2px solid #00d4ff;padding-bottom:8px}');
+  printWindow.document.write('.meta-badge{display:inline-block;background:#f0f0f0;padding:4px 10px;border-radius:12px;margin:4px;font-size:0.85em}');
+  printWindow.document.write('.modal-actions,.modal-close{display:none!important}');
+  printWindow.document.write('.card-tag{display:inline-block;background:#e8f4ff;padding:2px 8px;border-radius:8px;margin:2px;font-size:0.8em}');
+  printWindow.document.write('.eval-grid{margin:10px 0}.eval-level{margin:8px 0;padding:8px;background:#f9f9f9;border-radius:8px}');
+  printWindow.document.write('ul{padding-left:20px}li{margin:4px 0}');
+  printWindow.document.write('@media print{body{font-size:11pt}}');
+  printWindow.document.write('</style></head><body>');
+  printWindow.document.write(modalBody.innerHTML);
+  printWindow.document.write('<hr><p style="text-align:center;color:#999;font-size:0.8em">Zone Total Sport &mdash; zonetotalsport.com</p>');
+  printWindow.document.write('</body></html>');
+  printWindow.document.close();
+  printWindow.focus();
+  printWindow.print();
+};
+
+window.shareSae = function(saeId) {
+  const url = window.location.origin + window.location.pathname + '#sae=' + encodeURIComponent(saeId);
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => showToast(t('linkCopied')));
+  } else {
+    // Fallback
+    const input = document.createElement('input');
+    input.value = url;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
+    showToast(t('linkCopied'));
+  }
+};
+
+window.duplicateSae = function(saeId) {
+  const sae = allSAE.find(s => getSaeId(s) === saeId);
+  if (!sae) return;
+
+  // Fill the creator form with this SAE's data
+  closeModal();
+  switchTab('createur');
+
+  setTimeout(() => {
+    const fields = {
+      'cr-titre': (sae.titre || '') + ' (copie)',
+      'cr-intentions': sae.intentions || sae.intentions_pedagogiques || sae.objectifs || '',
+      'cr-niveau': sae.niveau || '',
+      'cr-duree': sae.duree || '',
+      'cr-competence': sae.competence || '',
+      'cr-moyen': sae.moyen_action || '',
+      'cr-espace': sae.espace || 'Gymnase',
+      'cr-materiel': typeof sae.materiel === 'string' ? sae.materiel : (Array.isArray(sae.materiel) ? sae.materiel.join(', ') : ''),
+      'cr-contexte': sae.contexte || sae.mise_en_contexte || sae.description || '',
+      'cr-adaptations': typeof sae.adaptations === 'string' ? sae.adaptations : '',
+      'cr-variantes': typeof sae.variantes === 'string' ? sae.variantes : '',
+      'cr-valeurs': typeof sae.valeurs === 'string' ? sae.valeurs : (Array.isArray(sae.valeurs) ? sae.valeurs.join(', ') : ''),
+      'cr-tags': Array.isArray(sae.tags) ? sae.tags.join(', ') : (sae.tags || ''),
+    };
+
+    // Handle deroulement
+    const d = sae.deroulement || sae.déroulement || {};
+    if (typeof d === 'object' && !Array.isArray(d)) {
+      fields['cr-mise-en-train'] = extractText(d.mise_en_train || d.echauffement || '');
+      fields['cr-partie1'] = extractText(d.partie_principale_1 || d.tache_complexe || d.developpement || '');
+      fields['cr-partie2'] = extractText(d.partie_principale_2 || d.reinvestissement || '');
+      fields['cr-retour'] = extractText(d.retour_au_calme || d.retour || d.bilan || '');
+    }
+
+    // Handle evaluation
+    const ev = sae.evaluation || sae.évaluation || {};
+    if (typeof ev === 'object' && !Array.isArray(ev)) {
+      fields['cr-criteres'] = extractText(ev.criteres || ev.critères || '');
+      const grille = ev.grille || ev.niveaux || {};
+      if (typeof grille === 'object') {
+        fields['cr-grille-tb'] = extractText(grille.tres_bien || grille.A || grille.excellent || '');
+        fields['cr-grille-b'] = extractText(grille.bien || grille.B || grille.satisfaisant || '');
+        fields['cr-grille-ed'] = extractText(grille.en_developpement || grille.C || grille.acceptable || '');
+      }
+    }
+
+    for (const [id, val] of Object.entries(fields)) {
+      const el = document.getElementById(id);
+      if (el && val) {
+        const valStr = typeof val === 'object' ? JSON.stringify(val) : String(val);
+        el.value = valStr;
+      }
+    }
+
+    currentEditId = null; // It's a new SAE (duplicate)
+    showToast(t('duplicateSae'));
+  }, 300);
+};
+
+function extractText(val) {
+  if (!val) return '';
+  if (typeof val === 'string') return val;
+  if (Array.isArray(val)) return val.map(v => typeof v === 'object' ? (v.description || v.consignes || v.titre || JSON.stringify(v)) : String(v)).join('\n');
+  if (typeof val === 'object') return Object.entries(val).map(([k, v]) => k + ': ' + (typeof v === 'string' ? v : JSON.stringify(v))).join('\n');
+  return String(val);
+}
+
+// Expose closeModal globally for onclick handlers
+window.closeModal = closeModal;
+
+
+// ============================================================
+//  SECTION 8: FAVORIS + GAMIFICATION
+// ============================================================
+
+// ── Favoris ──
+const FAVORIS_KEY = 'favoris-sae-generator';
+
+function getFavoris() {
+  try {
+    return JSON.parse(localStorage.getItem(FAVORIS_KEY)) || [];
+  } catch { return []; }
+}
+
+function setFavoris(favs) {
+  localStorage.setItem(FAVORIS_KEY, JSON.stringify(favs));
+}
+
+function getSaeId(sae) {
+  if (!sae) return '';
+  return sae.id || sae.titre || sae.nom || sae.title || '';
+}
+
+function isFavori(sae) {
+  const id = getSaeId(sae);
+  if (!id) return false;
+  return getFavoris().includes(id);
+}
+
+function toggleFavori(sae) {
+  const id = getSaeId(sae);
+  if (!id) return;
+  let favs = getFavoris();
+  const idx = favs.indexOf(id);
+  if (idx >= 0) {
+    favs.splice(idx, 1);
+  } else {
+    favs.push(id);
+  }
+  setFavoris(favs);
+}
+
+// ── Gamification / XP System ──
+const XP_KEY = 'zts-xp';
+const XP_PER_LEVEL = 50;
+
+function getXP() {
+  return parseInt(localStorage.getItem(XP_KEY)) || 0;
+}
+
+function setXP(xp) {
+  localStorage.setItem(XP_KEY, String(xp));
+}
+
+function getLevel(xp) {
+  return Math.floor(xp / XP_PER_LEVEL) + 1;
+}
+
+function addXP(amount) {
+  const oldXP = getXP();
+  const oldLevel = getLevel(oldXP);
+  const newXP = oldXP + amount;
+  setXP(newXP);
+  const newLevel = getLevel(newXP);
+
+  updateXPDisplay();
+
+  // Level up!
+  if (newLevel > oldLevel) {
+    showToast('🎉 Niveau ' + newLevel + ' atteint!', 4000);
+    // Confetti
+    if (typeof confetti !== 'undefined') {
+      confetti({
+        particleCount: 150,
+        spread: 100,
+        origin: { y: 0.6 },
+        colors: ['#00d4ff', '#ffd700', '#ff6b6b', '#2ed573', '#a55eea']
+      });
+    }
+  }
+}
+
+function updateXPDisplay() {
+  const xp = getXP();
+  const level = getLevel(xp);
+  const xpInLevel = xp % XP_PER_LEVEL;
+  const pct = (xpInLevel / XP_PER_LEVEL) * 100;
+
+  const fill = document.getElementById('xpFill');
+  if (fill) fill.style.width = pct + '%';
+
+  const text = document.getElementById('xpText');
+  if (text) text.textContent = xpInLevel + ' / ' + XP_PER_LEVEL + ' XP';
+
+  const badge = document.getElementById('levelBadge');
+  if (badge) badge.textContent = 'Niv. ' + level;
+
+  const xpBar = fill?.parentElement;
+  if (xpBar) xpBar.setAttribute('aria-valuenow', Math.round(pct));
+}
+
+// ── Mes SAÉ (saved SAÉs in localStorage) ──
+const MES_SAE_KEY = 'mes-sae-generator';
+
+function getMesSae() {
+  try {
+    return JSON.parse(localStorage.getItem(MES_SAE_KEY)) || [];
+  } catch { return []; }
+}
+
+function setMesSae(list) {
+  localStorage.setItem(MES_SAE_KEY, JSON.stringify(list));
+  updateHeaderStats();
+}
+
+function renderMesSae() {
+  const grid = document.getElementById('mes-sae-grid');
+  const empty = document.getElementById('mesSaeEmpty');
   if (!grid) return;
-  title.textContent = t('moyensTitle');
 
-  grid.innerHTML = MOYENS_ACTION.map(cat => `
-    <div class="moyen-cat-block">
-      <div class="moyen-cat-title" style="background:${cat.color}">
-        ${cat.icon} ${cat.categorie[LANG.current] || cat.categorie.fr}
-      </div>
-      <div class="moyen-items-row">
-        ${cat.items.map(item => {
-          const illus = getIllus(item.id);
-          const label = item[LANG.current] || item.fr;
-          return `<button class="moyen-item-btn" style="border-color:${item.color}"
-            onclick="filterByMoyen('${item.id}', '${label}')">
-            <span class="moyen-item-emoji">${item.icon}</span>
-            <span class="moyen-item-label">${label}</span>
-          </button>`;
-        }).join('')}
-      </div>
-    </div>
-  `).join('');
+  const mesSae = getMesSae();
+  const searchVal = (document.getElementById('mes-sae-search')?.value || '').toLowerCase().trim();
+
+  let filtered = mesSae;
+  if (searchVal) {
+    filtered = mesSae.filter(sae => {
+      const haystack = [sae.titre, sae.description, sae.niveau, sae.moyen_action, sae.tags]
+        .filter(Boolean).join(' ').toLowerCase();
+      return haystack.includes(searchVal);
+    });
+  }
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    if (empty) empty.style.display = mesSae.length === 0 ? '' : 'none';
+    return;
+  }
+
+  if (empty) empty.style.display = 'none';
+
+  let html = '';
+  for (let i = 0; i < filtered.length; i++) {
+    const sae = filtered[i];
+    const titre = escapeHtml(sae.titre || 'Sans titre');
+    const desc = escapeHtml(truncate(sae.description || '', 100));
+    const icon = getSaeIcon(sae);
+    const date = sae._savedAt ? new Date(sae._savedAt).toLocaleDateString('fr-CA') : '';
+
+    html += '<div class="card" data-mes-sae-index="' + i + '">' +
+      '<div class="card-badge">PERSO</div>' +
+      '<div class="card-header">' +
+        '<span class="card-icon">' + icon + '</span>' +
+        '<h4 class="card-title">' + titre + '</h4>' +
+      '</div>' +
+      '<p class="card-desc">' + desc + '</p>' +
+      (date ? '<div class="card-tags"><span class="card-tag">' + date + '</span></div>' : '') +
+      '<div class="card-actions">' +
+        '<button class="action-btn small" data-action="edit" data-idx="' + i + '">✏️</button>' +
+        '<button class="action-btn small" data-action="delete" data-idx="' + i + '">🗑️</button>' +
+        '<button class="action-btn small" data-action="export" data-idx="' + i + '">📤</button>' +
+      '</div>' +
+    '</div>';
+  }
+
+  grid.innerHTML = html;
+
+  // Event delegation
+  grid.onclick = function(e) {
+    const actionBtn = e.target.closest('[data-action]');
+    if (actionBtn) {
+      const action = actionBtn.dataset.action;
+      const idx = parseInt(actionBtn.dataset.idx);
+      const sae = filtered[idx];
+      if (!sae) return;
+
+      if (action === 'edit') {
+        editMySae(sae);
+      } else if (action === 'delete') {
+        if (confirm(t('confirmDelete'))) {
+          const all = getMesSae();
+          const realIdx = all.findIndex(s => s._id === sae._id);
+          if (realIdx >= 0) {
+            all.splice(realIdx, 1);
+            setMesSae(all);
+            renderMesSae();
+            showToast(t('saeDeleted'));
+          }
+        }
+      } else if (action === 'export') {
+        exportSingleSae(sae);
+      }
+      return;
+    }
+
+    // Click card to view
+    const card = e.target.closest('.card');
+    if (card) {
+      const idx = parseInt(card.dataset.mesSaeIndex);
+      const sae = filtered[idx];
+      if (sae) openSaeModal(sae);
+    }
+  };
+
+  // GSAP
+  if (typeof gsap !== 'undefined') {
+    gsap.fromTo(grid.querySelectorAll('.card'), { opacity: 0, y: 20 }, {
+      opacity: 1, y: 0, duration: 0.3, stagger: 0.05, ease: 'power2.out'
+    });
+  }
 }
 
-function filterByMoyen(moyenId, label) {
-  document.getElementById('sae-moyen').value = moyenId;
-  filterSAE();
-  // Scroll vers la grille SAÉ
-  document.getElementById('sae-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+function editMySae(sae) {
+  closeModal();
+  switchTab('createur');
+  currentEditId = sae._id;
+
+  setTimeout(() => {
+    const fields = {
+      'cr-titre': sae.titre || '',
+      'cr-intentions': extractText(sae.intentions || sae.intentions_pedagogiques || ''),
+      'cr-niveau': sae.niveau || '',
+      'cr-duree': sae.duree || '',
+      'cr-competence': sae.competence || '',
+      'cr-moyen': sae.moyen_action || '',
+      'cr-espace': sae.espace || 'Gymnase',
+      'cr-materiel': extractText(sae.materiel || ''),
+      'cr-contexte': sae.contexte || sae.description || '',
+      'cr-mise-en-train': extractText(sae.deroulement?.mise_en_train || sae.mise_en_train || ''),
+      'cr-partie1': extractText(sae.deroulement?.partie_principale_1 || sae.partie_principale_1 || ''),
+      'cr-partie2': extractText(sae.deroulement?.partie_principale_2 || sae.partie_principale_2 || ''),
+      'cr-retour': extractText(sae.deroulement?.retour_au_calme || sae.retour_au_calme || ''),
+      'cr-criteres': extractText(sae.evaluation?.criteres || sae.criteres || ''),
+      'cr-grille-tb': extractText(sae.evaluation?.grille?.tres_bien || ''),
+      'cr-grille-b': extractText(sae.evaluation?.grille?.bien || ''),
+      'cr-grille-ed': extractText(sae.evaluation?.grille?.en_developpement || ''),
+      'cr-adaptations': extractText(sae.adaptations || ''),
+      'cr-variantes': extractText(sae.variantes || ''),
+      'cr-valeurs': extractText(sae.valeurs || ''),
+      'cr-tags': Array.isArray(sae.tags) ? sae.tags.join(', ') : (sae.tags || ''),
+    };
+
+    for (const [id, val] of Object.entries(fields)) {
+      const el = document.getElementById(id);
+      if (el) el.value = String(val);
+    }
+  }, 200);
 }
 
+function exportSingleSae(sae) {
+  const blob = new Blob([JSON.stringify(sae, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = (sae.titre || 'sae').replace(/[^a-zA-Z0-9àâéèêëïîôùûüÿçÀÂÉÈÊËÏÎÔÙÛÜŸÇ _-]/g, '') + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Slot reel init helper (basic — full implementation in Part 2)
+function initSlotReel() {
+  const reel = document.getElementById('slotReel');
+  if (!reel || reel.children.length > 0) return;
+  const emojis = ['⚽', '🏀', '🏈', '🎾', '🏐', '🥏', '🏸', '🎯', '🤸', '💪', '🏃', '🤝'];
+  let html = '';
+  for (const emoji of emojis) {
+    html += '<div class="slot-item">' + emoji + '</div>';
+  }
+  reel.innerHTML = html;
+}
+
+// === CONTINUED IN PART 2 ===
+
+
 // ============================================================
-//  SECTION ÉDUCATIFS — TAXONOMIE
+//  PART 2 OF 2 — Sections 9-14
 // ============================================================
-function renderEduTaxonomy() {
-  const container = document.getElementById('eduTaxonomy');
+
+
+// ============================================================
+//  SECTION 9: SAÉ CREATOR — Form + Live Preview + File Upload
+// ============================================================
+
+function setupCreatorForm() {
+  // Live preview on all form fields
+  const formFieldIds = [
+    'cr-titre', 'cr-intentions', 'cr-niveau', 'cr-duree', 'cr-duree-periode',
+    'cr-competence', 'cr-moyen', 'cr-espace', 'cr-materiel',
+    'cr-contexte', 'cr-mise-en-train', 'cr-partie1', 'cr-partie2', 'cr-retour',
+    'cr-criteres', 'cr-grille-tb', 'cr-grille-b', 'cr-grille-ed',
+    'cr-adaptations', 'cr-variantes', 'cr-valeurs', 'cr-tags'
+  ];
+
+  for (const id of formFieldIds) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', updateLivePreview);
+    }
+  }
+
+  // Template selector
+  const templateSelect = document.getElementById('templateSelect');
+  if (templateSelect) {
+    populateTemplateDropdown(templateSelect);
+    templateSelect.addEventListener('change', function() {
+      const val = templateSelect.value;
+      if (val) {
+        loadTemplate(val);
+      }
+    });
+  }
+
+  // File upload setup
+  setupFileUpload();
+
+  // Save button
+  const btnSave = document.getElementById('btnSaveSae');
+  if (btnSave) {
+    btnSave.addEventListener('click', function() {
+      const sae = collectFormData();
+      if (!sae.titre || sae.titre.trim() === '') {
+        showToast('Veuillez entrer un titre');
+        return;
+      }
+      saveSaeToDB(sae);
+    });
+  }
+
+  // Reset button
+  const btnReset = document.getElementById('btnResetForm');
+  if (btnReset) {
+    btnReset.addEventListener('click', resetCreatorForm);
+  }
+
+  // Preview button
+  const btnPreview = document.getElementById('btnPreviewSae');
+  if (btnPreview) {
+    btnPreview.addEventListener('click', function() {
+      updateLivePreview();
+      const preview = document.getElementById('creatorPreview');
+      if (preview) preview.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  // Export all button
+  const btnExportAll = document.getElementById('btnExportAll');
+  if (btnExportAll) {
+    btnExportAll.addEventListener('click', exportAllSaes);
+  }
+
+  // Import button
+  const btnImport = document.getElementById('btnImportSae');
+  if (btnImport) {
+    btnImport.addEventListener('click', function() {
+      const importInput = document.getElementById('importInput');
+      if (importInput) importInput.click();
+    });
+  }
+  const importInput = document.getElementById('importInput');
+  if (importInput) {
+    importInput.addEventListener('change', function() {
+      if (importInput.files && importInput.files[0]) {
+        importSaes(importInput.files[0]);
+        importInput.value = '';
+      }
+    });
+  }
+
+  // Initial preview state
+  updateLivePreview();
+}
+
+function populateTemplateDropdown(select) {
+  // Clear existing options except the first (placeholder)
+  while (select.options.length > 1) {
+    select.remove(1);
+  }
+
+  // Add first 50 SAÉ titles as templates
+  const count = Math.min(allSAE.length, 50);
+  for (let i = 0; i < count; i++) {
+    const sae = allSAE[i];
+    const titre = sae.titre || sae.nom || 'Sans titre';
+    const opt = document.createElement('option');
+    opt.value = getSaeId(sae);
+    opt.textContent = truncate(titre, 60);
+    select.appendChild(opt);
+  }
+}
+
+function updateLivePreview() {
+  const previewContent = document.getElementById('previewContent');
+  if (!previewContent) return;
+
+  const titre = document.getElementById('cr-titre')?.value || '';
+  const intentions = document.getElementById('cr-intentions')?.value || '';
+  const niveau = document.getElementById('cr-niveau')?.value || '';
+  const duree = document.getElementById('cr-duree')?.value || '';
+  const dureePeriode = document.getElementById('cr-duree-periode')?.value || '';
+  const competence = document.getElementById('cr-competence')?.value || '';
+  const moyen = document.getElementById('cr-moyen')?.value || '';
+  const espace = document.getElementById('cr-espace')?.value || '';
+  const materiel = document.getElementById('cr-materiel')?.value || '';
+  const contexte = document.getElementById('cr-contexte')?.value || '';
+  const miseEnTrain = document.getElementById('cr-mise-en-train')?.value || '';
+  const partie1 = document.getElementById('cr-partie1')?.value || '';
+  const partie2 = document.getElementById('cr-partie2')?.value || '';
+  const retour = document.getElementById('cr-retour')?.value || '';
+  const criteres = document.getElementById('cr-criteres')?.value || '';
+  const grilleTB = document.getElementById('cr-grille-tb')?.value || '';
+  const grilleB = document.getElementById('cr-grille-b')?.value || '';
+  const grilleED = document.getElementById('cr-grille-ed')?.value || '';
+  const adaptations = document.getElementById('cr-adaptations')?.value || '';
+  const variantes = document.getElementById('cr-variantes')?.value || '';
+  const valeurs = document.getElementById('cr-valeurs')?.value || '';
+  const tags = document.getElementById('cr-tags')?.value || '';
+
+  // Check if anything is filled
+  if (!titre && !contexte && !miseEnTrain && !partie1) {
+    previewContent.innerHTML = '<p class="preview-empty">' + t('previewEmpty') + '</p>';
+    return;
+  }
+
+  let html = '';
+
+  // Title
+  if (titre) {
+    html += '<h3 class="preview-title">' + escapeHtml(titre) + '</h3>';
+  }
+
+  // Meta badges
+  const badges = [];
+  if (niveau) badges.push(escapeHtml(niveau));
+  if (duree) badges.push(escapeHtml(duree) + (dureePeriode ? ' x ' + escapeHtml(dureePeriode) + ' min' : ''));
+  if (competence) badges.push(escapeHtml(competence));
+  if (moyen) badges.push(escapeHtml(moyen));
+  if (espace) badges.push(escapeHtml(espace));
+  if (badges.length > 0) {
+    html += '<div class="preview-meta">' +
+      badges.map(function(b) { return '<span class="meta-badge">' + b + '</span>'; }).join('') +
+    '</div>';
+  }
+
+  // Intentions
+  if (intentions) {
+    html += '<div class="preview-section"><h4>' + t('mIntentions') + '</h4><p>' + escapeHtml(intentions).replace(/\n/g, '<br>') + '</p></div>';
+  }
+
+  // Contexte
+  if (contexte) {
+    html += '<div class="preview-section"><h4>' + t('mContexte') + '</h4><p>' + escapeHtml(contexte).replace(/\n/g, '<br>') + '</p></div>';
+  }
+
+  // Déroulement phases
+  if (miseEnTrain) {
+    html += '<div class="preview-section"><h4>' + t('mMiseEnTrain') + '</h4><p>' + escapeHtml(miseEnTrain).replace(/\n/g, '<br>') + '</p></div>';
+  }
+  if (partie1) {
+    html += '<div class="preview-section"><h4>' + t('mPartie1') + '</h4><p>' + escapeHtml(partie1).replace(/\n/g, '<br>') + '</p></div>';
+  }
+  if (partie2) {
+    html += '<div class="preview-section"><h4>' + t('mPartie2') + '</h4><p>' + escapeHtml(partie2).replace(/\n/g, '<br>') + '</p></div>';
+  }
+  if (retour) {
+    html += '<div class="preview-section"><h4>' + t('mRetour') + '</h4><p>' + escapeHtml(retour).replace(/\n/g, '<br>') + '</p></div>';
+  }
+
+  // Matériel
+  if (materiel) {
+    html += '<div class="preview-section"><h4>' + t('mMateriel') + '</h4><p>' + escapeHtml(materiel).replace(/\n/g, '<br>') + '</p></div>';
+  }
+
+  // Évaluation
+  if (criteres || grilleTB || grilleB || grilleED) {
+    html += '<div class="preview-section"><h4>' + t('mEvaluation') + '</h4>';
+    if (criteres) html += '<p>' + escapeHtml(criteres).replace(/\n/g, '<br>') + '</p>';
+    if (grilleTB) html += '<div class="eval-level"><strong>🟢 Très bien (A)</strong><p>' + escapeHtml(grilleTB).replace(/\n/g, '<br>') + '</p></div>';
+    if (grilleB) html += '<div class="eval-level"><strong>🟡 Bien (B)</strong><p>' + escapeHtml(grilleB).replace(/\n/g, '<br>') + '</p></div>';
+    if (grilleED) html += '<div class="eval-level"><strong>🟠 En développement (C)</strong><p>' + escapeHtml(grilleED).replace(/\n/g, '<br>') + '</p></div>';
+    html += '</div>';
+  }
+
+  // Adaptations
+  if (adaptations) {
+    html += '<div class="preview-section"><h4>' + t('mAdaptations') + '</h4><p>' + escapeHtml(adaptations).replace(/\n/g, '<br>') + '</p></div>';
+  }
+
+  // Variantes
+  if (variantes) {
+    html += '<div class="preview-section"><h4>' + t('mVariantes') + '</h4><p>' + escapeHtml(variantes).replace(/\n/g, '<br>') + '</p></div>';
+  }
+
+  // Valeurs
+  if (valeurs) {
+    html += '<div class="preview-section"><h4>' + t('mValeurs') + '</h4><p>' + escapeHtml(valeurs).replace(/\n/g, '<br>') + '</p></div>';
+  }
+
+  // Tags
+  if (tags) {
+    const tagList = tags.split(',').map(function(tag) { return tag.trim(); }).filter(Boolean);
+    html += '<div class="preview-section"><div class="preview-tags">' +
+      tagList.map(function(tag) { return '<span class="card-tag">' + escapeHtml(tag) + '</span>'; }).join(' ') +
+    '</div></div>';
+  }
+
+  // Uploaded files
+  if (uploadedFiles.length > 0) {
+    html += '<div class="preview-section"><h4>' + t('formFilesTitle') + '</h4>';
+    html += '<p>' + uploadedFiles.length + ' fichier(s) joint(s)</p></div>';
+  }
+
+  previewContent.innerHTML = html;
+}
+
+function loadTemplate(saeId) {
+  const sae = allSAE.find(function(s) { return getSaeId(s) === saeId; });
+  if (!sae) return;
+
+  const d = sae.deroulement || sae.déroulement || {};
+  const ev = sae.evaluation || sae.évaluation || {};
+
+  const fields = {
+    'cr-titre': sae.titre || '',
+    'cr-intentions': extractText(sae.intentions || sae.intentions_pedagogiques || sae.objectifs || ''),
+    'cr-niveau': sae.niveau || '',
+    'cr-duree': sae.duree || '',
+    'cr-duree-periode': sae.duree_par_periode || '',
+    'cr-competence': sae.competence || sae.competence_pfeq || '',
+    'cr-moyen': sae.moyen_action || '',
+    'cr-espace': sae.espace || 'Gymnase',
+    'cr-materiel': extractText(sae.materiel || ''),
+    'cr-contexte': sae.contexte || sae.mise_en_contexte || sae.situation_depart || sae.description || '',
+    'cr-criteres': extractText(ev.criteres || ev.critères || sae.criteres_evaluation || ''),
+    'cr-adaptations': extractText(sae.adaptations || ''),
+    'cr-variantes': extractText(sae.variantes || ''),
+    'cr-valeurs': extractText(sae.valeurs || ''),
+    'cr-tags': Array.isArray(sae.tags) ? sae.tags.join(', ') : (sae.tags || ''),
+  };
+
+  // Handle deroulement — both flat and nested
+  if (typeof d === 'object' && !Array.isArray(d)) {
+    fields['cr-mise-en-train'] = extractText(d.mise_en_train || d.echauffement || d.phase1 || d.preparation || '');
+    fields['cr-partie1'] = extractText(d.partie_principale_1 || d.tache_complexe || d.developpement || d.partie_principale || d.phase2 || d.realisation || '');
+    fields['cr-partie2'] = extractText(d.partie_principale_2 || d.reinvestissement || d.phase3 || d.integration || d.jeu || '');
+    fields['cr-retour'] = extractText(d.retour_au_calme || d.retour || d.bilan || d.phase4 || '');
+  } else if (typeof d === 'string') {
+    fields['cr-mise-en-train'] = d;
+  }
+
+  // Flat deroulement fields
+  if (!fields['cr-mise-en-train']) fields['cr-mise-en-train'] = extractText(sae.mise_en_train || sae.echauffement || '');
+  if (!fields['cr-partie1']) fields['cr-partie1'] = extractText(sae.partie_principale_1 || sae.tache_complexe || sae.developpement || '');
+  if (!fields['cr-partie2']) fields['cr-partie2'] = extractText(sae.partie_principale_2 || sae.reinvestissement || '');
+  if (!fields['cr-retour']) fields['cr-retour'] = extractText(sae.retour_au_calme || sae.retour || sae.bilan || '');
+
+  // Grille
+  const grille = ev.grille || ev.niveaux || {};
+  if (typeof grille === 'object' && !Array.isArray(grille)) {
+    fields['cr-grille-tb'] = extractText(grille.tres_bien || grille.A || grille.excellent || '');
+    fields['cr-grille-b'] = extractText(grille.bien || grille.B || grille.satisfaisant || '');
+    fields['cr-grille-ed'] = extractText(grille.en_developpement || grille.C || grille.acceptable || '');
+  }
+
+  for (const [id, val] of Object.entries(fields)) {
+    const el = document.getElementById(id);
+    if (el) el.value = String(val);
+  }
+
+  currentEditId = null;
+  showToast('Modèle chargé');
+  updateLivePreview();
+}
+
+function collectFormData() {
+  const titre = (document.getElementById('cr-titre')?.value || '').trim();
+  const niveau = (document.getElementById('cr-niveau')?.value || '').trim();
+  const tags = (document.getElementById('cr-tags')?.value || '').trim();
+
+  // Determine cycle from niveau
+  let cycle = '';
+  const nivLower = niveau.toLowerCase();
+  if (nivLower.includes('préscolaire') || nivLower.includes('maternelle')) cycle = 'Préscolaire';
+  else if (nivLower.includes('1er')) cycle = '1er cycle';
+  else if (nivLower.includes('2e')) cycle = '2e cycle';
+  else if (nivLower.includes('3e')) cycle = '3e cycle';
+  else if (nivLower.includes('secondaire')) cycle = 'Secondaire';
+
+  return {
+    id: currentEditId || ('user-' + Date.now()),
+    _id: currentEditId || ('user-' + Date.now()),
+    titre: titre,
+    intentions_pedagogiques: (document.getElementById('cr-intentions')?.value || '').trim(),
+    niveau: niveau,
+    cycle: cycle,
+    duree_periodes: (document.getElementById('cr-duree')?.value || '').trim(),
+    duree_par_periode: (document.getElementById('cr-duree-periode')?.value || '').trim(),
+    duree: (document.getElementById('cr-duree')?.value || '').trim(),
+    competence_pfeq: (document.getElementById('cr-competence')?.value || '').trim(),
+    competence: (document.getElementById('cr-competence')?.value || '').trim(),
+    moyen_action: (document.getElementById('cr-moyen')?.value || '').trim(),
+    espace: (document.getElementById('cr-espace')?.value || '').trim(),
+    materiel: (document.getElementById('cr-materiel')?.value || '').trim(),
+    situation_depart: (document.getElementById('cr-contexte')?.value || '').trim(),
+    description: (document.getElementById('cr-contexte')?.value || '').trim(),
+    contexte: (document.getElementById('cr-contexte')?.value || '').trim(),
+    deroulement: {
+      mise_en_train: (document.getElementById('cr-mise-en-train')?.value || '').trim(),
+      partie_principale_1: (document.getElementById('cr-partie1')?.value || '').trim(),
+      partie_principale_2: (document.getElementById('cr-partie2')?.value || '').trim(),
+      retour_au_calme: (document.getElementById('cr-retour')?.value || '').trim()
+    },
+    criteres_evaluation: (document.getElementById('cr-criteres')?.value || '').trim(),
+    evaluation: {
+      criteres: (document.getElementById('cr-criteres')?.value || '').trim(),
+      grille: {
+        tres_bien: (document.getElementById('cr-grille-tb')?.value || '').trim(),
+        bien: (document.getElementById('cr-grille-b')?.value || '').trim(),
+        en_developpement: (document.getElementById('cr-grille-ed')?.value || '').trim()
+      }
+    },
+    grille_evaluation: {
+      tres_bien: (document.getElementById('cr-grille-tb')?.value || '').trim(),
+      bien: (document.getElementById('cr-grille-b')?.value || '').trim(),
+      en_developpement: (document.getElementById('cr-grille-ed')?.value || '').trim()
+    },
+    adaptations: (document.getElementById('cr-adaptations')?.value || '').trim(),
+    variantes: (document.getElementById('cr-variantes')?.value || '').trim(),
+    valeurs: (document.getElementById('cr-valeurs')?.value || '').trim(),
+    tags: tags ? tags.split(',').map(function(t) { return t.trim(); }).filter(Boolean) : [],
+    fichiers: uploadedFiles.map(function(f) {
+      return { name: f.name, type: f.type, size: f.size, data: f.data };
+    }),
+    created_at: new Date().toISOString(),
+    modified_at: new Date().toISOString(),
+    _source: 'user',
+    _savedAt: new Date().toISOString()
+  };
+}
+
+function resetCreatorForm() {
+  const formFieldIds = [
+    'cr-titre', 'cr-intentions', 'cr-niveau', 'cr-duree', 'cr-duree-periode',
+    'cr-competence', 'cr-moyen', 'cr-espace', 'cr-materiel',
+    'cr-contexte', 'cr-mise-en-train', 'cr-partie1', 'cr-partie2', 'cr-retour',
+    'cr-criteres', 'cr-grille-tb', 'cr-grille-b', 'cr-grille-ed',
+    'cr-adaptations', 'cr-variantes', 'cr-valeurs', 'cr-tags'
+  ];
+
+  for (const id of formFieldIds) {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  }
+
+  const templateSelect = document.getElementById('templateSelect');
+  if (templateSelect) templateSelect.selectedIndex = 0;
+
+  uploadedFiles = [];
+  renderUploadedFiles();
+  currentEditId = null;
+  updateLivePreview();
+}
+
+
+// ── File Upload ──
+
+function setupFileUpload() {
+  const uploadZone = document.getElementById('uploadZone');
+  const fileInput = document.getElementById('fileInput');
+  if (!uploadZone || !fileInput) return;
+
+  // Click to browse
+  uploadZone.addEventListener('click', function() {
+    fileInput.click();
+  });
+
+  // Drag & drop
+  uploadZone.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    uploadZone.classList.add('drag-over');
+  });
+
+  uploadZone.addEventListener('dragleave', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    uploadZone.classList.remove('drag-over');
+  });
+
+  uploadZone.addEventListener('drop', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    uploadZone.classList.remove('drag-over');
+    if (e.dataTransfer && e.dataTransfer.files) {
+      processFiles(e.dataTransfer.files);
+    }
+  });
+
+  // File input change
+  fileInput.addEventListener('change', function() {
+    if (fileInput.files) {
+      processFiles(fileInput.files);
+      fileInput.value = '';
+    }
+  });
+}
+
+function processFiles(fileList) {
+  const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+
+  for (let i = 0; i < fileList.length; i++) {
+    const file = fileList[i];
+
+    if (file.size > MAX_SIZE) {
+      showToast('Fichier trop volumineux (max 5 Mo) : ' + file.name);
+      continue;
+    }
+
+    var reader = new FileReader();
+    reader.onload = (function(f) {
+      return function(e) {
+        uploadedFiles.push({
+          name: f.name,
+          type: f.type,
+          size: f.size,
+          data: e.target.result
+        });
+        renderUploadedFiles();
+        updateLivePreview();
+      };
+    })(file);
+    reader.readAsDataURL(file);
+  }
+}
+
+function renderUploadedFiles() {
+  const container = document.getElementById('uploadedFiles');
   if (!container) return;
 
-  container.innerHTML = `
-    <div class="edu-tax-header">
-      <h3>${t('eduTaxTitle')}</h3>
-      <p style="font-size:0.9rem;opacity:0.7;margin-top:0.3rem">${
-        LANG.current === 'fr' ? '100+ éducatifs par geste moteur · Progressions par niveau' :
-        LANG.current === 'en' ? '100+ drills per motor skill · Level progressions' :
-        '100+ educativos por habilidad motriz · Progresiones por nivel'
-      }</p>
-    </div>
-    <div class="edu-tax-grid">
-      ${MOYENS_ACTION.map(cat => `
-        <div class="edu-cat-card">
-          <div class="edu-cat-header" style="background:${cat.color}">
-            <span class="edu-cat-icon">${cat.icon}</span>
-            <span class="edu-cat-name">${cat.categorie[LANG.current] || cat.categorie.fr}</span>
-            <span class="edu-cat-count">${cat.items.length} ${LANG.current === 'en' ? 'skills' : LANG.current === 'es' ? 'habilidades' : 'habiletés'}</span>
-          </div>
-          <div class="edu-cat-items">
-            ${cat.items.map(item => `
-              <button class="edu-item-btn" onclick="openEduGeste('${item.id}', '${(item[LANG.current] || item.fr).replace(/'/g, "\\'")}', '${cat.color}')">
-                <span class="edu-item-icon">${item.icon}</span>
-                <div class="edu-item-info">
-                  <div class="edu-item-name">${item[LANG.current] || item.fr}</div>
-                  <div class="edu-item-gestes">${(item.gestes_fr || []).length} ${LANG.current === 'en' ? 'gestures' : LANG.current === 'es' ? 'gestos' : 'gestes'}</div>
-                </div>
-                <span class="edu-item-arrow">→</span>
-              </button>
-            `).join('')}
-          </div>
-        </div>
-      `).join('')}
-    </div>
-  `;
-}
-
-function openEduGeste(gesteId, gesteLabel, color) {
-  state.activeEduGeste = gesteId;
-  state.activeEduMoyen = gesteLabel;
-
-  // Afficher la liste des gestes du moyen d'action
-  const container = document.getElementById('eduTaxonomy');
-  // Trouver les gestes de ce moyen
-  let gestesList = [];
-  let found = null;
-  for (const cat of MOYENS_ACTION) {
-    for (const item of cat.items) {
-      if (item.id === gesteId) { found = item; break; }
-    }
-    if (found) break;
+  if (uploadedFiles.length === 0) {
+    container.innerHTML = '';
+    return;
   }
 
-  if (!found) return;
+  let html = '';
+  for (let i = 0; i < uploadedFiles.length; i++) {
+    var f = uploadedFiles[i];
+    var icon = '📝';
+    if (f.type && f.type.startsWith('image/')) icon = '📷';
+    else if (f.type === 'application/pdf') icon = '📄';
+    else if (f.type && (f.type.includes('word') || f.type.includes('docx'))) icon = '📝';
 
-  container.innerHTML = `
-    <div class="edu-geste-header" style="background:${color}">
-      <button class="edu-back-btn" onclick="renderEduTaxonomy()">← ${t('back').replace('← ','')}</button>
-      <span class="edu-geste-icon">${found.icon}</span>
-      <div>
-        <div class="edu-geste-title">${found[LANG.current] || found.fr}</div>
-        <div class="edu-geste-sub">${found.gestes_fr ? found.gestes_fr.length : 0} gestes · 100+ éducatifs / geste</div>
-      </div>
-    </div>
-    <div class="edu-gestes-list">
-      ${(found.gestes_fr || []).map((geste, i) => `
-        <div class="edu-geste-card" onclick="loadEduForGeste('${gesteId}', ${i}, '${geste.replace(/'/g,"\\'").replace(/"/g,'\\"')}')">
-          <div class="edu-geste-num">${String(i+1).padStart(2,'0')}</div>
-          <div class="edu-geste-name">${geste}</div>
-          <div class="edu-geste-meta">
-            <span class="edu-badge edu-badge-presc">🌱</span>
-            <span class="edu-badge edu-badge-prim">📖</span>
-            <span class="edu-badge edu-badge-sec">🎓</span>
-          </div>
-          <div class="edu-geste-arrow">→</div>
-        </div>
-      `).join('')}
-    </div>
-    <div style="text-align:center;padding:2rem;background:rgba(0,0,0,0.05);border:3px dashed #ccc;margin-top:1rem">
-      <div style="font-family:'Bangers',cursive;font-size:1.8rem;letter-spacing:3px;color:#333">
-        🚧 ${LANG.current === 'fr' ? 'ÉDUCATIFS EN COURS DE GÉNÉRATION' : LANG.current === 'en' ? 'DRILLS BEING GENERATED' : 'EDUCATIVOS EN GENERACIÓN'}
-      </div>
-      <div style="margin-top:0.5rem;font-size:0.9rem;color:#666">
-        ${LANG.current === 'fr' ? 'Les éducatifs pour ce geste moteur seront disponibles très prochainement.' :
-          LANG.current === 'en' ? 'Drills for this motor skill will be available very soon.' :
-          'Los educativos para esta habilidad motriz estarán disponibles muy pronto.'}
-      </div>
-    </div>
-  `;
+    var sizeStr = f.size < 1024 ? f.size + ' B'
+      : f.size < 1024 * 1024 ? (f.size / 1024).toFixed(1) + ' KB'
+      : (f.size / (1024 * 1024)).toFixed(1) + ' MB';
+
+    var nameDisplay = f.name.length > 25 ? f.name.substring(0, 22) + '...' : f.name;
+
+    html += '<div class="uploaded-file">';
+
+    // Image thumbnail
+    if (f.type && f.type.startsWith('image/') && f.data) {
+      html += '<img class="file-thumb" src="' + f.data + '" alt="' + escapeHtml(f.name) + '">';
+    } else {
+      html += '<span class="file-icon">' + icon + '</span>';
+    }
+
+    html += '<span class="file-name" title="' + escapeHtml(f.name) + '">' + escapeHtml(nameDisplay) + '</span>';
+    html += '<span class="file-size">' + sizeStr + '</span>';
+    html += '<button class="file-remove" onclick="removeFile(' + i + ')" title="Supprimer">❌</button>';
+    html += '</div>';
+  }
+
+  container.innerHTML = html;
 }
 
-function loadEduForGeste(gesteId, gesteIdx, gesteName) {
-  // Placeholder — sera rempli quand les JSONs éducatifs seront générés
-  console.log('loadEduForGeste', gesteId, gesteIdx, gesteName);
-}
+window.removeFile = function(index) {
+  uploadedFiles.splice(index, 1);
+  renderUploadedFiles();
+  updateLivePreview();
+};
+
 
 // ============================================================
-//  STATISTIQUES
+//  SECTION 10: IndexedDB Storage
 // ============================================================
-function filterEdu() {
-  // Placeholder pour quand les données éducatifs seront chargées
+
+var DB_NAME = 'ZTSSaeDB';
+var DB_VERSION = 1;
+var DB_STORE = 'mes_saes';
+
+function openDB() {
+  return new Promise(function(resolve, reject) {
+    var request = indexedDB.open(DB_NAME, DB_VERSION);
+
+    request.onupgradeneeded = function(e) {
+      var db = e.target.result;
+      if (!db.objectStoreNames.contains(DB_STORE)) {
+        db.createObjectStore(DB_STORE, { keyPath: 'id' });
+      }
+    };
+
+    request.onsuccess = function(e) {
+      resolve(e.target.result);
+    };
+
+    request.onerror = function(e) {
+      console.error('IndexedDB open error:', e.target.error);
+      reject(e.target.error);
+    };
+  });
 }
 
-function updateJeuxStats() {
-  const total  = state.filteredJeux.length;
-  const pays   = new Set(state.filteredJeux.map(j => j.origine || '').filter(Boolean)).size;
-  const label  = LANG.current === 'en' ? 'GAMES' : LANG.current === 'es' ? 'JUEGOS' : 'JEUX';
-  const label2 = LANG.current === 'en' ? 'ORIGINS' : LANG.current === 'es' ? 'ORÍGENES' : 'ORIGINES';
-  document.getElementById('jeux-count').textContent = `${total} ${label}`;
-  document.getElementById('jeux-pays').textContent  = `${pays} ${label2}`;
+function saveSaeToDB(sae) {
+  openDB().then(function(db) {
+    var tx = db.transaction(DB_STORE, 'readwrite');
+    var store = tx.objectStore(DB_STORE);
+    store.put(sae);
+
+    tx.oncomplete = function() {
+      // Also save to localStorage for backward compatibility
+      var mesSae = getMesSae();
+      var existIdx = mesSae.findIndex(function(s) { return s._id === sae.id || s.id === sae.id; });
+      if (existIdx >= 0) {
+        mesSae[existIdx] = sae;
+      } else {
+        mesSae.push(sae);
+      }
+      setMesSae(mesSae);
+
+      showToast(t('saeSaved'));
+      addXP(10);
+      updateHeaderStats();
+      renderMesSae();
+    };
+
+    tx.onerror = function(e) {
+      console.error('IndexedDB save error:', e.target.error);
+      // Fallback to localStorage only
+      var mesSae = getMesSae();
+      var saeForLS = Object.assign({}, sae);
+      // Remove heavy file data for localStorage (size limit)
+      delete saeForLS.fichiers;
+      var existIdx = mesSae.findIndex(function(s) { return s._id === sae.id || s.id === sae.id; });
+      if (existIdx >= 0) {
+        mesSae[existIdx] = saeForLS;
+      } else {
+        mesSae.push(saeForLS);
+      }
+      setMesSae(mesSae);
+      showToast(t('saeSaved') + ' (localStorage)');
+      addXP(10);
+      updateHeaderStats();
+      renderMesSae();
+    };
+  }).catch(function(err) {
+    console.error('IndexedDB error, fallback to localStorage:', err);
+    var mesSae = getMesSae();
+    var saeForLS = Object.assign({}, sae);
+    delete saeForLS.fichiers;
+    mesSae.push(saeForLS);
+    setMesSae(mesSae);
+    showToast(t('saeSaved') + ' (localStorage)');
+    addXP(10);
+    updateHeaderStats();
+    renderMesSae();
+  });
 }
 
-function updateSAEStats() {
-  const total  = state.filteredSAE.length;
-  const pays   = new Set(state.filteredSAE.map(s => s.origine_mondiale || '').filter(Boolean)).size;
-  const label  = LANG.current === 'en' ? 'LSA' : LANG.current === 'es' ? 'SEA' : 'SAÉ';
-  const label2 = LANG.current === 'en' ? 'CULTURES' : LANG.current === 'es' ? 'CULTURAS' : 'CULTURES';
-  document.getElementById('sae-count').textContent = `${total} ${label}`;
-  document.getElementById('sae-pays').textContent  = `${pays} ${label2}`;
+function getAllSaesFromDB() {
+  return openDB().then(function(db) {
+    return new Promise(function(resolve, reject) {
+      var tx = db.transaction(DB_STORE, 'readonly');
+      var store = tx.objectStore(DB_STORE);
+      var request = store.getAll();
+
+      request.onsuccess = function() {
+        resolve(request.result || []);
+      };
+      request.onerror = function(e) {
+        console.error('IndexedDB getAll error:', e.target.error);
+        reject(e.target.error);
+      };
+    });
+  }).catch(function() {
+    // Fallback: return localStorage data
+    return getMesSae();
+  });
 }
 
-function updateHeaderStats() {
-  document.getElementById('hstat-jeux').innerHTML = `${state.allJeux.length}<span>JEUX</span>`;
-  document.getElementById('hstat-sae').innerHTML  = `${state.allSAE.length}<span>SAÉ</span>`;
-  const allPays = new Set([
-    ...state.allJeux.map(j => j.origine || ''),
-    ...state.allSAE.map(s => s.origine_mondiale || ''),
-  ].filter(Boolean)).size;
-  document.getElementById('hstat-pays').innerHTML = `${allPays}<span>PAYS</span>`;
+function deleteSaeFromDB(id) {
+  return openDB().then(function(db) {
+    return new Promise(function(resolve, reject) {
+      var tx = db.transaction(DB_STORE, 'readwrite');
+      var store = tx.objectStore(DB_STORE);
+      store.delete(id);
+
+      tx.oncomplete = function() {
+        // Also remove from localStorage
+        var mesSae = getMesSae();
+        var filtered = mesSae.filter(function(s) { return s.id !== id && s._id !== id; });
+        setMesSae(filtered);
+        resolve();
+      };
+      tx.onerror = function(e) {
+        reject(e.target.error);
+      };
+    });
+  }).catch(function() {
+    // Fallback: just remove from localStorage
+    var mesSae = getMesSae();
+    var filtered = mesSae.filter(function(s) { return s.id !== id && s._id !== id; });
+    setMesSae(filtered);
+  });
 }
+
+function exportAllSaes() {
+  getAllSaesFromDB().then(function(allSaved) {
+    if (allSaved.length === 0) {
+      // Try localStorage
+      allSaved = getMesSae();
+    }
+    if (allSaved.length === 0) {
+      showToast('Aucune SAÉ à exporter');
+      return;
+    }
+
+    var dateStr = new Date().toISOString().split('T')[0];
+    var blob = new Blob([JSON.stringify(allSaved, null, 2)], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'mes-sae-export-' + dateStr + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('Export terminé (' + allSaved.length + ' SAÉ)');
+  });
+}
+
+function importSaes(jsonFile) {
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      var data = JSON.parse(e.target.result);
+      var saes = Array.isArray(data) ? data : [data];
+      var count = 0;
+
+      var mesSae = getMesSae();
+      for (var i = 0; i < saes.length; i++) {
+        var sae = saes[i];
+        if (!sae.id) sae.id = 'imported-' + Date.now() + '-' + i;
+        if (!sae._id) sae._id = sae.id;
+        if (!sae._savedAt) sae._savedAt = new Date().toISOString();
+        if (!sae._source) sae._source = 'imported';
+
+        // Save to IndexedDB
+        (function(s) {
+          openDB().then(function(db) {
+            var tx = db.transaction(DB_STORE, 'readwrite');
+            tx.objectStore(DB_STORE).put(s);
+          }).catch(function() { /* ignore */ });
+        })(sae);
+
+        // Save to localStorage
+        var existIdx = mesSae.findIndex(function(s) { return s.id === sae.id; });
+        var saeForLS = Object.assign({}, sae);
+        delete saeForLS.fichiers; // don't bloat localStorage
+        if (existIdx >= 0) {
+          mesSae[existIdx] = saeForLS;
+        } else {
+          mesSae.push(saeForLS);
+        }
+        count++;
+      }
+
+      setMesSae(mesSae);
+      renderMesSae();
+      updateHeaderStats();
+      showToast(count + ' SAÉ importée(s)');
+      addXP(5);
+    } catch (err) {
+      console.error('Import error:', err);
+      showToast('Erreur d\'import: fichier JSON invalide');
+    }
+  };
+  reader.readAsText(jsonFile);
+}
+
 
 // ============================================================
-//  MODAL — CLOSE
+//  SECTION 11: MES SAÉ Section (enhanced)
 // ============================================================
-function closeModal() {
-  document.getElementById('modal').classList.add('hidden');
-  document.body.style.overflow = '';
+
+// The main renderMesSae() is in Part 1 (Section 8).
+// Here we add the loadForEdit function and enhance Mes SAÉ interactions.
+
+function loadForEdit(sae) {
+  closeModal();
+  switchTab('createur');
+  currentEditId = sae.id || sae._id;
+
+  setTimeout(function() {
+    var fields = {
+      'cr-titre': sae.titre || '',
+      'cr-intentions': extractText(sae.intentions_pedagogiques || sae.intentions || sae.objectifs || ''),
+      'cr-niveau': sae.niveau || '',
+      'cr-duree': sae.duree || sae.duree_periodes || '',
+      'cr-duree-periode': sae.duree_par_periode || '',
+      'cr-competence': sae.competence || sae.competence_pfeq || '',
+      'cr-moyen': sae.moyen_action || '',
+      'cr-espace': sae.espace || 'Gymnase',
+      'cr-materiel': extractText(sae.materiel || ''),
+      'cr-contexte': sae.contexte || sae.situation_depart || sae.description || '',
+      'cr-mise-en-train': extractText(sae.deroulement?.mise_en_train || sae.mise_en_train || ''),
+      'cr-partie1': extractText(sae.deroulement?.partie_principale_1 || sae.partie_principale_1 || ''),
+      'cr-partie2': extractText(sae.deroulement?.partie_principale_2 || sae.partie_principale_2 || ''),
+      'cr-retour': extractText(sae.deroulement?.retour_au_calme || sae.retour_au_calme || ''),
+      'cr-criteres': extractText(sae.evaluation?.criteres || sae.criteres_evaluation || ''),
+      'cr-grille-tb': extractText(sae.evaluation?.grille?.tres_bien || sae.grille_evaluation?.tres_bien || ''),
+      'cr-grille-b': extractText(sae.evaluation?.grille?.bien || sae.grille_evaluation?.bien || ''),
+      'cr-grille-ed': extractText(sae.evaluation?.grille?.en_developpement || sae.grille_evaluation?.en_developpement || ''),
+      'cr-adaptations': extractText(sae.adaptations || ''),
+      'cr-variantes': extractText(sae.variantes || ''),
+      'cr-valeurs': extractText(sae.valeurs || ''),
+      'cr-tags': Array.isArray(sae.tags) ? sae.tags.join(', ') : (sae.tags || '')
+    };
+
+    for (var id in fields) {
+      var el = document.getElementById(id);
+      if (el) el.value = String(fields[id]);
+    }
+
+    // Load files if any
+    if (sae.fichiers && Array.isArray(sae.fichiers)) {
+      uploadedFiles = sae.fichiers.slice();
+      renderUploadedFiles();
+    } else {
+      uploadedFiles = [];
+      renderUploadedFiles();
+    }
+
+    updateLivePreview();
+    showToast('SAÉ chargée pour modification');
+  }, 200);
 }
 
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
-});
-
-document.getElementById('modal-backdrop').addEventListener('click', closeModal);
 
 // ============================================================
-//  LOADING
+//  SECTION 12: SLOT MACHINE
 // ============================================================
-function progress(pct) {
-  const bar = document.getElementById('loadProgress');
-  if (bar) bar.style.width = pct + '%';
+
+function setupSlotMachine() {
+  var reel = document.getElementById('slotReel');
+  if (!reel) return;
+
+  // Populate reel with SAÉ titles (repeated for scroll effect)
+  var html = '';
+  var titles = allSAE.map(function(sae) { return sae.titre || 'SAÉ'; });
+  // Repeat the list 3 times for seamless scroll
+  for (var rep = 0; rep < 3; rep++) {
+    for (var i = 0; i < titles.length; i++) {
+      html += '<div class="slot-item">' + escapeHtml(truncate(titles[i], 40)) + '</div>';
+    }
+  }
+  reel.innerHTML = html;
+
+  var slotBtn = document.getElementById('slotBtn');
+  if (slotBtn) {
+    slotBtn.addEventListener('click', spinSlot);
+  }
 }
 
-function hideLoading() {
-  const loading = document.getElementById('loading');
-  const app     = document.getElementById('app');
-  loading.style.opacity = '0';
-  loading.style.transition = 'opacity 0.5s';
-  setTimeout(() => {
-    loading.classList.add('hidden');
-    app.classList.remove('hidden');
+function spinSlot() {
+  var slotBtn = document.getElementById('slotBtn');
+  var reel = document.getElementById('slotReel');
+  var result = document.getElementById('slotResult');
+  if (!slotBtn || !reel || allSAE.length === 0) return;
+
+  // Disable button during spin
+  slotBtn.disabled = true;
+  slotBtn.classList.add('spinning');
+  if (result) result.innerHTML = '';
+
+  // Pick random SAÉ
+  var randomIdx = Math.floor(Math.random() * allSAE.length);
+  var selectedSae = allSAE[randomIdx];
+
+  // Calculate target position
+  var itemHeight = 50; // approximate height of each slot-item
+  var items = reel.querySelectorAll('.slot-item');
+  if (items.length === 0) {
+    slotBtn.disabled = false;
+    slotBtn.classList.remove('spinning');
+    return;
+  }
+
+  // Measure actual item height
+  if (items[0]) {
+    itemHeight = items[0].offsetHeight || 50;
+  }
+
+  // Target: scroll to the position of the selected item (in the second repetition for centered look)
+  var targetIdx = allSAE.length + randomIdx;
+  var targetY = -(targetIdx * itemHeight);
+
+  // Reset position
+  reel.style.transition = 'none';
+  reel.style.transform = 'translateY(0)';
+
+  // Force reflow
+  reel.offsetHeight;
+
+  // Animate with CSS transition
+  reel.style.transition = 'transform 3.5s cubic-bezier(0.15, 0.85, 0.35, 1)';
+  reel.style.transform = 'translateY(' + targetY + 'px)';
+
+  // On complete
+  setTimeout(function() {
+    slotBtn.disabled = false;
+    slotBtn.classList.remove('spinning');
+
+    // Show result
+    if (result && selectedSae) {
+      var icon = getSaeIcon(selectedSae);
+      var saeId = getSaeId(selectedSae);
+      result.innerHTML =
+        '<div class="slot-result-card glass">' +
+          '<h3>' + icon + ' ' + escapeHtml(selectedSae.titre || 'SAÉ') + '</h3>' +
+          '<div class="card-tags">' +
+            (selectedSae.niveau ? '<span class="card-tag">' + escapeHtml(selectedSae.niveau) + '</span>' : '') +
+            (selectedSae.moyen_action ? '<span class="card-tag">' + escapeHtml(selectedSae.moyen_action) + '</span>' : '') +
+          '</div>' +
+          '<p>' + escapeHtml(truncate(selectedSae.description || '', 150)) + '</p>' +
+          '<button class="action-btn" onclick="openSaeModal(allSAE[' + randomIdx + '])">' + t('seeSae') + '</button>' +
+        '</div>';
+
+      // GSAP result animation
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo(result.querySelector('.slot-result-card'),
+          { opacity: 0, scale: 0.8, y: 20 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: 'back.out(1.5)' }
+        );
+      }
+    }
+
+    // Fire confetti
+    if (typeof confetti !== 'undefined') {
+      confetti({
+        particleCount: 100,
+        spread: 80,
+        origin: { y: 0.5 },
+        colors: ['#00d4ff', '#ffd700', '#ff6b6b', '#2ed573', '#a55eea']
+      });
+    }
+
+    addXP(5);
+  }, 3600);
+}
+
+// Make openSaeModal available globally for slot machine result button
+window.openSaeModal = openSaeModal;
+
+
+// ============================================================
+//  SECTION 13: ÉDUCATIFS SECTION (Taxonomy browser)
+// ============================================================
+
+function renderEduTaxonomy() {
+  var container = document.getElementById('eduTaxonomy');
+  if (!container) return;
+
+  renderEduLevel1(container);
+}
+
+function renderEduLevel1(container) {
+  var html = '<h3 class="taxonomy-title">' + t('eduTaxTitle') + '</h3>';
+  html += '<div class="taxonomy-grid">';
+
+  for (var i = 0; i < MOYENS_ACTION.length; i++) {
+    var cat = MOYENS_ACTION[i];
+    var label = cat.labels[LANG.current] || cat.labels.fr;
+    html += '<div class="taxonomy-card" data-cat-idx="' + i + '" style="--cat-color: ' + cat.color + '">' +
+      '<span class="taxonomy-icon">' + cat.icon + '</span>' +
+      '<h4>' + escapeHtml(label) + '</h4>' +
+      '<span class="taxonomy-count">' + cat.items.length + ' sous-catégories</span>' +
+    '</div>';
+  }
+
+  html += '</div>';
+  container.innerHTML = html;
+
+  // Animate with GSAP
+  if (typeof gsap !== 'undefined') {
+    gsap.fromTo(container.querySelectorAll('.taxonomy-card'),
+      { opacity: 0, y: 30, scale: 0.9 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.08, ease: 'back.out(1.5)' }
+    );
+  }
+
+  // Click handler
+  container.onclick = function(e) {
+    var card = e.target.closest('.taxonomy-card');
+    if (card) {
+      var catIdx = parseInt(card.dataset.catIdx);
+      if (!isNaN(catIdx) && MOYENS_ACTION[catIdx]) {
+        renderEduLevel2(container, MOYENS_ACTION[catIdx]);
+      }
+    }
+  };
+}
+
+function renderEduLevel2(container, category) {
+  var label = category.labels[LANG.current] || category.labels.fr;
+  var html = '<button class="back-btn glass" id="eduBackL2">' + t('back') + '</button>';
+  html += '<h3 class="taxonomy-title">' + category.icon + ' ' + escapeHtml(label) + '</h3>';
+  html += '<div class="taxonomy-grid">';
+
+  for (var i = 0; i < category.items.length; i++) {
+    var item = category.items[i];
+    var itemLabel = item.labels[LANG.current] || item.labels.fr;
+
+    // Count matching SAÉ for this item
+    var matchCount = allSAE.filter(function(sae) {
+      var haystack = [sae.moyen_action, sae.titre, sae.categorie, sae.domaine, sae.tags]
+        .filter(Boolean).join(' ').toLowerCase();
+      return haystack.includes(item.id.toLowerCase()) || haystack.includes(itemLabel.toLowerCase());
+    }).length;
+
+    html += '<div class="taxonomy-card" data-item-idx="' + i + '" style="--cat-color: ' + category.color + '">' +
+      '<span class="taxonomy-icon">' + item.icon + '</span>' +
+      '<h4>' + escapeHtml(itemLabel) + '</h4>' +
+      '<span class="taxonomy-count">' + matchCount + ' SAÉ</span>' +
+    '</div>';
+  }
+
+  html += '</div>';
+  container.innerHTML = html;
+
+  // Animate
+  if (typeof gsap !== 'undefined') {
+    gsap.fromTo(container.querySelectorAll('.taxonomy-card'),
+      { opacity: 0, x: 50 },
+      { opacity: 1, x: 0, duration: 0.3, stagger: 0.06, ease: 'power2.out' }
+    );
+  }
+
+  // Back button
+  var backBtn = document.getElementById('eduBackL2');
+  if (backBtn) {
+    backBtn.addEventListener('click', function() {
+      renderEduLevel1(container);
+    });
+  }
+
+  // Click handler for items
+  container.onclick = function(e) {
+    if (e.target.closest('#eduBackL2')) return;
+    var card = e.target.closest('.taxonomy-card');
+    if (card) {
+      var itemIdx = parseInt(card.dataset.itemIdx);
+      if (!isNaN(itemIdx) && category.items[itemIdx]) {
+        renderEduLevel3(container, category, category.items[itemIdx]);
+      }
+    }
+  };
+}
+
+function renderEduLevel3(container, category, item) {
+  var itemLabel = item.labels[LANG.current] || item.labels.fr;
+  var catLabel = category.labels[LANG.current] || category.labels.fr;
+
+  // Find matching SAÉs
+  var matchingSae = allSAE.filter(function(sae) {
+    var haystack = [sae.moyen_action, sae.titre, sae.categorie, sae.domaine, sae.tags, sae.description]
+      .filter(Boolean).join(' ').toLowerCase();
+    return haystack.includes(item.id.toLowerCase()) || haystack.includes(itemLabel.toLowerCase());
+  });
+
+  var html = '<button class="back-btn glass" id="eduBackL3">' + t('back') + '</button>';
+  html += '<h3 class="taxonomy-title">' + item.icon + ' ' + escapeHtml(itemLabel) + '</h3>';
+  html += '<p class="taxonomy-subtitle">' + escapeHtml(catLabel) + ' → ' + escapeHtml(itemLabel) + ' — ' + matchingSae.length + ' SAÉ</p>';
+
+  if (matchingSae.length === 0) {
+    html += '<div class="no-results glass"><h3>' + t('noResults') + '</h3></div>';
+  } else {
+    html += '<div class="taxonomy-results">';
+    var maxShow = Math.min(matchingSae.length, 20);
+    for (var i = 0; i < maxShow; i++) {
+      var sae = matchingSae[i];
+      var icon = getSaeIcon(sae);
+      html += '<div class="card taxonomy-result-card" data-sae-match-idx="' + i + '">' +
+        '<div class="card-header">' +
+          '<span class="card-icon">' + icon + '</span>' +
+          '<h4 class="card-title">' + escapeHtml(sae.titre || 'Sans titre') + '</h4>' +
+        '</div>' +
+        '<p class="card-desc">' + escapeHtml(truncate(sae.description || '', 100)) + '</p>' +
+        '<div class="card-tags">' +
+          (sae.niveau ? '<span class="card-tag">' + escapeHtml(sae.niveau) + '</span>' : '') +
+        '</div>' +
+      '</div>';
+    }
+    if (matchingSae.length > maxShow) {
+      html += '<p class="taxonomy-more">+ ' + (matchingSae.length - maxShow) + ' autres SAÉ</p>';
+    }
+    html += '</div>';
+  }
+
+  container.innerHTML = html;
+
+  // Animate
+  if (typeof gsap !== 'undefined') {
+    gsap.fromTo(container.querySelectorAll('.taxonomy-result-card'),
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.3, stagger: 0.04, ease: 'power2.out' }
+    );
+  }
+
+  // Back button
+  var backBtn = document.getElementById('eduBackL3');
+  if (backBtn) {
+    backBtn.addEventListener('click', function() {
+      renderEduLevel2(container, category);
+    });
+  }
+
+  // Click on result cards
+  container.onclick = function(e) {
+    if (e.target.closest('#eduBackL3')) return;
+    var card = e.target.closest('.taxonomy-result-card');
+    if (card) {
+      var idx = parseInt(card.dataset.saeMatchIdx);
+      if (!isNaN(idx) && matchingSae[idx]) {
+        openSaeModal(matchingSae[idx]);
+      }
+    }
+  };
+}
+
+
+// ============================================================
+//  SECTION 14: MUSIQUE + GSAP BLOBS + MAGNETIC BUTTONS + PHYSICS
+// ============================================================
+
+// ── Musique Section ──
+
+function renderMusique() {
+  var container = document.getElementById('musique-content');
+  if (!container) return;
+
+  var html = '<div class="musique-guide glass">';
+
+  // BPM Reference Table
+  html += '<div class="musique-section">';
+  html += '<h3>🎵 Guide BPM pour l\'ÉPS</h3>';
+  html += '<table class="bpm-table">';
+  html += '<thead><tr><th>Phase du cours</th><th>BPM recommandé</th><th>Genre musical</th></tr></thead>';
+  html += '<tbody>';
+  html += '<tr><td>🧘 Retour au calme</td><td>60-80 BPM</td><td>Ambient, Lo-fi, Classique</td></tr>';
+  html += '<tr><td>📖 Consignes / Explication</td><td>80-100 BPM</td><td>Instrumental calme, Acoustic</td></tr>';
+  html += '<tr><td>🏃 Échauffement</td><td>100-120 BPM</td><td>Pop, Indie, Funk léger</td></tr>';
+  html += '<tr><td>⚡ Activité principale</td><td>120-140 BPM</td><td>Pop dynamique, Hip-Hop, Rock</td></tr>';
+  html += '<tr><td>🔥 Haute intensité</td><td>140-170 BPM</td><td>EDM, Drum & Bass, Techno</td></tr>';
+  html += '<tr><td>🎉 Célébration / Victoire</td><td>120-140 BPM</td><td>Party, Épique, Upbeat</td></tr>';
+  html += '</tbody></table>';
+  html += '</div>';
+
+  // Free Music Sources
+  html += '<div class="musique-section">';
+  html += '<h3>🆓 Sources de musiques libres de droits</h3>';
+  html += '<div class="musique-sources">';
+
+  var sources = [
+    { name: 'YouTube Audio Library', url: 'https://studio.youtube.com/channel/UC/music', desc: 'Gratuit, vaste choix, filtres par genre/humeur/BPM' },
+    { name: 'Free Music Archive (FMA)', url: 'https://freemusicarchive.org/', desc: 'Archives musicales libres, Creative Commons' },
+    { name: 'Pixabay Music', url: 'https://pixabay.com/music/', desc: 'Musiques 100% gratuites, aucune attribution requise' },
+    { name: 'Incompetech (Kevin MacLeod)', url: 'https://incompetech.com/', desc: 'Classiques libres de droits, très utilisées en éducation' },
+    { name: 'Mixkit', url: 'https://mixkit.co/free-stock-music/', desc: 'Musiques gratuites, licence libre' },
+    { name: 'ccMixter', url: 'http://ccmixter.org/', desc: 'Remixes et originaux sous Creative Commons' },
+    { name: 'Bensound', url: 'https://www.bensound.com/', desc: 'Musiques originales, licence gratuite avec attribution' },
+    { name: 'SoundCloud (CC)', url: 'https://soundcloud.com/search/sounds?filter.license=to_share', desc: 'Filtrer par licence Creative Commons' }
+  ];
+
+  for (var i = 0; i < sources.length; i++) {
+    var src = sources[i];
+    html += '<a href="' + escapeHtml(src.url) + '" target="_blank" rel="noopener" class="source-card glass">' +
+      '<h4>' + escapeHtml(src.name) + '</h4>' +
+      '<p>' + escapeHtml(src.desc) + '</p>' +
+    '</a>';
+  }
+
+  html += '</div></div>';
+
+  // Quick Genre Guide
+  html += '<div class="musique-section">';
+  html += '<h3>🎶 Guide rapide des genres pour l\'ÉPS</h3>';
+  html += '<div class="genre-grid">';
+
+  var genres = [
+    { icon: '🧘', name: 'Ambient / Lo-fi', use: 'Retour au calme, étirements, yoga' },
+    { icon: '🎹', name: 'Classique / Instrumental', use: 'Consignes, expression corporelle, danse créative' },
+    { icon: '🎸', name: 'Pop / Rock', use: 'Échauffement, activités dynamiques' },
+    { icon: '🥁', name: 'Hip-Hop / Funk', use: 'Danse, circuits d\'entraînement' },
+    { icon: '🎧', name: 'EDM / Électro', use: 'Haute intensité, crossfit, intervalles' },
+    { icon: '🌍', name: 'Musiques du monde', use: 'Jeux culturels, danses folkloriques' },
+    { icon: '🎺', name: 'Fanfare / Épique', use: 'Cérémonies, célébrations, relais' },
+    { icon: '🪘', name: 'Percussions', use: 'Rythme, coordination, signaux' }
+  ];
+
+  for (var g = 0; g < genres.length; g++) {
+    var genre = genres[g];
+    html += '<div class="genre-card glass">' +
+      '<span class="genre-icon">' + genre.icon + '</span>' +
+      '<h4>' + escapeHtml(genre.name) + '</h4>' +
+      '<p>' + escapeHtml(genre.use) + '</p>' +
+    '</div>';
+  }
+
+  html += '</div></div>';
+  html += '</div>';
+
+  container.innerHTML = html;
+
+  // GSAP animation
+  if (typeof gsap !== 'undefined') {
+    gsap.fromTo(container.querySelectorAll('.musique-section'),
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.5, stagger: 0.15, ease: 'power2.out' }
+    );
+  }
+}
+
+
+// ── GSAP Background Blobs ──
+
+function initBlobCanvas() {
+  if (typeof gsap === 'undefined') return;
+
+  var canvas = document.getElementById('bgCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var mouseX = window.innerWidth / 2;
+  var mouseY = window.innerHeight / 2;
+
+  document.addEventListener('mousemove', function(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  var blobs = [];
+  var blobColors = ['rgba(0, 255, 255, 0.12)', 'rgba(0, 128, 128, 0.15)', 'rgba(0, 212, 255, 0.1)',
+                    'rgba(0, 200, 180, 0.13)', 'rgba(30, 144, 255, 0.1)', 'rgba(0, 255, 200, 0.08)'];
+
+  for (var i = 0; i < 6; i++) {
+    blobs.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: 100 + Math.random() * 200,
+      color: blobColors[i % blobColors.length],
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      phase: Math.random() * Math.PI * 2
+    });
+  }
+
+  // Animate blobs with GSAP ticker
+  gsap.ticker.add(function() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (var i = 0; i < blobs.length; i++) {
+      var blob = blobs[i];
+
+      // Slow movement
+      blob.x += blob.vx;
+      blob.y += blob.vy;
+      blob.phase += 0.005;
+
+      // Bounce off edges
+      if (blob.x < -blob.radius) blob.x = canvas.width + blob.radius;
+      if (blob.x > canvas.width + blob.radius) blob.x = -blob.radius;
+      if (blob.y < -blob.radius) blob.y = canvas.height + blob.radius;
+      if (blob.y > canvas.height + blob.radius) blob.y = -blob.radius;
+
+      // Parallax: react slightly to mouse
+      var parallaxX = (mouseX - canvas.width / 2) * 0.01 * (i % 3 === 0 ? 1 : -0.5);
+      var parallaxY = (mouseY - canvas.height / 2) * 0.01 * (i % 2 === 0 ? 1 : -0.5);
+
+      // Scale pulsation
+      var scale = 1 + Math.sin(blob.phase) * 0.15;
+      var drawRadius = blob.radius * scale;
+
+      ctx.beginPath();
+      ctx.arc(blob.x + parallaxX, blob.y + parallaxY, drawRadius, 0, Math.PI * 2);
+      ctx.fillStyle = blob.color;
+      ctx.fill();
+    }
+  });
+}
+
+
+// ── Magnetic Buttons ──
+
+function initMagneticButtons() {
+  if (typeof gsap === 'undefined') return;
+
+  var buttons = document.querySelectorAll('.mag-btn');
+
+  buttons.forEach(function(btn) {
+    var rect, btnX, btnY;
+
+    btn.addEventListener('mouseenter', function() {
+      rect = btn.getBoundingClientRect();
+      btnX = rect.left + rect.width / 2;
+      btnY = rect.top + rect.height / 2;
+    });
+
+    btn.addEventListener('mousemove', function(e) {
+      if (!rect) {
+        rect = btn.getBoundingClientRect();
+        btnX = rect.left + rect.width / 2;
+        btnY = rect.top + rect.height / 2;
+      }
+
+      var dx = e.clientX - btnX;
+      var dy = e.clientY - btnY;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 100) {
+        var strength = (100 - dist) / 100;
+        gsap.to(btn, {
+          x: dx * strength * 0.3,
+          y: dy * strength * 0.3,
+          duration: 0.3,
+          ease: 'power2.out'
+        });
+      }
+    });
+
+    btn.addEventListener('mouseleave', function() {
+      gsap.to(btn, {
+        x: 0,
+        y: 0,
+        duration: 0.5,
+        ease: 'elastic.out(1, 0.5)'
+      });
+      rect = null;
+    });
+  });
+}
+
+
+// ── Physics Emojis (Matter.js) ──
+
+function initPhysicsEmojis() {
+  if (typeof Matter === 'undefined') return;
+
+  var canvas = document.getElementById('physicsCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  var engine = Matter.Engine.create({ gravity: { x: 0, y: 0.3 } });
+  var world = engine.world;
+
+  var emojis = ['🏀', '⚽', '🎾', '🏸', '🏐', '🎯', '⚾', '🏒', '🥏', '🤸',
+                '🏈', '🥅', '🏋️', '🤾', '⛹️', '🧗', '🏄', '🤿', '🚴', '🏊'];
+
+  var bodies = [];
+  var emojiMap = [];
+
+  // Add emoji bodies
+  var numBodies = Math.min(20, emojis.length);
+  for (var i = 0; i < numBodies; i++) {
+    var x = 50 + Math.random() * (canvas.width - 100);
+    var y = -30 - Math.random() * 400;
+    var body = Matter.Bodies.circle(x, y, 18, {
+      restitution: 0.7,
+      friction: 0.05,
+      frictionAir: 0.01,
+      density: 0.001
+    });
+    body._emoji = emojis[i % emojis.length];
+    Matter.Composite.add(world, body);
+    bodies.push(body);
+    emojiMap.push(emojis[i % emojis.length]);
+  }
+
+  // Walls and floor
+  var thickness = 60;
+  var floor = Matter.Bodies.rectangle(canvas.width / 2, canvas.height + thickness / 2, canvas.width * 3, thickness, { isStatic: true });
+  var ceiling = Matter.Bodies.rectangle(canvas.width / 2, -thickness / 2, canvas.width * 3, thickness, { isStatic: true });
+  var wallL = Matter.Bodies.rectangle(-thickness / 2, canvas.height / 2, thickness, canvas.height * 3, { isStatic: true });
+  var wallR = Matter.Bodies.rectangle(canvas.width + thickness / 2, canvas.height / 2, thickness, canvas.height * 3, { isStatic: true });
+  Matter.Composite.add(world, [floor, ceiling, wallL, wallR]);
+
+  // Mouse constraint for dragging
+  var mouse = Matter.Mouse.create(canvas);
+  var mouseConstraint = Matter.MouseConstraint.create(engine, {
+    mouse: mouse,
+    constraint: {
+      stiffness: 0.2,
+      render: { visible: false }
+    }
+  });
+  Matter.Composite.add(world, mouseConstraint);
+
+  // Resize handler
+  window.addEventListener('resize', function() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    Matter.Body.setPosition(floor, { x: canvas.width / 2, y: canvas.height + thickness / 2 });
+    Matter.Body.setPosition(wallR, { x: canvas.width + thickness / 2, y: canvas.height / 2 });
+  });
+
+  // Render loop
+  function renderPhysics() {
+    Matter.Engine.update(engine, 1000 / 60);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (var i = 0; i < bodies.length; i++) {
+      var b = bodies[i];
+      ctx.save();
+      ctx.translate(b.position.x, b.position.y);
+      ctx.rotate(b.angle);
+      ctx.font = '26px serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.globalAlpha = 0.25;
+      ctx.fillText(b._emoji, 0, 0);
+      ctx.restore();
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(renderPhysics);
+  }
+  renderPhysics();
+}
+
+
+// ============================================================
+//  FINAL: Event Listeners & Initialization of Part 2 features
+// ============================================================
+
+(function initPart2() {
+  // Wait for DOM to be ready — if already loaded, run immediately
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPart2Features);
+  } else {
+    // DOMContentLoaded already fired, but allSAE might not be loaded yet
+    // Use a short delay to let Part 1 init complete
+    setTimeout(initPart2Features, 500);
+  }
+})();
+
+function initPart2Features() {
+  // Setup creator form (with all listeners)
+  setupCreatorForm();
+
+  // Setup slot machine — wait for data to load
+  var slotInterval = setInterval(function() {
+    if (allSAE.length > 0) {
+      clearInterval(slotInterval);
+      setupSlotMachine();
+      // Re-populate template dropdown now that data is available
+      var templateSelect = document.getElementById('templateSelect');
+      if (templateSelect) populateTemplateDropdown(templateSelect);
+    }
   }, 500);
+
+  // Clear interval after 15 seconds regardless
+  setTimeout(function() { clearInterval(slotInterval); }, 15000);
+
+  // Render éducatifs taxonomy when tab is shown
+  var eduRendered = false;
+  var origSwitchTab = switchTab;
+  // We override switchTab to hook into tab changes for lazy rendering
+  window._origSwitchTab = switchTab;
+  window.switchTab = function(tabName) {
+    window._origSwitchTab(tabName);
+
+    if (tabName === 'educatifs' && !eduRendered && allSAE.length > 0) {
+      eduRendered = true;
+      renderEduTaxonomy();
+    }
+    if (tabName === 'musique') {
+      renderMusique();
+    }
+  };
+
+  // Init GSAP blobs (enhanced background)
+  initBlobCanvas();
+
+  // Init magnetic buttons
+  initMagneticButtons();
+
+  // Init physics emojis (delayed to allow Matter.js to load)
+  setTimeout(function() {
+    initPhysicsEmojis();
+  }, 2000);
+
+  // ── Global keyboard shortcuts ──
+  document.addEventListener('keydown', function(e) {
+    // Escape closes modal (already handled in Part 1, but ensuring it works)
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  // ── Modal backdrop click (already handled in showModal, but extra safety) ──
+  var modalBackdrop = document.getElementById('modalBackdrop');
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener('click', closeModal);
+  }
+
+  // ── Window resize handlers for canvases ──
+  window.addEventListener('resize', function() {
+    var bgCanvas = document.getElementById('bgCanvas');
+    if (bgCanvas) {
+      bgCanvas.width = window.innerWidth;
+      bgCanvas.height = window.innerHeight;
+    }
+  });
+
+  // ── Mes SAÉ search listener ──
+  var mesSaeSearch = document.getElementById('mes-sae-search');
+  if (mesSaeSearch) {
+    mesSaeSearch.addEventListener('input', function() {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(renderMesSae, 300);
+    });
+  }
+
+  // ── Print button in modal ──
+  // (Already handled via window.printSae in Part 1)
+
+  // ── Share button in modal ──
+  // (Already handled via window.shareSae in Part 1)
 }

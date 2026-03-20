@@ -2,155 +2,152 @@
 <html lang="fr" id="htmlRoot">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>⚡ Zone Total Sport — Référence Mondiale ÉPS / World PE Reference</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Zone Total Sport — Générateur de SAÉ (Situations d'Apprentissage et d'Évaluation) conforme au PFEQ Québec. 1000+ SAÉ, jeux sportifs mondiaux, éducatifs et musiques libres de droits pour l'éducation physique et à la santé.">
+  <meta name="keywords" content="SAÉ, PFEQ, éducation physique, ÉPS, Québec, jeux sportifs, éducatifs, situations d'apprentissage, Zone Total Sport">
+  <meta name="author" content="Zone Total Sport">
+  <meta name="theme-color" content="#0a0e27">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Zone Total Sport — Générateur SAÉ">
+  <meta property="og:description" content="Référence mondiale en ÉPS. 1000+ SAÉ, jeux sportifs, éducatifs et musiques libres de droits. PFEQ Québec, Maternelle → Secondaire 5.">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:site_name" content="Zone Total Sport">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zone Total Sport — Générateur SAÉ">
+  <meta name="twitter:description" content="Référence mondiale en ÉPS. 1000+ SAÉ conformes au PFEQ Québec.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <title>⚡ Zone Total Sport — Générateur SAÉ</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <!-- Matter.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js" defer></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" defer></script>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- BACKGROUND CANVAS -->
-  <canvas id="bgCanvas"></canvas>
+  <!-- BACKGROUND ELEMENTS -->
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <div id="grainOverlay" aria-hidden="true"></div>
+  <canvas id="physicsCanvas" aria-hidden="true"></canvas>
 
   <!-- LOADING SCREEN -->
-  <div id="loading" class="loading-screen">
+  <div id="loading" role="status" aria-live="polite">
     <div class="loading-inner">
       <div class="loading-logo">⚡</div>
       <div class="loading-text">ZONE TOTAL SPORT</div>
       <div class="loading-sub" id="loadingMsg">CHARGEMENT EN COURS...</div>
-      <div class="loading-bar"><div class="loading-progress" id="loadProgress"></div></div>
+      <div class="loading-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="loading-progress" id="loadProgress"></div>
+      </div>
     </div>
   </div>
 
-  <!-- APP WRAPPER -->
-  <div id="app" class="app hidden">
+  <!-- LANGUAGE SELECTOR (floating top-right) -->
+  <div class="lang-selector glass" id="langSelector" role="navigation" aria-label="Sélection de la langue">
+    <button class="lang-btn active" data-lang="fr" aria-label="Français" aria-pressed="true">🇨🇦 FR</button>
+    <button class="lang-btn" data-lang="en" aria-label="English" aria-pressed="false">🇺🇸 EN</button>
+    <button class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="false">🇪🇸 ES</button>
+    <button class="lang-btn" data-lang="zh" aria-label="中文" aria-pressed="false">🇨🇳 中文</button>
+  </div>
+
+  <!-- MAIN APP -->
+  <div id="app" class="hidden">
 
     <!-- HEADER -->
-    <header class="header">
-      <div class="header-inner">
-        <div class="header-logo">
-          <span class="zap zap-left">⚡</span>
-          <div class="header-titles">
-            <h1 class="site-title">ZONE TOTAL SPORT</h1>
-            <p class="site-subtitle" id="siteSubtitle">RÉFÉRENCE MONDIALE EN ÉPS · QUÉBEC</p>
-          </div>
-          <span class="zap zap-right">⚡</span>
+    <header class="header glass">
+      <div class="header-left">
+        <span class="header-zap" aria-hidden="true">⚡</span>
+        <div>
+          <h1 class="site-title" id="siteTitle">ZONE TOTAL SPORT</h1>
+          <p class="site-subtitle" id="siteSubtitle">GÉNÉRATEUR DE SAÉ · RÉFÉRENCE MONDIALE ÉPS</p>
         </div>
-        <div class="header-right">
-          <div class="header-stats">
-            <div class="hstat" id="hstat-jeux">0<span id="statLabelJeux">JEUX</span></div>
-            <div class="hstat" id="hstat-sae">0<span id="statLabelSae">SAÉ</span></div>
-            <div class="hstat" id="hstat-pays">0<span id="statLabelPays">PAYS</span></div>
-          </div>
-          <!-- LANGUAGE TOGGLE -->
-          <div class="lang-toggle">
-            <button class="lang-btn active" id="btnFR" onclick="setLang('fr')">🇨🇦 FR</button>
-            <button class="lang-btn" id="btnEN" onclick="setLang('en')">🇺🇸 EN</button>
-            <button class="lang-btn" id="btnES" onclick="setLang('es')">🇪🇸 ES</button>
-          </div>
+      </div>
+      <div class="header-stats">
+        <div class="hstat glass">
+          <span class="hstat-num" id="statSaeNum">0</span>
+          <span class="hstat-label" data-i18n="statSae">SAÉ</span>
         </div>
+        <div class="hstat glass">
+          <span class="hstat-num" id="statJeuxNum">0</span>
+          <span class="hstat-label" data-i18n="statJeux">JEUX</span>
+        </div>
+        <div class="hstat glass">
+          <span class="hstat-num" id="statMesSaeNum">0</span>
+          <span class="hstat-label" data-i18n="statMesSae">MES SAÉ</span>
+        </div>
+      </div>
+      <!-- GAMIFICATION XP BAR -->
+      <div class="xp-container glass" title="Progression d'exploration">
+        <div class="level-badge" id="levelBadge">Niv. 1</div>
+        <div class="xp-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Barre d'expérience">
+          <div class="xp-fill" id="xpFill" style="width: 0%"></div>
+        </div>
+        <span class="xp-text" id="xpText">0 / 50 XP</span>
       </div>
     </header>
 
-    <!-- NAV TABS -->
-    <nav class="main-nav">
-      <button class="nav-tab active" data-tab="jeux" id="tabJeux">🎮 JEUX SPORTIFS</button>
-      <button class="nav-tab" data-tab="sae" id="tabSae">📚 SAÉ PFEQ</button>
-      <button class="nav-tab" data-tab="educatifs" id="tabEducatifs">🏋️ ÉDUCATIFS</button>
-      <button class="nav-tab" data-tab="musique" id="tabMusique">🎵 MUSIQUES LIBRES</button>
+    <!-- NAVIGATION TABS -->
+    <nav class="main-nav" id="mainNav" role="tablist" aria-label="Navigation principale">
+      <button class="nav-tab active" data-tab="banque" role="tab" aria-selected="true" aria-controls="tab-banque">📚 <span data-i18n="tabBanque">BANQUE SAÉ</span></button>
+      <button class="nav-tab" data-tab="createur" role="tab" aria-selected="false" aria-controls="tab-createur">✏️ <span data-i18n="tabCreateur">CRÉER UNE SAÉ</span></button>
+      <button class="nav-tab" data-tab="mes-sae" role="tab" aria-selected="false" aria-controls="tab-mes-sae">💾 <span data-i18n="tabMesSae">MES SAÉ</span></button>
+      <button class="nav-tab" data-tab="machine" role="tab" aria-selected="false" aria-controls="tab-machine">🎰 <span data-i18n="tabMachine">MACHINE À DÉFIS</span></button>
+      <button class="nav-tab" data-tab="jeux" role="tab" aria-selected="false" aria-controls="tab-jeux">🎮 <span data-i18n="tabJeux">JEUX</span></button>
+      <button class="nav-tab" data-tab="educatifs" role="tab" aria-selected="false" aria-controls="tab-educatifs">🏋️ <span data-i18n="tabEducatifs">ÉDUCATIFS</span></button>
+      <button class="nav-tab" data-tab="musique" role="tab" aria-selected="false" aria-controls="tab-musique">🎵 <span data-i18n="tabMusique">MUSIQUE</span></button>
     </nav>
 
     <!-- MAIN CONTENT -->
-    <main class="main-content">
+    <main>
 
-      <!-- ========== SECTION JEUX ========== -->
-      <section class="tab-section active" id="tab-jeux">
-        <div class="section-hero cat-jeux">
-          <div class="hero-icon">🎮</div>
-          <div class="hero-text">
-            <h2 id="heroJeuxTitle">BANQUE DE JEUX SPORTIFS MONDIAUX</h2>
-            <p id="heroJeuxSub">Tous les jeux de partout sur la planète · Référence mondiale</p>
-          </div>
-        </div>
-
-        <div class="controls-bar">
-          <input type="text" id="jeux-search" class="search-input" placeholder="🔍 Rechercher un jeu...">
-          <select id="jeux-category" class="filter-select">
-            <option value="" data-fr="Toutes les catégories" data-en="All categories">Toutes les catégories</option>
-            <option value="ballon_chasseur">🎯 Ballon Chasseur / Dodgeball</option>
-            <option value="poursuite">🏃 Poursuite / Tag</option>
-            <option value="cooperation">🤝 Coopération / Cooperation</option>
-            <option value="opposition">⚔️ Opposition / Duel</option>
-            <option value="sports_collectifs">🏅 Sports Collectifs / Team Sports</option>
-            <option value="sans_materiel">🙌 Sans Matériel / No Equipment</option>
-            <option value="exterieur">🌿 Extérieur / Outdoor</option>
-            <option value="traditionnels_monde">🌍 Jeux du Monde / World Games</option>
-            <option value="sports_individuels">🏋️ Sports Individuels / Individual Sports</option>
-            <option value="autochtones">🪶 Jeux Autochtones / Indigenous Games</option>
-            <option value="avec_materiel">🏸 Avec Matériel / With Equipment</option>
-            <option value="olympiques">🥇 Olympiques &amp; Paralympiques</option>
-            <option value="afrique_asie_oceanie">🌏 Afrique · Asie · Océanie</option>
-            <option value="ameriques_europe">🌎 Amériques · Europe</option>
-            <option value="prescolaire_jeux">🌱 Préscolaire / Preschool</option>
-            <option value="secondaire_jeux">🎓 Secondaire / High School</option>
-          </select>
-          <select id="jeux-niveau" class="filter-select">
-            <option value="" id="opt-all-niv">Tous les niveaux</option>
-            <option value="prescolaire">🌱 Préscolaire / Preschool</option>
-            <option value="primaire">📖 Primaire / Elementary</option>
-            <option value="secondaire">🎓 Secondaire / High School</option>
-          </select>
-          <select id="jeux-espace" class="filter-select">
-            <option value="" id="opt-all-esp">Tous les espaces</option>
-            <option value="Gymnase">🏟️ Gymnase / Gym</option>
-            <option value="Extérieur">🌿 Extérieur / Outdoor</option>
-            <option value="Gymnase ou Extérieur">🔀 Les deux / Both</option>
-          </select>
-          <select id="jeux-intensite" class="filter-select">
-            <option value="" id="opt-all-int">Toutes les intensités</option>
-            <option value="Élevé">🔴 Élevé / High</option>
-            <option value="Modéré">🟡 Modéré / Moderate</option>
-            <option value="Faible">🟢 Faible / Low</option>
-          </select>
-        </div>
-
-        <div class="stats-bar">
-          <span class="stat-pill pill-yellow" id="jeux-count">0 jeux</span>
-          <span class="stat-pill pill-cyan" id="jeux-pays">0 origines</span>
-          <div class="cat-pills" id="cat-pills"></div>
-        </div>
-
-        <div id="jeux-grid" class="cards-grid"></div>
-      </section>
-
-      <!-- ========== SECTION SAÉ ========== -->
-      <section class="tab-section" id="tab-sae">
-        <div class="section-hero cat-sae">
+      <!-- ===== TAB: BANQUE SAE ===== -->
+      <section class="tab-section active" id="tab-banque" role="tabpanel" aria-labelledby="tab-banque-label">
+        <div class="section-hero glass">
           <div class="hero-icon">📚</div>
-          <div class="hero-text">
-            <h2 id="heroSaeTitle">BANQUE DE SAÉ PFEQ</h2>
-            <p id="heroSaeSub">Situations d'Apprentissage et d'Évaluation · Maternelle → Secondaire 5</p>
+          <div>
+            <h2 class="hero-title" data-i18n="heroBanqueTitle">BANQUE MONDIALE DE SAÉ</h2>
+            <p class="hero-sub" data-i18n="heroBanqueSub">1000+ Situations d'Apprentissage et d'Évaluation · PFEQ Québec · Maternelle → Secondaire 5</p>
           </div>
         </div>
 
-        <!-- MOYENS D'ACTION BROWSER -->
-        <div class="moyens-browser" id="moyensBrowser">
-          <div class="moyens-title" id="moyensTitle">⚡ FILTRER PAR MOYEN D'ACTION</div>
+        <!-- Moyens d'action browser -->
+        <div class="moyens-browser glass" id="moyensBrowser">
+          <h3 class="moyens-title" data-i18n="moyensTitle">⚡ FILTRER PAR MOYEN D'ACTION</h3>
           <div class="moyens-grid" id="moyensGrid"></div>
         </div>
 
-        <div class="controls-bar">
-          <input type="text" id="sae-search" class="search-input" placeholder="🔍 Rechercher une SAÉ...">
-          <select id="sae-cycle" class="filter-select">
-            <option value="" id="opt-all-cyc">Tous les cycles</option>
+        <!-- Controls -->
+        <div class="controls-bar glass">
+          <input type="text" id="sae-search" class="search-input" placeholder="🔍 Rechercher une SAÉ..." data-i18n-placeholder="searchSae" aria-label="Rechercher une SAÉ">
+          <select id="sae-cycle" class="filter-select" aria-label="Filtrer par cycle">
+            <option value="" data-i18n="allCycles">Tous les cycles</option>
             <option value="Préscolaire">🌱 Préscolaire (4-5 ans)</option>
             <option value="1er cycle">📖 1er cycle primaire</option>
             <option value="2e cycle">📗 2e cycle primaire</option>
             <option value="3e cycle">📘 3e cycle primaire</option>
             <option value="Secondaire">🎓 Secondaire 1-5</option>
           </select>
-          <select id="sae-moyen" class="filter-select">
-            <option value="" id="opt-all-moyen">Tous les moyens d'action</option>
+          <select id="sae-moyen" class="filter-select" aria-label="Filtrer par moyen d'action">
+            <option value="" data-i18n="allMoyens">Tous les moyens d'action</option>
             <optgroup label="🎯 Manipulation d'objets">
               <option value="balle">⚾ Balles</option>
               <option value="ballon">⚽ Ballons</option>
@@ -159,118 +156,373 @@
               <option value="corde">🪢 Cordes</option>
               <option value="cerceau">⭕ Cerceaux</option>
               <option value="frisbee">🥏 Frisbee</option>
-              <option value="cirque">🎪 Articles de cirque</option>
-              <option value="foulard">🎀 Foulards et rubans</option>
+              <option value="cirque">🎪 Cirque</option>
             </optgroup>
             <optgroup label="🏃 Locomotion">
               <option value="courir">🏃 Courir</option>
               <option value="sauter">🦘 Sauter</option>
-              <option value="ramper">🐛 Ramper et rouler</option>
+              <option value="ramper">🐛 Ramper/Rouler</option>
               <option value="grimper">🧗 Grimper</option>
               <option value="esquiver">💨 Esquiver</option>
             </optgroup>
-            <optgroup label="⚖️ Stabilisation et mobilité">
+            <optgroup label="⚖️ Stabilisation">
               <option value="equilibre">⚖️ Équilibre</option>
               <option value="souplesse">🤸 Souplesse</option>
-              <option value="gainage">💪 Gainage et force</option>
+              <option value="gainage">💪 Gainage</option>
               <option value="coordination">🎯 Coordination</option>
             </optgroup>
             <optgroup label="⚔️ Opposition">
-              <option value="lutte">🤼 Lutte et contact</option>
-              <option value="duel">⚔️ Duel avec instrument</option>
-              <option value="territoire">🏰 Jeux de territoire</option>
+              <option value="lutte">🤼 Lutte</option>
+              <option value="duel">⚔️ Duel</option>
+              <option value="territoire">🏰 Territoire</option>
             </optgroup>
             <optgroup label="🤝 Coopération">
               <option value="communication">📣 Communication</option>
-              <option value="strategie">♟️ Stratégie d'équipe</option>
-              <option value="construction">🏗️ Construction collective</option>
+              <option value="strategie">♟️ Stratégie</option>
+              <option value="construction">🏗️ Construction</option>
             </optgroup>
-            <optgroup label="💃 Expression corporelle">
-              <option value="danse">💃 Danse et rythme</option>
-              <option value="mime">🎭 Mime et théâtre</option>
+            <optgroup label="💃 Expression">
+              <option value="danse">💃 Danse</option>
+              <option value="mime">🎭 Mime</option>
               <option value="acrosport">🤸 Acrosport</option>
             </optgroup>
           </select>
-          <select id="sae-competence" class="filter-select">
-            <option value="" id="opt-all-comp">Toutes les compétences PFEQ</option>
-            <option value="Manipulation">🎯 Manipulation</option>
-            <option value="Locomotion">🏃 Locomotion</option>
-            <option value="Mobilité">🤸 Mobilité</option>
-            <option value="Coopération">🤝 Coopération</option>
-            <option value="Opposition">⚔️ Opposition</option>
-            <option value="Expression">💃 Expression</option>
-            <option value="Conditionnement">💪 Conditionnement</option>
+          <select id="sae-competence" class="filter-select" aria-label="Filtrer par compétence">
+            <option value="" data-i18n="allCompetences">Toutes les compétences</option>
+            <option value="Agir">🏃 Agir dans divers contextes</option>
+            <option value="Interagir">🤝 Interagir dans divers contextes</option>
+            <option value="Adopter">❤️ Adopter un mode de vie sain</option>
           </select>
-          <select id="sae-clientele" class="filter-select">
-            <option value="">Toutes les clientèles</option>
-            <option value="tsa">🧩 TSA — Spectre autistique</option>
-            <option value="handicap">♿ Handicap physique / Moteur</option>
-            <option value="deficience">🧠 Déficience intellectuelle</option>
-            <option value="maternelle">🌱 Maternelle (4-5 ans)</option>
-          </select>
+          <button class="mag-btn secondary" id="favFilterBtn" data-i18n="favFilter">☆ Favoris</button>
         </div>
 
         <div class="stats-bar">
           <span class="stat-pill pill-cyan" id="sae-count">0 SAÉ</span>
-          <span class="stat-pill pill-yellow" id="sae-pays">0 cultures représentées</span>
-          <span class="stat-pill pill-red" id="sae-moyen-active" style="display:none"></span>
+          <span class="stat-pill pill-yellow" id="sae-moyen-active" style="display:none"></span>
         </div>
 
         <div id="sae-grid" class="cards-grid"></div>
+        <div class="pagination" id="sae-pagination"></div>
       </section>
 
-      <!-- ========== SECTION ÉDUCATIFS ========== -->
-      <section class="tab-section" id="tab-educatifs">
-        <div class="section-hero cat-educatifs">
-          <div class="hero-icon">🏋️</div>
-          <div class="hero-text">
-            <h2 id="heroEducatifsTitle">BANQUE D'ÉDUCATIFS PAR MOYENS D'ACTION</h2>
-            <p id="heroEducatifsSub">100+ éducatifs par geste moteur · Maternelle → Secondaire 5 · Progressions complètes</p>
+      <!-- ===== TAB: CREATEUR SAE ===== -->
+      <section class="tab-section" id="tab-createur" role="tabpanel" aria-labelledby="tab-createur-label">
+        <div class="section-hero glass">
+          <div class="hero-icon">✏️</div>
+          <div>
+            <h2 class="hero-title" data-i18n="heroCreateurTitle">CRÉER UNE SAÉ PERSONNALISÉE</h2>
+            <p class="hero-sub" data-i18n="heroCreateurSub">Concevez votre situation d'apprentissage sur mesure · Conforme au PFEQ</p>
           </div>
         </div>
 
-        <!-- TAXONOMIE MOYENS D'ACTION -->
-        <div class="edu-taxonomy" id="eduTaxonomy"></div>
-
-        <div class="controls-bar" id="edu-controls" style="display:none">
-          <button class="back-btn" id="eduBackBtn">← <span id="eduBackLabel">Retour</span></button>
-          <input type="text" id="edu-search" class="search-input" placeholder="🔍 Rechercher un éducatif...">
-          <select id="edu-niveau" class="filter-select">
-            <option value="">Tous les niveaux</option>
-            <option value="prescolaire">🌱 Préscolaire</option>
-            <option value="1er cycle">📖 1er cycle primaire</option>
-            <option value="2e cycle">📗 2e cycle primaire</option>
-            <option value="3e cycle">📘 3e cycle primaire</option>
-            <option value="Secondaire 1">🎓 Secondaire 1-2</option>
-            <option value="Secondaire 3">🎓 Secondaire 3-4</option>
-            <option value="Secondaire 5">🎓 Secondaire 5</option>
+        <!-- Option: Start from template -->
+        <div class="template-bar glass" id="templateBar">
+          <span data-i18n="templateLabel">📋 Partir d'un modèle existant :</span>
+          <select id="templateSelect" class="filter-select" aria-label="Choisir un modèle">
+            <option value="">Choisir un modèle...</option>
           </select>
-          <select id="edu-difficulte" class="filter-select">
-            <option value="">Toutes les difficultés</option>
-            <option value="debutant">🟢 Débutant</option>
-            <option value="intermediaire">🟡 Intermédiaire</option>
-            <option value="avance">🔴 Avancé</option>
-          </select>
+          <span data-i18n="orBlank">ou créer à partir de zéro</span>
         </div>
 
+        <div class="creator-layout">
+          <!-- LEFT: FORM -->
+          <div class="creator-form glass">
+            <h3 data-i18n="formInfoTitle">📋 Informations générales</h3>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-titre" data-i18n="labelTitre">Titre de la SAÉ *</label>
+              <input type="text" class="form-input" id="cr-titre" placeholder="Ex: Le parcours des champions" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-intentions" data-i18n="labelIntentions">Intentions pédagogiques *</label>
+              <textarea class="form-textarea" id="cr-intentions" rows="3" placeholder="Quelles sont les intentions éducatives? Que vont apprendre les élèves?"></textarea>
+              <p class="form-hint" data-i18n="hintIntentions">Décrivez clairement ce que les élèves apprendront et pourquoi cette SAÉ est importante.</p>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cr-niveau" data-i18n="labelNiveau">Niveau / Cycle *</label>
+                <select class="form-select" id="cr-niveau">
+                  <option value="">Choisir...</option>
+                  <option value="Préscolaire">Préscolaire (4-5 ans)</option>
+                  <option value="1er cycle primaire">1er cycle primaire (6-7 ans)</option>
+                  <option value="2e cycle primaire">2e cycle primaire (8-9 ans)</option>
+                  <option value="3e cycle primaire">3e cycle primaire (10-11 ans)</option>
+                  <option value="Secondaire 1-2">Secondaire 1-2 (12-13 ans)</option>
+                  <option value="Secondaire 3-4">Secondaire 3-4 (14-15 ans)</option>
+                  <option value="Secondaire 5">Secondaire 5 (16-17 ans)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cr-duree" data-i18n="labelDuree">Durée (périodes) *</label>
+                <input type="number" class="form-input" id="cr-duree" min="1" max="20" value="2">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cr-duree-periode" data-i18n="labelDureePeriode">Durée par période</label>
+                <input type="text" class="form-input" id="cr-duree-periode" placeholder="Ex: 60 minutes">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cr-competence" data-i18n="labelCompetence">Compétence PFEQ *</label>
+                <select class="form-select" id="cr-competence">
+                  <option value="">Choisir...</option>
+                  <option value="Agir dans divers contextes de pratique d'activités physiques">Agir dans divers contextes</option>
+                  <option value="Interagir dans divers contextes de pratique d'activités physiques">Interagir dans divers contextes</option>
+                  <option value="Adopter un mode de vie sain et actif">Adopter un mode de vie sain</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cr-moyen" data-i18n="labelMoyen">Moyen d'action</label>
+                <select class="form-select" id="cr-moyen">
+                  <option value="">Choisir...</option>
+                  <option value="Manipulation d'objets">🎯 Manipulation d'objets</option>
+                  <option value="Locomotion">🏃 Locomotion</option>
+                  <option value="Stabilisation">⚖️ Stabilisation et mobilité</option>
+                  <option value="Opposition">⚔️ Opposition</option>
+                  <option value="Coopération">🤝 Coopération</option>
+                  <option value="Expression corporelle">💃 Expression corporelle</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-espace" data-i18n="labelEspace">Espace requis</label>
+              <select class="form-select" id="cr-espace">
+                <option value="Gymnase">🏟️ Gymnase</option>
+                <option value="Extérieur">🌿 Extérieur</option>
+                <option value="Gymnase ou Extérieur">🔀 Gymnase ou Extérieur</option>
+                <option value="Salle de classe">🏫 Salle de classe</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-materiel" data-i18n="labelMateriel">Matériel requis</label>
+              <textarea class="form-textarea" id="cr-materiel" rows="2" placeholder="Ex: 30 ballons de mousse, 10 cônes, dossards de 4 couleurs..."></textarea>
+              <p class="form-hint" data-i18n="hintMateriel">Listez TOUT le matériel avec les quantités exactes pour un groupe de 30 élèves.</p>
+            </div>
+
+            <hr class="form-divider">
+            <h3 data-i18n="formDeroulementTitle">🏃 Déroulement de la SAÉ</h3>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-contexte" data-i18n="labelContexte">Mise en contexte / Situation de départ</label>
+              <textarea class="form-textarea" id="cr-contexte" rows="3" placeholder="Comment présenter la SAÉ aux élèves? Quelle est l'histoire/le thème?"></textarea>
+              <p class="form-hint">Comment « accrocher » les élèves? Quel est le défi proposé?</p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-mise-en-train" data-i18n="labelMiseEnTrain">Phase 1 — Mise en train / Échauffement</label>
+              <textarea class="form-textarea" id="cr-mise-en-train" rows="4" placeholder="Décrivez l'échauffement étape par étape. Durée suggérée, consignes exactes..."></textarea>
+              <p class="form-hint">Durée, organisation, consignes précises, variantes possibles.</p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-partie1" data-i18n="labelPartie1">Phase 2 — Partie principale (Développement)</label>
+              <textarea class="form-textarea" id="cr-partie1" rows="6" placeholder="Décrivez la tâche principale: organisation, règles, progression, consignes de sécurité..."></textarea>
+              <p class="form-hint">La tâche complexe. Étapes, règles claires, consignes de sécurité, organisation des élèves.</p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-partie2" data-i18n="labelPartie2">Phase 3 — Partie principale 2 (Réinvestissement)</label>
+              <textarea class="form-textarea" id="cr-partie2" rows="4" placeholder="Variante, défi supplémentaire, ou application en contexte de jeu..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-retour" data-i18n="labelRetour">Phase 4 — Retour au calme / Bilan</label>
+              <textarea class="form-textarea" id="cr-retour" rows="3" placeholder="Retour au calme, discussion avec les élèves, auto-évaluation..."></textarea>
+            </div>
+
+            <hr class="form-divider">
+            <h3 data-i18n="formEvalTitle">📊 Évaluation</h3>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-criteres" data-i18n="labelCriteres">Critères d'évaluation</label>
+              <textarea class="form-textarea" id="cr-criteres" rows="3" placeholder="Ex: Exécution technique, Coopération, Respect des règles..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-grille-tb" data-i18n="labelGrilleTB">Grille — Très bien (A)</label>
+              <textarea class="form-textarea" id="cr-grille-tb" rows="2" placeholder="L'élève qui atteint ce niveau..."></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cr-grille-b" data-i18n="labelGrilleB">Grille — Bien (B)</label>
+              <textarea class="form-textarea" id="cr-grille-b" rows="2" placeholder="L'élève qui atteint ce niveau..."></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cr-grille-ed" data-i18n="labelGrilleED">Grille — En développement (C)</label>
+              <textarea class="form-textarea" id="cr-grille-ed" rows="2" placeholder="L'élève qui atteint ce niveau..."></textarea>
+            </div>
+
+            <hr class="form-divider">
+            <h3 data-i18n="formAdaptTitle">♿ Adaptations et Variantes</h3>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-adaptations" data-i18n="labelAdaptations">Adaptations HDAA (Handicap, Difficultés, TSA)</label>
+              <textarea class="form-textarea" id="cr-adaptations" rows="3" placeholder="Comment adapter pour les élèves à besoins particuliers?"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-variantes" data-i18n="labelVariantes">Variantes et progressions</label>
+              <textarea class="form-textarea" id="cr-variantes" rows="3" placeholder="Variantes pour simplifier, complexifier, ou changer le thème..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-valeurs" data-i18n="labelValeurs">Valeurs éducatives</label>
+              <textarea class="form-textarea" id="cr-valeurs" rows="2" placeholder="Ex: Respect, persévérance, entraide, fairplay..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cr-tags" data-i18n="labelTags">Tags / Mots-clés</label>
+              <input type="text" class="form-input" id="cr-tags" placeholder="Ex: coopération, ballon, gymnase (séparés par des virgules)">
+            </div>
+
+            <hr class="form-divider">
+            <h3 data-i18n="formFilesTitle">📎 Fichiers joints</h3>
+
+            <div class="upload-zone" id="uploadZone" tabindex="0" role="button" aria-label="Zone de téléversement de fichiers">
+              <div class="upload-zone-icon">📁</div>
+              <p class="upload-zone-text" data-i18n="uploadText">Glissez vos fichiers ici ou cliquez pour parcourir</p>
+              <p class="form-hint" data-i18n="uploadHint">Formats acceptés: .jpg, .png, .pdf, .docx (max 5 Mo par fichier)</p>
+              <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.pdf,.docx,.doc" style="display:none">
+            </div>
+            <div class="uploaded-files" id="uploadedFiles"></div>
+
+            <hr class="form-divider">
+            <div class="form-actions">
+              <button class="mag-btn" id="btnSaveSae" data-i18n="btnSave">💾 SAUVEGARDER MA SAÉ</button>
+              <button class="mag-btn secondary" id="btnPreviewSae" data-i18n="btnPreview">👁️ PRÉVISUALISER</button>
+              <button class="mag-btn secondary" id="btnResetForm" data-i18n="btnReset">🗑️ RÉINITIALISER</button>
+            </div>
+          </div>
+
+          <!-- RIGHT: LIVE PREVIEW -->
+          <div class="creator-preview glass" id="creatorPreview">
+            <h3 data-i18n="previewTitle">👁️ PRÉVISUALISATION EN DIRECT</h3>
+            <div id="previewContent">
+              <p class="preview-empty" data-i18n="previewEmpty">Commencez à remplir le formulaire pour voir la prévisualisation...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TAB: MES SAE ===== -->
+      <section class="tab-section" id="tab-mes-sae" role="tabpanel" aria-labelledby="tab-mes-sae-label">
+        <div class="section-hero glass">
+          <div class="hero-icon">💾</div>
+          <div>
+            <h2 class="hero-title" data-i18n="heroMesSaeTitle">MES SAÉ SAUVEGARDÉES</h2>
+            <p class="hero-sub" data-i18n="heroMesSaeSub">Retrouvez, modifiez et exportez vos créations</p>
+          </div>
+        </div>
+
+        <div class="mes-sae-toolbar glass">
+          <input type="text" class="search-input" id="mes-sae-search" placeholder="🔍 Chercher dans mes SAÉ..." aria-label="Chercher dans mes SAÉ">
+          <button class="mag-btn" id="btnExportAll" data-i18n="btnExportAll">📤 Exporter tout (JSON)</button>
+          <button class="mag-btn secondary" id="btnImportSae" data-i18n="btnImport">📥 Importer</button>
+          <input type="file" id="importInput" accept=".json" style="display:none">
+        </div>
+
+        <div id="mes-sae-grid" class="cards-grid"></div>
+        <div class="mes-sae-empty glass" id="mesSaeEmpty">
+          <div style="font-size: 4rem; margin-bottom: 16px" aria-hidden="true">📝</div>
+          <h3 data-i18n="noSaeSaved">Aucune SAÉ sauvegardée</h3>
+          <p data-i18n="noSaeSavedSub">Créez votre première SAÉ ou dupliquez-en une depuis la banque!</p>
+        </div>
+      </section>
+
+      <!-- ===== TAB: MACHINE A DEFIS ===== -->
+      <section class="tab-section" id="tab-machine" role="tabpanel" aria-labelledby="tab-machine-label">
+        <div class="section-hero glass">
+          <div class="hero-icon">🎰</div>
+          <div>
+            <h2 class="hero-title" data-i18n="heroMachineTitle">MACHINE À DÉFIS SPORTIFS</h2>
+            <p class="hero-sub" data-i18n="heroMachineSub">Tire au sort une SAÉ aléatoire · Effet slot machine!</p>
+          </div>
+        </div>
+
+        <div class="slot-container glass">
+          <div class="slot-label" data-i18n="slotLabel">🎯 PRÊT À RELEVER LE DÉFI?</div>
+          <div class="slot-window glass">
+            <div class="slot-reel" id="slotReel"></div>
+          </div>
+          <button class="mag-btn slot-btn" id="slotBtn" data-i18n="slotBtn">🎰 TIRER AU SORT!</button>
+          <div class="slot-result glass" id="slotResult" style="display:none"></div>
+        </div>
+      </section>
+
+      <!-- ===== TAB: JEUX ===== -->
+      <section class="tab-section" id="tab-jeux" role="tabpanel" aria-labelledby="tab-jeux-label">
+        <div class="section-hero glass">
+          <div class="hero-icon">🎮</div>
+          <div>
+            <h2 class="hero-title" data-i18n="heroJeuxTitle">BANQUE DE JEUX SPORTIFS MONDIAUX</h2>
+            <p class="hero-sub" data-i18n="heroJeuxSub">1000+ jeux de partout sur la planète</p>
+          </div>
+        </div>
+        <div class="controls-bar glass">
+          <input type="text" id="jeux-search" class="search-input" placeholder="🔍 Rechercher un jeu..." aria-label="Rechercher un jeu">
+          <select id="jeux-category" class="filter-select" aria-label="Filtrer par catégorie">
+            <option value="">Toutes les catégories</option>
+            <option value="ballon_chasseur">🎯 Ballon Chasseur</option>
+            <option value="poursuite">🏃 Poursuite</option>
+            <option value="cooperation">🤝 Coopération</option>
+            <option value="opposition">⚔️ Opposition</option>
+            <option value="sports_collectifs">🏅 Sports Collectifs</option>
+            <option value="sans_materiel">🙌 Sans Matériel</option>
+            <option value="exterieur">🌿 Extérieur</option>
+            <option value="traditionnels_monde">🌍 Jeux du Monde</option>
+            <option value="sports_individuels">🏋️ Sports Individuels</option>
+            <option value="autochtones">🪶 Autochtones</option>
+            <option value="avec_materiel">🏸 Avec Matériel</option>
+            <option value="olympiques">🥇 Olympiques</option>
+          </select>
+          <select id="jeux-niveau" class="filter-select" aria-label="Filtrer par niveau">
+            <option value="">Tous les niveaux</option>
+            <option value="prescolaire">🌱 Préscolaire</option>
+            <option value="primaire">📖 Primaire</option>
+            <option value="secondaire">🎓 Secondaire</option>
+          </select>
+        </div>
+        <div class="stats-bar">
+          <span class="stat-pill pill-cyan" id="jeux-count">0 jeux</span>
+        </div>
+        <div id="jeux-grid" class="cards-grid"></div>
+        <div class="pagination" id="jeux-pagination"></div>
+      </section>
+
+      <!-- ===== TAB: EDUCATIFS ===== -->
+      <section class="tab-section" id="tab-educatifs" role="tabpanel" aria-labelledby="tab-educatifs-label">
+        <div class="section-hero glass">
+          <div class="hero-icon">🏋️</div>
+          <div>
+            <h2 class="hero-title" data-i18n="heroEduTitle">BANQUE D'ÉDUCATIFS</h2>
+            <p class="hero-sub" data-i18n="heroEduSub">1000+ éducatifs par moyens d'action · Progressions complètes</p>
+          </div>
+        </div>
+        <div class="edu-taxonomy" id="eduTaxonomy"></div>
+        <div class="controls-bar glass" id="edu-controls" style="display:none">
+          <button class="mag-btn secondary" id="eduBackBtn">← <span data-i18n="back">Retour</span></button>
+          <input type="text" id="edu-search" class="search-input" placeholder="🔍 Rechercher..." aria-label="Rechercher un éducatif">
+        </div>
         <div class="stats-bar" id="edu-stats" style="display:none">
           <span class="stat-pill pill-yellow" id="edu-count">0 éducatifs</span>
           <span class="stat-pill pill-cyan" id="edu-moyen-label"></span>
         </div>
-
         <div id="edu-grid" class="cards-grid"></div>
       </section>
 
-      <!-- ========== SECTION MUSIQUE ========== -->
-      <section class="tab-section" id="tab-musique">
-        <div class="section-hero cat-musique">
+      <!-- ===== TAB: MUSIQUE ===== -->
+      <section class="tab-section" id="tab-musique" role="tabpanel" aria-labelledby="tab-musique-label">
+        <div class="section-hero glass">
           <div class="hero-icon">🎵</div>
-          <div class="hero-text">
-            <h2 id="heroMusiqueTitle">BIBLIOTHÈQUE MUSICALE LIBRE DE DROITS</h2>
-            <p id="heroMusiqueSub">Toutes les ressources musicales pour l'ÉPS · Guide pédagogique complet</p>
+          <div>
+            <h2 class="hero-title" data-i18n="heroMusiqueTitle">BIBLIOTHÈQUE MUSICALE</h2>
+            <p class="hero-sub" data-i18n="heroMusiqueSub">Musiques libres de droits pour l'ÉPS</p>
           </div>
         </div>
-
         <div id="musique-content"></div>
       </section>
 
@@ -278,12 +530,15 @@
   </div>
 
   <!-- MODAL -->
-  <div id="modal" class="modal hidden">
-    <div class="modal-backdrop" id="modal-backdrop"></div>
-    <div class="modal-box">
-      <div id="modal-body"></div>
+  <div id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-box glass">
+      <div id="modalBody"></div>
     </div>
   </div>
+
+  <!-- TOAST -->
+  <div id="toast" role="alert" aria-live="assertive"></div>
 
   <script src="app.js"></script>
 </body>
