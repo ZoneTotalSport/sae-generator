@@ -3523,42 +3523,38 @@ function initPart2Features() {
   }
   renderEvalScale(); // initial render
 
-  // ── Generate & Print evaluation grid ──
-  var btnPrintEval = document.getElementById('btnPrintEval');
-  if (btnPrintEval) {
-    btnPrintEval.addEventListener('click', function() {
-      var titre = document.getElementById('cr-titre').value || 'SAÉ sans titre';
-      var niveau = document.getElementById('cr-niveau').value || '';
-      var compText = document.getElementById('cr-competence')?.value || '';
-      var criteres = [];
-      document.querySelectorAll('.eval-cb:checked').forEach(function(cb) {
-        criteres.push(cb.value);
+  // ── Collect eval data helper ──
+  function collectEvalData() {
+    var titre = document.getElementById('cr-titre').value || 'SAÉ sans titre';
+    var niveau = document.getElementById('cr-niveau').value || '';
+    var compText = document.getElementById('cr-competence')?.value || '';
+    var criteres = [];
+    document.querySelectorAll('.eval-cb:checked').forEach(function(cb) {
+      criteres.push(cb.value);
+    });
+    var customCrit = document.getElementById('cr-criteres-custom');
+    if (customCrit && customCrit.value.trim()) {
+      customCrit.value.split(',').forEach(function(c) {
+        if (c.trim()) criteres.push(c.trim());
       });
-      var customCrit = document.getElementById('cr-criteres-custom');
-      if (customCrit && customCrit.value.trim()) {
-        customCrit.value.split(',').forEach(function(c) {
-          if (c.trim()) criteres.push(c.trim());
-        });
-      }
-      if (criteres.length === 0) {
-        showToast('Cochez au moins un critère d\'évaluation!');
-        return;
-      }
+    }
+    var nbEleves = parseInt(document.getElementById('cr-nb-eleves')?.value) || 30;
+    var scaleType = document.getElementById('cr-echelle-type')?.value || 'abc';
+    var scale = SCALES[scaleType] || SCALES['abc'];
+    var scaleDescs = [];
+    scale.forEach(function(s) {
+      var el = document.getElementById('cr-grille-' + s.key);
+      scaleDescs.push({ label: s.label, icon: s.icon, color: s.color, desc: el ? el.value : '' });
+    });
+    return { titre: titre, niveau: niveau, compText: compText, criteres: criteres, nbEleves: nbEleves, scaleDescs: scaleDescs };
+  }
 
-      var nbEleves = parseInt(document.getElementById('cr-nb-eleves')?.value) || 30;
-      var scaleType = document.getElementById('cr-echelle-type')?.value || 'abc';
-      var scale = SCALES[scaleType] || SCALES['abc'];
-
-      // Collect scale descriptions
-      var scaleDescs = [];
-      scale.forEach(function(s) {
-        var el = document.getElementById('cr-grille-' + s.key);
-        scaleDescs.push({ label: s.label, icon: s.icon, color: s.color, desc: el ? el.value : '' });
-      });
-
-      var printWin = window.open('', '_blank');
-      var html = '<!DOCTYPE html><html><head><meta charset="UTF-8">';
-      html += '<title>Grille d\'évaluation — ' + titre + '</title>';
+  // ── Build grid HTML ──
+  function buildGridHTML(data, forPreview) {
+    var html = '';
+    if (!forPreview) {
+      html += '<!DOCTYPE html><html><head><meta charset="UTF-8">';
+      html += '<title>Grille d\'évaluation — ' + data.titre + '</title>';
       html += '<style>';
       html += 'body{font-family:Arial,sans-serif;padding:24px;color:#222;font-size:11px}';
       html += 'h1{font-size:20px;margin-bottom:2px}';
@@ -3574,38 +3570,84 @@ function initPart2Features() {
       html += '.footer{font-size:10px;color:#999;text-align:center;margin-top:12px}';
       html += '@media print{body{padding:10px}@page{size:landscape;margin:1cm}}';
       html += '</style></head><body>';
-      html += '<h1>Grille d\'évaluation — ' + titre + '</h1>';
-      html += '<div class="meta">' + niveau;
-      if (compText) html += ' | ' + compText;
-      html += '</div>';
+    }
 
-      // Legend
-      html += '<div class="legend">';
-      scaleDescs.forEach(function(s) {
-        html += '<div class="legend-item"><span class="legend-dot" style="background:' + s.color + '"></span>';
-        html += '<strong>' + s.icon + ' ' + s.label + '</strong>';
-        if (s.desc) html += ' : ' + s.desc;
-        html += '</div>';
-      });
-      html += '</div>';
+    html += '<h1 style="' + (forPreview ? 'color:#fff;font-size:1.1rem;margin-bottom:4px' : '') + '">Grille d\'évaluation — ' + data.titre + '</h1>';
+    html += '<div class="meta" style="' + (forPreview ? 'color:#aaa;font-size:0.85rem;margin-bottom:10px' : '') + '">' + data.niveau;
+    if (data.compText) html += ' | ' + data.compText;
+    html += '</div>';
 
-      // Table
-      html += '<table><tr><th class="nom">Nom de l\'élève</th>';
-      criteres.forEach(function(c) {
-        html += '<th>' + c + '</th>';
-      });
-      html += '<th style="width:60px">Note</th></tr>';
+    // Legend
+    html += '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">';
+    data.scaleDescs.forEach(function(s) {
+      html += '<span style="display:inline-flex;align-items:center;gap:4px;font-size:' + (forPreview ? '0.75rem' : '12px') + ';' + (forPreview ? 'color:#ccc' : '') + '">';
+      html += '<span style="width:12px;height:12px;border-radius:3px;display:inline-block;background:' + s.color + '"></span>';
+      html += '<strong>' + s.label + '</strong>';
+      if (s.desc) html += ' : ' + s.desc;
+      html += '</span>';
+    });
+    html += '</div>';
 
-      for (var i = 0; i < nbEleves; i++) {
-        html += '<tr><td class="nom" style="height:24px"></td>';
-        criteres.forEach(function() { html += '<td></td>'; });
-        html += '<td></td></tr>';
-      }
-      html += '</table>';
+    // Table
+    var borderColor = forPreview ? '#555' : '#333';
+    var thBg = forPreview ? '#00838F' : '#00ACC1';
+    html += '<table style="width:100%;border-collapse:collapse;font-size:' + (forPreview ? '0.7rem' : '11px') + '">';
+    html += '<tr><th style="background:' + thBg + ';color:white;border:1.5px solid ' + borderColor + ';padding:5px 6px;text-align:left;width:140px">Nom</th>';
+    data.criteres.forEach(function(c) {
+      html += '<th style="background:' + thBg + ';color:white;border:1.5px solid ' + borderColor + ';padding:5px 4px;font-size:' + (forPreview ? '0.65rem' : '9px') + '">' + c + '</th>';
+    });
+    html += '<th style="background:' + thBg + ';color:white;border:1.5px solid ' + borderColor + ';padding:5px 4px;width:45px">Note</th></tr>';
+
+    var rowCount = forPreview ? Math.min(data.nbEleves, 5) : data.nbEleves;
+    for (var i = 0; i < rowCount; i++) {
+      html += '<tr><td style="border:1.5px solid ' + borderColor + ';padding:4px;height:20px;' + (forPreview ? 'background:rgba(255,255,255,0.03)' : '') + '"></td>';
+      data.criteres.forEach(function() { html += '<td style="border:1.5px solid ' + borderColor + ';padding:4px"></td>'; });
+      html += '<td style="border:1.5px solid ' + borderColor + ';padding:4px"></td></tr>';
+    }
+    if (forPreview && data.nbEleves > 5) {
+      html += '<tr><td colspan="' + (data.criteres.length + 2) + '" style="text-align:center;color:#888;padding:6px;font-style:italic">... et ' + (data.nbEleves - 5) + ' autres élèves</td></tr>';
+    }
+    html += '</table>';
+
+    if (!forPreview) {
       html += '<p class="footer">Zone Total Sport — generateur.zonetotalsport.ca</p>';
       html += '</body></html>';
+    }
+    return html;
+  }
 
-      printWin.document.write(html);
+  // ── GENERATE button — show preview ──
+  var btnGenEval = document.getElementById('btnGenEval');
+  var btnPrintEval = document.getElementById('btnPrintEval');
+  var evalPreview = document.getElementById('evalPreview');
+
+  if (btnGenEval) {
+    btnGenEval.addEventListener('click', function() {
+      var data = collectEvalData();
+      if (data.criteres.length === 0) {
+        showToast('Cochez au moins un critère d\'évaluation!');
+        return;
+      }
+      var previewHtml = buildGridHTML(data, true);
+      evalPreview.innerHTML = previewHtml;
+      evalPreview.style.display = 'block';
+      btnPrintEval.style.display = '';
+      showToast('Grille générée! Vous pouvez maintenant l\'imprimer.');
+      evalPreview.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
+
+  // ── PRINT button — open in new window and print ──
+  if (btnPrintEval) {
+    btnPrintEval.addEventListener('click', function() {
+      var data = collectEvalData();
+      if (data.criteres.length === 0) {
+        showToast('Cochez au moins un critère d\'évaluation!');
+        return;
+      }
+      var fullHtml = buildGridHTML(data, false);
+      var printWin = window.open('', '_blank');
+      printWin.document.write(fullHtml);
       printWin.document.close();
       printWin.focus();
       setTimeout(function() { printWin.print(); }, 300);
