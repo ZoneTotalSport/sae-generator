@@ -31,7 +31,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600;700&family=Bubblegum+Sans&display=swap" rel="stylesheet">
 
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
@@ -111,9 +111,6 @@
       <button class="nav-tab" data-tab="createur" role="tab" aria-selected="false" aria-controls="tab-createur">✏️ <span data-i18n="tabCreateur">CRÉER UNE SAÉ</span></button>
       <button class="nav-tab" data-tab="mes-sae" role="tab" aria-selected="false" aria-controls="tab-mes-sae">💾 <span data-i18n="tabMesSae">MES SAÉ</span></button>
       <button class="nav-tab" data-tab="machine" role="tab" aria-selected="false" aria-controls="tab-machine">🎰 <span data-i18n="tabMachine">MACHINE À DÉFIS</span></button>
-      <button class="nav-tab" data-tab="jeux" role="tab" aria-selected="false" aria-controls="tab-jeux">🎮 <span data-i18n="tabJeux">JEUX</span></button>
-      <button class="nav-tab" data-tab="educatifs" role="tab" aria-selected="false" aria-controls="tab-educatifs">🏋️ <span data-i18n="tabEducatifs">ÉDUCATIFS</span></button>
-      <button class="nav-tab" data-tab="musique" role="tab" aria-selected="false" aria-controls="tab-musique">🎵 <span data-i18n="tabMusique">MUSIQUE</span></button>
     </nav>
 
     <!-- MAIN CONTENT -->
@@ -453,78 +450,6 @@
         </div>
       </section>
 
-      <!-- ===== TAB: JEUX ===== -->
-      <section class="tab-section" id="tab-jeux" role="tabpanel" aria-labelledby="tab-jeux-label">
-        <div class="section-hero glass">
-          <div class="hero-icon">🎮</div>
-          <div>
-            <h2 class="hero-title" data-i18n="heroJeuxTitle">BANQUE DE JEUX SPORTIFS MONDIAUX</h2>
-            <p class="hero-sub" data-i18n="heroJeuxSub">1000+ jeux de partout sur la planète</p>
-          </div>
-        </div>
-        <div class="controls-bar glass">
-          <input type="text" id="jeux-search" class="search-input" placeholder="🔍 Rechercher un jeu..." aria-label="Rechercher un jeu">
-          <select id="jeux-category" class="filter-select" aria-label="Filtrer par catégorie">
-            <option value="">Toutes les catégories</option>
-            <option value="ballon_chasseur">🎯 Ballon Chasseur</option>
-            <option value="poursuite">🏃 Poursuite</option>
-            <option value="cooperation">🤝 Coopération</option>
-            <option value="opposition">⚔️ Opposition</option>
-            <option value="sports_collectifs">🏅 Sports Collectifs</option>
-            <option value="sans_materiel">🙌 Sans Matériel</option>
-            <option value="exterieur">🌿 Extérieur</option>
-            <option value="traditionnels_monde">🌍 Jeux du Monde</option>
-            <option value="sports_individuels">🏋️ Sports Individuels</option>
-            <option value="autochtones">🪶 Autochtones</option>
-            <option value="avec_materiel">🏸 Avec Matériel</option>
-            <option value="olympiques">🥇 Olympiques</option>
-          </select>
-          <select id="jeux-niveau" class="filter-select" aria-label="Filtrer par niveau">
-            <option value="">Tous les niveaux</option>
-            <option value="prescolaire">🌱 Préscolaire</option>
-            <option value="primaire">📖 Primaire</option>
-            <option value="secondaire">🎓 Secondaire</option>
-          </select>
-        </div>
-        <div class="stats-bar">
-          <span class="stat-pill pill-cyan" id="jeux-count">0 jeux</span>
-        </div>
-        <div id="jeux-grid" class="cards-grid"></div>
-        <div class="pagination" id="jeux-pagination"></div>
-      </section>
-
-      <!-- ===== TAB: EDUCATIFS ===== -->
-      <section class="tab-section" id="tab-educatifs" role="tabpanel" aria-labelledby="tab-educatifs-label">
-        <div class="section-hero glass">
-          <div class="hero-icon">🏋️</div>
-          <div>
-            <h2 class="hero-title" data-i18n="heroEduTitle">BANQUE D'ÉDUCATIFS</h2>
-            <p class="hero-sub" data-i18n="heroEduSub">1000+ éducatifs par moyens d'action · Progressions complètes</p>
-          </div>
-        </div>
-        <div class="edu-taxonomy" id="eduTaxonomy"></div>
-        <div class="controls-bar glass" id="edu-controls" style="display:none">
-          <button class="mag-btn secondary" id="eduBackBtn">← <span data-i18n="back">Retour</span></button>
-          <input type="text" id="edu-search" class="search-input" placeholder="🔍 Rechercher..." aria-label="Rechercher un éducatif">
-        </div>
-        <div class="stats-bar" id="edu-stats" style="display:none">
-          <span class="stat-pill pill-yellow" id="edu-count">0 éducatifs</span>
-          <span class="stat-pill pill-cyan" id="edu-moyen-label"></span>
-        </div>
-        <div id="edu-grid" class="cards-grid"></div>
-      </section>
-
-      <!-- ===== TAB: MUSIQUE ===== -->
-      <section class="tab-section" id="tab-musique" role="tabpanel" aria-labelledby="tab-musique-label">
-        <div class="section-hero glass">
-          <div class="hero-icon">🎵</div>
-          <div>
-            <h2 class="hero-title" data-i18n="heroMusiqueTitle">BIBLIOTHÈQUE MUSICALE</h2>
-            <p class="hero-sub" data-i18n="heroMusiqueSub">Musiques libres de droits pour l'ÉPS</p>
-          </div>
-        </div>
-        <div id="musique-content"></div>
-      </section>
 
     </main>
   </div>
