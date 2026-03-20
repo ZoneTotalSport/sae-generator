@@ -3073,8 +3073,8 @@ function initBlobCanvas() {
   });
 
   var blobs = [];
-  var blobColors = ['rgba(0, 255, 255, 0.12)', 'rgba(0, 128, 128, 0.15)', 'rgba(0, 212, 255, 0.1)',
-                    'rgba(0, 200, 180, 0.13)', 'rgba(30, 144, 255, 0.1)', 'rgba(0, 255, 200, 0.08)'];
+  var blobColors = ['rgba(0, 229, 255, 0.08)', 'rgba(255, 215, 0, 0.07)', 'rgba(255, 42, 122, 0.06)',
+                    'rgba(139, 92, 246, 0.07)', 'rgba(0, 200, 83, 0.06)', 'rgba(255, 109, 0, 0.05)'];
 
   for (var i = 0; i < 6; i++) {
     blobs.push({
@@ -3252,7 +3252,7 @@ function initPhysicsEmojis() {
       ctx.font = '26px serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.globalAlpha = 0.25;
+      ctx.globalAlpha = 0.15;
       ctx.fillText(b._emoji, 0, 0);
       ctx.restore();
     }
