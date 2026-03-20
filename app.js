@@ -1906,7 +1906,7 @@ function setupCreatorForm() {
     'cr-titre', 'cr-intentions', 'cr-niveau', 'cr-duree', 'cr-duree-periode',
     'cr-competence', 'cr-moyen', 'cr-espace', 'cr-materiel',
     'cr-contexte', 'cr-mise-en-train', 'cr-partie1', 'cr-partie2', 'cr-retour',
-    'cr-criteres', 'cr-grille-tb', 'cr-grille-b', 'cr-grille-ed',
+    'cr-criteres-custom', 'cr-grille-tb', 'cr-grille-b', 'cr-grille-ed',
     'cr-adaptations', 'cr-variantes', 'cr-valeurs', 'cr-tags'
   ];
 
@@ -1916,6 +1916,11 @@ function setupCreatorForm() {
       el.addEventListener('input', updateLivePreview);
     }
   }
+
+  // Eval checkboxes -> live preview
+  document.querySelectorAll('.eval-cb').forEach(function(cb) {
+    cb.addEventListener('change', updateLivePreview);
+  });
 
   // Template selector
   const templateSelect = document.getElementById('templateSelect');
@@ -2025,7 +2030,11 @@ function updateLivePreview() {
   const partie1 = document.getElementById('cr-partie1')?.value || '';
   const partie2 = document.getElementById('cr-partie2')?.value || '';
   const retour = document.getElementById('cr-retour')?.value || '';
-  const criteres = document.getElementById('cr-criteres')?.value || '';
+  var criteresArr = [];
+  document.querySelectorAll('.eval-cb:checked').forEach(function(cb) { criteresArr.push(cb.value); });
+  var customCritVal = document.getElementById('cr-criteres-custom')?.value || '';
+  if (customCritVal.trim()) customCritVal.split(',').forEach(function(c) { if (c.trim()) criteresArr.push(c.trim()); });
+  const criteres = criteresArr.join(', ');
   const grilleTB = document.getElementById('cr-grille-tb')?.value || '';
   const grilleB = document.getElementById('cr-grille-b')?.value || '';
   const grilleED = document.getElementById('cr-grille-ed')?.value || '';
@@ -2228,9 +2237,9 @@ function collectFormData() {
       partie_principale_2: (document.getElementById('cr-partie2')?.value || '').trim(),
       retour_au_calme: (document.getElementById('cr-retour')?.value || '').trim()
     },
-    criteres_evaluation: (document.getElementById('cr-criteres')?.value || '').trim(),
+    criteres_evaluation: criteres,
     evaluation: {
-      criteres: (document.getElementById('cr-criteres')?.value || '').trim(),
+      criteres: criteres,
       grille: {
         tres_bien: (document.getElementById('cr-grille-tb')?.value || '').trim(),
         bien: (document.getElementById('cr-grille-b')?.value || '').trim(),
@@ -2261,7 +2270,7 @@ function resetCreatorForm() {
     'cr-titre', 'cr-intentions', 'cr-niveau', 'cr-duree', 'cr-duree-periode',
     'cr-competence', 'cr-moyen', 'cr-espace', 'cr-materiel',
     'cr-contexte', 'cr-mise-en-train', 'cr-partie1', 'cr-partie2', 'cr-retour',
-    'cr-criteres', 'cr-grille-tb', 'cr-grille-b', 'cr-grille-ed',
+    'cr-criteres-custom', 'cr-grille-tb', 'cr-grille-b', 'cr-grille-ed',
     'cr-adaptations', 'cr-variantes', 'cr-valeurs', 'cr-tags'
   ];
 
@@ -3375,6 +3384,93 @@ function initPart2Features() {
     });
     helpModal.addEventListener('click', function(e) {
       if (e.target === helpModal) helpModal.style.display = 'none';
+    });
+  }
+
+  // ── Collapsible form sections ──
+  document.querySelectorAll('.form-section-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var targetId = btn.getAttribute('data-section');
+      var body = document.getElementById(targetId);
+      if (body) {
+        var isOpen = body.classList.contains('active');
+        body.classList.toggle('active', !isOpen);
+        btn.classList.toggle('active', !isOpen);
+      }
+    });
+  });
+
+  // ── Print evaluation grid ──
+  var btnPrintEval = document.getElementById('btnPrintEval');
+  if (btnPrintEval) {
+    btnPrintEval.addEventListener('click', function() {
+      var titre = document.getElementById('cr-titre').value || 'SAÉ sans titre';
+      var niveau = document.getElementById('cr-niveau').value || '';
+      var criteres = [];
+      document.querySelectorAll('.eval-cb:checked').forEach(function(cb) {
+        criteres.push(cb.value);
+      });
+      var customCrit = document.getElementById('cr-criteres-custom');
+      if (customCrit && customCrit.value.trim()) {
+        customCrit.value.split(',').forEach(function(c) {
+          if (c.trim()) criteres.push(c.trim());
+        });
+      }
+      if (criteres.length === 0) {
+        showToast('Cochez au moins un critère d\'évaluation!');
+        return;
+      }
+      var grilleTB = document.getElementById('cr-grille-tb').value || '';
+      var grilleB = document.getElementById('cr-grille-b').value || '';
+      var grilleED = document.getElementById('cr-grille-ed').value || '';
+
+      var printWin = window.open('', '_blank');
+      var html = '<!DOCTYPE html><html><head><meta charset="UTF-8">';
+      html += '<title>Grille d\'évaluation — ' + titre + '</title>';
+      html += '<style>';
+      html += 'body{font-family:Arial,sans-serif;padding:30px;color:#222}';
+      html += 'h1{font-size:22px;margin-bottom:4px}';
+      html += 'h2{font-size:16px;color:#555;margin-bottom:20px;font-weight:normal}';
+      html += 'table{width:100%;border-collapse:collapse;margin-bottom:24px}';
+      html += 'th,td{border:2px solid #333;padding:10px 12px;text-align:left}';
+      html += 'th{background:#f0f0f0;font-weight:bold}';
+      html += '.header-row th{background:#00ACC1;color:white}';
+      html += '.scale{margin-bottom:20px}';
+      html += '.scale h3{font-size:14px;margin:4px 0}';
+      html += '.scale-a{color:#2E7D32}.scale-b{color:#F9A825}.scale-c{color:#E65100}';
+      html += '.nom-col{width:200px}.crit-col{width:auto}.note-col{width:80px}';
+      html += '@media print{body{padding:10px}}';
+      html += '</style></head><body>';
+      html += '<h1>Grille d\'évaluation — ' + titre + '</h1>';
+      html += '<h2>' + niveau + '</h2>';
+
+      if (grilleTB || grilleB || grilleED) {
+        html += '<div class="scale">';
+        if (grilleTB) html += '<h3 class="scale-a">⭐ A — Très bien : ' + grilleTB + '</h3>';
+        if (grilleB) html += '<h3 class="scale-b">👍 B — Bien : ' + grilleB + '</h3>';
+        if (grilleED) html += '<h3 class="scale-c">📈 C — En développement : ' + grilleED + '</h3>';
+        html += '</div>';
+      }
+
+      html += '<table><tr class="header-row"><th class="nom-col">Nom de l\'élève</th>';
+      criteres.forEach(function(c) {
+        html += '<th class="crit-col">' + c + '</th>';
+      });
+      html += '<th class="note-col">Note</th></tr>';
+
+      for (var i = 0; i < 30; i++) {
+        html += '<tr><td style="height:28px"></td>';
+        criteres.forEach(function() { html += '<td></td>'; });
+        html += '<td></td></tr>';
+      }
+      html += '</table>';
+      html += '<p style="font-size:11px;color:#999;text-align:center">Zone Total Sport — generateur.zonetotalsport.ca</p>';
+      html += '</body></html>';
+
+      printWin.document.write(html);
+      printWin.document.close();
+      printWin.focus();
+      setTimeout(function() { printWin.print(); }, 300);
     });
   }
 }

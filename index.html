@@ -227,184 +227,214 @@
         </div>
 
         <div class="creator-layout-wide">
-          <!-- FORM (full width) -->
+          <!-- FORM COMPACT -->
           <div class="creator-form glass">
-            <h3 data-i18n="formInfoTitle">📋 Informations générales</h3>
 
-            <div class="form-group">
-              <label class="form-label" for="cr-titre" data-i18n="labelTitre">Titre de la SAÉ *</label>
-              <input type="text" class="form-input" id="cr-titre" placeholder="Ex: Le parcours des champions" required>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="cr-intentions" data-i18n="labelIntentions">Intentions pédagogiques *</label>
-              <textarea class="form-textarea" id="cr-intentions" rows="3" placeholder="Quelles sont les intentions éducatives? Que vont apprendre les élèves?"></textarea>
-              <p class="form-hint" data-i18n="hintIntentions">Décrivez clairement ce que les élèves apprendront et pourquoi cette SAÉ est importante.</p>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="cr-niveau" data-i18n="labelNiveau">Niveau / Cycle *</label>
-                <select class="form-select" id="cr-niveau">
-                  <option value="">Choisir...</option>
-                  <option value="Préscolaire">Préscolaire (4-5 ans)</option>
-                  <option value="1er cycle primaire">1er cycle primaire (6-7 ans)</option>
-                  <option value="2e cycle primaire">2e cycle primaire (8-9 ans)</option>
-                  <option value="3e cycle primaire">3e cycle primaire (10-11 ans)</option>
-                  <option value="Secondaire 1-2">Secondaire 1-2 (12-13 ans)</option>
-                  <option value="Secondaire 3-4">Secondaire 3-4 (14-15 ans)</option>
-                  <option value="Secondaire 5">Secondaire 5 (16-17 ans)</option>
-                </select>
+            <!-- SECTION 1: INFOS GÉNÉRALES (collapsible) -->
+            <div class="form-section" id="sec-info">
+              <button class="form-section-toggle active" data-section="sec-info-body">📋 Informations générales</button>
+              <div class="form-section-body active" id="sec-info-body">
+                <div class="form-group">
+                  <label class="form-label" for="cr-titre">Titre de la SAÉ *</label>
+                  <input type="text" class="form-input" id="cr-titre" placeholder="Ex: Le parcours des champions" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="cr-intentions">Intentions pédagogiques *</label>
+                  <textarea class="form-textarea" id="cr-intentions" rows="2" placeholder="Que vont apprendre les élèves?"></textarea>
+                </div>
+                <div class="form-row form-row-4">
+                  <div class="form-group">
+                    <label class="form-label" for="cr-niveau">Niveau *</label>
+                    <select class="form-select" id="cr-niveau">
+                      <option value="">Choisir...</option>
+                      <option value="Préscolaire">Préscolaire</option>
+                      <option value="1er cycle primaire">1er cycle pri.</option>
+                      <option value="2e cycle primaire">2e cycle pri.</option>
+                      <option value="3e cycle primaire">3e cycle pri.</option>
+                      <option value="Secondaire 1-2">Sec. 1-2</option>
+                      <option value="Secondaire 3-4">Sec. 3-4</option>
+                      <option value="Secondaire 5">Sec. 5</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="cr-competence">Compétence *</label>
+                    <select class="form-select" id="cr-competence">
+                      <option value="">Choisir...</option>
+                      <option value="Agir dans divers contextes de pratique d'activités physiques">Agir</option>
+                      <option value="Interagir dans divers contextes de pratique d'activités physiques">Interagir</option>
+                      <option value="Adopter un mode de vie sain et actif">Mode de vie sain</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="cr-duree">Périodes *</label>
+                    <input type="number" class="form-input" id="cr-duree" min="1" max="20" value="2">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="cr-moyen">Moyen d'action</label>
+                    <select class="form-select" id="cr-moyen">
+                      <option value="">Choisir...</option>
+                      <option value="Manipulation d'objets">🎯 Manipulation</option>
+                      <option value="Locomotion">🏃 Locomotion</option>
+                      <option value="Stabilisation">⚖️ Stabilisation</option>
+                      <option value="Opposition">⚔️ Opposition</option>
+                      <option value="Coopération">🤝 Coopération</option>
+                      <option value="Expression corporelle">💃 Expression</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="cr-espace">Espace requis</label>
+                    <select class="form-select" id="cr-espace">
+                      <option value="Gymnase">🏟️ Gymnase</option>
+                      <option value="Extérieur">🌿 Extérieur</option>
+                      <option value="Gymnase ou Extérieur">🔀 Les deux</option>
+                      <option value="Salle de classe">🏫 Classe</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="cr-materiel">Matériel requis</label>
+                    <input type="text" class="form-input" id="cr-materiel" placeholder="Ex: 30 ballons, 10 cônes, dossards...">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="cr-duree-periode">Durée/période</label>
+                    <input type="text" class="form-input" id="cr-duree-periode" placeholder="60 min">
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
-                <label class="form-label" for="cr-duree" data-i18n="labelDuree">Durée (périodes) *</label>
-                <input type="number" class="form-input" id="cr-duree" min="1" max="20" value="2">
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="cr-duree-periode" data-i18n="labelDureePeriode">Durée par période</label>
-                <input type="text" class="form-input" id="cr-duree-periode" placeholder="Ex: 60 minutes">
-              </div>
             </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="cr-competence" data-i18n="labelCompetence">Compétence PFEQ *</label>
-                <select class="form-select" id="cr-competence">
-                  <option value="">Choisir...</option>
-                  <option value="Agir dans divers contextes de pratique d'activités physiques">Agir dans divers contextes</option>
-                  <option value="Interagir dans divers contextes de pratique d'activités physiques">Interagir dans divers contextes</option>
-                  <option value="Adopter un mode de vie sain et actif">Adopter un mode de vie sain</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="cr-moyen" data-i18n="labelMoyen">Moyen d'action</label>
-                <select class="form-select" id="cr-moyen">
-                  <option value="">Choisir...</option>
-                  <option value="Manipulation d'objets">🎯 Manipulation d'objets</option>
-                  <option value="Locomotion">🏃 Locomotion</option>
-                  <option value="Stabilisation">⚖️ Stabilisation et mobilité</option>
-                  <option value="Opposition">⚔️ Opposition</option>
-                  <option value="Coopération">🤝 Coopération</option>
-                  <option value="Expression corporelle">💃 Expression corporelle</option>
-                </select>
+            <!-- SECTION 2: DÉROULEMENT (collapsible) -->
+            <div class="form-section" id="sec-deroulement">
+              <button class="form-section-toggle" data-section="sec-deroulement-body">🏃 Déroulement de la SAÉ</button>
+              <div class="form-section-body" id="sec-deroulement-body">
+                <div class="form-group">
+                  <label class="form-label" for="cr-contexte">Mise en contexte</label>
+                  <textarea class="form-textarea" id="cr-contexte" rows="2" placeholder="Comment accrocher les élèves? Quel défi?"></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="cr-mise-en-train">Phase 1 — Échauffement</label>
+                  <textarea class="form-textarea" id="cr-mise-en-train" rows="2" placeholder="Échauffement étape par étape..."></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="cr-partie1">Phase 2 — Développement</label>
+                  <textarea class="form-textarea" id="cr-partie1" rows="3" placeholder="Tâche principale, règles, progression..."></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="cr-partie2">Phase 3 — Réinvestissement</label>
+                  <textarea class="form-textarea" id="cr-partie2" rows="2" placeholder="Variante, défi supplémentaire..."></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="cr-retour">Phase 4 — Retour au calme</label>
+                  <textarea class="form-textarea" id="cr-retour" rows="2" placeholder="Bilan, auto-évaluation..."></textarea>
+                </div>
               </div>
             </div>
 
-            <div class="form-group">
-              <label class="form-label" for="cr-espace" data-i18n="labelEspace">Espace requis</label>
-              <select class="form-select" id="cr-espace">
-                <option value="Gymnase">🏟️ Gymnase</option>
-                <option value="Extérieur">🌿 Extérieur</option>
-                <option value="Gymnase ou Extérieur">🔀 Gymnase ou Extérieur</option>
-                <option value="Salle de classe">🏫 Salle de classe</option>
-              </select>
+            <!-- SECTION 3: ÉVALUATION INTERACTIVE (collapsible) -->
+            <div class="form-section" id="sec-eval">
+              <button class="form-section-toggle" data-section="sec-eval-body">📊 Évaluation</button>
+              <div class="form-section-body" id="sec-eval-body">
+                <p class="form-hint" style="margin-bottom:14px">Cochez les critères à évaluer. Vous pourrez imprimer la grille d'évaluation.</p>
+
+                <div class="eval-checklist">
+                  <h4 class="eval-checklist-title">Critères à évaluer :</h4>
+                  <div class="eval-checks-grid">
+                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Exécution motrice"> Exécution motrice</label>
+                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Fluidité des mouvements"> Fluidité des mouvements</label>
+                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Coordination"> Coordination</label>
+                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Équilibre"> Équilibre</label>
+                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Coopération"> Coopération</label>
+                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Communication"> Communication</label>
+                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Stratégie"> Stratégie</label>
+                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Respect des règles"> Respect des règles</label>
+                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Esprit sportif"> Esprit sportif</label>
+                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Effort et engagement"> Effort et engagement</label>
+                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Sécurité"> Sécurité</label>
+                    <label class="eval-check"><input type="checkbox" class="eval-cb" value="Autonomie"> Autonomie</label>
+                  </div>
+                  <div class="form-group" style="margin-top:12px">
+                    <label class="form-label" for="cr-criteres-custom">Ajouter d'autres critères</label>
+                    <input type="text" class="form-input" id="cr-criteres-custom" placeholder="Ex: Précision des passes, Leadership... (virgules)">
+                  </div>
+                </div>
+
+                <h4 class="eval-checklist-title" style="margin-top:20px">Échelle de notation :</h4>
+                <div class="eval-scale-grid">
+                  <div class="eval-scale-card scale-a">
+                    <div class="eval-scale-header">⭐ A — Très bien</div>
+                    <textarea class="form-textarea eval-scale-input" id="cr-grille-tb" rows="2" placeholder="L'élève maîtrise..."></textarea>
+                  </div>
+                  <div class="eval-scale-card scale-b">
+                    <div class="eval-scale-header">👍 B — Bien</div>
+                    <textarea class="form-textarea eval-scale-input" id="cr-grille-b" rows="2" placeholder="L'élève réussit..."></textarea>
+                  </div>
+                  <div class="eval-scale-card scale-c">
+                    <div class="eval-scale-header">📈 C — En développement</div>
+                    <textarea class="form-textarea eval-scale-input" id="cr-grille-ed" rows="2" placeholder="L'élève a besoin de..."></textarea>
+                  </div>
+                </div>
+
+                <div class="form-actions" style="margin-top:16px">
+                  <button class="mag-btn" id="btnPrintEval" type="button">🖨️ IMPRIMER LA GRILLE</button>
+                </div>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label class="form-label" for="cr-materiel" data-i18n="labelMateriel">Matériel requis</label>
-              <textarea class="form-textarea" id="cr-materiel" rows="2" placeholder="Ex: 30 ballons de mousse, 10 cônes, dossards de 4 couleurs..."></textarea>
-              <p class="form-hint" data-i18n="hintMateriel">Listez TOUT le matériel avec les quantités exactes pour un groupe de 30 élèves.</p>
+            <!-- SECTION 4: ADAPTATIONS (collapsible) -->
+            <div class="form-section" id="sec-adapt">
+              <button class="form-section-toggle" data-section="sec-adapt-body">♿ Adaptations et Variantes</button>
+              <div class="form-section-body" id="sec-adapt-body">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="cr-adaptations">Adaptations HDAA</label>
+                    <textarea class="form-textarea" id="cr-adaptations" rows="2" placeholder="Adapter pour besoins particuliers..."></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="cr-variantes">Variantes</label>
+                    <textarea class="form-textarea" id="cr-variantes" rows="2" placeholder="Simplifier, complexifier..."></textarea>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="cr-valeurs">Valeurs éducatives</label>
+                    <input type="text" class="form-input" id="cr-valeurs" placeholder="Respect, persévérance, entraide...">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="cr-tags">Tags / Mots-clés</label>
+                    <input type="text" class="form-input" id="cr-tags" placeholder="coopération, ballon, gymnase...">
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <hr class="form-divider">
-            <h3 data-i18n="formDeroulementTitle">🏃 Déroulement de la SAÉ</h3>
-
-            <div class="form-group">
-              <label class="form-label" for="cr-contexte" data-i18n="labelContexte">Mise en contexte / Situation de départ</label>
-              <textarea class="form-textarea" id="cr-contexte" rows="3" placeholder="Comment présenter la SAÉ aux élèves? Quelle est l'histoire/le thème?"></textarea>
-              <p class="form-hint">Comment « accrocher » les élèves? Quel est le défi proposé?</p>
+            <!-- SECTION 5: FICHIERS (collapsible) -->
+            <div class="form-section" id="sec-files">
+              <button class="form-section-toggle" data-section="sec-files-body">📎 Fichiers joints</button>
+              <div class="form-section-body" id="sec-files-body">
+                <div class="upload-zone" id="uploadZone" tabindex="0" role="button" aria-label="Zone de téléversement">
+                  <div class="upload-zone-icon">📁</div>
+                  <p class="upload-zone-text">Glissez vos fichiers ici ou cliquez</p>
+                  <p class="form-hint">.jpg, .png, .pdf, .docx (max 5 Mo)</p>
+                  <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.pdf,.docx,.doc" style="display:none">
+                </div>
+                <div class="uploaded-files" id="uploadedFiles"></div>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label class="form-label" for="cr-mise-en-train" data-i18n="labelMiseEnTrain">Phase 1 — Mise en train / Échauffement</label>
-              <textarea class="form-textarea" id="cr-mise-en-train" rows="4" placeholder="Décrivez l'échauffement étape par étape. Durée suggérée, consignes exactes..."></textarea>
-              <p class="form-hint">Durée, organisation, consignes précises, variantes possibles.</p>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="cr-partie1" data-i18n="labelPartie1">Phase 2 — Partie principale (Développement)</label>
-              <textarea class="form-textarea" id="cr-partie1" rows="6" placeholder="Décrivez la tâche principale: organisation, règles, progression, consignes de sécurité..."></textarea>
-              <p class="form-hint">La tâche complexe. Étapes, règles claires, consignes de sécurité, organisation des élèves.</p>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="cr-partie2" data-i18n="labelPartie2">Phase 3 — Partie principale 2 (Réinvestissement)</label>
-              <textarea class="form-textarea" id="cr-partie2" rows="4" placeholder="Variante, défi supplémentaire, ou application en contexte de jeu..."></textarea>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="cr-retour" data-i18n="labelRetour">Phase 4 — Retour au calme / Bilan</label>
-              <textarea class="form-textarea" id="cr-retour" rows="3" placeholder="Retour au calme, discussion avec les élèves, auto-évaluation..."></textarea>
-            </div>
-
-            <hr class="form-divider">
-            <h3 data-i18n="formEvalTitle">📊 Évaluation</h3>
-
-            <div class="form-group">
-              <label class="form-label" for="cr-criteres" data-i18n="labelCriteres">Critères d'évaluation</label>
-              <textarea class="form-textarea" id="cr-criteres" rows="3" placeholder="Ex: Exécution technique, Coopération, Respect des règles..."></textarea>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="cr-grille-tb" data-i18n="labelGrilleTB">Grille — Très bien (A)</label>
-              <textarea class="form-textarea" id="cr-grille-tb" rows="2" placeholder="L'élève qui atteint ce niveau..."></textarea>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="cr-grille-b" data-i18n="labelGrilleB">Grille — Bien (B)</label>
-              <textarea class="form-textarea" id="cr-grille-b" rows="2" placeholder="L'élève qui atteint ce niveau..."></textarea>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="cr-grille-ed" data-i18n="labelGrilleED">Grille — En développement (C)</label>
-              <textarea class="form-textarea" id="cr-grille-ed" rows="2" placeholder="L'élève qui atteint ce niveau..."></textarea>
-            </div>
-
-            <hr class="form-divider">
-            <h3 data-i18n="formAdaptTitle">♿ Adaptations et Variantes</h3>
-
-            <div class="form-group">
-              <label class="form-label" for="cr-adaptations" data-i18n="labelAdaptations">Adaptations HDAA (Handicap, Difficultés, TSA)</label>
-              <textarea class="form-textarea" id="cr-adaptations" rows="3" placeholder="Comment adapter pour les élèves à besoins particuliers?"></textarea>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="cr-variantes" data-i18n="labelVariantes">Variantes et progressions</label>
-              <textarea class="form-textarea" id="cr-variantes" rows="3" placeholder="Variantes pour simplifier, complexifier, ou changer le thème..."></textarea>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="cr-valeurs" data-i18n="labelValeurs">Valeurs éducatives</label>
-              <textarea class="form-textarea" id="cr-valeurs" rows="2" placeholder="Ex: Respect, persévérance, entraide, fairplay..."></textarea>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="cr-tags" data-i18n="labelTags">Tags / Mots-clés</label>
-              <input type="text" class="form-input" id="cr-tags" placeholder="Ex: coopération, ballon, gymnase (séparés par des virgules)">
-            </div>
-
-            <hr class="form-divider">
-            <h3 data-i18n="formFilesTitle">📎 Fichiers joints</h3>
-
-            <div class="upload-zone" id="uploadZone" tabindex="0" role="button" aria-label="Zone de téléversement de fichiers">
-              <div class="upload-zone-icon">📁</div>
-              <p class="upload-zone-text" data-i18n="uploadText">Glissez vos fichiers ici ou cliquez pour parcourir</p>
-              <p class="form-hint" data-i18n="uploadHint">Formats acceptés: .jpg, .png, .pdf, .docx (max 5 Mo par fichier)</p>
-              <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.pdf,.docx,.doc" style="display:none">
-            </div>
-            <div class="uploaded-files" id="uploadedFiles"></div>
-
-            <hr class="form-divider">
+            <!-- BOUTONS D'ACTION -->
             <div class="form-actions">
-              <button class="mag-btn" id="btnSaveSae" data-i18n="btnSave">💾 SAUVEGARDER MA SAÉ</button>
-              <button class="mag-btn secondary" id="btnPreviewSae" data-i18n="btnPreview">👁️ PRÉVISUALISER</button>
-              <button class="mag-btn secondary" id="btnResetForm" data-i18n="btnReset">🗑️ RÉINITIALISER</button>
+              <button class="mag-btn" id="btnSaveSae">💾 SAUVEGARDER</button>
+              <button class="mag-btn secondary" id="btnPreviewSae">👁️ PRÉVISUALISER</button>
+              <button class="mag-btn secondary" id="btnResetForm">🗑️ RÉINITIALISER</button>
             </div>
           </div>
 
-          <!-- RIGHT: LIVE PREVIEW -->
+          <!-- LIVE PREVIEW -->
           <div class="creator-preview glass" id="creatorPreview">
-            <h3 data-i18n="previewTitle">👁️ PRÉVISUALISATION EN DIRECT</h3>
+            <h3>👁️ PRÉVISUALISATION EN DIRECT</h3>
             <div id="previewContent">
-              <p class="preview-empty" data-i18n="previewEmpty">Commencez à remplir le formulaire pour voir la prévisualisation...</p>
+              <p class="preview-empty">Commencez à remplir le formulaire...</p>
             </div>
           </div>
         </div>

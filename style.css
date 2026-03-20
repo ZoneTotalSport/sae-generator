@@ -1108,7 +1108,7 @@ button, input, select, textarea {
   background: rgba(20, 20, 20, 0.85);
   border: 2px solid rgba(255,255,255,0.1);
   border-radius: 24px;
-  padding: 36px;
+  padding: 24px;
   backdrop-filter: blur(8px);
 }
 
@@ -1120,6 +1120,154 @@ button, input, select, textarea {
   margin-bottom: 20px;
   padding-bottom: 12px;
   border-bottom: 2px dashed rgba(255,255,255,0.08);
+}
+
+/* === COLLAPSIBLE SECTIONS === */
+.form-section {
+  margin-bottom: 8px;
+  border: 2px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.form-section-toggle {
+  width: 100%;
+  text-align: left;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #FFD700;
+  padding: 16px 20px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.04);
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-section-toggle::after {
+  content: '▸';
+  margin-left: auto;
+  font-size: 1rem;
+  transition: transform 0.2s;
+  color: #888;
+}
+
+.form-section-toggle.active::after {
+  transform: rotate(90deg);
+  color: #00E5FF;
+}
+
+.form-section-toggle:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.form-section-body {
+  display: none;
+  padding: 16px 20px 20px;
+}
+
+.form-section-body.active {
+  display: block;
+}
+
+.form-row-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+/* === EVAL CHECKLIST === */
+.eval-checklist-title {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #00E5FF;
+  margin-bottom: 12px;
+}
+
+.eval-checks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.eval-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 2px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ccc;
+}
+
+.eval-check:hover {
+  background: rgba(0, 229, 255, 0.08);
+  border-color: rgba(0, 229, 255, 0.2);
+}
+
+.eval-check input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #00E5FF;
+  cursor: pointer;
+}
+
+.eval-check input[type="checkbox"]:checked + .eval-check,
+.eval-check:has(input:checked) {
+  background: rgba(0, 229, 255, 0.12);
+  border-color: #00E5FF;
+  color: #fff;
+}
+
+/* === EVAL SCALE === */
+.eval-scale-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.eval-scale-card {
+  border-radius: 14px;
+  padding: 14px;
+  border: 2px solid rgba(255,255,255,0.1);
+}
+
+.scale-a {
+  background: rgba(76, 175, 80, 0.1);
+  border-color: rgba(76, 175, 80, 0.3);
+}
+
+.scale-b {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.scale-c {
+  background: rgba(255, 152, 0, 0.1);
+  border-color: rgba(255, 152, 0, 0.3);
+}
+
+.eval-scale-header {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.scale-a .eval-scale-header { color: #4CAF50; }
+.scale-b .eval-scale-header { color: #FFD700; }
+.scale-c .eval-scale-header { color: #FF9800; }
+
+.eval-scale-input {
+  min-height: 60px;
 }
 
 .creator-preview {
@@ -1159,7 +1307,7 @@ button, input, select, textarea {
 }
 
 .form-group {
-  margin-bottom: 22px;
+  margin-bottom: 14px;
 }
 
 .form-label {
