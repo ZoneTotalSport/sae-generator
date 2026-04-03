@@ -1515,7 +1515,7 @@ window.printSae = function() {
   const printWindow = window.open('', '_blank');
   if (!printWindow) return;
   printWindow.document.write('<!DOCTYPE html><html><head><title>SAÉ — Zone Total Sport</title>');
-  printWindow.document.write('<style>body{font-family:'Schoolbell',cursive;max-width:800px;margin:0 auto;padding:20px;color:#222}');
+  printWindow.document.write('<style>body{font-family:Schoolbell,cursive;max-width:800px;margin:0 auto;padding:20px;color:#222}');
   printWindow.document.write('h2,h3{margin-top:1.5em}h2{border-bottom:2px solid #00d4ff;padding-bottom:8px}');
   printWindow.document.write('.meta-badge{display:inline-block;background:#f0f0f0;padding:4px 10px;border-radius:12px;margin:4px;font-size:0.85em}');
   printWindow.document.write('.modal-actions,.modal-close{display:none!important}');
@@ -3663,7 +3663,7 @@ function initPart2Features() {
       html += '<!DOCTYPE html><html><head><meta charset="UTF-8">';
       html += '<title>Grille d\'évaluation — ' + data.titre + '</title>';
       html += '<style>';
-      html += 'body{font-family:'Schoolbell',cursive;padding:24px;color:#222;font-size:11px}';
+      html += 'body{font-family:Schoolbell,cursive;padding:24px;color:#222;font-size:11px}';
       html += 'h1{font-size:20px;margin-bottom:2px}';
       html += '.meta{font-size:13px;color:#555;margin-bottom:12px}';
       html += 'table{width:100%;border-collapse:collapse;margin-bottom:16px}';
