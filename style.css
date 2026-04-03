@@ -80,7 +80,7 @@ button, input, select, textarea {
   inset: 0;
   z-index: 0;
   background: url('gym-bg.png') center/cover no-repeat;
-  opacity: 0.35;
+  opacity: 1;
   pointer-events: none;
 }
 
