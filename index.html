@@ -42,6 +42,10 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" defer></script>
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- ZTS Landing Template -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Bangers&family=Schoolbell&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="zts-landing.css">
 </head>
 <body>
 
@@ -557,5 +561,48 @@
 <script>
 (function(){var c={apiKey:'AIzaSyBoBxVP6g_ObKIJJ1jkviNFQ-wpJoWdjbA',authDomain:'zone-total-sport.firebaseapp.com',projectId:'zone-total-sport'};if(!firebase.apps.length)firebase.initializeApp(c);var o=document.createElement('div');o.id='zts-gate';o.innerHTML='<div style="position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center"><div style="background:#fff;border-radius:24px;padding:40px;max-width:440px;width:90%;text-align:center;box-shadow:0 25px 50px rgba(0,0,0,0.3)"><img src="https://zonetotalsport.ca/bucheron-basketball.png" style="width:120px;margin:0 auto 16px" alt=""><h2 style="font-family:Luckiest Guy,cursive;font-size:2rem;color:#1e293b;margin:0 0 4px">Zone Total Sport</h2><p style="font-family:Schoolbell,cursive;color:#64748b;margin:0 0 24px;font-size:1.1rem">Connecte-toi ou inscris-toi gratuitement pour acceder a cette ressource.</p><input id="zg-e" type="email" placeholder="Courriel" style="font-family:Schoolbell,cursive;width:100%;padding:14px 16px;border:2px solid #e2e8f0;border-radius:12px;margin-bottom:10px;font-size:1.1rem;box-sizing:border-box"><input id="zg-p" type="password" placeholder="Mot de passe" style="font-family:Schoolbell,cursive;width:100%;padding:14px 16px;border:2px solid #e2e8f0;border-radius:12px;margin-bottom:16px;font-size:1.1rem;box-sizing:border-box"><button id="zg-l" style="font-family:Luckiest Guy,cursive;width:100%;padding:14px;background:#4f46e5;color:#fff;border:none;border-radius:12px;font-size:1.1rem;cursor:pointer;margin-bottom:8px;letter-spacing:1px">Se connecter</button><button id="zg-s" style="font-family:Luckiest Guy,cursive;width:100%;padding:14px;background:#00BCD4;color:#fff;border:none;border-radius:12px;font-size:1.1rem;cursor:pointer;margin-bottom:8px;letter-spacing:1px">Creer un compte gratuit</button><button id="zg-g" style="font-family:Schoolbell,cursive;width:100%;padding:14px;background:#fff;color:#333;border:2px solid #e2e8f0;border-radius:12px;font-size:1.1rem;font-weight:700;cursor:pointer">Connexion Google</button><p id="zg-err" style="font-family:Schoolbell,cursive;color:#ef4444;font-size:.9rem;margin:12px 0 0;display:none"></p></div></div>';document.body.appendChild(o);var err=document.getElementById('zg-err');function se(m){err.textContent=m;err.style.display='block';}document.getElementById('zg-l').onclick=function(){var e=document.getElementById('zg-e').value,p=document.getElementById('zg-p').value;if(!e||!p){se('Remplis tous les champs');return;}firebase.auth().signInWithEmailAndPassword(e,p).catch(function(r){se(r.message);});};document.getElementById('zg-s').onclick=function(){var e=document.getElementById('zg-e').value,p=document.getElementById('zg-p').value;if(!e||!p){se('Remplis tous les champs');return;}firebase.auth().createUserWithEmailAndPassword(e,p).catch(function(r){se(r.message);});};document.getElementById('zg-g').onclick=function(){firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(function(r){se(r.message);});};firebase.auth().onAuthStateChanged(function(u){var g=document.getElementById('zts-gate');if(u&&g)g.remove();});})();
 </script>
+
+  <!-- ZTS Landing config + script -->
+  <script>
+  window.ZTS_LANDING_CONFIG = {
+    appId: 'generateur_sae',
+    accentColor: '#FF2A7A',
+    homeUrl: 'https://zonetotalsport.ca',
+    mascot: 'https://zonetotalsport.ca/bucheron-generateur.png',
+    logoIcon: 'https://zonetotalsport.ca/logo-zts.png',
+    logoTitle: { fr: 'Générateur IA', en: 'AI Generator', zh: 'AI 生成器' },
+    logoSub: 'Zone Total Sport',
+    title: { fr: 'Générateur IA', en: 'AI Generator', zh: 'AI SAÉ 生成器' },
+    subtitle: { fr: 'SAÉ sur mesure!', en: 'Custom SAÉ!', zh: '定制情境!' },
+    description: {
+      fr: "Génère une SAÉ complète en quelques secondes grâce à l'IA. Choisis ton niveau, ta compétence, ton thème — l'IA te fournit objectifs, déroulement, grilles d'évaluation et différenciation. Modifiable à souhait.",
+      en: "Generate a full SAÉ in seconds with AI. Pick your grade, competency and theme — AI produces goals, steps, evaluation grids and differentiation. Fully editable.",
+      zh: "AI 几秒内生成完整 SAÉ。选择级别、能力和主题——AI 输出目标、步骤、评估表和差异化。可完全编辑。"
+    },
+    badges: [
+      { emoji: '🤖', color: 'pink',   text: { fr: 'IA intégrée', en: 'AI powered', zh: 'AI 驱动' } },
+      { emoji: '⚡', color: 'yellow', text: { fr: 'En 30 secondes', en: 'In 30 seconds', zh: '30 秒搞定' } },
+      { emoji: '🎯', color: 'cyan',   text: { fr: 'Sur mesure', en: 'Tailored', zh: '量身定制' } },
+      { emoji: '📝', color: 'violet', text: { fr: 'Modifiable', en: 'Editable', zh: '可编辑' } },
+      { emoji: '🎓', color: 'green',  text: { fr: 'PFEQ', en: 'PFEQ', zh: 'PFEQ' } }
+    ],
+    features: [
+      { emoji: '🎚️', title: { fr: 'Niveau', en: 'Grade', zh: '年级' }, desc: { fr: 'Maternelle → Secondaire 5', en: 'K → Grade 11', zh: '学前 → 中五' } },
+      { emoji: '🧠', title: { fr: 'Compétence', en: 'Competency', zh: '能力' }, desc: { fr: 'C1, C2 ou C3 du PFEQ', en: 'C1, C2 or C3 from PFEQ', zh: 'PFEQ C1/C2/C3' } },
+      { emoji: '🏀', title: { fr: 'Thème', en: 'Theme', zh: '主题' }, desc: { fr: 'Sport, coop, saine habitude', en: 'Sport, coop, healthy habit', zh: '运动、合作、健康' } },
+      { emoji: '📋', title: { fr: 'Grille éval', en: 'Eval grid', zh: '评估表' }, desc: { fr: 'Critères PFEQ auto-générés', en: 'PFEQ criteria auto-generated', zh: '自动生成 PFEQ 标准' } },
+      { emoji: '⏱️', title: { fr: 'Durée', en: 'Duration', zh: '时长' }, desc: { fr: '1, 3 ou 5 cours', en: '1, 3 or 5 lessons', zh: '1、3 或 5 节课' } },
+      { emoji: '🌈', title: { fr: 'Différenciation', en: 'Differentiation', zh: '差异化' }, desc: { fr: 'Adaptations automatiques', en: 'Automatic adaptations', zh: '自动适配' } },
+      { emoji: '💾', title: { fr: 'Export', en: 'Export', zh: '导出' }, desc: { fr: 'PDF ou copie vers Word', en: 'PDF or copy to Word', zh: 'PDF 或复制到 Word' } },
+      { emoji: '🔄', title: { fr: 'Régénérer', en: 'Regenerate', zh: '重新生成' }, desc: { fr: 'Refait autant que tu veux', en: 'Redo as many times as you want', zh: '想重做就重做' } }
+    ],
+    ctaStart: { label: { fr: 'Commencer!', en: 'Start!', zh: '开始!' } },
+    ctaHelp: {
+      label: { fr: 'Comment utiliser', en: 'How to use', zh: '使用说明' },
+      onClick: function () { window.open('https://zonetotalsport.ca/articles/generateur-sae-guide.html', '_blank'); }
+    }
+  };
+  </script>
+  <script src="zts-landing.js"></script> (Landing ZTS uniforme (rollout design))
 </body>
 </html>
